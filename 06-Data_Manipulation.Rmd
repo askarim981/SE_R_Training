@@ -1,0 +1,462 @@
+# Data manipulation
+
+This chapter will focus on the fundamentals of data manipulation. You can identify what the key functions do from the [dplyr cheat cheat](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): 
+As the sheet states, the best way to manipulate data is if your data is tidy - i.e. each variable is in its own column, and each observation is in its own row. Occasionally you will need long data, such as to build graphs.
+
+First we'll read in some Tariff data. We will use this later for grouping by tariff.
+
+`OFS_Tariffs <- read.csv("Data/ofs_provider_tariffs_nospace.csv")`
+
+Next we will read in our CAH1 data, which will be the basis of all the manipulation.
+```{r eval=FALSE, cache=FALSE}
+#Load required packages
+library(dplyr)
+library(readr)
+
+#Read in OFS data
+OFS_Tariffs <- read.csv("Data/ofs_provider_tariffs_nospace.csv")
+
+#Read in CAH1 data
+CAH1_Data <- read.csv("Data/CAH1 Subjects.csv", skip = 16, check.names = F) %>%
+  mutate_at(3:27, readr::parse_number)  %>% #we had character data in columns 3 : 27, so turn these into numeric data
+  left_join(OFS_Tariffs %>% select(UKPRN, `Tariff group`), by = "UKPRN") %>% #we join the tariff data onto our CAH1 data by matching UKPRN. 
+  # you can nest manipulation within other functions to ensure only the relevant columns are joined
+  filter(`HE provider` != "Total") #we remove the "Total" row from the CAH1 data
+```
+
+The data has 28 columns: (1) UKPRN, (2) Provider name, (3 - 26) CAH1 subjects' FPE, (27) Total FPE (at provider), and (28) Tariff group 
+
+
+## Selecting 
+
+Use the `select()` function from `dplyr` to subset columns using their names and type. In addition to selecting and deselecting, you can change the order of columns and rename them with the function.
+
+```{r eval=FALSE}
+#Specifying columns
+Providers_Only <- CAH1_Data %>%
+  select(UKPRN, `HE provider`)
+
+#Using a predefined vector for the column names
+
+Desired_Columns <- c("UKPRN", "HE provider")#Define the vector
+
+#Call the vector in the select function
+Providers_Only2 <-  CAH1_Data %>%
+  select(all_of(Desired_Columns))
+```
+
+We can select every column **except** the UKPRN column
+
+```{r eval=FALSE}
+No_UKPRN <- CAH1_Data %>%
+  select(-UKPRN)
+```
+
+We can select columns based on their index. To only select the first 10 columns. 
+
+```{r eval=FALSE}
+First_10 <- CAH1_Data %>%
+  select(1:10) 
+```
+Be careful using indexes, as if you change prior code, the columns might not remain in the same index position. 
+
+You can also rename a column within the select function `select(new_col_name = old_col_name)` or change the order of columns by which order they appear in your select list. 
+
+Run `?select()` or see the function [documentation](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/select) for more features.
+
+## Filtering 
+
+Use `filter()` from `dplyr` to subset a data frame, retaining rows that satisfy conditions. 
+
+The basic syntax:
+
+* == is exactly equal to;
+* != is not equal to;
+* %in% (in an array)
+* we can negate  %in%  to establish a %notin% operator.
+
+
+```{r eval=FALSE}
+#Define the function %notin%
+`%notin%` <- Negate(`%in%`)
+```
+
+Other key filters are is.na(x) and !is.na(x). See this site for more [operators](https://www.statmethods.net/management/operators.html)
+
+**Basic filters**
+```{r eval=FALSE}
+
+a <- CAH1_Data %>%
+  filter(UKPRN == 10000291) #this gives us the row for Angela Ruskin University, whose UKPRN is 10000291
+
+b <- CAH1_Data %>%
+  filter(`HE provider` == "Anglia Ruskin University") # as above
+
+c <- CAH1_Data %>%
+  filter(`HE provider` %in% c("Anglia Ruskin University", "Arden University", "Birkbeck College")) #as with the selecting, we could create this vector then call it into a filter function if we wanted to have a store of the vector
+
+
+d <- CAH1_Data %>%
+  filter(grepl('University', `HE provider`)) #filter providers that contain the string: "University"
+
+e <- CAH1_Data %>%
+  filter(!grepl('University', `HE provider`)) #filter the providers than DON'T contain the string: "University"
+
+f <- CAH1_Data %>%
+  filter(`HE provider` ==  "Anglia Ruskin University" | `HE provider` == "Arden University") # filter either or
+
+g <- CAH1_Data %>%
+  filter(grepl('University', `HE provider`) & grepl('College', `HE provider`)) # filter providers with both university and college in their name
+
+h <- CAH1_Data %>%
+  filter(!is.na(Tariff_group)) # filter for the universities for which we have data on their Tariff group. 
+
+#multiple filters can be applied within the same function
+j <- CAH1_Data %>%
+  select(`HE provider`, `01 Medicine and dentistry`, `15 Social sciences`) %>%
+  filter(`01 Medicine and dentistry` == 0,
+         `15 Social sciences` > 0)     #you can include multiple filters within the same function, as you can do with other data manipulation functions, such as mutate. This is easier to read.
+```
+
+**advanced filters**
+
+
+The `across()` function allows you to apply a function or functions to multiple columns. See `?across()` for the function documentation and examples of combining it with `mutate()` or `filter()`.
+
+```{r eval=FALSE}
+
+# filter only rows in specified columns that equal == "Total"
+filter(across(c(he_type_broad, provider_category), ~ str_detect(., pattern = "Total")))
+
+
+# no letters         
+filter(across(c(INDICATOR, DENOMINATOR), ~ !str_detect(., pattern = "[A-Z]"))) 
+
+# filter variables are above 5
+filter_at(vars(sleep_total, sleep_rem), all_vars(.>5))
+
+# filter non NAs
+filter_at(vars(everything()), all_vars(!is.na(.))
+
+
+# filter for rows that have "*" or "A" or "B" or "C" in either the GABIOLOGY or GACHEMISTRY column
+#"\\*" is the way to escape "*" given it's a special character
+Filter_List <- c("\\*", "A", "B", "C")
+
+#Create a 2 column data frame of students who obtained A*, A, B at A level
+STEM_Flags <- STEM_Table %>%
+  filter_at(vars(GABIOLOGY, GACHEMISTRY), any_vars(str_detect(. , paste0("^(", paste(Filter_List, collapse = "|"), ")"))))
+
+```
+
+
+## Summarising
+
+`summarise` from `dplyr` creates a new data frame with a row per unique entry in the grouping variable. If no variables are grouped by, it will yield a single row of the function applied to the entire data frame. The code below sums how.
+```{r eval=FALSE}
+#Basic total FPE in 01 column
+Total_Medicine_Enrollments <- CAH1_Data %>%
+  summarise(Total_FPE = sum(`01 Medicine and dentistry`))
+
+# output table (a data frame with 1 row and 1 column: the number of medicine and dentistry enrolments)
+#    Total_FPE
+# 1     40170
+```
+
+## Grouping by 
+
+Grouping by a variable does what the name suggests, R will implicitly group by the unique variables in the column(s) specified. It converts a table into a grouped table where operations are performed by group. 
+
+Running: `unique(CAH1_Data$Tariff_group)` returns the variables that would be grouped by if we choose to group by tariff group.
+
+If we group by Tariff group, we'll end up with 6 rows as that is how many unique entries were in the Tariff group column.
+
+```{r eval=FALSE}
+Tariff_Medicine_Enrollments <- CAH1_Data %>%
+  group_by(Tariff_group) %>%
+  summarise(Total_FPE = sum(`01 Medicine and dentistry`)) 
+```
+
+You can group_by multiple columns at once. This data doesn't really suit that, but we can create a data frame that does
+
+```{r eval=FALSE}
+g2 <- CAH1_Data %>%
+  #create a new column of "uni" if the provider name has "University" in it. "Not uni" if else.
+  mutate(College_Or_Uni = if_else(grepl('University', `HE provider`),"Uni", "Not uni")) %>%
+  #Group by both Tariff group and COllege or Uni
+  group_by(Tariff_group, College_Or_Uni) %>%
+  #Summarise the FPE doing Medicine and dentistry
+  summarise(Total_FPE = sum(`01 Medicine and dentistry`), .groups = "drop") 
+
+#The output, shown below, is a table with a row per Tariff group and per unique entry in the Colleage_Or_Uni column
+
+# A tibble: 11 x 3
+#    Tariff_group                           College_Or_Uni Total_FPE
+#    <chr>                                  <chr>              <dbl>
+#  1 HEIs with high average tariff scores   Not uni             4870
+#  2 HEIs with high average tariff scores   Uni                29605
+#  3 HEIs with low average tariff scores    Uni                 1295
+#  4 HEIs with medium average tariff scores Not uni                0
+#  5 HEIs with medium average tariff scores Uni                 2625
+#  6 Other providers                        Not uni                0
+#  7 Other providers                        Uni                    0
+#  8 Specialist HEIs                        Not uni                0
+#  9 Specialist HEIs                        Uni                 1320
+# 10 NA                                     Not uni                5
+# 11 NA                                     Uni                  450
+```
+
+To ungroup the data, add the argument `.groups = "drop"` to the `summarise()` function. You sometimes get a warning message if you don't do this. `ungroup()` also works.
+
+
+## Totals
+
+Totals can be calculated for subsets of data by using the `group_by()` function, or by using square brackets`[]` to sum specific data points. 
+
+For columns and rows, one way to create totals is the adorn_totals function: `adorn_totals("row")`. For a column, use: `adorn_totals("col")`. It is always worth checking whether your data has a total column or row in it, prior to manipulating the data.
+
+```{r eval=FALSE}
+Tariff_Medicine_Enrollments <- Tariff_Medicine_Enrollments %>%
+  adorn_totals("row")
+
+#this checks that the totals match up between the data frames we've created in the previous segment. 
+Tariff_Medicine_Enrollments$Total_FPE[7] == Total_Medicine_Enrollments[ ,1] 
+
+#create a total variable object
+TME_Tail <- Tariff_Medicine_Enrollments %>%
+  slice_tail() %>%
+  pull(Total_FPE)
+
+
+```
+## Mutate {#mutating}
+
+`mutate()` adds new variables and transforms/overwrites existing ones. As a default mutate will add a column to the right hand side of an existing data frame. You can adjust the position of the added column using the `.before =` and `.after =` arguments. If you name the column identically to an existing column, mutate will overwrite/replace the existing column with the newly defined one. 
+
+
+```{r eval=FALSE, white-space: pre-line}
+# overwriting an existing column
+#This changes the UKPRN column from containing UKPRN numbers to the text "example text"
+
+mutate1 <- CAH1_Data %>%
+  mutate(UKPRN = "example text")
+
+#Creating a new column as the sum of 3 subjects called "Medics_Dentists"
+mutate2 <- CAH1_Data %>%
+  mutate(Medics_Dentists = `01 Medicine and dentistry` + `02 Subjects allied to medicine` + `05 Veterinary sciences`) %>%
+  select(1:4, 7, 29) #this just selects the columns we are interested in
+
+# mutating with multiple conditions. (If you only have 2 conditions, if_else() will be faster.)
+#This code adds a 1 column called "Colege_Or_Uni" and fills it with "University" if the HE provider name has "University" in it, "College" if the provider name has "College" in it, and "Other" for the rest.
+mutate3 <- CAH1_Data %>%
+  select(`HE provider`) %>%
+  mutate(College_Or_Uni = case_when(grepl("University", `HE provider`) ~ "University", 
+                                    #notice, any variables with both university and college will be assigned the label "University"
+                                    grepl("College", `HE provider`) ~ "College",
+                                    TRUE ~ "Other"))  #this side of the formual tells R what to do in all other cases
+
+```
+If we wanted to see how many of each of these entries we had in each HE provider category, we could `group_by(College_Or_Uni) %>% count(number = n())`.
+
+`case_when` is very powerful and useful. You can use it to overwrite or create a new column based on as many conditions as you desire. The function structure is shown below. You can include multiple cases_when() in the same line of code using &s, **BUT** be careful not to contradict your existing conditions. Double check your work if creating very complex case_when()s, such as those dependent on multiple different columns
+
+```{r eval=FALSE}
+mutate(New_Or_Existing_Column_Name = case_when(Other_Column == "Some text" ~ "Fill Column with this",
+                                               Other_Column == "Different text" ~ "Fill with this",
+                                               TRUE ~ Other_Column)) # you can assign the "all other cases" outcome to be what is contained in an existing column.
+
+```
+
+Mutating specified columns: `mutate_at()` or `mutate(across())`. This allows you to run a transformation over multiple columns. 
+You can index the columns: `mutate_at(1:4, function)`, though beware if your column indexes change then the functions won't work. You can get around this with the `vars()` in conjunction with mutate_at() or `across(c())` in conjunction with mutate().
+
+```{r eval=FALSE}
+Making_Character1 <- CAH1_Data %>%
+  mutate(across(c(`01 Medicine and dentistry`, `03 Biological and sport sciences`), as.character))
+
+
+```
+
+```{r eval=FALSE}
+# Define a function for example below
+Add_thousand <- function(x) (x + 1000)
+
+#mutate 2 specified columns with defined function above
+mutate4 <- CAH1_Data %>%
+  mutate_at(vars(`01 Medicine and dentistry`, `03 Biological and sport sciences`), Add_thousand)
+
+```
+
+
+## Pivotting
+
+The format of data matters. Clean data can be in two formats: "wide" and "long". In **wide data**, data points corresponding to a variable are spread across multiple columns. This variable might be an individual, university or other entity. In **long data**, there are multiple records (rows) for each entity. 
+
+Observe the basic data frame below:
+
+```{r eval=FALSE}
+#This code creates a fictional WIDE data frame. There is one row for horses and 1 row for cats. 
+Horses_vs_Cats <- tibble(animal = c("horse", "cat"),
+                             weight = c("500kg", "6kg"),
+                             height = c("2.5m", "0.4m"),
+                             home = c("field", "house"))
+#The Data
+# # A tibble: 2 x 4
+#   | animal | weight | height | home 
+#____________________________________
+# 1 | horse  | 500kg  | 2.5m   | field
+# 2 | cat    | 6kg    | 0.4m   | house
+
+
+#In LONG format, that tibble looks like this:
+# A tibble: 6 x 3
+#   | animal | category | answer
+# _________________________________
+# 1 | horse  | weight   | 500kg
+# 2 | horse  | height   | 2.5m
+# 3 | horse  | home     | field
+# 4 | cat    | weight   | 6kg
+# 5 | cat    | height   | 0.4m
+# 6 | cat    | home     | house
+
+#For completeness, the code to perform this transformation is:
+#pivot_longer(-animal, names_to = "category", values_to = "answer")
+
+```
+
+ 
+**Wide to long**
+
+```{r eval=FALSE}
+Long_CAH1 <- CAH1_Data %>%
+  select(-Tariff_group) %>%
+  pivot_longer(-c(`UKPRN`, `HE provider`),   #This vector contains the columns to hold on the left hand side of the data frame and essential 'not pivot'
+               names_to = "Subject", #The name of the column title that will contain the former column headings
+               values_to = "FPE") #Name of the data column
+```
+**Long to wide** (restoring our original data frame)
+
+```{r eval=FALSE}
+Wide_CAH1 <- Long_CAH1 %>%
+  pivot_wider(names_from = Subject, values_from = FPE)
+```
+
+The `values_fill = ...` argument is useful when converting long data to wide data if not all rows have a data point for each column.
+
+
+## Joining data
+
+There are four primary joining functions in the `dplyr` package. Each does a slightly different thing, adding y to x, matching rows based on the keys. Searching the help bar, for any of `left_join()`, `right_join()`, `full_join()` and `inner_join()` should show that it is relatively straightforward. 
+
+Some less immediately clear things are:
+
+**Matching two columns that do not have the same name.** This is done within the `by = ...` argument, such as: `left_join(data_frame1, data_frame2, by = c("column_name_in_D1" = "column_name_in_D2"))`. 
+
+If you are working in a `dplyr` pipe (i.e. you are using %>%), the `x` data frame is implicitly included in the function. In this way you could write `data_frame1 %>% left_join(data_frame2, by = "matching_column").
+
+**Matching multiple columns.** If rows do not have a unique identifier - instead, their uniqueness comes from a combination of variables, perhaps the lifetime earnings of a certain subject at a particular university, which could not be matched from either the university or subject alone - then you will need to match multiple columns at once. This can also be done from within the `by = ...` argument, using a vector of columns to match. This could be in conjunction with the non-identical names method, shown above, but in it's simplest form, the code would look like: `left_join(data_frame1, data_frame2, by = c("column1", "column2", "column3"))`, where the three columns are all in both data_frame1 and data_frame2.
+
+## Extracting variables {#extracting_variables}
+
+Often you need to pull out specific data points. There are multiple ways to do this; some are more robust than others, but use whatever will work for you.
+
+If you know exactly which index position the data point is in **and will always be in**, you can subset with the data point position. That is, how many rows down it is and how many columns across it is. The issue is, if you change or update your analysis, and the data point moves, this code will extract the incorrect data point, as your data have shifted. This is also more favourable for whoever comes to QA your work. 
+
+
+
+```{r eval=FALSE}
+library(dplyr)
+library(tidyverse)
+data("iris")
+
+
+# you can extract the data point in the 150th row and 2nd column
+x <- iris[150, 2]
+```
+
+
+Instead of row and column number, you can subset using row and column names. In the iris data the row names are the text "1":"150". The column names (which can be seen with the names() function) are text strings. 
+
+```{r eval=FALSE}
+# you can extract the data point in the row whose name is "150" and whose column name is "Sepal.Width
+y <- iris["150", "Sepal.Width"]
+
+# you can generalise the code, given we know the data frame has 150 rows.
+print(nrow(iris)) # check the number of rows
+[1] 150
+
+# extract the data point whose row name is 150 and whose column name is Sepal.Width
+# without the as.character() function, we would extract the element in the 150th row. 
+# In this dataset, due to the names being the same as numbers you get the same outcome
+z <- iris[as.character(nrow(iris)), "Sepal.Width"]
+
+```
+
+In order to make a data frame that's easy to subset, you might want to define the row names. When defining row names, each one needs to be unique. I.e. you should use wide data, and the row names should be a unique column. 
+
+For this example, we'll create our own data frame. However, if you want to see a dataset where a column has already been made into row names, see the mtcars data. A pre-loaded dataset in R. (run`data("mtcars)`) 
+
+
+```{r eval=FALSE}
+# Define a 5x3 data frame
+Test_Data <- as.data.frame(tibble(name = c("Sean", "Tom", "Yasmin", "Henna", "Matt"),
+                    office = c("SB", "SB", "Bris", "SB", "SB"),
+                    manager = c("James", "Gabe", "Henna", "Tim", "Tim")))
+
+#It looks like this:
+#   name   office manager
+#   <chr>  <chr>  <chr>  
+# 1 Sean   SB     James  
+# 2 Tom    SB     Gabe   
+# 3 Yasmin Bris   Henna  
+# 4 Henna  SB     Tim    
+# 5 Matt   SB     Tim  
+
+# You'll see our row names are 1:5, therefore you can extract the first row in the manager column like this:
+
+Seans_Manager1 <- Test_Data["1", "manager"]
+print(Seans_Manager1)
+[1] "James"
+
+# NOTE: if the Test_Data was not a data frame (i.e. was just a tibble). You would need to do pull(Test_Data["1", "manager"]) OR Test_Data["1", "manager"] %>% pull()
+
+# We can give the table row names using the column to row names
+# This wouldn't work for the `office` column because there are multiple SBs
+
+Col_Indexed_Test_Data <- Test_Data %>%
+  column_to_rownames(., var = "name")
+
+# Our data now look like this
+#        office manager
+# Sean       SB   James
+# Tom        SB    Gabe
+# Yasmin   Bris   Henna
+# Henna      SB     Tim
+# Matt       SB     Tim
+
+
+#Now we can pull with specified inputs. 
+Seans_Manager2 <- Col_Indexed_Test_Data["Sean", "manager"]
+print(Seans_Manager2)
+[1] "James"
+```
+
+An alternative way to extract data is by filtering columns until you end up with a single row, at which point you can use the `pull()` function to extract the data point in the column you are after.
+
+
+```{r eval=FALSE}
+Seans_Manager3 <- Test_Data %>%
+  filter(name == "Sean") %>%
+  pull(manager)
+```
+
+Use `[[]]` to return an element in a list; use for [recurssive indexing](https://www.geeksforgeeks.org/difference-between-single-and-double-square-brackets-in-r/). See `iris[[2]]` vs `iris[2]`. Double square brackets are often necessary to pinpoint elements. 
+
+
+## Others
+
+Most data manipulation functions can be found in the dplyr cheat sheet and are fairly intuitive to use. 
+Particularly useful are binding functions: `cbind()` in `BaseR`, `bind_cols()` in `dplyr`. Also `pull()` and `rename()` 
+
+
+

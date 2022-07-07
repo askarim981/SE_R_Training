@@ -1,0 +1,345 @@
+# User-defined Functions
+
+The advanced technicalities of UDFs are, in most instances, outstide the scope of this book. If you would like to read more about the specifics covered here, some good resources are:
+
+* [Quasiquotation](https://adv-r.hadley.nz/quasiquotation.html)
+* [Tidy evaluation (data masking and tidy selection)](https://dplyr.tidyverse.org/articles/programming.html)
+* [Assignment by reference](https://www.rdocumentation.org/packages/data.table/versions/1.14.0/topics/%3A%3D)
+
+## Overview
+
+This chapter is a quick introduction to UDFs. It also aims to give you some of the tools to overcome specific issues you are likely to encounter as you start to use them more frequently. UDFs give you the power to automate and generalise code. They allow analysts to retain control over function inputs, whilst also minimising the risk of error. User-defined functions are easier to QA and are more readable than large chunks of repeated code. Making changes to UD functions is also faster than finding the exact places to make a change if this change needs to be iterated across multiple code chunks. 
+
+In general, **a good rule is to write a function if you are going to be using a chunk of code more than twice** (you can also write a function retrospectively if you notice you've copied a chunk of code several times).
+
+As with everything in this book, there is no single way to go about writing functions. Do what works for you, and what helps you to achieve the goal you set out. 
+
+
+In order to write a function you need:
+
+* a name for your function;
+* function input parameters;
+* an operation for the function to perform; and
+* an output or outputs.
+
+## Basic examples
+
+In the most basic sense, a function can be used to perform the operation fed to it. In this way you could: firstly, copy and paste any working code into a UD function; save the function; then run the function; and finally observe that the code has been executed.
+
+```{r eval=FALSE}
+# Using the existing print() function: 
+
+print("Hi my name is") # will print the string "Hi my name is"
+
+[1] "Hi my name is"
+
+# Creating our own function
+
+# This assigns a function to the name Print_Function
+# The function will be performed on all elements in the curly brackets, denoted by the "." in the function inputs. In actual fact you could put anything in here; it won't be evaluated.
+# The curly brackets open and close the function. The code between is the operation.
+
+
+Print_Function <- function(.){ # Define and name the function
+  print("Hi my name is") #give it an operation
+}  #close it
+
+Print_Function() # run the function (with no specified input parameters)
+
+[1] "Hi my name is"
+```
+
+## Returning objects
+
+Objects created within a function will not be stored in the global environment, unless R is told specifically to do this. This is very useful if you want to create lots of objects temporarily. It does, however, mean you need to know how to extract the relevant objects from your data frame. 
+
+The usual `<-` (assignment) operator will create an object to be used within the function, but this will not be exported to the global environment. The `<<-` operator will assign the object created to the global environment regardless of where it appears in the function, or whether your function is run to designate a new object. See below for more clarity.
+
+Assigmment function 1 creates 3 variables: a, b and d. I use "d" because `c` is the combine function itself. We then run the function, which creates the variables but doesn't assign them to any objects in the global environment. 
+
+```{r eval=FALSE}
+
+Assignment_Func_1 <- function(.){
+   a <- 1
+   b <- 2
+   d <- 3
+}
+Assignment_Func_1()
+```
+
+Assingment function 2 is identical to #1, except that we designate the function to the variable `x`. This assigns x the value 3 because d was the final object created in the function. 
+
+```{r eval=FALSE}
+
+Assignment_Func_2 <- function(.){
+   a <- 1
+   b <- 2
+   d <- 3
+}
+x <- Assignment_Func_2()
+
+print(x)
+[1] 3
+```
+
+To demonstrate that the objects `a` and `b` are created within the function, see the iteration 2.1 below. The function still outputs the value of `d` because it is the last thing created, but we use the prior objects to generate `d`.
+
+```{r eval=FALSE}
+
+Assignment_Func_2b <- function(.){
+   a <- 1
+   b <- 2
+   d <- a + b
+}
+x <- Assignment_Func_2b()
+
+print(x)
+[1] 3
+```
+
+If we wanted to specify which object to assign as our output we could use the `return()` function. Assignment function 3 finishes by returning `a`, therefore, when we assign the output of the function to our variable, x, it is assigned the value 1 (equivalent to a). 
+
+```{r eval=FALSE}
+
+Assignment_Func_3 <- function(.){
+   a <- 1
+   b <- 2
+   d <- 3
+   
+   return(a)
+}
+
+x <- Assignment_Func_3()
+
+print(x)
+[1] 1
+```
+
+We can also assign objects created within the function using the `<<-` operator. If you were to run `print(a)`, `print(b)` or `print(d)` in your console at any point so far you would have seen this error: `Error in print(b) : object 'b' not found.` We can, however, create these objects. Assignment function 4 does this. It creates 2 objects, `b` and `d`, in addition to assigning x the value of 1 (because we have returned (a))
+
+```{r eval=FALSE}
+
+Assignment_Func_4 <- function(.){
+   a <- 1
+   b <<- 2
+   d <<- 3
+   
+   return(a)
+}
+
+x <- Assignment_Func_4()
+
+print(b)
+[1] 2
+
+print(x)
+[1] 1
+
+
+```
+
+## Passing objects
+
+You can pass objects through functions. This helps to generalise ta function's inputs. Inputs might be objects, vectors, strings, numbers, columns etc. 
+
+
+```{r eval=FALSE}
+Print_Object <- function(Input_String){
+  print(Input_String)
+}
+Print_Object(Input_String = "Hello, is it me you're looking for")
+
+[1] "Hello, is it me you're looking for"
+```
+
+When passing more complicated inputs, you might need to know about other operators. The main things to be aware of are `{{}}`, `:=` and `!!`. To do this, we will reload the iris data and play about with generalising our inputs. 
+
+You might also need to be careful about how an input is read in: ether as as string (wrapped in speech marks) or an object.
+
+```{r eval=FALSE}
+library(dplyr) #Load dplyr package
+data("iris") #Load the iris data
+```
+
+### Creating the function
+```{r eval=FALSE}
+#Create an average sepal length table
+
+Summary_Function <- function(.){
+   
+   Summary_Table <- iris %>%
+  group_by(Species) %>%
+  summarise(Average_Sepal_Length = mean(Sepal.Length))
+
+}
+
+Av_Sepal_Length_Table <- Summary_Function()
+print(Av_Sepal_Length_Table)
+
+# # A tibble: 3 x 2
+#   Species    Average_Sepal_Length
+# 1 setosa                     5.01
+# 2 versicolor                 5.94
+# 3 virginica                  6.59
+```
+
+
+### Passing data
+
+```{r eval=FALSE}
+#Create an average sepal length table
+
+Summary_Function <- function(DATA_FRAME){
+   
+   Summary_Table <- DATA_FRAME %>%
+  group_by(Species) %>%
+  summarise(Average_Sepal_Length = mean(Sepal.Length))
+
+}
+
+Av_Sepal_Length_Table <- Summary_Function(DATA_FRAME = iris)
+print(Av_Sepal_Length_Table)
+
+# # A tibble: 3 x 2
+#   Species    Average_Sepal_Length
+# 1 setosa                     5.01
+# 2 versicolor                 5.94
+# 3 virginica                  6.59
+```
+
+
+Now, as we try to involve more complex arguments, we need to tell R more about the objects we are passing through it. Different functions work in different ways. The `group_by()` and `summarise()` functions look for the variables as quoted arguments. In order to tell R that the object being passed is in fact a variable name, we need to use `{{}}` (curly-curly). 
+
+Also, note that we've had to use `:=` (colon equals) instead of `=`. This will also be true for `mutate()` functions when you mutate columns by having passed the column name through the function. It allows you to perform assignments by reference. 
+
+```{r eval=FALSE}
+#Create an average sepal length table
+
+Summary_Function <- function(DATA_FRAME, GROUP_BY_COL, SUMMARY_COL){
+   
+   Summary_Table <- DATA_FRAME %>%
+  group_by({{GROUP_BY_COL}}) %>%
+  summarise({{SUMMARY_COL}} := mean(Sepal.Length))
+
+}
+
+Av_Sepal_Length_Table <- Summary_Function(DATA_FRAME = iris,
+                                          GROUP_BY_COL = Species,
+                                          SUMMARY_COL = Average_Sepal_Length)
+print(Av_Sepal_Length_Table)
+
+# # A tibble: 3 x 2
+#   Species    Average_Sepal_Length
+# 1 setosa                     5.01
+# 2 versicolor                 5.94
+# 3 virginica                  6.59
+```
+
+Finally, it might be that you need your inputs to change between quoted and unquoted arguments. In the example below, given the nature of the vector, these elements need to be in quotations. But when we call them in our dplyr chain, we want R to recognise them as objects. We use as.name, a base R fuction that takes a string (or a variable containing a string) and returns the content of the string as a variable name. The `!!` (bang-bang) tells the summarise function to not take the value as it is, but to substitute the real value. 
+
+```{r eval=FALSE}
+#Create an average sepal length table
+
+Summary_Function <- function(Col_Vector,
+                             i){
+   
+   #depending on the value of i, this will extract the element in position i of the Col_Vector. It assigns the string to an element, Col_Averaging
+   Col_Averaging <- Col_Vector[i]
+   
+   Summary_Table <- iris %>%
+  group_by(Species) %>%
+  summarise(!!as.name(paste0("Average_", Col_Averaging))  := mean(!!as.name(Col_Averaging))) #the paste0 is to generalise the column title as a concatenaetion of Average and the Column we select. 
+
+}
+
+Av_Table <- Summary_Function(Col_Vector = c("Sepal.Length", "Sepal.Width",  "Petal.Length", "Petal.Width"),
+                                          i = 2)
+print(Av_Table)
+
+# A tibble: 3 x 2
+#   Species    Average_Sepal.Width
+# 1 setosa                    3.43
+# 2 versicolor                2.77
+# 3 virginica                 2.97
+
+```
+
+## Setting default inputs
+
+You can tell a function that if an input is not specified otherwise, to autofill that argument with something pre-determined.
+
+```{r eval=FALSE}
+
+My_Print_Function <- function(Input_String = "The assigned default input"){
+   
+   print(Input_String)
+}
+
+My_Print_Function()
+[1] "The assigned default input"
+
+My_Print_Function("Print this instead")
+[1] "print this instead"
+
+```
+
+Another key for setting defaults is ensuring that your function can work both on its own and within dplyr pipes. You can often get away with setting one of the function arguments to be "data_frame". If you are in a dplyr pipe, you will not need to manually specify this argument because R will just assign the first element you're working with to be a data frame. 
+
+If you want to be able to call the data_frame object and interact with it, then you should tell R this. Setting the argument: `data_frame = .data` will allow you to do this. In this way, if you are working outside a dplyr pipe, you can reassign the object such that data_frame = insert_name_of_your_data . Alternatively, if you are in a pipe, you will be able to use the data_frame object within the function. 
+
+## Using Loops
+
+Loops increase the power (and running time) of functions . They allow you to specify the array sets on which to apply functions. The two most used loop functions are `for()` and `while()`. Generally, `for()` loops are easier to use, unless the condition changes as the function evolves. In the most basic sense, these formulae do the same thing:
+
+```{r eval=FALSE}
+
+# 1.
+
+i <- 1
+while(i < 4){
+   print(i)
+   i <- i + 1
+}
+
+#2. 
+
+for(i in 1:3){
+   print(i)
+}
+
+```
+
+While loops are useful when we don't know exactly when to terminate the loop. They do, however, require us to define an evolving condition. More common is to know the set around which we need to loop. This will usually be a number or vector (remember vectors can vary in length). 
+
+You can apply vectors over multiple objects using the `apply()` family of functions: `tapply()`, `sapply()`, `lapply()`. You can also achieve this with loops
+
+
+```{r eval = F}
+# deinfe a vector of the data frame names
+df_vector <- c(“df1”, “df2”, “df3)
+ 
+# loop around the vector you've defined
+for(i in df_vector){
+ 
+# assign an object, df, to be the object i 
+df <- get(i) %>%
+  # transform object
+mutate(sdaiusfd)
+ 
+# reassign the object in the global environment with the same name as i to be the df we've just manipulated
+# you could change the name of i with paste0() if you wanted
+assign(i, df)
+ 
+}
+# remove elements used in loop
+rm(i, df)
+```
+
+
+For more examples or applications, feel free to contact me: thomas.harris@education.gov.uk
+
+
+
+
+
+

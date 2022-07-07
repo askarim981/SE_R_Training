@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | HE R training</title>
-  <meta name="description" content="Page not found | HE R training" />
+  <title>Chapter 4 Reading in Data | HE R training</title>
+  <meta name="description" content="Chapter 4 Reading in Data | HE R training" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | HE R training" />
+  <meta property="og:title" content="Chapter 4 Reading in Data | HE R training" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | HE R training" />
+  <meta name="twitter:title" content="Chapter 4 Reading in Data | HE R training" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="Functions.html"/>
+<link rel="next" href="creating-outputs.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -227,19 +227,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="reading-in-data" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Reading in Data<a href="reading-in-data.html#reading-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We use R to Manipulate and analyse data. However, R doesn’t have a store of data (aside from some basic pre-loaded datasets), we need to save this outside the R environment and then load or read it into R. Our data tends to be stored in excel files - either workbooks or .csvs - or SQL databases. You can also read in data from Stata and other programmes. Use Google to find packages which allow you to read in this data if this is how your data is stored. In this section we will focus on 3x HE-focused examples of reading in data. The data files are saved in the HEEAT technical resources folder. If you set your working directory as per the code below, you will be able to read in the data files being used.</p>
+<div id="good-practice" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Good practice<a href="reading-in-data.html#good-practice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As shown below, <strong>documentation is essential</strong>. For example, if you download data from HESA and delete the 14-18 rows of table identifiers, a future analyst or QA analyst will struggle to identify the source of the data, or to verify that filters are correct.</p>
+<p>Equally, with any other data source, if you do not include very clear links to</p>
+<ul>
+<li>the source,</li>
+<li>[if relevant] when it was accessed,</li>
+<li>[if relevant] where from within that source the data come,</li>
+</ul>
+<p>then it is impossible to verify the source data.</p>
+</div>
+<div id="reading-in-.csvs-and-excel-workbooks" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Reading in .csvs and excel workbooks<a href="reading-in-data.html#reading-in-.csvs-and-excel-workbooks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Depending on your working directory, you can read in any files within that working directory. A reminder of how to check your directory is below. Refer to section <a href="Basics.html#Projects">2.2: R Projects</a> for more detail. Briefly, you can either read in a file using the whole file path, or you can do so using the relative path from where you’ve set the working directory.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="reading-in-data.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb30-2"><a href="reading-in-data.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if your directory is not where it needs to be to load data or source a file,</span></span>
+<span id="cb30-3"><a href="reading-in-data.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set it</span></span>
+<span id="cb30-4"><a href="reading-in-data.html#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="reading-in-data.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, you can navigate through to the relative path, as long as the</span></span>
+<span id="cb30-6"><a href="reading-in-data.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># location is on the same drive.</span></span>
+<span id="cb30-7"><a href="reading-in-data.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb30-8"><a href="reading-in-data.html#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="reading-in-data.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># All of the data files used in the book are saved in this file path.  If you</span></span>
+<span id="cb30-10"><a href="reading-in-data.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># run this code, all the file reading functions below will load the appropriate</span></span>
+<span id="cb30-11"><a href="reading-in-data.html#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co"># data.</span></span>
+<span id="cb30-12"><a href="reading-in-data.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS/HEEAT Technical Resources/R/Core learning RBookdown&quot;</span>)</span></code></pre></div>
+<div id="csvs" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> .csvs<a href="reading-in-data.html#csvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>read.csv()</code> function is pre-loaded into R through the utils package. We will usually want to assign the loaded data to an object, so that we have it stored in our global environment.</p>
+<p>CAH1 subjects is downloaded from HESA. It is saved in the project’s data folder. I have done nothing to the file other than save it as a UTF-8 comma delimited .csv file. In general, it is better to leave sheets downloaded from HESA as they are. This way you can use the data in rows 1:16 to identify a. the source of the data, b. any filters applied to it.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="reading-in-data.html#cb31-1" aria-hidden="true" tabindex="-1"></a>CAH1_By_Provider <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;Data/CAH1 Subjects.csv&quot;</span>)</span></code></pre></div>
+<p><img src="images%20and%20graphics/Reading%20in%20data%20errors.JPG" width="80%" style="display: block; margin: auto;" /></p>
+<p><strong>BUT</strong> reading this in will create a data frame with lots of blank values, missing column titles and irrelevant rows.</p>
+<p>Because the top 16 rows are useful for documentation and finding the data source, we want to keep these in the .csv file, but we don’t want R to read them into R, so we tell the read.csv function to skip them.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="reading-in-data.html#cb32-1" aria-hidden="true" tabindex="-1"></a>CAH1_By_Provider <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;Data/CAH1 Subjects.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">16</span>)</span></code></pre></div>
+<p>If we want the column names exactly how they appear in the data, we can add the <code>check.names = FALSE argument</code>. When referencing these columns, you will need to put the name inside tilted apostrophes in order to tell R that the object has spaces in it, otherwise R will read a single column heading as many, and you will get an error.
+<em>This is why it is common to use underscores when naming objects and variables</em></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="reading-in-data.html#cb33-1" aria-hidden="true" tabindex="-1"></a>CAH1_By_Provider <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;Data/CAH1 Subjects.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">16</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Now we have a rectangular dataset with non blank values and the column names we want. But when we check the data format, we find that, other than the UKPRN column, the other numeric data has been read in as character data. We can see this with <code>str(CAH1_By_Provider)</code></p>
+<p>You can change this by selecting which columns you want to be numeric. We want columns 3 to 27 to be numeric (i.e. every column from the 3rd column to the 27th)</p>
+<p>If you simply specify that you want them <code>as.numeric</code>, R will turn the values with commas into NAs. One way to avoid this is using readr’s <code>parse_number</code> argument</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="reading-in-data.html#cb34-1" aria-hidden="true" tabindex="-1"></a>Numeric_CAH1_By_Provider <span class="ot">&lt;-</span> CAH1_By_Provider <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="reading-in-data.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate_at</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">27</span>, readr<span class="sc">::</span>parse_number)</span>
+<span id="cb34-3"><a href="reading-in-data.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="reading-in-data.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Numeric_CAH1_By_Provider)  <span class="co"># we can now see that columns 3 to 27 are numeric</span></span></code></pre></div>
+<p>You can now explore the data as shown in segment 2.5.1 - <a href="Basics.html#data-frames">Data Frames</a></p>
+<p>In some cases, R might create funky column headings. use <code>fileEncoding = "UTF-8-BOM"</code> as an argument within the read.csv function if this is the case.</p>
+<p>Some other examples of making data numeric or replacing NAs with 0</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="reading-in-data.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">CAH2 Subject</span><span class="st">`</span>), <span class="sc">~</span><span class="fu">as.numeric</span>(.x)))</span>
+<span id="cb35-2"><a href="reading-in-data.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(Subject), <span class="sc">~</span>readr<span class="sc">::</span><span class="fu">parse_number</span>(.x)))</span>
+<span id="cb35-3"><a href="reading-in-data.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span></code></pre></div>
+</div>
+<div id="large-.csvs" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Large .csvs<a href="reading-in-data.html#large-.csvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>fread()</code> function is faster than read.csv, but has less flexibility.</p>
+</div>
+<div id="excel-workbooks" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Excel workbooks<a href="reading-in-data.html#excel-workbooks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It might be that you want to store lots of sheets in a single workbook, and want to read in a particular sheet. It also might be that you want to do some manipulation in excel first, then want to read in outputs that have had calculations applied. If you do this, I would advise <strong>locking</strong> the sheet so that no more changes can be made. Add a “READ ME.txt” file to the folder containing the password to unlock the sheets, or stick it in a sheet at the start of the workbook. Changes will affect the data when re-read into R, post-changes.</p>
+<p>.csv files are saved as comparabily small files, with no formulas or calculations, just cell values. If you need to save these cell formulas then an excel workbook will probably be preferable.</p>
+<p>The <code>read_excel</code> function comes from the <code>readxl</code> package</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="reading-in-data.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb36-2"><a href="reading-in-data.html#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="reading-in-data.html#cb36-3" aria-hidden="true" tabindex="-1"></a>Subjects_Allied_To_Medicine <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;Data/Multiple HESA sheets workbook.xlsx&quot;</span>,</span>
+<span id="cb36-4"><a href="reading-in-data.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sheet =</span> <span class="st">&quot;Subjects Allied To Medicine&quot;</span>, <span class="at">range =</span> <span class="st">&quot;A17:AA237&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="connecting-to-sql-databases" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Connecting to SQL Databases<a href="reading-in-data.html#connecting-to-sql-databases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span style="color:red;"> Tom to populate this at a later date. </span></p>
+<p>To understand the basics of this, see Analytics Academy session: Connect RStudio to the PDR.</p>
+<p>Much HE data are also stored on SQL servers.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="Functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-outputs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -270,7 +342,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/edit/master/%s",
+"link": "https://github.com/tomambroseharris/HE_R_Training/edit/master/04-Reading_In_Data.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -278,7 +350,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/blob/master/%s",
+"link": "https://github.com/tomambroseharris/HE_R_Training/blob/master/04-Reading_In_Data.Rmd",
 "text": null
 },
 "download": null,

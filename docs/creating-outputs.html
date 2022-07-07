@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | HE R training</title>
-  <meta name="description" content="Page not found | HE R training" />
+  <title>Chapter 5 Creating outputs | HE R training</title>
+  <meta name="description" content="Chapter 5 Creating outputs | HE R training" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | HE R training" />
+  <meta property="og:title" content="Chapter 5 Creating outputs | HE R training" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | HE R training" />
+  <meta name="twitter:title" content="Chapter 5 Creating outputs | HE R training" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="reading-in-data.html"/>
+<link rel="next" href="data-manipulation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -227,19 +227,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="creating-outputs" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Creating outputs<a href="creating-outputs.html#creating-outputs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>R is great for manipulating data and generating graphs, tables or reports. <strong>BUT</strong> it is usually not where these outputs are best viewed or used by the people for whom they are created.
+R allows you to export the objects you have generated into accessible formats, the most general ones being:</p>
+<ul>
+<li>Tables to <code>.csv</code> files</li>
+<li>Images/Graphs to <code>.JPEG</code> or <code>.PDF</code> files</li>
+<li>Reports (RMarkdowns) to <code>.html</code>, <code>.PDF</code> or word documents</li>
+<li>Reports to presentations (see packages to do this in markdown)</li>
+<li>Reports to books (RBookdowns)</li>
+</ul>
+<p>This Chapter will focus on the basics: saving graphs and tables.The online resource are plentiful if you know what you’re looking for. There are also chapters in <a href="https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course">DfE’s analytical academy</a>. Outputs such as shiny apps are beyond the scope of this resource, due to their complexity.</p>
+<div id="writing-.csvs" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Writing <code>.csvs</code><a href="creating-outputs.html#writing-.csvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is the most common way to export tables that we have created or manipulated. Excel is more user-friendly than R for viewing data tables.
+Additionally, if you need to put a table into a MS word report, you might want to export it as a .csv as these are easier to copy or format (such as with colour, bolding or cell merging) prior to inserting the table into your word document.</p>
+<p>Once again, writing a .csv is dependent on your working directory. You need to set this somewhere proximate to the folder you intend to write the .csv into</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="creating-outputs.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb37-2"><a href="creating-outputs.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="creating-outputs.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we can write the iris data as a .csv in our outputs folder</span></span>
+<span id="cb37-4"><a href="creating-outputs.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> iris, <span class="at">file =</span> <span class="st">&quot;Outputs/iris_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>This creates a <code>.csv</code> file in the Outputs folder called “iris_data”.</p>
+<p>By specifying that <code>row.names = FALSE</code>, the <code>.csv</code> will not have numbers 1:150 in the first column of the output file.</p>
+<div id="writing-multiple-outputs-as-sheets-of-an-excel-file" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> writing multiple outputs as sheets of an excel file<a href="creating-outputs.html#writing-multiple-outputs-as-sheets-of-an-excel-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://www.youtube.com/watch?v=E0SLvyLYvoE">This video</a> shows you how to do this</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="creating-outputs.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
+<span id="cb38-2"><a href="creating-outputs.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb38-3"><a href="creating-outputs.html#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="creating-outputs.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1: load relevant packages step 2: complete analysis as usual, giving</span></span>
+<span id="cb38-5"><a href="creating-outputs.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># each output a name (i.e. using R_Output_1_Name &lt;- ) step 3: use the following</span></span>
+<span id="cb38-6"><a href="creating-outputs.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># code to pull together</span></span>
+<span id="cb38-7"><a href="creating-outputs.html#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="creating-outputs.html#cb38-8" aria-hidden="true" tabindex="-1"></a>Excel_File_Name <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Sheet_Name_1 =</span> R_Output_1_Name, <span class="at">Sheet_Name_2 =</span> R_Output_2_Name)</span>
+<span id="cb38-9"><a href="creating-outputs.html#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(Excel_File_Name, <span class="st">&quot;./Excel_File_Name.xlsx&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>The packages y</p>
+</div>
+</div>
+<div id="saving-graphs" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Saving graphs<a href="creating-outputs.html#saving-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>After creating a graph, the best way to store the output is in a markdown or other feature of R that will update the rendered image if any of the inputs or code change. For ad hoc work, though, we might simply want to export an image. To do this we can either:</p>
+<ol style="list-style-type: decimal">
+<li>Create the plot, then click export (in the bottom right “viewer” panel) and save as either a PDF or JPEG</li>
+</ol>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="creating-outputs.html#cb39-1" aria-hidden="true" tabindex="-1"></a>Iris_Scatter <span class="ot">&lt;-</span> <span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width)</span></code></pre></div>
+<p><img src="images%20and%20graphics/iris.JPEG" width="80%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a JPG/PDF with a line of code, then plant the plot into it</li>
+</ol>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="creating-outputs.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the pdf</span></span>
+<span id="cb40-2"><a href="creating-outputs.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;Outputs/iris_scatter.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">paper =</span> <span class="st">&quot;A4&quot;</span>)</span>
+<span id="cb40-3"><a href="creating-outputs.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="creating-outputs.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create the plot in the pdf</span></span>
+<span id="cb40-5"><a href="creating-outputs.html#cb40-5" aria-hidden="true" tabindex="-1"></a>Iris_Scatter <span class="ot">&lt;-</span> <span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width)</span>
+<span id="cb40-6"><a href="creating-outputs.html#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="creating-outputs.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># close the pdf</span></span>
+<span id="cb40-8"><a href="creating-outputs.html#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb40-9"><a href="creating-outputs.html#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="creating-outputs.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The JPEG arguments are very similar to those for a pdf jpeg(filename =</span></span>
+<span id="cb40-11"><a href="creating-outputs.html#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;Outputs/iris_scatter.jpg&#39;, width = 500, height = 500)</span></span></code></pre></div>
+<p>You can also open plots and screenshot these if necessary.</p>
+</div>
+<div id="markdowns-reports-books-and-presentations" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Markdowns, reports, books and presentations<a href="creating-outputs.html#markdowns-reports-books-and-presentations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span style="color:red;">
+To populate at a later date if there is demand.
+</span></p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="reading-in-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -270,7 +334,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/edit/master/%s",
+"link": "https://github.com/tomambroseharris/HE_R_Training/edit/master/05-Outputs.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -278,7 +342,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/blob/master/%s",
+"link": "https://github.com/tomambroseharris/HE_R_Training/blob/master/05-Outputs.Rmd",
 "text": null
 },
 "download": null,
