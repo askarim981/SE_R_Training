@@ -7,25 +7,16 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-This book was produced by Tom Harris for the Higher Education Economics team. Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. I've only been learning R for 18months, so there are likely to be mistakes or inaccuracies. Please let me know if you notice things. 
+This book was produced by Tom Harris for the Higher Education Economics team in the Department for Educatoin (DfE). Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. Since its inception, the contents have been broadened to include code that is more generally applicable. 
 
 For any questions, suggestions or **if you would like to make a contribution**, please contact:
 
--   Tom Harris [thomas.harris\@education.gov.uk](mailto:thomas.harris@education.gov.uk){.email}
+-   Tom Harris [tomambroseharris\@btinternet.com](mailto:tomambroseharris@btinternet.com){.email}
 
-**HEEAT Internal resources**
-
-There are R resources contained within the HEEAT Technical Resources EDAP area. [These are being constantly updated.]{style="color:red;"} These include:
-
--   The Core Learning RBookdown (which you are currently reading)
--   A miscellaneous R code Notebook (where people can dump odd bits of code that don't fit anywhere)
--   Example projects and scripts
--   Scripts of generic user-defined functions, written or used by the team
--   Scripts containing "useful code" - code that produces things such as dashboards and RShiny apps. These scripts generally stand alone, and might link to data sources stored elsewhere.
 
 **External resources** (this is not an exhaustive list and click the text to use hyperlinks)
 
--   [DfE's Analytics Academy](https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course) - this is a comprehensive course which goes far beyond the code contained in this book. There are videos and tasks using DfE data.
+-   AI and other large language models. Use these to write, check and optimise code.
 -   [Hadley Wickham's R for Data science book](https://r4ds.had.co.nz/explore-intro.html)
 -   [DfT's R cookbook](https://departmentfortransport.github.io/R-cookbook/why-do-we-need-another-book.html)
 -   [ESFA's R cookbook](https://rsconnect/rsc/esfa-r-training/)
@@ -36,6 +27,20 @@ There are R resources contained within the HEEAT Technical Resources EDAP area. 
 -   YouTube
 -   [Datacamp](https://www.datacamp.com/)
 -   [R Graph Gallery](https://www.r-graph-gallery.com/) A starting point for ALL your graphical needs.
+-   [Econometrics help](https://www.econometrics-with-r.org/index.html)
+
+
+**HEEAT Internal resources**
+
+There are R various R resources held within DfE. [These are being updated fairly often]{style="color:red;"} These include:
+
+-   [DfE's Analytics Academy](https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course) - this is a comprehensive course which goes far beyond the code contained in this book. There are videos and tasks using DfE data.
+-   The Core Learning RBookdown (which you are currently reading)
+-   A miscellaneous HE economics team R code Notebook (where people can dump odd bits of code that don't fit anywhere)
+-   Example projects and scripts
+-   Scripts of generic user-defined functions, written or used by the team
+-   Scripts containing "useful code" - code that produces things such as dashboards and RShiny apps. These scripts generally stand alone, and might link to data sources stored elsewhere.
+
 
 **Notes**
 

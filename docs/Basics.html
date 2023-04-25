@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Basics of R | HE R training</title>
   <meta name="description" content="Chapter 2 Basics of R | HE R training" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Basics of R | HE R training" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Tom Harris" />
 
 
-<meta name="date" content="2022-07-07" />
+<meta name="date" content="2023-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -230,16 +230,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Basics" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Basics of R<a href="Basics.html#Basics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>To make sure you have the most up-to-date version of R, run this code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(installr)) {</span>
-<span id="cb1-2"><a href="Basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;installr&quot;</span>)</span>
-<span id="cb1-3"><a href="Basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">require</span>(installr)</span>
-<span id="cb1-4"><a href="Basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a>}  <span class="co">#load / install+load installr</span></span>
-<span id="cb1-5"><a href="Basics.html#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="Basics.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># using the package:</span></span>
-<span id="cb1-7"><a href="Basics.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">updateR</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(installr)) {</span>
+<span id="cb1-2"><a href="Basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">install.packages</span>(<span class="st">&quot;installr&quot;</span>); <span class="fu">require</span>(installr)} <span class="co">#load / install+load installr</span></span>
+<span id="cb1-3"><a href="Basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-4"><a href="Basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># using the package:</span></span>
+<span id="cb1-5"><a href="Basics.html#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">updateR</span>()</span></code></pre></div>
 <div id="files" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Files<a href="Basics.html#files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This chapter focuses on working with R scripts. File type: <code>&lt;File_Name.R&gt;</code>. Of course, there are numerous different types of files and projects you can work with in R, including markdowns, bookdowns, presentations and shiny apps. Different file types have their own suffixes. R files end in .R; RMarkdown files end in .Rmd; text files end in .txt etc.</p>
+<p>(25/04) This chapter focuses on working with R scripts. File type: <code>&lt;File_Name.R&gt;</code>. Of course, there are numerous different types of files and projects you can work with in R, including markdowns, bookdowns, presentations and shiny apps. Different file types have their own suffixes. R files end in .R; RMarkdown files end in .Rmd; text files end in .txt etc.</p>
 <p>As with any work, how you save and document your work is a choice. Depending on the objective, different approaches might be taken. For basic data analysis you have two main options, both of which are valid. You can just open an R script, save it in a file location and work from there. You will need to tell the R script where it is saved by setting your working directory. This is fine for ad hoc bits of work, but for bigger things, you should use R projects</p>
 </div>
 <div id="Projects" class="section level2 hasAnchor" number="2.2">
@@ -250,9 +248,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images%20and%20graphics/Project%20location.JPG" width="80%" style="display: block; margin: auto;" /></p>
 <p>In order to pull in data and work interactively with other scripts, you need to tell R which working directory these files are in, so it knows where to look. Once setting your working directory you can work across other files as stated above.</p>
 <p>If you are unsure of what this means, run (in either the console or a script) this code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="Basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()  <span class="co">#this code will tell you the file path you are currently working in</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="Basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">getwd</span>() <span class="co">#this code will tell you the file path you are currently working in</span></span></code></pre></div>
 <p>If your working directory is not where the project is saved, set it to that path. For example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">&quot;//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS&quot;</span>) </span></code></pre></div>
 <p>You can tab across after the forward slashes to find a file location or, alternatively, paste a file location from your file explorer. Important to note is that R reads forward slashes and backslashes differently to the file explorer. A file path in R generally requires forward slashes (or double backslashes). To normalize a file path that you‚Äôve copied directly from an explorer window, you can use the function <code>normalizePath()</code> or <code>readClipboard()</code> with the copied file path.</p>
 <p>There are two ways to define paths to a file or directory:</p>
 <ul>
@@ -275,19 +273,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Right hand side</strong></p>
 <p>Your files will show up in the files pane in the bottom right. Also this for viewing plots (all plots are stored behind each other in the plots tab, if you want to navigate between old and new plots you‚Äôve produced).</p>
 <p>The help bar is also contained in the bottom right pane. If you are ever unsure about the documentation or application of a function, package or command you can run:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Basics.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(<span class="fu">function_name</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Basics.html#cb5-1" aria-hidden="true" tabindex="-1"></a> ?<span class="fu">function_name</span>()</span></code></pre></div>
 <p>the helper will then appear.</p>
 <p>The environment (top right) is where all the objects, values and functions you create will sit. Also, if you‚Äôve connected to a server, this connection will appear in the connections tab. Your history is stored in the history tab.</p>
 <p>You want to clear the environment semi-regularly, so that you are not interacting with or using objects that do not exist if you re-run your code. They might have been removed or created in a way that does not create the proper object if you were to re-run your code from start to end. <strong>Set your global options to never save ,RData on exit.</strong> Do this by clicking tools + global options + general.</p>
 <p><img src="images%20and%20graphics/Global_Env_Options.JPG" width="80%" style="display: block; margin: auto;" /></p>
 <p>To see all the items in the environment use</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="Basics.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="Basics.html#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ls</span>()</span></code></pre></div>
 <p>To remove an item use</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="Basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove 2 objects</span></span>
-<span id="cb7-2"><a href="Basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(object_name1, object_name2)</span>
+<span id="cb7-2"><a href="Basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">rm</span>(object_name1, object_name2)</span>
 <span id="cb7-3"><a href="Basics.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="Basics.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all objects</span></span>
-<span id="cb7-5"><a href="Basics.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="fu">c</span>(<span class="st">&quot;hep_go_final&quot;</span>)))</span></code></pre></div>
+<span id="cb7-5"><a href="Basics.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="fu">c</span>(<span class="st">&quot;hep_go_final&quot;</span>)))</span></code></pre></div>
 </div>
 <div id="packages" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Packages<a href="Basics.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -296,7 +294,7 @@ BaseR is pre-installed. It contains basic functions to assign objects, create ‚Ä
 <p>Any uninstalled package needs to be installed first:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="Basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">install.packages</span>(‚Äúpackage_name‚Äù)</span></code></pre></div>
 <p>Once a package is installed, its functionality can be used by loading it into your project</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(installed_package_name)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(installed_package_name)</span></code></pre></div>
 <p>To load my packages at the start of a project, I link to a script with this code in. The <code>pacman::p_load</code> function loads packages if they‚Äôre installed already, installs them then loads them if not. The set of packages are the core ones I use in lots of work I do. You might want to add or take others out.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="Basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>) <span class="co">#this will load the pacman package</span></span>
 <span id="cb10-2"><a href="Basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a> pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr,                    <span class="co">#the :: specifies to use the p_load function from the pacman package. Some functions are named identically in more than one package; this ensures you use the correct one. </span></span>
@@ -312,14 +310,12 @@ BaseR is pre-installed. It contains basic functions to assign objects, create ‚Ä
 <span id="cb10-12"><a href="Basics.html#cb10-12" aria-hidden="true" tabindex="-1"></a>                stats,</span>
 <span id="cb10-13"><a href="Basics.html#cb10-13" aria-hidden="true" tabindex="-1"></a>                openxlsx) <span class="co">#add any packages to this list</span></span></code></pre></div>
 <p>If any packages cannot be installed, you might be using an outdated version of R. To update it:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this to install &#39;updateR&#39;</span></span>
-<span id="cb11-2"><a href="Basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(installr)) {</span>
-<span id="cb11-3"><a href="Basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;installr&quot;</span>)</span>
-<span id="cb11-4"><a href="Basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">require</span>(installr)</span>
-<span id="cb11-5"><a href="Basics.html#cb11-5" aria-hidden="true" tabindex="-1"></a>}  <span class="co">#load / install+load installr</span></span>
-<span id="cb11-6"><a href="Basics.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="Basics.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># use the package to update your R:</span></span>
-<span id="cb11-8"><a href="Basics.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">updateR</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this to install &quot;updateR&quot;</span></span>
+<span id="cb11-2"><a href="Basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(installr)) {</span>
+<span id="cb11-3"><a href="Basics.html#cb11-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">install.packages</span>(<span class="st">&quot;installr&quot;</span>); <span class="fu">require</span>(installr)} <span class="co">#load / install+load installr</span></span>
+<span id="cb11-4"><a href="Basics.html#cb11-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-5"><a href="Basics.html#cb11-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># use the package to update your R:</span></span>
+<span id="cb11-6"><a href="Basics.html#cb11-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">updateR</span>()</span></code></pre></div>
 </div>
 <div id="data-types" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Data types<a href="Basics.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -352,7 +348,7 @@ BaseR is pre-installed. It contains basic functions to assign objects, create ‚Ä
 <p>A data frame is an array of rectangular data (which makes it easy to manipulate). Any table you load in correctly from excel will be stored as a data frame.</p>
 <p>For the purposes of exploration below, we will load in the iris dataset. This is pre-loaded to R.</p>
 <p>We can explore the data using functions in BaseR</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="Basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)  <span class="co"># it is a data frame with 5 elements and 150 variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="Basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)           <span class="co"># it is a data frame with 5 elements and 150 variables</span></span></code></pre></div>
 <p><img src="images%20and%20graphics/Iris_Data_Glob_Env.JPG" width="80%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">class</span>(iris)            <span class="co"># tells us it is a data frame</span></span>
 <span id="cb13-2"><a href="Basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;data.frame&quot;</span></span>
@@ -389,11 +385,11 @@ BaseR is pre-installed. It contains basic functions to assign objects, create ‚Ä
 <h3><span class="header-section-number">2.6.2</span> Vectors<a href="Basics.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A vector is a sequence of data elements. Vectors will contains elements of the same type or will convert the elements implicitly. In a vector, the order matters. If you think mathematically, R reads a vector in order. This is one way a vector is distinguished from a list</p>
 <p>We can use the assign syntax <code>&lt;- c()</code> to assign vectors</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="Basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co">#R will create an vector, x, with 3 numeric elements</span></span>
-<span id="cb14-2"><a href="Basics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>)  <span class="co">#R will read all elements as characters because we specified that 4 is a character</span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="Basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co">#R will create an vector, x, with 3 numeric elements</span></span>
+<span id="cb14-2"><a href="Basics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>) <span class="co">#R will read all elements as characters because we specified that 4 is a character</span></span>
 <span id="cb14-3"><a href="Basics.html#cb14-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>)</span>
 <span id="cb14-4"><a href="Basics.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="Basics.html#cb14-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">*</span> y  <span class="co"># vectors can be multiplied </span></span></code></pre></div>
+<span id="cb14-5"><a href="Basics.html#cb14-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">*</span> y <span class="co"># vectors can be multiplied </span></span></code></pre></div>
 <p>vectors can also be character strings</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="Basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>GO_Team <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gabe&quot;</span>, <span class="st">&quot;Hindowa&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
 <span id="cb15-2"><a href="Basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a>GO_Team[<span class="dv">3</span>] <span class="co">#this it the element in position 3</span></span>
@@ -402,27 +398,27 @@ BaseR is pre-installed. It contains basic functions to assign objects, create ‚Ä
 <div id="factors" class="section level3 hasAnchor" number="2.6.3">
 <h3><span class="header-section-number">2.6.3</span> Factors<a href="Basics.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A factor is essentially a vector of n integer values with a corresponding set of character values. The only input argument you need to specify is a vector of values from any atomic (same data) type, and the factor function will return a vector of factor values. This relates to the concept of levels, where the level of a factor is basically the number of distinct elements, in reverse order to how they are written. You can specify the levels if you wish to change the order.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>GO_Employee_Of_The_Week <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Hindowa&quot;</span>), )  <span class="co">#creates a factor in the global environment. You can specify the order of the levels. If not specified, R will do this automatically (in reverse to the order they appear)</span></span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>GO_Employee_Of_The_Week <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Hindowa&quot;</span>), ) <span class="co">#creates a factor in the global environment. You can specify the order of the levels. If not specified, R will do this automatically (in reverse to the order they appear)</span></span>
 <span id="cb16-2"><a href="Basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(GO_Employee_Of_The_Week)</span>
 <span id="cb16-3"><a href="Basics.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="Basics.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] Tom Tom Tom Tom Hindowa Levels: Hindowa Tom</span></span>
-<span id="cb16-5"><a href="Basics.html#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="Basics.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># You could specify the levels with a levels = argument. E.g. levels =</span></span>
-<span id="cb16-7"><a href="Basics.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># c(&#39;Hindowa&#39;, &#39;Tom&#39;)</span></span>
+<span id="cb16-4"><a href="Basics.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#       [1] Tom     Tom     Tom     Tom     Hindowa</span></span>
+<span id="cb16-5"><a href="Basics.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#       Levels: Hindowa Tom</span></span>
+<span id="cb16-6"><a href="Basics.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="Basics.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># You could specify the levels with a levels = argument. E.g. levels = c(&quot;Hindowa&quot;, &quot;Tom&quot;)</span></span>
 <span id="cb16-8"><a href="Basics.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="Basics.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(GO_Employee_Of_The_Week)  <span class="co"># the levels are the order in which the elements appear</span></span>
-<span id="cb16-10"><a href="Basics.html#cb16-10" aria-hidden="true" tabindex="-1"></a>GO_Employee_Of_The_Week[<span class="dv">5</span>]  <span class="co">#this returns the element in position 5 of the factor</span></span></code></pre></div>
+<span id="cb16-9"><a href="Basics.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(GO_Employee_Of_The_Week) <span class="co"># the levels are the order in which the elements appear</span></span>
+<span id="cb16-10"><a href="Basics.html#cb16-10" aria-hidden="true" tabindex="-1"></a>GO_Employee_Of_The_Week[<span class="dv">5</span>] <span class="co">#this returns the element in position 5 of the factor</span></span></code></pre></div>
 <p>Factor levels are important when you need to specify the order of something e.g.¬†to arrange graphs by High , Medium, Low, Specialist, this uses a tariff vector <code>x &lt;- c("High", "Medium", "Low", "Specialist")</code> as the levels for turning the tariff column into a factor.</p>
 </div>
 <div id="matrices" class="section level3 hasAnchor" number="2.6.4">
 <h3><span class="header-section-number">2.6.4</span> Matrices<a href="Basics.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Matrices are used in regression analysis and other more complex data exercises, but not much in the standard outputs we produce. A matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>Matrix1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">4</span>)  <span class="co"># this creates a matrix of the numbers 1 to 8, in 2 rows and 4 columns. It fills down from column 1 and then column 2, such that the number 3 is the in position [1,2]</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>Matrix1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">4</span>) <span class="co"># this creates a matrix of the numbers 1 to 8, in 2 rows and 4 columns. It fills down from column 1 and then column 2, such that the number 3 is the in position [1,2]</span></span></code></pre></div>
 </div>
 <div id="lists" class="section level3 hasAnchor" number="2.6.5">
 <h3><span class="header-section-number">2.6.5</span> Lists<a href="Basics.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lists hold different types of data i.e.¬†character, numeric and integers and data frames in a single list. You can access the elements of this list with square brackets <code>[]</code> or the dollar sign <code>$</code></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>list_example <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, 2L, <span class="st">&quot;3&quot;</span>)  <span class="co"># here 1 is stored as a number, 2 an integer and 3 a character.</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>list_example <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, 2L, <span class="st">&quot;3&quot;</span>) <span class="co"># here 1 is stored as a number, 2 an integer and 3 a character.</span></span></code></pre></div>
 
 </div>
 </div>

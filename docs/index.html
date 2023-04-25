@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>HE R training</title>
   <meta name="description" content="HE R training" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="HE R training" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Tom Harris" />
 
 
-<meta name="date" content="2022-07-07" />
+<meta name="date" content="2023-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -230,27 +230,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">HE R training</h1>
 <p class="author"><em>Tom Harris</em></p>
-<p class="date"><em>2022-07-07</em></p>
+<p class="date"><em>2023-04-25</em></p>
 </div>
 <div id="introduction" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book was produced by Tom Harris for the Higher Education Economics team. Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. I’ve only been learning R for 18months, so there are likely to be mistakes or inaccuracies. Please let me know if you notice things.</p>
+<p>This book was produced by Tom Harris for the Higher Education Economics team in the Department for Educatoin (DfE). Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. Since its inception, the contents have been broadened to include code that is more generally applicable.</p>
 <p>For any questions, suggestions or <strong>if you would like to make a contribution</strong>, please contact:</p>
 <ul>
-<li>Tom Harris <a href="mailto:thomas.harris@education.gov.uk" class="email">thomas.harris@education.gov.uk</a></li>
-</ul>
-<p><strong>HEEAT Internal resources</strong></p>
-<p>There are R resources contained within the HEEAT Technical Resources EDAP area. <span style="color:red;">These are being constantly updated.</span> These include:</p>
-<ul>
-<li>The Core Learning RBookdown (which you are currently reading)</li>
-<li>A miscellaneous R code Notebook (where people can dump odd bits of code that don’t fit anywhere)</li>
-<li>Example projects and scripts</li>
-<li>Scripts of generic user-defined functions, written or used by the team</li>
-<li>Scripts containing “useful code” - code that produces things such as dashboards and RShiny apps. These scripts generally stand alone, and might link to data sources stored elsewhere.</li>
+<li>Tom Harris <a href="mailto:tomambroseharris@btinternet.com" class="email">tomambroseharris@btinternet.com</a></li>
 </ul>
 <p><strong>External resources</strong> (this is not an exhaustive list and click the text to use hyperlinks)</p>
 <ul>
-<li><a href="https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course">DfE’s Analytics Academy</a> - this is a comprehensive course which goes far beyond the code contained in this book. There are videos and tasks using DfE data.</li>
+<li>AI and other large language models. Use these to write, check and optimise code.</li>
 <li><a href="https://r4ds.had.co.nz/explore-intro.html">Hadley Wickham’s R for Data science book</a></li>
 <li><a href="https://departmentfortransport.github.io/R-cookbook/why-do-we-need-another-book.html">DfT’s R cookbook</a></li>
 <li><a href="https://rsconnect/rsc/esfa-r-training/">ESFA’s R cookbook</a></li>
@@ -261,6 +252,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>YouTube</li>
 <li><a href="https://www.datacamp.com/">Datacamp</a></li>
 <li><a href="https://www.r-graph-gallery.com/">R Graph Gallery</a> A starting point for ALL your graphical needs.</li>
+<li><a href="https://www.econometrics-with-r.org/index.html">Econometrics help</a></li>
+</ul>
+<p><strong>HEEAT Internal resources</strong></p>
+<p>There are R various R resources held within DfE. <span style="color:red;">These are being updated fairly often</span> These include:</p>
+<ul>
+<li><a href="https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course">DfE’s Analytics Academy</a> - this is a comprehensive course which goes far beyond the code contained in this book. There are videos and tasks using DfE data.</li>
+<li>The Core Learning RBookdown (which you are currently reading)</li>
+<li>A miscellaneous HE economics team R code Notebook (where people can dump odd bits of code that don’t fit anywhere)</li>
+<li>Example projects and scripts</li>
+<li>Scripts of generic user-defined functions, written or used by the team</li>
+<li>Scripts containing “useful code” - code that produces things such as dashboards and RShiny apps. These scripts generally stand alone, and might link to data sources stored elsewhere.</li>
 </ul>
 <p><strong>Notes</strong></p>
 <ul>

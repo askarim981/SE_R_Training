@@ -289,6 +289,8 @@ If you want to be able to call the data_frame object and interact with it, then 
 
 ## Using Loops
 
+Loops are often more computationally intensive than functions from the `apply()` family. See this [guidance](https://towardsdatascience.com/dealing-with-apply-functions-in-r-ea99d3f49a71) for usage details. it can be harder to get your head around. 
+
 Loops increase the power (and running time) of functions . They allow you to specify the array sets on which to apply functions. The two most used loop functions are `for()` and `while()`. Generally, `for()` loops are easier to use, unless the condition changes as the function evolves. In the most basic sense, these formulae do the same thing:
 
 ```{r eval=FALSE}
