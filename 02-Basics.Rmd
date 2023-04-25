@@ -19,7 +19,7 @@ To make sure you have the most up-to-date version of R, run this code:
 
 ## Files
 
-This chapter focuses on working with R scripts. File type: `<File_Name.R>`. Of course, there are numerous different types of files and projects you can work with in R, including markdowns, bookdowns, presentations and shiny apps. Different file types have their own suffixes. R files end in .R; RMarkdown files end in .Rmd; text files end in .txt etc.
+(25/04) This chapter focuses on working with R scripts. File type: `<File_Name.R>`. Of course, there are numerous different types of files and projects you can work with in R, including markdowns, bookdowns, presentations and shiny apps. Different file types have their own suffixes. R files end in .R; RMarkdown files end in .Rmd; text files end in .txt etc.
 
 As with any work, how you save and document your work is a choice. Depending on the objective, different approaches might be taken. For basic data analysis you have two main options, both of which are valid. You can just open an R script, save it in a file location and work from there. You will need to tell the R script where it is saved by setting your working directory. This is fine for ad hoc bits of work, but for bigger things, you should use R projects
 
