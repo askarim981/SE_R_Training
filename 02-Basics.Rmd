@@ -17,19 +17,26 @@ To make sure you have the most up-to-date version of R, run this code:
  
 ```
 
+## R and R studio
+
+R is a programming language just like Python and javascript. Many of it's applications are used for statistics, modelling and working with data. 
+
+R studio is an integrated development environment (IDE) where you can use the R programming language (as well as Python). It supports writing in the language, executing code, file management, version control etc. It is a good way to code in R. You can use other programmes to code with R, such as Visual Studio (though you might need an extension). I recommend using R studio and this book will all guide through the use of R in this IDE. 
+
+
 ## Files
 
-(25/04) This chapter focuses on working with R scripts. File type: `<File_Name.R>`. Of course, there are numerous different types of files and projects you can work with in R, including markdowns, bookdowns, presentations and shiny apps. Different file types have their own suffixes. R files end in .R; RMarkdown files end in .Rmd; text files end in .txt etc.
+This chapter focuses on working with R scripts. File type: `<File_Name.R>`. There are numerous different types of files and projects you can work with in R, including markdowns, bookdowns, presentations and shiny apps. Different file types have their own suffixes. R files end in .R; RMarkdown files end in .Rmd; text files end in .txt etc.
 
 As with any work, how you save and document your work is a choice. Depending on the objective, different approaches might be taken. For basic data analysis you have two main options, both of which are valid. You can just open an R script, save it in a file location and work from there. You will need to tell the R script where it is saved by setting your working directory. This is fine for ad hoc bits of work, but for bigger things, you should use R projects
 
 ## R Projects {#Projects}
 
-Projects act as a way to group your scripts and therefore separate out your work strands. When you open a project, the files pane will automatically open up as where the project is saved. This then allows you to see all your files. To create a project, click file + new project. To create a script within this project, click file + new file + R script.
+Projects act as a way to group your scripts and therefore separate out your work strands. When you open a project, the files pane will automatically open up as where the project is saved. This then allows you to see all of your files. To create a project, click file + new project. To create a script within this project, click file + new file + R script.
 
 Projects also enable version control through git and devops. In order to learn about these, see the [stats production guidance on git](https://rsconnect/rsc/stats-production-guidance/git.html), [the ESFA guidance on git](https://rsconnect/rsc/esfa-r-training/git-building-intuition.html) and  [the analytics academy videos on git](https://trello.com/c/rKA6xl3Y/300-git-part-1-git-it-on). More on this later.
 
-Projects sit in a specified file location, and enable a user to work across multiple files and locations within(/below/behind) where that project is saved. When working in R, the project you have open can be seen in the top right of the pane.
+Projects sit in a specified file location, and enable a user to work with multiple files within (/below/behind) where that project is saved. When working in R, the project you have open can be seen in the top right of the pane.
 
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
@@ -45,7 +52,7 @@ If you are unsure of what this means, run (in either the console or a script) th
 ```
 
 
-If your working directory is not where the project is saved, set it to that path. For example:
+If your working directory is not where the project is saved, setting it to that path is usually a logical way to start. For example:
 ```{r eval=FALSE}
   setwd("//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS") 
 ```
@@ -61,14 +68,11 @@ Having set your file location, you can then navigate and source files from anywh
 
 Relative paths can be coded using `/`, `~` and `..`. For more information see [this web page](https://ytakemon.github.io/2019-10-22-R-BCCRC/02-filedir/)
 
-The most common usage of relative pathing will be using `..` to navigate upwards and `/` to navigate downwards. Say your working directory is: `//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS/Graduate Outcomes`, but you wanted to access a file in the `Working` folder, 2 subfolders above the Graduate Outcomes folder, you could navigate here with 2x `..`s:
+The most common usage of relative pathing will be using `..` to navigate upwards and `/` to navigate downwards. Say your working directory is: `//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS/Graduate Outcomes`, but you wanted to access a file in the `Working` folder, 2 sub-folders above the Graduate Outcomes folder, you could navigate here with 2x `..`s:
 ```{r eval=FALSE}
 source("../../example_folder_name")
 ```
 Another way to do this would be to set your working directory to that folder, access the file, then reassign the working directory to where it was before.
-
-
-
 
 ## R Studio's Panes
 
@@ -82,7 +86,7 @@ knitr::include_graphics('images and graphics/RStudio Panes.JPG')
 
 Where you run and store code. Code can be run by highlighting the code in a script (top left) and pressing ctrl + enter, _OR_ by writing it in the console (bottom left) and pressing enter. The 'Run' button at the top right of the source pane will also execute code.
 
-*Usage:* code that you want a record of, and might want to re-run should be written and run in scripts. Code that you do not need to save can be written in the console. Things like `getwd()` or data exploration functions are, therefore, usually written in the console.
+*Usage:* code that you want a record of and might want to re-run at any time should be written and run in scripts (the source). Code that you do not need to save can be written in the console. Things like `getwd()` or data exploration functions are, therefore, usually written in the console. If you want to install a package, do a quick calculation or look up a function's documentation, you could put these in the console. Most things are probably better for writing in scripts, though.
 
 **Right hand side**
  
@@ -115,15 +119,15 @@ To remove an item use
 # remove 2 objects
  rm(object_name1, object_name2)
 
-# remove all objects
-rm(list=setdiff(ls(), c("hep_go_final")))
+# remove all objects except df1_to_keep and df2_to_keep
+rm(list=setdiff(ls(), c("df1_to_keep", "df2_to_keep")))
 
 ```
 
 ## Packages
 
 R uses packages and functions to enable you to work efficiently. 
-BaseR is pre-installed. It contains basic functions to assign objects, create 'if' statements, add two numbers together, create lists etc. Additionally, because R is an open source programme, developers have built other packages which you can install and load into R. These packages contains functions and functionality which can make coding easier and more efficient.
+BaseR is pre-installed. It contains basic functions to assign objects, create 'if' statements, add two numbers together, create lists etc. Additionally, because R is an open source programme, developers have built other packages that you can install and load into R. These packages contains functions and functionality which can make coding easier and more efficient.
 
 Any uninstalled package needs to be installed first: 
 ```{r eval=FALSE}
@@ -143,11 +147,6 @@ To load my packages at the start of a project, I link to a script with this code
                 stringr,
                 stringi,
                 tidyverse,
-                janitor,
-                scales,
-                rmarkdown,
-                plotly,
-                ggplot2,
                 stats,
                 openxlsx) #add any packages to this list
 ```
@@ -191,15 +190,18 @@ R has many data structures. These include:
 *	matrix
 *	list
 
+R is generally used to work with data and objects, especially in the most rudimentary uses (which is what we are covering in this chapter). In order to do this, you usually load external data - e.g., from excel files or SQL servers - though you could also encode objects and data yourself from scratch. The sections below show how to load and explore objects in R.
+
 ### Data Frames
 
 A data frame is an array of rectangular data (which makes it easy to manipulate). Any table you load in correctly from excel will be stored as a data frame.
  
-For the purposes of exploration below, we will load in the iris dataset. This is pre-loaded to R.
+For the purposes of exploration below, we will load in the iris dataset. This is pre-loaded to R. 
  
 We can explore the data using functions in BaseR
 ```{r eval=FALSE} 
- data("iris")           # it is a data frame with 5 elements and 150 variables
+ data("iris")           # it is a data frame with 5 variables (columns) and 150 observations (rows)
+# to load the data, just type iris into the console and hit enter
 ```
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
@@ -208,27 +210,30 @@ knitr::include_graphics('images and graphics/Iris_Data_Glob_Env.JPG')
 
 
 ```{r, eval=FALSE, tidy=TRUE}
+# what tyoe of object is iris?
  class(iris)            # tells us it is a data frame
 [1] "data.frame"
 
-# How many rows does the data have
+# How many rows does the data frame have?
  nrow(iris)             
 [1] 150
  
- # How many elements are in the data frame
+ # How many elements are in the data frame?
  length(iris)           
 [1] 5
  
- names(iris)            # What are the column names
+ # what are the column names?
+ names(iris)            
 [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species" 
  
- # What are the unique variables in the species column. These are stored as a factor with 3 levels
+ # What are the unique variables in the species column? 
  unique(iris$Species)   
 
+ # These are stored as a factor with 3 levels
 [1] setosa     versicolor virginica 
 Levels: setosa versicolor virginica
  
- # What is the structure of the data. What are the variable types? You can also view the data set
+ # What is the structure of the data. What are the variable types? 
  str(iris)             
 
 [1] 'data.frame':	150 obs. of  5 variables:
@@ -237,7 +242,12 @@ Levels: setosa versicolor virginica
 $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
  
 # Open the data frame in a pane. You can hover over the column index, column title and see the data structure and range
- View(iris)             
+ View(iris) 
+ 
+# see if you have any duplicates in the data 
+ duplicates_df <- iris %>%
+   group_by(Sepal.Width) %>%
+   filter(n() > 1)
 ```
 
 ### Vectors
@@ -261,21 +271,37 @@ GO_Team[3] #this it the element in position 3
 [1] "Tom"
 ```
 
+You can add and remove elements from vectors
+```{r eval=FALSE} 
+# create a vector of the numbers 1,2,3,4
+n4 <- c(1:4)
+# add the number 5 to the vector
+n5 <- append(n4, 5)
+
+
+# removing objects from a vector
+# define a %notin% function
+`%notin%` <- Negate(`%in%`)
+# remove 4 and 5 from the n5 vector and assign it to n3
+n3 <- n5[n5 %notin% c(4,5)]
+```
+
+
 ### Factors
 
 A factor is essentially a vector of n integer values with a corresponding set of character values. The only input argument you need to specify is a vector of values from any atomic (same data) type, and the factor function will return a vector of factor values. This relates to the concept of levels, where the level of a factor is basically the number of distinct elements, in reverse order to how they are written. You can specify the levels if you wish to change the order. 
 
 ```{r, eval=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=80)} 
-GO_Employee_Of_The_Week <- factor(c("Tom", "Tom", "Tom", "Tom", "Hindowa"), ) #creates a factor in the global environment. You can specify the order of the levels. If not specified, R will do this automatically (in reverse to the order they appear)
-print(GO_Employee_Of_The_Week)
+Employee_Of_The_Week <- factor(c("Tom", "Tom", "Tom", "Tom", "Hindowa"), ) #creates a factor in the global environment. You can specify the order of the levels. If not specified, R will do this automatically (in reverse to the order they appear)
+print(Employee_Of_The_Week)
 
 #       [1] Tom     Tom     Tom     Tom     Hindowa
 #       Levels: Hindowa Tom
 
 # You could specify the levels with a levels = argument. E.g. levels = c("Hindowa", "Tom")
 
-levels(GO_Employee_Of_The_Week) # the levels are the order in which the elements appear
-GO_Employee_Of_The_Week[5] #this returns the element in position 5 of the factor
+levels(Employee_Of_The_Week) # the levels are the order in which the elements appear
+Employee_Of_The_Week[5] #this returns the element in position 5 of the factor
 ```
 
 Factor levels are important when you need to specify the order of something e.g. to arrange graphs by High , Medium, Low, Specialist, this uses a tariff vector `x <- c("High", "Medium", "Low", "Specialist")` as the levels for turning the tariff column into a factor. 
@@ -293,4 +319,14 @@ Lists hold different types of data i.e. character, numeric and integers and data
 
 ```{r, eval=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=80)} 
 list_example <- list(1, 2L, "3") # here 1 is stored as a number, 2 an integer and 3 a character.
+```
+You can also house multiple objects within a single name in the global environment, which could make accessing analysis tidier.
+
+```{r, eval=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=80)}
+# create an element, Int_SNs, which houses 2 sheets of data: England_SNs and Scotland_SNs
+Int_SNs <- list(England_SNs = readxl::read_xlsx("SNs.xlsx", sheet = "England"),
+                      Scotland_SNs = readxl::read_xlsx("SNs.xlsx", sheet = "Scotland"))
+
+# extract the england df from the list of international dfs
+England_SNs <- as.data.frame(Int_SNs[England_SNs])
 ```

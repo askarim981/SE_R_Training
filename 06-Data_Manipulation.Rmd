@@ -1,9 +1,9 @@
 # Data manipulation
 
 This chapter will focus on the fundamentals of data manipulation. You can identify what the key functions do from the [dplyr cheat cheat](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): 
-As the sheet states, the best way to manipulate data is if your data is tidy - i.e. each variable is in its own column, and each observation is in its own row. Occasionally you will need long data, such as to build graphs.
+As the sheet states, the best way to manipulate data is if your data is tidy (wide) - i.e. each variable is in its own column, and each observation is in its own row. Occasionally you will need long data, such as to build graphs.
 
-First we'll read in some Tariff data. We will use this later for grouping by tariff.
+First, we'll read in some Tariff data. We will use this later for grouping by tariff. You don't need this data to see what some of the functions do. Some general applications are also shown here. 
 
 `OFS_Tariffs <- read.csv("Data/ofs_provider_tariffs_nospace.csv")`
 
@@ -60,7 +60,7 @@ First_10 <- CAH1_Data %>%
 ```
 Be careful using indexes, as if you change prior code, the columns might not remain in the same index position. 
 
-You can also rename a column within the select function `select(new_col_name = old_col_name)` or change the order of columns by which order they appear in your select list. 
+You can also rename a column within the select function `select(col1, col2, new_col_name = old_col_name)` or change the order of columns by which order they appear in your select list. 
 
 Run `?select()` or see the function [documentation](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/select) for more features.
 
@@ -161,7 +161,15 @@ Total_Medicine_Enrollments <- CAH1_Data %>%
 # output table (a data frame with 1 row and 1 column: the number of medicine and dentistry enrolments)
 #    Total_FPE
 # 1     40170
+
+
+# summarise the sum of instances in columns 
+column_vector <- c("col1", "col2")
+summarise(across(all_of(column_vector), ~ sum(.x, na.rm = T)), .groups = "drop")
+
 ```
+
+
 
 ## Grouping by 
 
@@ -176,6 +184,8 @@ Tariff_Medicine_Enrollments <- CAH1_Data %>%
   group_by(Tariff_group) %>%
   summarise(Total_FPE = sum(`01 Medicine and dentistry`)) 
 ```
+
+
 
 You can group_by multiple columns at once. This data doesn't really suit that, but we can create a data frame that does
 
@@ -204,6 +214,12 @@ g2 <- CAH1_Data %>%
 #  9 Specialist HEIs                        Uni                 1320
 # 10 NA                                     Not uni                5
 # 11 NA                                     Uni                  450
+
+# see the counts of instances
+
+species_count <- iris %>%
+  group_by(Species) %>%
+  summarise(row_count = n())
 ```
 
 To ungroup the data, add the argument `.groups = "drop"` to the `summarise()` function. You sometimes get a warning message if you don't do this. `ungroup()` also works.
@@ -224,7 +240,7 @@ Tariff_Medicine_Enrollments$Total_FPE[7] == Total_Medicine_Enrollments[ ,1]
 
 #create a total variable object
 TME_Tail <- Tariff_Medicine_Enrollments %>%
-  slice_tail() %>%
+  slice_tail(n = 1) %>%
   pull(Total_FPE)
 
 
@@ -287,6 +303,13 @@ mutate4 <- CAH1_Data %>%
 
 ```
 
+```{r eval=FALSE}
+# create a column that are the sum of other columns that have that suffix
+mutate(!!as.name(i) := rowSums(select(., ends_with(i))))
+
+# replace NAs with zeros
+mutate(across(everything(), ~replace_na(., 0)))
+```
 
 ## Pivotting
 
@@ -356,12 +379,26 @@ If you are working in a `dplyr` pipe (i.e. you are using %>%), the `x` data fram
 
 **Matching multiple columns.** If rows do not have a unique identifier - instead, their uniqueness comes from a combination of variables, perhaps the lifetime earnings of a certain subject at a particular university, which could not be matched from either the university or subject alone - then you will need to match multiple columns at once. This can also be done from within the `by = ...` argument, using a vector of columns to match. This could be in conjunction with the non-identical names method, shown above, but in it's simplest form, the code would look like: `left_join(data_frame1, data_frame2, by = c("column1", "column2", "column3"))`, where the three columns are all in both data_frame1 and data_frame2.
 
+You can join multiple DFs in a single line of code if you have a common joining column
+
+```{r eval=FALSE}
+Int_Students_Data <- list(Africa, Asia, Australasia, EU, Middle_East, North_America, South_America, 
+                Other_EU) %>%
+  reduce(left_join, by= c('UKPRN', 'HE.Provider'))
+```
+
+You can also make joins more efficient by manipulating what you're about to join within the join syntax
+
+```{r eval=FALSE}
+# here there is code nested within the join. This might save you from having to make lots of excess objects
+df3 <- df1 %>% left_join(df2 %>% select(col1, col2) %>% filter(col1 == "example filter"), by = "col2")
+```
+
 ## Extracting variables {#extracting_variables}
 
-Often you need to pull out specific data points. There are multiple ways to do this; some are more robust than others, but use whatever will work for you.
+Often you need to pull out specific data points from a df or other object. There are multiple ways to do this; some are more robust than others.
 
-If you know exactly which index position the data point is in **and will always be in**, you can subset with the data point position. That is, how many rows down it is and how many columns across it is. The issue is, if you change or update your analysis, and the data point moves, this code will extract the incorrect data point, as your data have shifted. This is also more favourable for whoever comes to QA your work. 
-
+If you know exactly which index position the data point is in **and will always be in**, you can subset with the data point position. That is, how many rows down it is and how many columns across it is. The issue is, if you change or update your analysis, and the data point moves, this code will extract the incorrect data point.
 
 
 ```{r eval=FALSE}

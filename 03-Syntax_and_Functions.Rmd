@@ -7,7 +7,7 @@ R is its own programming language, and some of the key syntax is not necessarily
 Use `<-` to assign variables
 e.g. `x <- 1`
 
-Use `c()` to combine (i.e. to create) a vector. This is a function in BaseR
+Use `c()` to combine (i.e. to create) a vector. 
 e.g. `c(1,2)`
 
 Use `==` to evaluate something as being exactly equal to
@@ -26,12 +26,13 @@ Use `!=` to specify "is NOT equal to"
 ```
 Use :: to specify that a function comes from a specific package. This is necessary if you have two packages which include functions with the same name. 
 ```{r eval=FALSE}
+# load the stringr package
 library(stringr)
 stringr::str_split("Let's split this string into 10 elements separated by spaces", " ") #this uses the str_split function from stringr
     [1] "Let's"     "split"     "this"      "string"    "into"      "10"        "elements"  "separated" "by"        "spaces"   
 ```
 
-Use `%>%` from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words it would read "... and then"
+Use `%>%` from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words, the sequence would read "... and then"
 
 ```{r eval=FALSE}
 library(dplyr)
@@ -60,7 +61,7 @@ Use parentheses `()` to pass argumnts to a function
 
 Use `$` to subset an object, similar to square brackets.
 
-Use square brackets `[]` to grab a subset of data. It appends an index vector to a specified vector. Square brackets can usually be applied in place of `$`, and are more maleable to the specific task, thoughn they might be slightly less intuitive. See the example below. For more detailed explanation of extracting/subsetting variables see the [data manipulation chapter](#extracting_variables)
+Use square brackets `[]` to grab a subset of data. It appends an index vector to a specified vector. Square brackets can usually be applied in place of `$`, and are more maleable to the specific task, though they might be slightly less intuitive. See the example below. For more detailed explanation of extracting/subsetting variables see the [data manipulation chapter](#extracting_variables)
 
 ```{r eval=FALSE}
 data("iris") # load the iris data
@@ -79,12 +80,12 @@ rep(unique(iris[[5]]), times = 2) #repeat x2 the unique entries from the 5th col
 Use `{}` to evaluate a series of items within the environment of the brackets. More on this when we discuss functions.
 
 
-(Advanced) use `{{}}`, `:=` and `!!` when defining functions and needing to specify the nature of objects within them. More on this in chapter 7 - UDFs. 
+(Advanced) use `{{}}`, `:=` and `!!` when defining functions and needing to specify the nature of objects within them. More on this in [User-defined Functions chapter](#Overview) 
 
 
 ## BaseR Functions 
 
-Functions are key to coding efficiently and effectively. BaseR contains many functions. Packages also contain specific functions that improve on the inbuilt functionality of R. These functions speed up and optimise your code.
+Functions are key to coding efficiently and effectively. BaseR, R's language, contains many functions. Packages also contain specific functions that improve on the inbuilt functionality of R. These functions speed up and optimise your code.
 
 To see the function inputs, run ?function(). The help window will appear in the bottom right panel. You can also tab across from the open bracket once writing the function to see the arguments.
 

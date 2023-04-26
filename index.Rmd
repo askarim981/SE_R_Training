@@ -7,7 +7,7 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-This book was produced by Tom Harris for the Higher Education Economics team in the Department for Educatoin (DfE). Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. Since its inception, the contents have been broadened to include code that is more generally applicable. 
+This book was produced by Tom Harris for the Higher Education Economics team in the Department for Educatoin (DfE). Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. Since its inception, the contents have been broadened to include code that is more generally applicable. The principles can be applied to many forms of data analysis. 
 
 For any questions, suggestions or **if you would like to make a contribution**, please contact:
 
@@ -30,11 +30,14 @@ For any questions, suggestions or **if you would like to make a contribution**, 
 -   [Econometrics help](https://www.econometrics-with-r.org/index.html)
 
 
-**HEEAT Internal resources**
+**DfE Internal resources**
 
-There are R various R resources held within DfE. [These are being updated fairly often]{style="color:red;"} These include:
+There are R various R resources held within DfE. [none of these links will not work unless on a DfE server]{style="color:red;"} These include:
 
 -   [DfE's Analytics Academy](https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course) - this is a comprehensive course which goes far beyond the code contained in this book. There are videos and tasks using DfE data.
+-  [DfE git guidance]( https://rsconnect/rsc/stats-production-guidance/git.html)
+-  [ESFA git and R training](https://rsconnect/rsc/esfa-r-training/git-building-intuition.html)
+- [DfE Devops training](https://dfe-analytical-services.github.io/azure-devops-for-analysis/index.html)
 -   The Core Learning RBookdown (which you are currently reading)
 -   A miscellaneous HE economics team R code Notebook (where people can dump odd bits of code that don't fit anywhere)
 -   Example projects and scripts
@@ -44,7 +47,7 @@ There are R various R resources held within DfE. [These are being updated fairly
 
 **Notes**
 
--   These chapters assume some minimal prior understanding of R i.e. what it is; how to download R studio/set it up; and what some of its capabilities are. If you have never used R before, you might want to engage in some other materials first. See DfE's [Analytics Academy](https://trello.com/b/QdDx3VmA/analytics-academy-an-r-training-course), particularly novice level 1 - 4, or [swirl](https://swirlstats.com/). Google, Youtube or colleagues who use R are also good starting points.
--   This book is an collection of RMarkdown scripts which correspond to .R scripts in the accompanying project folder: `\\vmt1pr-dhfs01\Working\HE-EAT-WKG-FS\HEEAT Technical Resources\R`. Those scripts run ordinally through chapters in this book. You can open up the scripts, which contain the code to load data files and manipulate them in the ways that are shown in this book. There might be some slight discrepancies between the book and those scripts, though these should not change anything fundamentally. All the code should run if the working directory is set accordingly.
+-   These chapters assume some minimal prior understanding of R i.e. what it is; how to download R studio/set it up; and what some of its capabilities are. If you have never used R before, you might want to engage in some other materials first. 
+-   This book was created alongside a suite of braoder training resources. The .R scripts that correspond to each chapter are in the accompanying project folder: `\\vmt1pr-dhfs01\Working\HE-EAT-WKG-FS\HEEAT Technical Resources\R`. Those scripts run ordinally through chapters in this book. 
 -   As with any coding language, there are many different ways to achieve the goals that we cover in this book. How you go about tackling any problem a personal choice. The code I present here aims to provide a basis from which you can iterate and probably improve. If you know of better or different methods to those you read, please do share them so that others can benefit from your knowledge.
 

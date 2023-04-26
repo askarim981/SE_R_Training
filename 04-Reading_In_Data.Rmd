@@ -1,6 +1,8 @@
 # Reading in Data 
 
-We use R to Manipulate and analyse data. However, R doesn't have a store of data (aside from some basic pre-loaded datasets), we need to save this outside the R environment and then load or read it into R. Our data tends to be stored in excel files - either workbooks or .csvs - or SQL databases. You can also read in data  from Stata and other programmes. Use Google to find packages which allow you to read in this data if this is how your data is stored. In this section we will focus on 3x HE-focused examples of reading in data. The data files are saved in the HEEAT technical resources folder. If you set your working directory as per the code below, you will be able to read in the data files being used. 
+One of R's best applications is for manipulating and analysing data. However, R doesn't have a store of data (aside from some basic pre-loaded datasets). We need to save this outside the R environment and then load or read it into R. Our data tends to be stored in excel files - either workbooks or .csvs - or SQL databases. You can also read in data  from Stata and other programmes. Use Google to find packages that allow you to read in this data, if this is how your data is stored. 
+
+This section uses 3x Higher Education-focused examples of reading in data. If you set your working directory as per the code below, you will be able to read in the data files being used. 
 
 ## Good practice
 
@@ -12,13 +14,14 @@ Equally, with any other data source, if you do not include very clear links to
 * [if relevant] when it was accessed,
 * [if relevant] where from within that source the data come,
 
-then it is impossible to verify the source data.
+then it is impossible to verify the source data. 
 
+It is good practice to store this information at the top of a document; in a log of input data; or within your code. 
 
 
 ## Reading in .csvs and excel workbooks
 
-Depending on your working directory, you can read in any files within that working directory. A reminder of how to check your directory is below. Refer to section [2.2: R Projects](#Projects) for more detail. Briefly, you can either read in a file using the whole file path, or you can do so using the relative path from where you've set the working directory.
+You can read in data using the whole file URL or from a relative file path, using your current working directory as a root. A reminder of how to check your directory is below. Refer to section [2.2: R Projects](#Projects) for more detail. 
 
 
 
@@ -39,7 +42,7 @@ setwd("//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS/HEEAT Technical Resources/R/Core le
 
 The `read.csv()` function is pre-loaded into R through the utils package. We will usually want to assign the loaded data to an object, so that we have it stored in our global environment. 
 
-CAH1 subjects is downloaded from HESA. It is saved in the project's data folder. I have done nothing to the file other than save it as a UTF-8 comma delimited .csv file. In general, it is better to leave sheets downloaded from HESA as they are. This way you can use the data in rows 1:16 to identify a. the source of the data, b. any filters applied to it.
+A CAH1 subjects .csv is downloaded from HESA. It is saved in the project's data folder. I have done nothing to the file other than save it as a UTF-8 comma delimited .csv file. The first 16 rows of the HESA data contain unique identifiers, details about the source and file specification, which can be referred back to. 
 
 
 ```{r eval=FALSE}
@@ -69,12 +72,17 @@ Now we have a rectangular dataset with non blank values and the column names we 
 
 You can change this by selecting which columns you want to be numeric. We want columns 3 to 27 to be numeric (i.e. every column from the 3rd column to the 27th)
 
-If you simply specify that you want them `as.numeric`, R will turn the values with commas into NAs. One way to avoid this is using readr's `parse_number` argument
+If you simply specify that you want them `as.numeric`, R will turn the values with commas into NAs. One way to avoid this is using readr's `parse_number` function from the `readr` package. 
 
 ```{r eval=FALSE}
+# load readr
+library(readr)
+
+# create a new object with columns 3 to 27 now numeric
 Numeric_CAH1_By_Provider <- CAH1_By_Provider %>%
   mutate_at(3:27, readr::parse_number) 
 
+# check the structure of the data
 str(Numeric_CAH1_By_Provider) # we can now see that columns 3 to 27 are numeric
 ```
 
@@ -82,7 +90,11 @@ str(Numeric_CAH1_By_Provider) # we can now see that columns 3 to 27 are numeric
 
 You can now explore the data as shown in segment 2.5.1 - [Data Frames]
 
-In some cases, R might create funky column headings. use `fileEncoding = "UTF-8-BOM"` as an argument within the read.csv function if this is the case. 
+In some cases, R might create funky column headings. Some options for solving might include
+
+* use `fileEncoding = "UTF-8-BOM"` as an argument within the read.csv function
+* check the source data
+
 
 Some other examples of making data numeric or replacing NAs with 0
 
@@ -90,6 +102,9 @@ Some other examples of making data numeric or replacing NAs with 0
 mutate(across(-c(`CAH2 Subject`),  ~as.numeric(.x)))
 mutate(across(-c(Subject), ~ readr::parse_number(.x)))
 mutate(across(everything(), ~replace_na(., 0)))
+
+# remove rows where all values are #N/A
+filter_at(vars(everything()), all_vars(!is.na(.)))
 ```
 
 
@@ -115,13 +130,54 @@ Subjects_Allied_To_Medicine <- read_excel(path = "Data/Multiple HESA sheets work
 
 ```
 
-## Connecting to SQL Databases
+## SQL
 
 <span style="color:red;"> Tom to populate this at a later date. </span>
 
- To understand the basics of this, see Analytics Academy session: Connect RStudio to the PDR.
+SQL databases are a common and secure way to store data. SQL data can be loaded into R. Equally, SQL code can be run within R studio (you can tell your script to translate the code into R code, effectively).
 
- Much HE data are also stored on SQL servers.
+Data exploration of SQL is much faster and more efficient if done in the SQL programme itself. 
+
+The applications below show how to load data from DfE SQL servers. The code will not work without access to the data.
+
+### Connecting to databases
+
+```{r eval=FALSE}
+library(odbc)
+con <- dbConnect(odbc(), Driver = "SQL Server", 
+                 Server = "T1PRMDRSQL\\SQLPROD,55842", 
+                 Database = "PDR",
+                 Trusted_Connection = "yes")
+
+```
+
+### Loading data into R
+
+```{r eval=FALSE}
+# download the data
+# instead of "Tier 1" this argument might be whatever is before the full stop in front of the table name when shown in SQL. For UCAS data, for example, this is "dbo"
+KS4_data <- tbl(con, in_schema("Tier1", "KS4_Pupil_MasterView"))
+
+# it is best to apply filters at this stage to improve efficiency and minimise the amount of data that R needs to extract
+students <- KS4_data %>% select(URN,  PupilMatchingRefAnonymous, FSM6CLA) %>% collect()
+
+```
+
+
+### Running SQL Queries 
+
+```{r eval=FALSE}
+# run a query from the connection established (as shown above)
+# put a query in quotation marks
+# An example query has been left in quotation marks for clarity
+
+output_data <- dbGetQuery(con, "
+                                select distinct [Postcode], [Quintile]
+                                from [HE-AN-DATA-NS].[Geography].[OfS_POLARPostcode]
+                                where [Measure] = 'Polar4_quintile'
+                          ")
+
+```
 
 
 
