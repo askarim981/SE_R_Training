@@ -1,0 +1,46 @@
+# Graphs
+
+## Graphical resources
+
+There are many resources dedicated to data visualisation, which are infinitely more comprehensive than this book could be. Some of the most useful links I have found are contained below. 
+
+* [R Graph Gallery](https://www.r-graph-gallery.com/) 
+* [Plotly - advanced charts](https://plotly.com/r/) including statistical charts, maps, interactive features etc.
+* [Colour palettes](https://coolors.co/) including showing colour blind tests of palettes. Fonts are also downloadable.
+* [Blog on choosing colours](https://blog.datawrapper.de/beautifulcolors/)
+    * [Blog landing page](https://lisacharlottemuth.com/articles.html)
+* [Guide to beautiful plotting in R](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
+* [From data to Viz](https://www.data-to-viz.com/) contains to dos and don't about data visualisation. Also helps with chart selection.
+
+
+## Tips
+
+The order in which you add elements to a ggplot graph matters. You can overwrite your previous code. 
+
+Fill and colour - both arguments within `ggplot::aes()` - control different things: the fill and outline, respectively.
+
+To resize test, `rel()` can achieve this. You can also define the order of a facet wrap of multiple graphs. 
+
+```{R eval = FALSE}
+theme(strip.text.x  = element_text(face="bold", size =16), 
+        text = element_text(size = rel(4)),
+        legend.text = element_text(size = rel(4)),
+        plot.caption = element_text(size = rel(3))) +
+  facet_wrap(~factor(Ofs_Tariff_1920, levels = Tariff_Order1))
+```
+
+Add line to a plot using `geom_vline()` or `geom_hline(aes(yintercept = object_or_value), alpha = 0.5, linetype = "dashed")` + 
+
+## Arranging
+
+Arranging your data is essential for displaying data well. This might be the order of a categorical axis or a discrete colour scale. In order to do this, wrap the aes argument:
+
+```{R eval = FALSE}
+
+ggplot(aes(x = factor(x_column_name, levels = x_axis_order), y = y_col_name, color = factor(Tariff, levels = Tariff_Order
+```
+
+
+## Basic interactivity
+
+if you include a text argument within the `ggplot::aes()` function, you can create interactive charts. Use '<br>', the .html code for returning to a new line, to create other lines. You can also use functions to control formatting such as bolding. When rendering in an output, use `ggplotly(graph_object_name, tooltip = "text")`.

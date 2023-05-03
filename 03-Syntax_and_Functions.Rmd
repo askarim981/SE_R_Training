@@ -152,7 +152,7 @@ if (i > 3){
 ```
 
 
-Loops are one of the best ways to optimise your code, but take a bit of time to effectively apply to your work. Examples of applications of loops in our work will be included in the subsequent useful code sections. For loops are usually easier to apply because you tend to know the set of possible values of i. 
+Loops are a good and easily comprehensible way to optimise your code, but take a bit of time to effectively apply to your work. More detail is contained in the [User-defined Functions](#Loops) chapter.
 
 **For loop**
 ```{r eval=FALSE}

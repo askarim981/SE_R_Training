@@ -1,14 +1,14 @@
 # User-defined Functions
 
-The advanced technicalities of UDFs are, in most instances, outstide the scope of this book. If you would like to read more about the specifics covered here, some good resources are:
+The advanced technicalities of User-Defined Functions (UDFs) are, in most instances, outside the scope of this book. If you would like to read more about the specifics covered here, some good resources are:
 
 * [Quasiquotation](https://adv-r.hadley.nz/quasiquotation.html)
 * [Tidy evaluation (data masking and tidy selection)](https://dplyr.tidyverse.org/articles/programming.html)
 * [Assignment by reference](https://www.rdocumentation.org/packages/data.table/versions/1.14.0/topics/%3A%3D)
 
-## Overview
+## Overview {#Overview}
 
-This chapter is a quick introduction to UDFs. It also aims to give you some of the tools to overcome specific issues you are likely to encounter as you start to use them more frequently. UDFs give you the power to automate and generalise code. They allow analysts to retain control over function inputs, whilst also minimising the risk of error. User-defined functions are easier to QA and are more readable than large chunks of repeated code. Making changes to UD functions is also faster than finding the exact places to make a change if this change needs to be iterated across multiple code chunks. 
+This chapter is a quick introduction to UDFs. It also aims to give you some of the tools to overcome specific issues you are likely to encounter as you start to use them more frequently. UDFs give you the power to automate and generalise code. They allow analysts to retain control over function inputs, whilst also minimising the risk of error. User-defined functions are easier to QA and are more readable than large chunks of repeated code.  
 
 In general, **a good rule is to write a function if you are going to be using a chunk of code more than twice** (you can also write a function retrospectively if you notice you've copied a chunk of code several times).
 
@@ -17,8 +17,8 @@ As with everything in this book, there is no single way to go about writing func
 
 In order to write a function you need:
 
-* a name for your function;
-* function input parameters;
+* a name for it;
+* input parameters;
 * an operation for the function to perform; and
 * an output or outputs.
 
@@ -58,12 +58,13 @@ The usual `<-` (assignment) operator will create an object to be used within the
 Assigmment function 1 creates 3 variables: a, b and d. I use "d" because `c` is the combine function itself. We then run the function, which creates the variables but doesn't assign them to any objects in the global environment. 
 
 ```{r eval=FALSE}
-
+# create a function, which, within it creates 3 objects: a,b,d
 Assignment_Func_1 <- function(.){
    a <- 1
    b <- 2
    d <- 3
 }
+# running the function will do nothing
 Assignment_Func_1()
 ```
 
@@ -76,8 +77,10 @@ Assignment_Func_2 <- function(.){
    b <- 2
    d <- 3
 }
+# running the function and assigning it to an object, x
 x <- Assignment_Func_2()
 
+# test what has happened
 print(x)
 [1] 3
 ```
@@ -287,7 +290,7 @@ Another key for setting defaults is ensuring that your function can work both on
 
 If you want to be able to call the data_frame object and interact with it, then you should tell R this. Setting the argument: `data_frame = .data` will allow you to do this. In this way, if you are working outside a dplyr pipe, you can reassign the object such that data_frame = insert_name_of_your_data . Alternatively, if you are in a pipe, you will be able to use the data_frame object within the function. 
 
-## Using Loops
+## Using Loops {#Loops}
 
 Loops are often more computationally intensive than functions from the `apply()` family. See this [guidance](https://towardsdatascience.com/dealing-with-apply-functions-in-r-ea99d3f49a71) for usage details. it can be harder to get your head around. 
 
@@ -311,10 +314,11 @@ for(i in 1:3){
 
 ```
 
-While loops are useful when we don't know exactly when to terminate the loop. They do, however, require us to define an evolving condition. More common is to know the set around which we need to loop. This will usually be a number or vector (remember vectors can vary in length). 
+While loops are useful when we don't know exactly when to terminate the loop. They do, however, require us to define an evolving condition. More common is to know the set around which we need to loop. This will usually be a number or vector (remember vectors can vary in length). E.g., you could run a loop around `i in 1:length(vector)`
 
 You can apply vectors over multiple objects using the `apply()` family of functions: `tapply()`, `sapply()`, `lapply()`. You can also achieve this with loops
 
+The function `get()` can be used to turn a text string into an object (similar to !! and {{}}). It is more flexible. 
 
 ```{r eval = F}
 # deinfe a vector of the data frame names
@@ -336,6 +340,22 @@ assign(i, df)
 # remove elements used in loop
 rm(i, df)
 ```
+
+## Random snippets
+
+Assign a variable out of a loop so that the outputs have different names
+
+```{r eval = F}
+assign(paste0("output_name_start_", year_suffix), df, inherits = TRUE)
+```
+
+Evaluate a name as a text string with `deparse(substitute(name))`
+
+Create a blank tibble with names from a vecotr, `cols_vector`. You can use this to bind rows to the bottom of. 
+```{r eval = F}
+blank_df <- cols_vector %>% purrr::map_dfc(~tibble::tibble(!!.x := logical()))
+```
+
 
 
 For more examples or applications, feel free to contact me: thomas.harris@education.gov.uk

@@ -132,7 +132,6 @@ Subjects_Allied_To_Medicine <- read_excel(path = "Data/Multiple HESA sheets work
 
 ## SQL
 
-<span style="color:red;"> Tom to populate this at a later date. </span>
 
 SQL databases are a common and secure way to store data. SQL data can be loaded into R. Equally, SQL code can be run within R studio (you can tell your script to translate the code into R code, effectively).
 

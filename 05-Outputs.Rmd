@@ -47,6 +47,15 @@ write.xlsx(Excel_File_Name,"./Excel_File_Name.xlsx",overwrite = TRUE)
 
 ```
 
+## Saving objects
+
+A good tip for reducing markdown (or other output) running speeds is to save your rendered objects and then read them into the markdown when you knit it, rather than sourcing all of the code. Graphs can be saved as .RDS objects so that when you read them in, they retain all of their underlying features, e.g., text labels, so that you can render them as interactive charts. Similarly, regression outputs can be saved with all the underlying data, so you can work with and manipulate them (e.g., extract particular values or present in a custom way). You use `readRDS()` to read the object back in. 
+
+```{r eval = FALSE}
+# example of saving an object
+saveRDS(Object_Name, "Object_Name.Rds", version = 2)
+```
+
 ## Saving graphs
 
 After creating a graph, the best way to store the output is in a markdown or other feature of R that will update the rendered image if any of the inputs or code change. For ad hoc work, though, we might simply want to export an image. To do this we can either:

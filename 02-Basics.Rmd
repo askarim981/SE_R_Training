@@ -178,7 +178,7 @@ Sometimes you will need to transform the data type. For example, if numbers are 
 
 Be careful when converting text to numbers, `as.numeric` will return "NA" if you try to convert "6,377" to 6377, because of the comma.  To get around this, consider string manipulation functions from the `stringi` or `stringr` packages, or `readr::parse_number`. 
 
-For more examples of changing data structures see the [data manipulation chapter](#mutating) or the (more advanced) [user-defined functions chapter.](#Changing_Data_Type)
+For more examples of changing data structures see the [data manipulation chapter](#mutating) or the (more advanced) 
 
 ## Data structures
 
