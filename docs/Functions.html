@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Syntax and Functions | HE R training</title>
-  <meta name="description" content="Chapter 3 Syntax and Functions | HE R training" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <title>Chapter 3 Syntax and Functions | R training</title>
+  <meta name="description" content="Chapter 3 Syntax and Functions | R training" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Syntax and Functions | HE R training" />
+  <meta property="og:title" content="Chapter 3 Syntax and Functions | R training" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Syntax and Functions | HE R training" />
+  <meta name="twitter:title" content="Chapter 3 Syntax and Functions | R training" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Tom Harris" />
 
 
-<meta name="date" content="2023-05-03" />
+<meta name="date" content="2023-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -133,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">HE R Training</a></li>
+<li><a href="./">R Training</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -237,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HE R training</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R training</a>
           </h1>
         </div>
 
@@ -255,46 +259,46 @@ e.g. <code>x &lt;- 1</code></p>
 <p>Use <code>c()</code> to combine (i.e. to create) a vector.
 e.g. <code>c(1,2)</code></p>
 <p>Use <code>==</code> to evaluate something as being exactly equal to</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Functions.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this will return an error</span></span>
-<span id="cb21-2"><a href="Functions.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="co">#this will return: [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Functions.html#cb21-1" tabindex="-1"></a><span class="dv">1</span> <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this will return an error</span></span>
+<span id="cb21-2"><a href="Functions.html#cb21-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="co">#this will return: [1] TRUE</span></span></code></pre></div>
 <p>Use <code>%in%</code> to specify that a character string or other data element is contained in some data structure.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Functions.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>) <span class="co"># this will return [1] TRUE as 1 is in the vector we&#39;ve defined</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Functions.html#cb22-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>) <span class="co"># this will return [1] TRUE as 1 is in the vector we&#39;ve defined</span></span></code></pre></div>
 <p>Use <code>!=</code> to specify “is NOT equal to”</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Functions.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span> <span class="co">#this will return [1] TRUE as 1 is NOT equal to 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Functions.html#cb23-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span> <span class="co">#this will return [1] TRUE as 1 is NOT equal to 2</span></span></code></pre></div>
 <p>Use :: to specify that a function comes from a specific package. This is necessary if you have two packages which include functions with the same name.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Functions.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the stringr package</span></span>
-<span id="cb24-2"><a href="Functions.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb24-3"><a href="Functions.html#cb24-3" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="st">&quot;Let&#39;s split this string into 10 elements separated by spaces&quot;</span>, <span class="st">&quot; &quot;</span>) <span class="co">#this uses the str_split function from stringr</span></span>
-<span id="cb24-4"><a href="Functions.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">&quot;Let&#39;s&quot;</span>     <span class="st">&quot;split&quot;</span>     <span class="st">&quot;this&quot;</span>      <span class="st">&quot;string&quot;</span>    <span class="st">&quot;into&quot;</span>      <span class="st">&quot;10&quot;</span>        <span class="st">&quot;elements&quot;</span>  <span class="st">&quot;separated&quot;</span> <span class="st">&quot;by&quot;</span>        <span class="st">&quot;spaces&quot;</span>   </span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Functions.html#cb24-1" tabindex="-1"></a><span class="co"># load the stringr package</span></span>
+<span id="cb24-2"><a href="Functions.html#cb24-2" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb24-3"><a href="Functions.html#cb24-3" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="st">&quot;Let&#39;s split this string into 10 elements separated by spaces&quot;</span>, <span class="st">&quot; &quot;</span>) <span class="co">#this uses the str_split function from stringr</span></span>
+<span id="cb24-4"><a href="Functions.html#cb24-4" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">&quot;Let&#39;s&quot;</span>     <span class="st">&quot;split&quot;</span>     <span class="st">&quot;this&quot;</span>      <span class="st">&quot;string&quot;</span>    <span class="st">&quot;into&quot;</span>      <span class="st">&quot;10&quot;</span>        <span class="st">&quot;elements&quot;</span>  <span class="st">&quot;separated&quot;</span> <span class="st">&quot;by&quot;</span>        <span class="st">&quot;spaces&quot;</span>   </span></code></pre></div>
 <p>Use <code>%&gt;%</code> from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words, the sequence would read “… and then”</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Functions.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb25-2"><a href="Functions.html#cb25-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co">#define y as the number 25</span></span>
-<span id="cb25-3"><a href="Functions.html#cb25-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> y <span class="sc">%&gt;%</span> <span class="co">#define a new element, x, as 25. Insert the pipe to continue the code chunk on our object, x.</span></span>
-<span id="cb25-4"><a href="Functions.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span>  <span class="co"># square root our element, x. *we do not need to specify that we&#39;re square rooting x as it&#39;s within a pipe</span></span>
-<span id="cb25-5"><a href="Functions.html#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()   <span class="co">#print the object we&#39;ve created then manipulated</span></span>
-<span id="cb25-6"><a href="Functions.html#cb25-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Functions.html#cb25-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb25-2"><a href="Functions.html#cb25-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co">#define y as the number 25</span></span>
+<span id="cb25-3"><a href="Functions.html#cb25-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> y <span class="sc">%&gt;%</span> <span class="co">#define a new element, x, as 25. Insert the pipe to continue the code chunk on our object, x.</span></span>
+<span id="cb25-4"><a href="Functions.html#cb25-4" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span>  <span class="co"># square root our element, x. *we do not need to specify that we&#39;re square rooting x as it&#39;s within a pipe</span></span>
+<span id="cb25-5"><a href="Functions.html#cb25-5" tabindex="-1"></a>  <span class="fu">print</span>()   <span class="co">#print the object we&#39;ve created then manipulated</span></span>
+<span id="cb25-6"><a href="Functions.html#cb25-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
 <p>Use <code>~</code> (tilde) to define the relationship between two sides of an equation. It separates the left and right side</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="Functions.html#cb26-1" aria-hidden="true" tabindex="-1"></a>two_by_two <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="co">#this creates a vector of the numbers 1 to 4: 1,2,3,4</span></span>
-<span id="cb26-2"><a href="Functions.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(two_by_two)</span>
-<span id="cb26-3"><a href="Functions.html#cb26-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></span>
-<span id="cb26-4"><a href="Functions.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="Functions.html#cb26-5" aria-hidden="true" tabindex="-1"></a>Even_numbers <span class="ot">&lt;-</span> <span class="fu">case_when</span>(two_by_two<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;divisible by 2&quot;</span>, <span class="co"># when the element in our two by two vector is divisible by 2, assign the text &quot;divisible by 2&quot;</span></span>
-<span id="cb26-6"><a href="Functions.html#cb26-6" aria-hidden="true" tabindex="-1"></a>          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;not divisible by 2&quot;</span>)   <span class="co">#when our first condition is not met, assign &quot;not divisible by 2</span></span>
-<span id="cb26-7"><a href="Functions.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Even_numbers)</span>
-<span id="cb26-8"><a href="Functions.html#cb26-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>     <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>  </span>
-<span id="cb26-9"><a href="Functions.html#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#this will create a vector of 4 character strings, which correspond to the two_by_two vector. Those in position 2 and 4 (the numbers 2 and 4) are divisible by 2, so returns &quot;divisible by 2&quot;.</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="Functions.html#cb26-1" tabindex="-1"></a>two_by_two <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="co">#this creates a vector of the numbers 1 to 4: 1,2,3,4</span></span>
+<span id="cb26-2"><a href="Functions.html#cb26-2" tabindex="-1"></a><span class="fu">print</span>(two_by_two)</span>
+<span id="cb26-3"><a href="Functions.html#cb26-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></span>
+<span id="cb26-4"><a href="Functions.html#cb26-4" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="Functions.html#cb26-5" tabindex="-1"></a>Even_numbers <span class="ot">&lt;-</span> <span class="fu">case_when</span>(two_by_two<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;divisible by 2&quot;</span>, <span class="co"># when the element in our two by two vector is divisible by 2, assign the text &quot;divisible by 2&quot;</span></span>
+<span id="cb26-6"><a href="Functions.html#cb26-6" tabindex="-1"></a>          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;not divisible by 2&quot;</span>)   <span class="co">#when our first condition is not met, assign &quot;not divisible by 2</span></span>
+<span id="cb26-7"><a href="Functions.html#cb26-7" tabindex="-1"></a><span class="fu">print</span>(Even_numbers)</span>
+<span id="cb26-8"><a href="Functions.html#cb26-8" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>     <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>  </span>
+<span id="cb26-9"><a href="Functions.html#cb26-9" tabindex="-1"></a><span class="co">#this will create a vector of 4 character strings, which correspond to the two_by_two vector. Those in position 2 and 4 (the numbers 2 and 4) are divisible by 2, so returns &quot;divisible by 2&quot;.</span></span></code></pre></div>
 <p>Use parentheses <code>()</code> to pass argumnts to a function</p>
 <p>Use <code>$</code> to subset an object, similar to square brackets.</p>
 <p>Use square brackets <code>[]</code> to grab a subset of data. It appends an index vector to a specified vector. Square brackets can usually be applied in place of <code>$</code>, and are more maleable to the specific task, though they might be slightly less intuitive. See the example below. For more detailed explanation of extracting/subsetting variables see the <a href="data-manipulation.html#extracting_variables">data manipulation chapter</a></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Functions.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co"># load the iris data</span></span>
-<span id="cb27-2"><a href="Functions.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(iris<span class="sc">$</span>Species) <span class="co">#show the unique entries in the Species column within the iris data frame</span></span>
-<span id="cb27-3"><a href="Functions.html#cb27-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica </span>
-<span id="cb27-4"><a href="Functions.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="Functions.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris<span class="sc">$</span>Species), <span class="at">times =</span> <span class="dv">2</span>) <span class="co"># repeat x2 the unique entries from the Species column within the iris data frame</span></span>
-<span id="cb27-6"><a href="Functions.html#cb27-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span>
-<span id="cb27-7"><a href="Functions.html#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="Functions.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris[[<span class="dv">5</span>]]), <span class="at">times =</span> <span class="dv">2</span>) <span class="co">#repeat x2 the unique entries from the 5th column within the iris data frame: the species column</span></span>
-<span id="cb27-9"><a href="Functions.html#cb27-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Functions.html#cb27-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co"># load the iris data</span></span>
+<span id="cb27-2"><a href="Functions.html#cb27-2" tabindex="-1"></a><span class="fu">unique</span>(iris<span class="sc">$</span>Species) <span class="co">#show the unique entries in the Species column within the iris data frame</span></span>
+<span id="cb27-3"><a href="Functions.html#cb27-3" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica </span>
+<span id="cb27-4"><a href="Functions.html#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="Functions.html#cb27-5" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris<span class="sc">$</span>Species), <span class="at">times =</span> <span class="dv">2</span>) <span class="co"># repeat x2 the unique entries from the Species column within the iris data frame</span></span>
+<span id="cb27-6"><a href="Functions.html#cb27-6" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span>
+<span id="cb27-7"><a href="Functions.html#cb27-7" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="Functions.html#cb27-8" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris[[<span class="dv">5</span>]]), <span class="at">times =</span> <span class="dv">2</span>) <span class="co">#repeat x2 the unique entries from the 5th column within the iris data frame: the species column</span></span>
+<span id="cb27-9"><a href="Functions.html#cb27-9" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span></code></pre></div>
 <p>Use <code>{}</code> to evaluate a series of items within the environment of the brackets. More on this when we discuss functions.</p>
 <p>(Advanced) use <code>{{}}</code>, <code>:=</code> and <code>!!</code> when defining functions and needing to specify the nature of objects within them. More on this in <a href="user-defined-functions.html#Overview">User-defined Functions chapter</a></p>
 </div>
@@ -319,65 +323,65 @@ e.g. <code>c(1,2)</code></p>
 <h3><span class="header-section-number">3.2.2</span> Programming functions<a href="Functions.html#programming-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>If statements</strong></p>
 <p>The most important thing to remember with if else statements is to make sure the else is on the same line as the close curly bracket of the if statement. Otherwise the else won’t be tied to the preceding condition.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="Functions.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition){</span>
-<span id="cb28-2"><a href="Functions.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Do something</span></span>
-<span id="cb28-3"><a href="Functions.html#cb28-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb28-4"><a href="Functions.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Do something different</span></span>
-<span id="cb28-5"><a href="Functions.html#cb28-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-6"><a href="Functions.html#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="Functions.html#cb28-7" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb28-8"><a href="Functions.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
-<span id="cb28-9"><a href="Functions.html#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;yes&quot;</span>)</span>
-<span id="cb28-10"><a href="Functions.html#cb28-10" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {    <span class="co">#because the function is continuous, the else needs to be on the same line as the final curly bracket of the if function.</span></span>
-<span id="cb28-11"><a href="Functions.html#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;no&quot;</span>)</span>
-<span id="cb28-12"><a href="Functions.html#cb28-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-13"><a href="Functions.html#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="Functions.html#cb28-14" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;no&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="Functions.html#cb28-1" tabindex="-1"></a><span class="cf">if</span> (condition){</span>
+<span id="cb28-2"><a href="Functions.html#cb28-2" tabindex="-1"></a>  <span class="co">#Do something</span></span>
+<span id="cb28-3"><a href="Functions.html#cb28-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb28-4"><a href="Functions.html#cb28-4" tabindex="-1"></a>  <span class="co">#Do something different</span></span>
+<span id="cb28-5"><a href="Functions.html#cb28-5" tabindex="-1"></a>}</span>
+<span id="cb28-6"><a href="Functions.html#cb28-6" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="Functions.html#cb28-7" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb28-8"><a href="Functions.html#cb28-8" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
+<span id="cb28-9"><a href="Functions.html#cb28-9" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;yes&quot;</span>)</span>
+<span id="cb28-10"><a href="Functions.html#cb28-10" tabindex="-1"></a>} <span class="cf">else</span> {    <span class="co">#because the function is continuous, the else needs to be on the same line as the final curly bracket of the if function.</span></span>
+<span id="cb28-11"><a href="Functions.html#cb28-11" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb28-12"><a href="Functions.html#cb28-12" tabindex="-1"></a>}</span>
+<span id="cb28-13"><a href="Functions.html#cb28-13" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="Functions.html#cb28-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;no&quot;</span></span></code></pre></div>
 <p>Adding conditions to if statements using <code>else if</code></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Functions.html#cb29-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb29-2"><a href="Functions.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
-<span id="cb29-3"><a href="Functions.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;greater than 3&quot;</span>)</span>
-<span id="cb29-4"><a href="Functions.html#cb29-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( i <span class="sc">==</span> <span class="dv">3</span>) {</span>
-<span id="cb29-5"><a href="Functions.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;equal to 3&quot;</span>)</span>
-<span id="cb29-6"><a href="Functions.html#cb29-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb29-7"><a href="Functions.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;less than 3&quot;</span>)</span>
-<span id="cb29-8"><a href="Functions.html#cb29-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb29-9"><a href="Functions.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="Functions.html#cb29-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;less than 3&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Functions.html#cb29-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb29-2"><a href="Functions.html#cb29-2" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
+<span id="cb29-3"><a href="Functions.html#cb29-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;greater than 3&quot;</span>)</span>
+<span id="cb29-4"><a href="Functions.html#cb29-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( i <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb29-5"><a href="Functions.html#cb29-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;equal to 3&quot;</span>)</span>
+<span id="cb29-6"><a href="Functions.html#cb29-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb29-7"><a href="Functions.html#cb29-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;less than 3&quot;</span>)</span>
+<span id="cb29-8"><a href="Functions.html#cb29-8" tabindex="-1"></a>}</span>
+<span id="cb29-9"><a href="Functions.html#cb29-9" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="Functions.html#cb29-10" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;less than 3&quot;</span></span></code></pre></div>
 <p>Loops are a good and easily comprehensible way to optimise your code, but take a bit of time to effectively apply to your work. More detail is contained in the <a href="user-defined-functions.html#Loops">User-defined Functions</a> chapter.</p>
 <p><strong>For loop</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="Functions.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generic</span></span>
-<span id="cb30-2"><a href="Functions.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(variable <span class="cf">in</span> something) {</span>
-<span id="cb30-3"><a href="Functions.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  do something</span>
-<span id="cb30-4"><a href="Functions.html#cb30-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb30-5"><a href="Functions.html#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="Functions.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Example application</span></span>
-<span id="cb30-7"><a href="Functions.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>){</span>
-<span id="cb30-8"><a href="Functions.html#cb30-8" aria-hidden="true" tabindex="-1"></a>  j <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb30-9"><a href="Functions.html#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(j)</span>
-<span id="cb30-10"><a href="Functions.html#cb30-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb30-11"><a href="Functions.html#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-12"><a href="Functions.html#cb30-12" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">11</span></span>
-<span id="cb30-13"><a href="Functions.html#cb30-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">12</span></span>
-<span id="cb30-14"><a href="Functions.html#cb30-14" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">13</span></span>
-<span id="cb30-15"><a href="Functions.html#cb30-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">14</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="Functions.html#cb30-1" tabindex="-1"></a><span class="co">#Generic</span></span>
+<span id="cb30-2"><a href="Functions.html#cb30-2" tabindex="-1"></a><span class="cf">for</span>(variable <span class="cf">in</span> something) {</span>
+<span id="cb30-3"><a href="Functions.html#cb30-3" tabindex="-1"></a>  do something</span>
+<span id="cb30-4"><a href="Functions.html#cb30-4" tabindex="-1"></a>}</span>
+<span id="cb30-5"><a href="Functions.html#cb30-5" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="Functions.html#cb30-6" tabindex="-1"></a><span class="co">#Example application</span></span>
+<span id="cb30-7"><a href="Functions.html#cb30-7" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>){</span>
+<span id="cb30-8"><a href="Functions.html#cb30-8" tabindex="-1"></a>  j <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb30-9"><a href="Functions.html#cb30-9" tabindex="-1"></a>  <span class="fu">print</span>(j)</span>
+<span id="cb30-10"><a href="Functions.html#cb30-10" tabindex="-1"></a>}</span>
+<span id="cb30-11"><a href="Functions.html#cb30-11" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="Functions.html#cb30-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">11</span></span>
+<span id="cb30-13"><a href="Functions.html#cb30-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">12</span></span>
+<span id="cb30-14"><a href="Functions.html#cb30-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">13</span></span>
+<span id="cb30-15"><a href="Functions.html#cb30-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">14</span></span></code></pre></div>
 <p><strong>While loop</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="Functions.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generic</span></span>
-<span id="cb31-2"><a href="Functions.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(condition){</span>
-<span id="cb31-3"><a href="Functions.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#do something</span></span>
-<span id="cb31-4"><a href="Functions.html#cb31-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb31-5"><a href="Functions.html#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="Functions.html#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Example application</span></span>
-<span id="cb31-7"><a href="Functions.html#cb31-7" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb31-8"><a href="Functions.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;</span> <span class="dv">6</span>) {</span>
-<span id="cb31-9"><a href="Functions.html#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb31-10"><a href="Functions.html#cb31-10" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> i<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb31-11"><a href="Functions.html#cb31-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb31-12"><a href="Functions.html#cb31-12" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
-<span id="cb31-13"><a href="Functions.html#cb31-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
-<span id="cb31-14"><a href="Functions.html#cb31-14" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span>
-<span id="cb31-15"><a href="Functions.html#cb31-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span>
-<span id="cb31-16"><a href="Functions.html#cb31-16" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="Functions.html#cb31-1" tabindex="-1"></a><span class="co">#Generic</span></span>
+<span id="cb31-2"><a href="Functions.html#cb31-2" tabindex="-1"></a><span class="cf">while</span>(condition){</span>
+<span id="cb31-3"><a href="Functions.html#cb31-3" tabindex="-1"></a>  <span class="co">#do something</span></span>
+<span id="cb31-4"><a href="Functions.html#cb31-4" tabindex="-1"></a>}</span>
+<span id="cb31-5"><a href="Functions.html#cb31-5" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="Functions.html#cb31-6" tabindex="-1"></a><span class="co">#Example application</span></span>
+<span id="cb31-7"><a href="Functions.html#cb31-7" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb31-8"><a href="Functions.html#cb31-8" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;</span> <span class="dv">6</span>) {</span>
+<span id="cb31-9"><a href="Functions.html#cb31-9" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb31-10"><a href="Functions.html#cb31-10" tabindex="-1"></a>  i <span class="ot">=</span> i<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb31-11"><a href="Functions.html#cb31-11" tabindex="-1"></a>}</span>
+<span id="cb31-12"><a href="Functions.html#cb31-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
+<span id="cb31-13"><a href="Functions.html#cb31-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
+<span id="cb31-14"><a href="Functions.html#cb31-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span>
+<span id="cb31-15"><a href="Functions.html#cb31-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span>
+<span id="cb31-16"><a href="Functions.html#cb31-16" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
 
 </div>
 </div>

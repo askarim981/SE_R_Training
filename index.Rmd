@@ -1,5 +1,5 @@
 --- 
-title: "HE R training"
+title: "R training"
 author: "Tom Harris"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,7 +7,7 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-This book was produced by Tom Harris for the Higher Education Economics team in the Department for Educatoin (DfE). Its contents are intended to help new R users by covering key features of the R programming language and R studio. The applications try to focus, where possible, on data and outputs that are common in higher education analysis. Since its inception, the contents have been broadened to include code that is more generally applicable. The principles can be applied to many forms of data analysis. 
+This book was produced by Tom Harris to help colleagues and interested people to learn R. Its contents are intended to help new R users by covering key features of the R programming language and R studio, with specific focus on the tools and skills used in (economic) analysis. I have drawn from lots of existing sources and distilled much of that information into chapters demonstrating how I like to use R. The data used is primarily from the UK Higher Education sector and the chapters aim to elucidate skills used to analyse and make sense of that data. Since its inception, the contents have been broadened to include code that is more generally applicable and most updates have been done in my own time, using this as a personal code and best practice repository. 
 
 For any questions, suggestions or **if you would like to make a contribution**, please contact:
 
@@ -28,6 +28,9 @@ For any questions, suggestions or **if you would like to make a contribution**, 
 -   [Datacamp](https://www.datacamp.com/)
 -   [R Graph Gallery](https://www.r-graph-gallery.com/) A starting point for ALL your graphical needs.
 -   [Econometrics help](https://www.econometrics-with-r.org/index.html)
+
+** Python resources **
+- I recently discovered this book, which is similar to the R cookbook but for Python. [Python](https://aeturrell.github.io/python4DS/whole-game.html)
 
 
 **DfE Internal resources**
