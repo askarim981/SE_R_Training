@@ -1,5 +1,5 @@
 --- 
-title: "R training"
+title: "An R Training Resource"
 author: "Tom Harris"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,7 +7,7 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-This book was produced by Tom Harris to help colleagues and interested people to learn R. Its contents are intended to help new R users by covering key features of the R programming language and R studio, with specific focus on the tools and skills used in (economic) analysis. I have drawn from lots of existing sources and distilled much of that information into chapters demonstrating how I like to use R. The data used is primarily from the UK Higher Education sector and the chapters aim to elucidate skills used to analyse and make sense of that data. Since its inception, the contents have been broadened to include code that is more generally applicable and most updates have been done in my own time, using this as a personal code and best practice repository. 
+This book was produced by Tom Harris to help colleagues and interested people to learn R. Its contents cover key features of the R programming language and R studio, with specific focus on the tools and skills used in (economic) analysis. I have drawn from lots of existing sources and distilled much of that information into chapters demonstrating how I like to use R. The data used is primarily from the UK Higher Education sector and the chapters aim to elucidate skills used to analyse and make sense of that data. Since its inception, the contents have been broadened to include code that is more generally applicable and most updates have been done in my own time, using this as a personal code and best practice repository. 
 
 For any questions, suggestions or **if you would like to make a contribution**, please contact:
 
@@ -29,7 +29,8 @@ For any questions, suggestions or **if you would like to make a contribution**, 
 -   [R Graph Gallery](https://www.r-graph-gallery.com/) A starting point for ALL your graphical needs.
 -   [Econometrics help](https://www.econometrics-with-r.org/index.html)
 
-** Python resources **
+**Python resources**
+
 - I recently discovered this book, which is similar to the R cookbook but for Python. [Python](https://aeturrell.github.io/python4DS/whole-game.html)
 
 
@@ -41,16 +42,10 @@ There are R various R resources held within DfE. [none of these links will not w
 -  [DfE git guidance]( https://rsconnect/rsc/stats-production-guidance/git.html)
 -  [ESFA git and R training](https://rsconnect/rsc/esfa-r-training/git-building-intuition.html)
 - [DfE Devops training](https://dfe-analytical-services.github.io/azure-devops-for-analysis/index.html)
--   The Core Learning RBookdown (which you are currently reading)
--   A miscellaneous HE economics team R code Notebook (where people can dump odd bits of code that don't fit anywhere)
--   Example projects and scripts
--   Scripts of generic user-defined functions, written or used by the team
--   Scripts containing "useful code" - code that produces things such as dashboards and RShiny apps. These scripts generally stand alone, and might link to data sources stored elsewhere.
 
 
 **Notes**
 
 -   These chapters assume some minimal prior understanding of R i.e. what it is; how to download R studio/set it up; and what some of its capabilities are. If you have never used R before, you might want to engage in some other materials first. 
--   This book was created alongside a suite of braoder training resources. The .R scripts that correspond to each chapter are in the accompanying project folder: `\\vmt1pr-dhfs01\Working\HE-EAT-WKG-FS\HEEAT Technical Resources\R`. Those scripts run ordinally through chapters in this book. 
 -   As with any coding language, there are many different ways to achieve the goals that we cover in this book. How you go about tackling any problem a personal choice. The code I present here aims to provide a basis from which you can iterate and probably improve. If you know of better or different methods to those you read, please do share them so that others can benefit from your knowledge.
 
