@@ -2,7 +2,7 @@
 
 ## Graphical resources
 
-There are many resources dedicated to data visualisation, which are infinitely more comprehensive than this book could be. Some of the most useful links I have found are contained below. 
+There are many resources dedicated to data visualisation, which are infinitely more comprehensive than this book could be. Some of the most useful links I have found are contained below. If you are looking to make maps, see the numerous links in the [Spatial Chapter](#Spatial)
 
 * [R Graph Gallery](https://www.r-graph-gallery.com/) 
 * [Plotly - advanced charts](https://plotly.com/r/) including statistical charts, maps, interactive features etc.

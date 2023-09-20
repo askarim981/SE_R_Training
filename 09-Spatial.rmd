@@ -1,1 +1,18 @@
-# Spatial
+# Spatial {#Spatial}
+
+Below are links to resources for spatial analysis in R
+
+- [Geocomputation with R](https://r.geocompx.org/)
+- [Intro to GIS and Spatial Analysis](https://mgimond.github.io/Spatial/index.html)
+- [Spatial Data Science with R and Terra](https://rspatial.org/index.html)
+- [Spatial Data Science With Applications in R](https://r-spatial.org/book/)
+- [Mapping and Spatial Regressions](https://maczokni.github.io/crime_mapping_textbook/index.html)
+- [Spatial Modelling for Data Scientists](https://gdsl-ul.github.io/san/index.html)
+- [Geospatial Data Science in R](https://zia207.github.io/geospatial-r-github.io/index.html)
+- [Tidy Geospatial Networks in R](https://luukvdmeer.github.io/sfnetworks/index.html)
+[R as GIS for Economists](https://tmieno2.github.io/R-as-GIS-for-Economists/index.html)
+- [Spatial Microsimulation with R](https://spatial-microsim-book.robinlovelace.net/index.html)
+-   [Code and Context for Data Science in Government](https://urbanspatial.github.io/PublicPolicyAnalytics/index.html) 
+- [spNetwork](https://jeremygelb.github.io/spNetwork/index.html): an R package to perform spatial analysis on networks
+
+
