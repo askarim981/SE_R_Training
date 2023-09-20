@@ -1,5 +1,6 @@
 # Spatial {#Spatial}
 
+
 Below are links to resources for spatial analysis in R
 
 - [Geocomputation with R](https://r.geocompx.org/)
