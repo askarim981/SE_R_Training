@@ -1,4 +1,5 @@
-# Spatial {#Spatial}
+# Spatial{#Spatial}
+
 
 
 Below are links to resources for spatial analysis in R
