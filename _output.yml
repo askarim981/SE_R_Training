@@ -3,6 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">An R Training Resource</a></li>
+        <li><a href="./"><img src="images and graphics/SE_Logo.jpeg" width="150"></a></li>
+        <li><a href="./">An SEAI R Training Resource</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>

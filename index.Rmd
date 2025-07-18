@@ -1,18 +1,17 @@
 --- 
 title: "An R Training Resource"
-author: "Tom Harris"
+author: "Skills England Analysis and Insight"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
 # Introduction
 
-This book was produced by Tom Harris to help colleagues and interested people to learn R. Its contents cover key features of the R programming language and R studio, with specific focus on the tools and skills used in (economic) analysis. I have drawn from lots of existing sources and distilled much of that information into chapters demonstrating how I like to use R. The data used is primarily from the UK Higher Education sector and the chapters aim to elucidate skills used to analyse and make sense of that data. Since its inception, the contents have been broadened to include code that is more generally applicable and most updates have been done in my own time, using this as a personal code and best practice repository. 
+This book was produced to help SEAI colleagues and interested people to learn R. Its contents cover key features of the R programming language and R studio, with specific focus on the tools and skills used in (economic) analysis. I have drawn from lots of existing sources and distilled much of that information into chapters demonstrating how I like to use R. There is no specific data used, as the aim of this tool is to provide principles which extend beyond a single dataset and the chapters aim to elucidate skills used to analyse and make sense of that data. Since its inception, the contents have been broadened to include code that is more generally applicable and most updates have been done in my own time, using this as a personal code and best practice repository. 
 
 For any questions, suggestions or **if you would like to make a contribution**, please contact:
 
--   Tom Harris [tomambroseharris\@btinternet.com](mailto:tomambroseharris@btinternet.com){.email}
-
+-   Abdus-Subhaan Karim [abdus-subhaan.karim@education.gov.uk](mailto:abdus-subhaan.karim@education.gov.uk){.email}
 
 **External resources** (this is not an exhaustive list and click the text to use hyperlinks)
 
@@ -43,6 +42,7 @@ There are R various R resources held within DfE. [none of these links will not w
 -  [DfE git guidance]( https://rsconnect/rsc/stats-production-guidance/git.html)
 -  [ESFA git and R training](https://rsconnect/rsc/esfa-r-training/git-building-intuition.html)
 - [DfE Devops training](https://dfe-analytical-services.github.io/azure-devops-for-analysis/index.html)
+- [DfE Analytical Community Data Camp License](email DataCamp.REQUESTS@education.gov.uk with line manager approval)
 
 
 **Notes**

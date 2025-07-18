@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Data manipulation | An R Training Resource</title>
   <meta name="description" content="6 Data manipulation | An R Training Resource" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Data manipulation | An R Training Resource" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   
   
 
-<meta name="author" content="Tom Harris" />
+<meta name="author" content="Skills England Analysis and Insight" />
 
 
-<meta name="date" content="2023-09-21" />
+<meta name="date" content="2025-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -137,6 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./"><img src="images and graphics/SE_Logo.jpeg" width="150"></a></li>
 <li><a href="./">An R Training Resource</a></li>
 
 <li class="divider"></li>
@@ -157,6 +158,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.4" data-path="Basics.html"><a href="Basics.html#matrices"><i class="fa fa-check"></i><b>2.7.4</b> Matrices</a></li>
 <li class="chapter" data-level="2.7.5" data-path="Basics.html"><a href="Basics.html#lists"><i class="fa fa-check"></i><b>2.7.5</b> Lists</a></li>
 </ul></li>
+<li class="chapter" data-level="2.8" data-path="Basics.html"><a href="Basics.html#quiz"><i class="fa fa-check"></i><b>2.8</b> Quiz: R Basics</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="Basics.html"><a href="Basics.html#test-your-understanding"><i class="fa fa-check"></i><b>2.8.1</b> Test Your Understanding</a></li>
+<li class="chapter" data-level="2.8.2" data-path="Basics.html"><a href="Basics.html#interactive-r-code-exercises"><i class="fa fa-check"></i><b>2.8.2</b> Interactive R Code Exercises</a></li>
+<li class="chapter" data-level="2.8.3" data-path="Basics.html"><a href="Basics.html#self-check-questions"><i class="fa fa-check"></i><b>2.8.3</b> Self-Check Questions</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Functions.html"><a href="Functions.html"><i class="fa fa-check"></i><b>3</b> Syntax and Functions</a>
 <ul>
@@ -166,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="Functions.html"><a href="Functions.html#base-r-and-inbuilt-functions"><i class="fa fa-check"></i><b>3.2.1</b> Base R and Inbuilt Functions</a></li>
 <li class="chapter" data-level="3.2.2" data-path="Functions.html"><a href="Functions.html#programming-functions"><i class="fa fa-check"></i><b>3.2.2</b> Programming functions</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="Basics.html"><a href="Basics.html#quiz"><i class="fa fa-check"></i><b>3.3</b> Quiz: R Syntax and Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reading-in-data.html"><a href="reading-in-data.html"><i class="fa fa-check"></i><b>4</b> Reading in Data</a>
 <ul>
@@ -182,6 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.2" data-path="reading-in-data.html"><a href="reading-in-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.3.2</b> Loading data into R</a></li>
 <li class="chapter" data-level="4.3.3" data-path="reading-in-data.html"><a href="reading-in-data.html#running-sql-queries"><i class="fa fa-check"></i><b>4.3.3</b> Running SQL Queries</a></li>
 </ul></li>
+<li class="chapter" data-level="4.4" data-path="Basics.html"><a href="Basics.html#quiz"><i class="fa fa-check"></i><b>4.4</b> Quiz: Reading in data</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creating-outputs.html"><a href="creating-outputs.html"><i class="fa fa-check"></i><b>5</b> Creating outputs</a>
 <ul>
@@ -194,19 +203,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="creating-outputs.html"><a href="creating-outputs.html#r-markdown"><i class="fa fa-check"></i><b>5.4</b> R Markdown</a></li>
 <li class="chapter" data-level="5.5" data-path="creating-outputs.html"><a href="creating-outputs.html#presentations"><i class="fa fa-check"></i><b>5.5</b> Presentations</a></li>
 <li class="chapter" data-level="5.6" data-path="creating-outputs.html"><a href="creating-outputs.html#other-links"><i class="fa fa-check"></i><b>5.6</b> Other links</a></li>
+<li class="chapter" data-level="5.7" data-path="creating-outputs.html"><a href="creating-outputs.html#quiz-outputs"><i class="fa fa-check"></i><b>5.7</b> Quiz: Outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data manipulation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="data-manipulation.html"><a href="data-manipulation.html#selecting"><i class="fa fa-check"></i><b>6.1</b> Selecting</a></li>
-<li class="chapter" data-level="6.2" data-path="data-manipulation.html"><a href="data-manipulation.html#filtering"><i class="fa fa-check"></i><b>6.2</b> Filtering</a></li>
-<li class="chapter" data-level="6.3" data-path="data-manipulation.html"><a href="data-manipulation.html#summarising"><i class="fa fa-check"></i><b>6.3</b> Summarising</a></li>
-<li class="chapter" data-level="6.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grouping-by"><i class="fa fa-check"></i><b>6.4</b> Grouping by</a></li>
-<li class="chapter" data-level="6.5" data-path="data-manipulation.html"><a href="data-manipulation.html#totals"><i class="fa fa-check"></i><b>6.5</b> Totals</a></li>
-<li class="chapter" data-level="6.6" data-path="data-manipulation.html"><a href="data-manipulation.html#mutating"><i class="fa fa-check"></i><b>6.6</b> Mutate</a></li>
-<li class="chapter" data-level="6.7" data-path="data-manipulation.html"><a href="data-manipulation.html#pivotting"><i class="fa fa-check"></i><b>6.7</b> Pivotting</a></li>
-<li class="chapter" data-level="6.8" data-path="data-manipulation.html"><a href="data-manipulation.html#joining-data"><i class="fa fa-check"></i><b>6.8</b> Joining data</a></li>
-<li class="chapter" data-level="6.9" data-path="data-manipulation.html"><a href="data-manipulation.html#extracting_variables"><i class="fa fa-check"></i><b>6.9</b> Extracting variables</a></li>
-<li class="chapter" data-level="6.10" data-path="data-manipulation.html"><a href="data-manipulation.html#others"><i class="fa fa-check"></i><b>6.10</b> Others</a></li>
+<li class="chapter" data-level="6.1" data-path="data-manipulation.html"><a href="data-manipulation.html#setup-and-data-loading"><i class="fa fa-check"></i><b>6.1</b> Setup and Data Loading</a></li>
+<li class="chapter" data-level="6.2" data-path="data-manipulation.html"><a href="data-manipulation.html#selecting-columns"><i class="fa fa-check"></i><b>6.2</b> Selecting Columns</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-column-selection"><i class="fa fa-check"></i><b>6.2.1</b> Basic Column Selection</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#excluding-columns"><i class="fa fa-check"></i><b>6.2.2</b> Excluding Columns</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#advanced-selection-techniques"><i class="fa fa-check"></i><b>6.2.3</b> Advanced Selection Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-manipulation.html"><a href="data-manipulation.html#filtering-rows"><i class="fa fa-check"></i><b>6.3</b> Filtering Rows</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#setting-up-custom-operators"><i class="fa fa-check"></i><b>6.3.1</b> Setting Up Custom Operators</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-filtering-operations"><i class="fa fa-check"></i><b>6.3.2</b> Basic Filtering Operations</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-manipulation.html"><a href="data-manipulation.html#logical-operators-in-filtering"><i class="fa fa-check"></i><b>6.3.3</b> Logical Operators in Filtering</a></li>
+<li class="chapter" data-level="6.3.4" data-path="data-manipulation.html"><a href="data-manipulation.html#advanced-filtering-with-across"><i class="fa fa-check"></i><b>6.3.4</b> Advanced Filtering with across()</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-manipulation.html"><a href="data-manipulation.html#summarising-data"><i class="fa fa-check"></i><b>6.4</b> Summarising Data</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-summarisation"><i class="fa fa-check"></i><b>6.4.1</b> Basic Summarisation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#summarising-multiple-columns"><i class="fa fa-check"></i><b>6.4.2</b> Summarising Multiple Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="data-manipulation.html"><a href="data-manipulation.html#grouping-and-group-wise-operations"><i class="fa fa-check"></i><b>6.5</b> Grouping and Group-wise Operations</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#single-variable-grouping"><i class="fa fa-check"></i><b>6.5.1</b> Single Variable Grouping</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-variable-grouping"><i class="fa fa-check"></i><b>6.5.2</b> Multiple Variable Grouping</a></li>
+<li class="chapter" data-level="6.5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#simple-counting"><i class="fa fa-check"></i><b>6.5.3</b> Simple Counting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-manipulation.html"><a href="data-manipulation.html#adding-totals"><i class="fa fa-check"></i><b>6.6</b> Adding Totals</a></li>
+<li class="chapter" data-level="6.7" data-path="data-manipulation.html"><a href="data-manipulation.html#creating-and-transforming-variables"><i class="fa fa-check"></i><b>6.7</b> Creating and Transforming Variables</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-variable-creation"><i class="fa fa-check"></i><b>6.7.1</b> Basic Variable Creation</a></li>
+<li class="chapter" data-level="6.7.2" data-path="data-manipulation.html"><a href="data-manipulation.html#complex-conditional-logic"><i class="fa fa-check"></i><b>6.7.2</b> Complex Conditional Logic</a></li>
+<li class="chapter" data-level="6.7.3" data-path="data-manipulation.html"><a href="data-manipulation.html#transforming-multiple-columns"><i class="fa fa-check"></i><b>6.7.3</b> Transforming Multiple Columns</a></li>
+<li class="chapter" data-level="6.7.4" data-path="data-manipulation.html"><a href="data-manipulation.html#row-wise-operations"><i class="fa fa-check"></i><b>6.7.4</b> Row-wise Operations</a></li>
+<li class="chapter" data-level="6.7.5" data-path="data-manipulation.html"><a href="data-manipulation.html#handling-missing-values"><i class="fa fa-check"></i><b>6.7.5</b> Handling Missing Values</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="data-manipulation.html"><a href="data-manipulation.html#pivoting-data-reshaping"><i class="fa fa-check"></i><b>6.8</b> Pivoting Data (Reshaping)</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#wide-to-long-format"><i class="fa fa-check"></i><b>6.8.1</b> Wide to Long Format</a></li>
+<li class="chapter" data-level="6.8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#long-to-wide-format"><i class="fa fa-check"></i><b>6.8.2</b> Long to Wide Format</a></li>
+<li class="chapter" data-level="6.8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#advanced-pivoting"><i class="fa fa-check"></i><b>6.8.3</b> Advanced Pivoting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="data-manipulation.html"><a href="data-manipulation.html#joining-datasets"><i class="fa fa-check"></i><b>6.9</b> Joining Datasets</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-join-operations"><i class="fa fa-check"></i><b>6.9.1</b> Basic Join Operations</a></li>
+<li class="chapter" data-level="6.9.2" data-path="data-manipulation.html"><a href="data-manipulation.html#handling-different-column-names"><i class="fa fa-check"></i><b>6.9.2</b> Handling Different Column Names</a></li>
+<li class="chapter" data-level="6.9.3" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-column-joins"><i class="fa fa-check"></i><b>6.9.3</b> Multiple Column Joins</a></li>
+<li class="chapter" data-level="6.9.4" data-path="data-manipulation.html"><a href="data-manipulation.html#joining-multiple-datasets"><i class="fa fa-check"></i><b>6.9.4</b> Joining Multiple Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="data-manipulation.html"><a href="data-manipulation.html#practical-examples-and-patterns"><i class="fa fa-check"></i><b>6.10</b> Practical Examples and Patterns</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="data-manipulation.html"><a href="data-manipulation.html#complete-data-processing-pipeline"><i class="fa fa-check"></i><b>6.10.1</b> Complete Data Processing Pipeline</a></li>
+<li class="chapter" data-level="6.10.2" data-path="data-manipulation.html"><a href="data-manipulation.html#function-based-processing"><i class="fa fa-check"></i><b>6.10.2</b> Function-Based Processing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.11" data-path="data-manipulation.html"><a href="data-manipulation.html#tips-and-best-practices"><i class="fa fa-check"></i><b>6.11</b> Tips and Best Practices</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="data-manipulation.html"><a href="data-manipulation.html#data-validation"><i class="fa fa-check"></i><b>6.11.1</b> Data Validation</a></li>
+<li class="chapter" data-level="6.11.2" data-path="data-manipulation.html"><a href="data-manipulation.html#performance-considerations"><i class="fa fa-check"></i><b>6.11.2</b> Performance Considerations</a></li>
+<li class="chapter" data-level="6.11.3" data-path="data-manipulation.html"><a href="data-manipulation.html#debugging-and-troubleshooting"><i class="fa fa-check"></i><b>6.11.3</b> Debugging and Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="data-manipulation.html"><a href="data-manipulation.html#others"><i class="fa fa-check"></i><b>6.12</b> Others</a></li>
+<li class="chapter" data-level="6.13" data-path="data-manipulation.html"><a href="data-manipulation.html#quiz-data-manipulation"><i class="fa fa-check"></i><b>6.13</b> Quiz: Data Manipulation</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="user-defined-functions.html"><a href="user-defined-functions.html"><i class="fa fa-check"></i><b>7</b> User-defined Functions</a>
 <ul>
@@ -221,6 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="user-defined-functions.html"><a href="user-defined-functions.html#setting-default-inputs"><i class="fa fa-check"></i><b>7.5</b> Setting default inputs</a></li>
 <li class="chapter" data-level="7.6" data-path="user-defined-functions.html"><a href="user-defined-functions.html#Loops"><i class="fa fa-check"></i><b>7.6</b> Using Loops</a></li>
 <li class="chapter" data-level="7.7" data-path="user-defined-functions.html"><a href="user-defined-functions.html#random-snippets"><i class="fa fa-check"></i><b>7.7</b> Random snippets</a></li>
+<li class="chapter" data-level="7.8" data-path="user-defined-functions.html"><a href="user-defined-functions.html#quiz-user-defined-functions-quiz"><i class="fa fa-check"></i><b>7.8</b> Quiz: User defined functions quiz</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>8</b> Graphs</a>
 <ul>
@@ -253,362 +314,724 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">6</span> Data manipulation<a href="data-manipulation.html#data-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This chapter will focus on the fundamentals of data manipulation. You can identify what the key functions do from the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr cheat cheat</a>:
 As the sheet states, the best way to manipulate data is if your data is tidy (wide) - i.e. each variable is in its own column, and each observation is in its own row. Occasionally you will need long data, such as to build graphs.</p>
-<p>First, we’ll read in some Tariff data. We will use this later for grouping by tariff. You don’t need this data to see what some of the functions do. Some general applications are also shown here.</p>
-<p><code>OFS_Tariffs &lt;- read.csv("Data/ofs_provider_tariffs_nospace.csv")</code></p>
-<p>Next we will read in our CAH1 data, which will be the basis of all the manipulation.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-manipulation.html#cb49-1" tabindex="-1"></a><span class="co">#Load required packages</span></span>
-<span id="cb49-2"><a href="data-manipulation.html#cb49-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb49-3"><a href="data-manipulation.html#cb49-3" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb49-4"><a href="data-manipulation.html#cb49-4" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="data-manipulation.html#cb49-5" tabindex="-1"></a><span class="co">#Read in OFS data</span></span>
-<span id="cb49-6"><a href="data-manipulation.html#cb49-6" tabindex="-1"></a>OFS_Tariffs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/ofs_provider_tariffs_nospace.csv&quot;</span>)</span>
-<span id="cb49-7"><a href="data-manipulation.html#cb49-7" tabindex="-1"></a></span>
-<span id="cb49-8"><a href="data-manipulation.html#cb49-8" tabindex="-1"></a><span class="co">#Read in CAH1 data</span></span>
-<span id="cb49-9"><a href="data-manipulation.html#cb49-9" tabindex="-1"></a>CAH1_Data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/CAH1 Subjects.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">16</span>, <span class="at">check.names =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb49-10"><a href="data-manipulation.html#cb49-10" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">27</span>, readr<span class="sc">::</span>parse_number)  <span class="sc">%&gt;%</span> <span class="co">#we had character data in columns 3 : 27, so turn these into numeric data</span></span>
-<span id="cb49-11"><a href="data-manipulation.html#cb49-11" tabindex="-1"></a>  <span class="fu">left_join</span>(OFS_Tariffs <span class="sc">%&gt;%</span> <span class="fu">select</span>(UKPRN, <span class="st">`</span><span class="at">Tariff group</span><span class="st">`</span>), <span class="at">by =</span> <span class="st">&quot;UKPRN&quot;</span>) <span class="sc">%&gt;%</span> <span class="co">#we join the tariff data onto our CAH1 data by matching UKPRN. </span></span>
-<span id="cb49-12"><a href="data-manipulation.html#cb49-12" tabindex="-1"></a>  <span class="co"># you can nest manipulation within other functions to ensure only the relevant columns are joined</span></span>
-<span id="cb49-13"><a href="data-manipulation.html#cb49-13" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">HE provider</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&quot;Total&quot;</span>) <span class="co">#we remove the &quot;Total&quot; row from the CAH1 data</span></span></code></pre></div>
-<p>The data has 28 columns: (1) UKPRN, (2) Provider name, (3 - 26) CAH1 subjects’ FPE, (27) Total FPE (at provider), and (28) Tariff group</p>
-<div id="selecting" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Selecting<a href="data-manipulation.html#selecting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Use the <code>select()</code> function from <code>dplyr</code> to subset columns using their names and type. In addition to selecting and deselecting, you can change the order of columns and rename them with the function.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-manipulation.html#cb50-1" tabindex="-1"></a><span class="co">#Specifying columns</span></span>
-<span id="cb50-2"><a href="data-manipulation.html#cb50-2" tabindex="-1"></a>Providers_Only <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a href="data-manipulation.html#cb50-3" tabindex="-1"></a>  <span class="fu">select</span>(UKPRN, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>)</span>
-<span id="cb50-4"><a href="data-manipulation.html#cb50-4" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="data-manipulation.html#cb50-5" tabindex="-1"></a><span class="co">#Using a predefined vector for the column names</span></span>
-<span id="cb50-6"><a href="data-manipulation.html#cb50-6" tabindex="-1"></a></span>
-<span id="cb50-7"><a href="data-manipulation.html#cb50-7" tabindex="-1"></a>Desired_Columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;UKPRN&quot;</span>, <span class="st">&quot;HE provider&quot;</span>)<span class="co">#Define the vector</span></span>
-<span id="cb50-8"><a href="data-manipulation.html#cb50-8" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="data-manipulation.html#cb50-9" tabindex="-1"></a><span class="co">#Call the vector in the select function</span></span>
-<span id="cb50-10"><a href="data-manipulation.html#cb50-10" tabindex="-1"></a>Providers_Only2 <span class="ot">&lt;-</span>  CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb50-11"><a href="data-manipulation.html#cb50-11" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(Desired_Columns))</span></code></pre></div>
-<p>We can select every column <strong>except</strong> the UKPRN column</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-manipulation.html#cb51-1" tabindex="-1"></a>No_UKPRN <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb51-2"><a href="data-manipulation.html#cb51-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>UKPRN)</span></code></pre></div>
-<p>We can select columns based on their index. To only select the first 10 columns.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-manipulation.html#cb52-1" tabindex="-1"></a>First_10 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb52-2"><a href="data-manipulation.html#cb52-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) </span></code></pre></div>
-<p>Be careful using indexes, as if you change prior code, the columns might not remain in the same index position.</p>
-<p>You can also rename a column within the select function <code>select(col1, col2, new_col_name = old_col_name)</code> or change the order of columns by which order they appear in your select list.</p>
-<p>Run <code>?select()</code> or see the function <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/select">documentation</a> for more features.</p>
-</div>
-<div id="filtering" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Filtering<a href="data-manipulation.html#filtering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Use <code>filter()</code> from <code>dplyr</code> to subset a data frame, retaining rows that satisfy conditions.</p>
-<p>The basic syntax:</p>
-<ul>
-<li>== is exactly equal to;</li>
-<li>!= is not equal to;</li>
-<li>%in% (in an array)</li>
-<li>we can negate %in% to establish a %notin% operator.</li>
-</ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-manipulation.html#cb53-1" tabindex="-1"></a><span class="co">#Define the function %notin%</span></span>
-<span id="cb53-2"><a href="data-manipulation.html#cb53-2" tabindex="-1"></a><span class="st">`</span><span class="at">%notin%</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">Negate</span>(<span class="st">`</span><span class="at">%in%</span><span class="st">`</span>)</span></code></pre></div>
-<p>Other key filters are is.na(x) and !is.na(x). See this site for more <a href="https://www.statmethods.net/management/operators.html">operators</a></p>
-<p><strong>Basic filters</strong></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-manipulation.html#cb54-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-2"><a href="data-manipulation.html#cb54-2" tabindex="-1"></a>  <span class="fu">filter</span>(UKPRN <span class="sc">==</span> <span class="dv">10000291</span>) <span class="co">#this gives us the row for Angela Ruskin University, whose UKPRN is 10000291</span></span>
-<span id="cb54-3"><a href="data-manipulation.html#cb54-3" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="data-manipulation.html#cb54-4" tabindex="-1"></a>b <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-5"><a href="data-manipulation.html#cb54-5" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">HE provider</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;Anglia Ruskin University&quot;</span>) <span class="co"># as above</span></span>
-<span id="cb54-6"><a href="data-manipulation.html#cb54-6" tabindex="-1"></a></span>
-<span id="cb54-7"><a href="data-manipulation.html#cb54-7" tabindex="-1"></a>c <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-8"><a href="data-manipulation.html#cb54-8" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">HE provider</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Anglia Ruskin University&quot;</span>, <span class="st">&quot;Arden University&quot;</span>, <span class="st">&quot;Birkbeck College&quot;</span>)) <span class="co">#as with the selecting, we could create this vector then call it into a filter function if we wanted to have a store of the vector</span></span>
-<span id="cb54-9"><a href="data-manipulation.html#cb54-9" tabindex="-1"></a></span>
-<span id="cb54-10"><a href="data-manipulation.html#cb54-10" tabindex="-1"></a></span>
-<span id="cb54-11"><a href="data-manipulation.html#cb54-11" tabindex="-1"></a>d <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-12"><a href="data-manipulation.html#cb54-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&#39;University&#39;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>)) <span class="co">#filter providers that contain the string: &quot;University&quot;</span></span>
-<span id="cb54-13"><a href="data-manipulation.html#cb54-13" tabindex="-1"></a></span>
-<span id="cb54-14"><a href="data-manipulation.html#cb54-14" tabindex="-1"></a>e <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-15"><a href="data-manipulation.html#cb54-15" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&#39;University&#39;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>)) <span class="co">#filter the providers than DON&#39;T contain the string: &quot;University&quot;</span></span>
-<span id="cb54-16"><a href="data-manipulation.html#cb54-16" tabindex="-1"></a></span>
-<span id="cb54-17"><a href="data-manipulation.html#cb54-17" tabindex="-1"></a>f <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-18"><a href="data-manipulation.html#cb54-18" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">HE provider</span><span class="st">`</span> <span class="sc">==</span>  <span class="st">&quot;Anglia Ruskin University&quot;</span> <span class="sc">|</span> <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&quot;Arden University&quot;</span>) <span class="co"># filter either or</span></span>
-<span id="cb54-19"><a href="data-manipulation.html#cb54-19" tabindex="-1"></a></span>
-<span id="cb54-20"><a href="data-manipulation.html#cb54-20" tabindex="-1"></a>g <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-21"><a href="data-manipulation.html#cb54-21" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&#39;University&#39;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&#39;College&#39;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>)) <span class="co"># filter providers with both university and college in their name</span></span>
-<span id="cb54-22"><a href="data-manipulation.html#cb54-22" tabindex="-1"></a></span>
-<span id="cb54-23"><a href="data-manipulation.html#cb54-23" tabindex="-1"></a>h <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-24"><a href="data-manipulation.html#cb54-24" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Tariff_group)) <span class="co"># filter for the universities for which we have data on their Tariff group. </span></span>
-<span id="cb54-25"><a href="data-manipulation.html#cb54-25" tabindex="-1"></a></span>
-<span id="cb54-26"><a href="data-manipulation.html#cb54-26" tabindex="-1"></a><span class="co">#multiple filters can be applied within the same function</span></span>
-<span id="cb54-27"><a href="data-manipulation.html#cb54-27" tabindex="-1"></a>j <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb54-28"><a href="data-manipulation.html#cb54-28" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>, <span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span>, <span class="st">`</span><span class="at">15 Social sciences</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb54-29"><a href="data-manipulation.html#cb54-29" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb54-30"><a href="data-manipulation.html#cb54-30" tabindex="-1"></a>         <span class="st">`</span><span class="at">15 Social sciences</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">0</span>)     <span class="co">#you can include multiple filters within the same function, as you can do with other data manipulation functions, such as mutate. This is easier to read.</span></span></code></pre></div>
-<p><strong>advanced filters</strong></p>
-<p>The <code>across()</code> function allows you to apply a function or functions to multiple columns. See <code>?across()</code> for the function documentation and examples of combining it with <code>mutate()</code> or <code>filter()</code>.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-manipulation.html#cb55-1" tabindex="-1"></a><span class="co"># filter only rows in specified columns that equal == &quot;Total&quot;</span></span>
-<span id="cb55-2"><a href="data-manipulation.html#cb55-2" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">across</span>(<span class="fu">c</span>(he_type_broad, provider_category), <span class="sc">~</span> <span class="fu">str_detect</span>(., <span class="at">pattern =</span> <span class="st">&quot;Total&quot;</span>)))</span>
-<span id="cb55-3"><a href="data-manipulation.html#cb55-3" tabindex="-1"></a></span>
-<span id="cb55-4"><a href="data-manipulation.html#cb55-4" tabindex="-1"></a></span>
-<span id="cb55-5"><a href="data-manipulation.html#cb55-5" tabindex="-1"></a><span class="co"># no letters         </span></span>
-<span id="cb55-6"><a href="data-manipulation.html#cb55-6" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">across</span>(<span class="fu">c</span>(INDICATOR, DENOMINATOR), <span class="sc">~</span> <span class="sc">!</span><span class="fu">str_detect</span>(., <span class="at">pattern =</span> <span class="st">&quot;[A-Z]&quot;</span>))) </span>
-<span id="cb55-7"><a href="data-manipulation.html#cb55-7" tabindex="-1"></a></span>
-<span id="cb55-8"><a href="data-manipulation.html#cb55-8" tabindex="-1"></a><span class="co"># filter variables are above 5</span></span>
-<span id="cb55-9"><a href="data-manipulation.html#cb55-9" tabindex="-1"></a><span class="fu">filter_at</span>(<span class="fu">vars</span>(sleep_total, sleep_rem), <span class="fu">all_vars</span>(.<span class="sc">&gt;</span><span class="dv">5</span>))</span>
-<span id="cb55-10"><a href="data-manipulation.html#cb55-10" tabindex="-1"></a></span>
-<span id="cb55-11"><a href="data-manipulation.html#cb55-11" tabindex="-1"></a><span class="co"># filter non NAs</span></span>
-<span id="cb55-12"><a href="data-manipulation.html#cb55-12" tabindex="-1"></a><span class="fu">filter_at</span>(<span class="fu">vars</span>(<span class="fu">everything</span>()), <span class="fu">all_vars</span>(<span class="sc">!</span><span class="fu">is.na</span>(.))</span>
-<span id="cb55-13"><a href="data-manipulation.html#cb55-13" tabindex="-1"></a></span>
-<span id="cb55-14"><a href="data-manipulation.html#cb55-14" tabindex="-1"></a></span>
-<span id="cb55-15"><a href="data-manipulation.html#cb55-15" tabindex="-1"></a><span class="co"># filter for rows that have &quot;*&quot; or &quot;A&quot; or &quot;B&quot; or &quot;C&quot; in either the GABIOLOGY or GACHEMISTRY column</span></span>
-<span id="cb55-16"><a href="data-manipulation.html#cb55-16" tabindex="-1"></a><span class="co">#&quot;\\*&quot; is the way to escape &quot;*&quot; given it&#39;s a special character</span></span>
-<span id="cb55-17"><a href="data-manipulation.html#cb55-17" tabindex="-1"></a>Filter_List <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">*&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>)</span>
-<span id="cb55-18"><a href="data-manipulation.html#cb55-18" tabindex="-1"></a></span>
-<span id="cb55-19"><a href="data-manipulation.html#cb55-19" tabindex="-1"></a><span class="co">#Create a 2 column data frame of students who obtained A*, A, B at A level</span></span>
-<span id="cb55-20"><a href="data-manipulation.html#cb55-20" tabindex="-1"></a>STEM_Flags <span class="ot">&lt;-</span> STEM_Table <span class="sc">%&gt;%</span></span>
-<span id="cb55-21"><a href="data-manipulation.html#cb55-21" tabindex="-1"></a>  <span class="fu">filter_at</span>(<span class="fu">vars</span>(GABIOLOGY, GACHEMISTRY), <span class="fu">any_vars</span>(<span class="fu">str_detect</span>(. , <span class="fu">paste0</span>(<span class="st">&quot;^(&quot;</span>, <span class="fu">paste</span>(Filter_List, <span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>), <span class="st">&quot;)&quot;</span>))))</span></code></pre></div>
-</div>
-<div id="summarising" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Summarising<a href="data-manipulation.html#summarising" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>summarise</code> from <code>dplyr</code> creates a new data frame with a row per unique entry in the grouping variable. If no variables are grouped by, it will yield a single row of the function applied to the entire data frame. The code below sums how.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-manipulation.html#cb56-1" tabindex="-1"></a><span class="co">#Basic total FPE in 01 column</span></span>
-<span id="cb56-2"><a href="data-manipulation.html#cb56-2" tabindex="-1"></a>Total_Medicine_Enrollments <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb56-3"><a href="data-manipulation.html#cb56-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total_FPE =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span>))</span>
-<span id="cb56-4"><a href="data-manipulation.html#cb56-4" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="data-manipulation.html#cb56-5" tabindex="-1"></a><span class="co"># output table (a data frame with 1 row and 1 column: the number of medicine and dentistry enrolments)</span></span>
-<span id="cb56-6"><a href="data-manipulation.html#cb56-6" tabindex="-1"></a><span class="co">#    Total_FPE</span></span>
-<span id="cb56-7"><a href="data-manipulation.html#cb56-7" tabindex="-1"></a><span class="co"># 1     40170</span></span>
-<span id="cb56-8"><a href="data-manipulation.html#cb56-8" tabindex="-1"></a></span>
-<span id="cb56-9"><a href="data-manipulation.html#cb56-9" tabindex="-1"></a></span>
-<span id="cb56-10"><a href="data-manipulation.html#cb56-10" tabindex="-1"></a><span class="co"># summarise the sum of instances in columns </span></span>
-<span id="cb56-11"><a href="data-manipulation.html#cb56-11" tabindex="-1"></a>column_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;col1&quot;</span>, <span class="st">&quot;col2&quot;</span>)</span>
-<span id="cb56-12"><a href="data-manipulation.html#cb56-12" tabindex="-1"></a><span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(column_vector), <span class="sc">~</span> <span class="fu">sum</span>(.x, <span class="at">na.rm =</span> T)), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span></code></pre></div>
-</div>
-<div id="grouping-by" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Grouping by<a href="data-manipulation.html#grouping-by" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Grouping by a variable does what the name suggests, R will implicitly group by the unique variables in the column(s) specified. It converts a table into a grouped table where operations are performed by group.</p>
-<p>Running: <code>unique(CAH1_Data$Tariff_group)</code> returns the variables that would be grouped by if we choose to group by tariff group.</p>
-<p>If we group by Tariff group, we’ll end up with 6 rows as that is how many unique entries were in the Tariff group column.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-manipulation.html#cb57-1" tabindex="-1"></a>Tariff_Medicine_Enrollments <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb57-2"><a href="data-manipulation.html#cb57-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Tariff_group) <span class="sc">%&gt;%</span></span>
-<span id="cb57-3"><a href="data-manipulation.html#cb57-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total_FPE =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span>)) </span></code></pre></div>
-<p>You can group_by multiple columns at once. This data doesn’t really suit that, but we can create a data frame that does</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-manipulation.html#cb58-1" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb58-2"><a href="data-manipulation.html#cb58-2" tabindex="-1"></a>  <span class="co">#create a new column of &quot;uni&quot; if the provider name has &quot;University&quot; in it. &quot;Not uni&quot; if else.</span></span>
-<span id="cb58-3"><a href="data-manipulation.html#cb58-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">College_Or_Uni =</span> <span class="fu">if_else</span>(<span class="fu">grepl</span>(<span class="st">&#39;University&#39;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>),<span class="st">&quot;Uni&quot;</span>, <span class="st">&quot;Not uni&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-4"><a href="data-manipulation.html#cb58-4" tabindex="-1"></a>  <span class="co">#Group by both Tariff group and COllege or Uni</span></span>
-<span id="cb58-5"><a href="data-manipulation.html#cb58-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Tariff_group, College_Or_Uni) <span class="sc">%&gt;%</span></span>
-<span id="cb58-6"><a href="data-manipulation.html#cb58-6" tabindex="-1"></a>  <span class="co">#Summarise the FPE doing Medicine and dentistry</span></span>
-<span id="cb58-7"><a href="data-manipulation.html#cb58-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total_FPE =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) </span>
-<span id="cb58-8"><a href="data-manipulation.html#cb58-8" tabindex="-1"></a></span>
-<span id="cb58-9"><a href="data-manipulation.html#cb58-9" tabindex="-1"></a><span class="co">#The output, shown below, is a table with a row per Tariff group and per unique entry in the Colleage_Or_Uni column</span></span>
-<span id="cb58-10"><a href="data-manipulation.html#cb58-10" tabindex="-1"></a></span>
-<span id="cb58-11"><a href="data-manipulation.html#cb58-11" tabindex="-1"></a><span class="co"># A tibble: 11 x 3</span></span>
-<span id="cb58-12"><a href="data-manipulation.html#cb58-12" tabindex="-1"></a><span class="co">#    Tariff_group                           College_Or_Uni Total_FPE</span></span>
-<span id="cb58-13"><a href="data-manipulation.html#cb58-13" tabindex="-1"></a><span class="co">#    &lt;chr&gt;                                  &lt;chr&gt;              &lt;dbl&gt;</span></span>
-<span id="cb58-14"><a href="data-manipulation.html#cb58-14" tabindex="-1"></a><span class="co">#  1 HEIs with high average tariff scores   Not uni             4870</span></span>
-<span id="cb58-15"><a href="data-manipulation.html#cb58-15" tabindex="-1"></a><span class="co">#  2 HEIs with high average tariff scores   Uni                29605</span></span>
-<span id="cb58-16"><a href="data-manipulation.html#cb58-16" tabindex="-1"></a><span class="co">#  3 HEIs with low average tariff scores    Uni                 1295</span></span>
-<span id="cb58-17"><a href="data-manipulation.html#cb58-17" tabindex="-1"></a><span class="co">#  4 HEIs with medium average tariff scores Not uni                0</span></span>
-<span id="cb58-18"><a href="data-manipulation.html#cb58-18" tabindex="-1"></a><span class="co">#  5 HEIs with medium average tariff scores Uni                 2625</span></span>
-<span id="cb58-19"><a href="data-manipulation.html#cb58-19" tabindex="-1"></a><span class="co">#  6 Other providers                        Not uni                0</span></span>
-<span id="cb58-20"><a href="data-manipulation.html#cb58-20" tabindex="-1"></a><span class="co">#  7 Other providers                        Uni                    0</span></span>
-<span id="cb58-21"><a href="data-manipulation.html#cb58-21" tabindex="-1"></a><span class="co">#  8 Specialist HEIs                        Not uni                0</span></span>
-<span id="cb58-22"><a href="data-manipulation.html#cb58-22" tabindex="-1"></a><span class="co">#  9 Specialist HEIs                        Uni                 1320</span></span>
-<span id="cb58-23"><a href="data-manipulation.html#cb58-23" tabindex="-1"></a><span class="co"># 10 NA                                     Not uni                5</span></span>
-<span id="cb58-24"><a href="data-manipulation.html#cb58-24" tabindex="-1"></a><span class="co"># 11 NA                                     Uni                  450</span></span>
-<span id="cb58-25"><a href="data-manipulation.html#cb58-25" tabindex="-1"></a></span>
-<span id="cb58-26"><a href="data-manipulation.html#cb58-26" tabindex="-1"></a><span class="co"># see the counts of instances</span></span>
-<span id="cb58-27"><a href="data-manipulation.html#cb58-27" tabindex="-1"></a></span>
-<span id="cb58-28"><a href="data-manipulation.html#cb58-28" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb58-29"><a href="data-manipulation.html#cb58-29" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb58-30"><a href="data-manipulation.html#cb58-30" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">row_count =</span> <span class="fu">n</span>())</span></code></pre></div>
-<p>To ungroup the data, add the argument <code>.groups = "drop"</code> to the <code>summarise()</code> function. You sometimes get a warning message if you don’t do this. <code>ungroup()</code> also works.</p>
-</div>
-<div id="totals" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Totals<a href="data-manipulation.html#totals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Totals can be calculated for subsets of data by using the <code>group_by()</code> function, or by using square brackets<code>[]</code> to sum specific data points.</p>
-<p>For columns and rows, one way to create totals is the adorn_totals function: <code>adorn_totals("row")</code>. For a column, use: <code>adorn_totals("col")</code>. It is always worth checking whether your data has a total column or row in it, prior to manipulating the data.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-manipulation.html#cb59-1" tabindex="-1"></a>Tariff_Medicine_Enrollments <span class="ot">&lt;-</span> Tariff_Medicine_Enrollments <span class="sc">%&gt;%</span></span>
-<span id="cb59-2"><a href="data-manipulation.html#cb59-2" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;row&quot;</span>)</span>
+<p>This sheet demonstrates common data manipulation techniques using the dplyr package in R. Examples use generic placeholder data that can be adapted to your specific datasets.</p>
+<div id="setup-and-data-loading" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Setup and Data Loading<a href="data-manipulation.html#setup-and-data-loading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, we’ll load the required packages and read in our data. The <code>dplyr</code> package is part of the tidyverse and provides powerful data manipulation functions.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-manipulation.html#cb58-1" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb58-2"><a href="data-manipulation.html#cb58-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb58-3"><a href="data-manipulation.html#cb58-3" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb58-4"><a href="data-manipulation.html#cb58-4" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb58-5"><a href="data-manipulation.html#cb58-5" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb58-6"><a href="data-manipulation.html#cb58-6" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code></pre></div>
+<p>Next, we’ll read in our main dataset and any supplementary lookup data. This example shows how to handle common data cleaning tasks during the import process.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-manipulation.html#cb59-1" tabindex="-1"></a><span class="co"># Read in your main dataset</span></span>
+<span id="cb59-2"><a href="data-manipulation.html#cb59-2" tabindex="-1"></a>main_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;path/to/your/main_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">0</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb59-3"><a href="data-manipulation.html#cb59-3" tabindex="-1"></a></span>
-<span id="cb59-4"><a href="data-manipulation.html#cb59-4" tabindex="-1"></a><span class="co">#this checks that the totals match up between the data frames we&#39;ve created in the previous segment. </span></span>
-<span id="cb59-5"><a href="data-manipulation.html#cb59-5" tabindex="-1"></a>Tariff_Medicine_Enrollments<span class="sc">$</span>Total_FPE[<span class="dv">7</span>] <span class="sc">==</span> Total_Medicine_Enrollments[ ,<span class="dv">1</span>] </span>
-<span id="cb59-6"><a href="data-manipulation.html#cb59-6" tabindex="-1"></a></span>
-<span id="cb59-7"><a href="data-manipulation.html#cb59-7" tabindex="-1"></a><span class="co">#create a total variable object</span></span>
-<span id="cb59-8"><a href="data-manipulation.html#cb59-8" tabindex="-1"></a>TME_Tail <span class="ot">&lt;-</span> Tariff_Medicine_Enrollments <span class="sc">%&gt;%</span></span>
-<span id="cb59-9"><a href="data-manipulation.html#cb59-9" tabindex="-1"></a>  <span class="fu">slice_tail</span>(<span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb59-10"><a href="data-manipulation.html#cb59-10" tabindex="-1"></a>  <span class="fu">pull</span>(Total_FPE)</span></code></pre></div>
+<span id="cb59-4"><a href="data-manipulation.html#cb59-4" tabindex="-1"></a><span class="co"># Read in supplementary lookup data</span></span>
+<span id="cb59-5"><a href="data-manipulation.html#cb59-5" tabindex="-1"></a>lookup_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;path/to/your/lookup_data.csv&quot;</span>)</span></code></pre></div>
+<p>Often, you’ll need to perform basic cleaning and joining operations immediately after loading your data. This code demonstrates how to convert character columns to numeric, join datasets, and filter out unwanted rows.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-manipulation.html#cb60-1" tabindex="-1"></a><span class="co"># Basic data cleaning and joining</span></span>
+<span id="cb60-2"><a href="data-manipulation.html#cb60-2" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb60-3"><a href="data-manipulation.html#cb60-3" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(numeric_columns), readr<span class="sc">::</span>parse_number) <span class="sc">%&gt;%</span>  <span class="co"># Convert character columns to numeric</span></span>
+<span id="cb60-4"><a href="data-manipulation.html#cb60-4" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(id_column, category_column), <span class="at">by =</span> <span class="st">&quot;id_column&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb60-5"><a href="data-manipulation.html#cb60-5" tabindex="-1"></a>  <span class="fu">filter</span>(entity_column <span class="sc">!=</span> <span class="st">&quot;Total&quot;</span>)  <span class="co"># Remove summary rows</span></span></code></pre></div>
 </div>
-<div id="mutating" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Mutate<a href="data-manipulation.html#mutating" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>mutate()</code> adds new variables and transforms/overwrites existing ones. As a default mutate will add a column to the right hand side of an existing data frame. You can adjust the position of the added column using the <code>.before =</code> and <code>.after =</code> arguments. If you name the column identically to an existing column, mutate will overwrite/replace the existing column with the newly defined one.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-manipulation.html#cb60-1" tabindex="-1"></a><span class="co"># overwriting an existing column</span></span>
-<span id="cb60-2"><a href="data-manipulation.html#cb60-2" tabindex="-1"></a><span class="co">#This changes the UKPRN column from containing UKPRN numbers to the text &quot;example text&quot;</span></span>
-<span id="cb60-3"><a href="data-manipulation.html#cb60-3" tabindex="-1"></a></span>
-<span id="cb60-4"><a href="data-manipulation.html#cb60-4" tabindex="-1"></a>mutate1 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb60-5"><a href="data-manipulation.html#cb60-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">UKPRN =</span> <span class="st">&quot;example text&quot;</span>)</span>
-<span id="cb60-6"><a href="data-manipulation.html#cb60-6" tabindex="-1"></a></span>
-<span id="cb60-7"><a href="data-manipulation.html#cb60-7" tabindex="-1"></a><span class="co">#Creating a new column as the sum of 3 subjects called &quot;Medics_Dentists&quot;</span></span>
-<span id="cb60-8"><a href="data-manipulation.html#cb60-8" tabindex="-1"></a>mutate2 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb60-9"><a href="data-manipulation.html#cb60-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Medics_Dentists =</span> <span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">02 Subjects allied to medicine</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">05 Veterinary sciences</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb60-10"><a href="data-manipulation.html#cb60-10" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">29</span>) <span class="co">#this just selects the columns we are interested in</span></span>
-<span id="cb60-11"><a href="data-manipulation.html#cb60-11" tabindex="-1"></a></span>
-<span id="cb60-12"><a href="data-manipulation.html#cb60-12" tabindex="-1"></a><span class="co"># mutating with multiple conditions. (If you only have 2 conditions, if_else() will be faster.)</span></span>
-<span id="cb60-13"><a href="data-manipulation.html#cb60-13" tabindex="-1"></a><span class="co">#This code adds a 1 column called &quot;Colege_Or_Uni&quot; and fills it with &quot;University&quot; if the HE provider name has &quot;University&quot; in it, &quot;College&quot; if the provider name has &quot;College&quot; in it, and &quot;Other&quot; for the rest.</span></span>
-<span id="cb60-14"><a href="data-manipulation.html#cb60-14" tabindex="-1"></a>mutate3 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb60-15"><a href="data-manipulation.html#cb60-15" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb60-16"><a href="data-manipulation.html#cb60-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">College_Or_Uni =</span> <span class="fu">case_when</span>(<span class="fu">grepl</span>(<span class="st">&quot;University&quot;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>) <span class="sc">~</span> <span class="st">&quot;University&quot;</span>, </span>
-<span id="cb60-17"><a href="data-manipulation.html#cb60-17" tabindex="-1"></a>                                    <span class="co">#notice, any variables with both university and college will be assigned the label &quot;University&quot;</span></span>
-<span id="cb60-18"><a href="data-manipulation.html#cb60-18" tabindex="-1"></a>                                    <span class="fu">grepl</span>(<span class="st">&quot;College&quot;</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>) <span class="sc">~</span> <span class="st">&quot;College&quot;</span>,</span>
-<span id="cb60-19"><a href="data-manipulation.html#cb60-19" tabindex="-1"></a>                                    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span>))  <span class="co">#this side of the formual tells R what to do in all other cases</span></span></code></pre></div>
-<p>If we wanted to see how many of each of these entries we had in each HE provider category, we could <code>group_by(College_Or_Uni) %&gt;% count(number = n())</code>.</p>
-<p><code>case_when</code> is very powerful and useful. You can use it to overwrite or create a new column based on as many conditions as you desire. The function structure is shown below. You can include multiple cases_when() in the same line of code using &amp;s, <strong>BUT</strong> be careful not to contradict your existing conditions. Double check your work if creating very complex case_when()s, such as those dependent on multiple different columns</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-manipulation.html#cb61-1" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">New_Or_Existing_Column_Name =</span> <span class="fu">case_when</span>(Other_Column <span class="sc">==</span> <span class="st">&quot;Some text&quot;</span> <span class="sc">~</span> <span class="st">&quot;Fill Column with this&quot;</span>,</span>
-<span id="cb61-2"><a href="data-manipulation.html#cb61-2" tabindex="-1"></a>                                               Other_Column <span class="sc">==</span> <span class="st">&quot;Different text&quot;</span> <span class="sc">~</span> <span class="st">&quot;Fill with this&quot;</span>,</span>
-<span id="cb61-3"><a href="data-manipulation.html#cb61-3" tabindex="-1"></a>                                               <span class="cn">TRUE</span> <span class="sc">~</span> Other_Column)) <span class="co"># you can assign the &quot;all other cases&quot; outcome to be what is contained in an existing column.</span></span></code></pre></div>
-<p>Mutating specified columns: <code>mutate_at()</code> or <code>mutate(across())</code>. This allows you to run a transformation over multiple columns.
-You can index the columns: <code>mutate_at(1:4, function)</code>, though beware if your column indexes change then the functions won’t work. You can get around this with the <code>vars()</code> in conjunction with mutate_at() or <code>across(c())</code> in conjunction with mutate().</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-manipulation.html#cb62-1" tabindex="-1"></a>Making_Character1 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb62-2"><a href="data-manipulation.html#cb62-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span>, <span class="st">`</span><span class="at">03 Biological and sport sciences</span><span class="st">`</span>), as.character))</span></code></pre></div>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-manipulation.html#cb63-1" tabindex="-1"></a><span class="co"># Define a function for example below</span></span>
-<span id="cb63-2"><a href="data-manipulation.html#cb63-2" tabindex="-1"></a>Add_thousand <span class="ot">&lt;-</span> <span class="cf">function</span>(x) (x <span class="sc">+</span> <span class="dv">1000</span>)</span>
-<span id="cb63-3"><a href="data-manipulation.html#cb63-3" tabindex="-1"></a></span>
-<span id="cb63-4"><a href="data-manipulation.html#cb63-4" tabindex="-1"></a><span class="co">#mutate 2 specified columns with defined function above</span></span>
-<span id="cb63-5"><a href="data-manipulation.html#cb63-5" tabindex="-1"></a>mutate4 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb63-6"><a href="data-manipulation.html#cb63-6" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="st">`</span><span class="at">01 Medicine and dentistry</span><span class="st">`</span>, <span class="st">`</span><span class="at">03 Biological and sport sciences</span><span class="st">`</span>), Add_thousand)</span></code></pre></div>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-manipulation.html#cb64-1" tabindex="-1"></a><span class="co"># create a column that are the sum of other columns that have that suffix</span></span>
-<span id="cb64-2"><a href="data-manipulation.html#cb64-2" tabindex="-1"></a><span class="fu">mutate</span>(<span class="sc">!!</span><span class="fu">as.name</span>(i) <span class="sc">:=</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">ends_with</span>(i))))</span>
-<span id="cb64-3"><a href="data-manipulation.html#cb64-3" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="data-manipulation.html#cb64-4" tabindex="-1"></a><span class="co"># replace NAs with zeros</span></span>
-<span id="cb64-5"><a href="data-manipulation.html#cb64-5" tabindex="-1"></a><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span></code></pre></div>
+<div id="selecting-columns" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Selecting Columns<a href="data-manipulation.html#selecting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>select()</code> function is your primary tool for choosing which columns to keep in your dataset. It’s much more powerful than simple column indexing and provides several flexible approaches.</p>
+<div id="basic-column-selection" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Basic Column Selection<a href="data-manipulation.html#basic-column-selection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The most straightforward approach is to select columns by name. This is the most reliable method since column names are less likely to change than positions.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-manipulation.html#cb61-1" tabindex="-1"></a><span class="co"># Select specific columns by name</span></span>
+<span id="cb61-2"><a href="data-manipulation.html#cb61-2" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="data-manipulation.html#cb61-3" tabindex="-1"></a>  <span class="fu">select</span>(id_column, name_column)</span>
+<span id="cb61-4"><a href="data-manipulation.html#cb61-4" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="data-manipulation.html#cb61-5" tabindex="-1"></a><span class="co"># Using a predefined vector for column names</span></span>
+<span id="cb61-6"><a href="data-manipulation.html#cb61-6" tabindex="-1"></a>desired_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;id_column&quot;</span>, <span class="st">&quot;name_column&quot;</span>, <span class="st">&quot;value_column&quot;</span>)</span>
+<span id="cb61-7"><a href="data-manipulation.html#cb61-7" tabindex="-1"></a>subset_data2 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb61-8"><a href="data-manipulation.html#cb61-8" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(desired_columns))</span></code></pre></div>
 </div>
-<div id="pivotting" class="section level2 hasAnchor" number="6.7">
-<h2><span class="header-section-number">6.7</span> Pivotting<a href="data-manipulation.html#pivotting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The format of data matters. Clean data can be in two formats: “wide” and “long”. In <strong>wide data</strong>, data points corresponding to a variable are spread across multiple columns. This variable might be an individual, university or other entity. In <strong>long data</strong>, there are multiple records (rows) for each entity.</p>
-<p>Observe the basic data frame below:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-manipulation.html#cb65-1" tabindex="-1"></a><span class="co">#This code creates a fictional WIDE data frame. There is one row for horses and 1 row for cats. </span></span>
-<span id="cb65-2"><a href="data-manipulation.html#cb65-2" tabindex="-1"></a>Horses_vs_Cats <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">animal =</span> <span class="fu">c</span>(<span class="st">&quot;horse&quot;</span>, <span class="st">&quot;cat&quot;</span>),</span>
-<span id="cb65-3"><a href="data-manipulation.html#cb65-3" tabindex="-1"></a>                             <span class="at">weight =</span> <span class="fu">c</span>(<span class="st">&quot;500kg&quot;</span>, <span class="st">&quot;6kg&quot;</span>),</span>
-<span id="cb65-4"><a href="data-manipulation.html#cb65-4" tabindex="-1"></a>                             <span class="at">height =</span> <span class="fu">c</span>(<span class="st">&quot;2.5m&quot;</span>, <span class="st">&quot;0.4m&quot;</span>),</span>
-<span id="cb65-5"><a href="data-manipulation.html#cb65-5" tabindex="-1"></a>                             <span class="at">home =</span> <span class="fu">c</span>(<span class="st">&quot;field&quot;</span>, <span class="st">&quot;house&quot;</span>))</span>
-<span id="cb65-6"><a href="data-manipulation.html#cb65-6" tabindex="-1"></a><span class="co">#The Data</span></span>
-<span id="cb65-7"><a href="data-manipulation.html#cb65-7" tabindex="-1"></a><span class="co"># # A tibble: 2 x 4</span></span>
-<span id="cb65-8"><a href="data-manipulation.html#cb65-8" tabindex="-1"></a><span class="co">#   | animal | weight | height | home </span></span>
-<span id="cb65-9"><a href="data-manipulation.html#cb65-9" tabindex="-1"></a><span class="co">#____________________________________</span></span>
-<span id="cb65-10"><a href="data-manipulation.html#cb65-10" tabindex="-1"></a><span class="co"># 1 | horse  | 500kg  | 2.5m   | field</span></span>
-<span id="cb65-11"><a href="data-manipulation.html#cb65-11" tabindex="-1"></a><span class="co"># 2 | cat    | 6kg    | 0.4m   | house</span></span>
+<div id="excluding-columns" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Excluding Columns<a href="data-manipulation.html#excluding-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes it’s easier to specify what you don’t want rather than what you do want, especially when you have many columns.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-manipulation.html#cb62-1" tabindex="-1"></a><span class="co"># Select all columns except specific ones</span></span>
+<span id="cb62-2"><a href="data-manipulation.html#cb62-2" tabindex="-1"></a>no_id_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href="data-manipulation.html#cb62-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id_column)</span>
+<span id="cb62-4"><a href="data-manipulation.html#cb62-4" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="data-manipulation.html#cb62-5" tabindex="-1"></a><span class="co"># Exclude multiple columns</span></span>
+<span id="cb62-6"><a href="data-manipulation.html#cb62-6" tabindex="-1"></a>no_admin_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb62-7"><a href="data-manipulation.html#cb62-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id_column, created_date, updated_date))</span></code></pre></div>
+</div>
+<div id="advanced-selection-techniques" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Advanced Selection Techniques<a href="data-manipulation.html#advanced-selection-techniques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can select columns by position (though this should be used cautiously), by data type, or by pattern matching.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-manipulation.html#cb63-1" tabindex="-1"></a><span class="co"># Select columns by position (use cautiously)</span></span>
+<span id="cb63-2"><a href="data-manipulation.html#cb63-2" tabindex="-1"></a>first_columns <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb63-3"><a href="data-manipulation.html#cb63-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb63-4"><a href="data-manipulation.html#cb63-4" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="data-manipulation.html#cb63-5" tabindex="-1"></a><span class="co"># Select columns by data type</span></span>
+<span id="cb63-6"><a href="data-manipulation.html#cb63-6" tabindex="-1"></a>numeric_columns <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb63-7"><a href="data-manipulation.html#cb63-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric))</span>
+<span id="cb63-8"><a href="data-manipulation.html#cb63-8" tabindex="-1"></a></span>
+<span id="cb63-9"><a href="data-manipulation.html#cb63-9" tabindex="-1"></a><span class="co"># Select columns by pattern</span></span>
+<span id="cb63-10"><a href="data-manipulation.html#cb63-10" tabindex="-1"></a>value_columns <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb63-11"><a href="data-manipulation.html#cb63-11" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>))</span>
+<span id="cb63-12"><a href="data-manipulation.html#cb63-12" tabindex="-1"></a></span>
+<span id="cb63-13"><a href="data-manipulation.html#cb63-13" tabindex="-1"></a><span class="co"># Select and rename columns simultaneously</span></span>
+<span id="cb63-14"><a href="data-manipulation.html#cb63-14" tabindex="-1"></a>renamed_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb63-15"><a href="data-manipulation.html#cb63-15" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">identifier =</span> id_column, <span class="at">entity =</span> name_column, <span class="at">category =</span> category_column)</span></code></pre></div>
+</div>
+</div>
+<div id="filtering-rows" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Filtering Rows<a href="data-manipulation.html#filtering-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>filter()</code> function allows you to subset your data based on logical conditions. This is essential for focusing your analysis on specific subsets of your data.</p>
+<div id="setting-up-custom-operators" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Setting Up Custom Operators<a href="data-manipulation.html#setting-up-custom-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before diving into filtering examples, it’s useful to define some custom operators that make filtering more intuitive.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-manipulation.html#cb64-1" tabindex="-1"></a><span class="co"># Define custom operators</span></span>
+<span id="cb64-2"><a href="data-manipulation.html#cb64-2" tabindex="-1"></a><span class="st">`</span><span class="at">%notin%</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">Negate</span>(<span class="st">`</span><span class="at">%in%</span><span class="st">`</span>)</span></code></pre></div>
+</div>
+<div id="basic-filtering-operations" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Basic Filtering Operations<a href="data-manipulation.html#basic-filtering-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These examples cover the most common filtering scenarios you’ll encounter in data analysis.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-manipulation.html#cb65-1" tabindex="-1"></a><span class="co"># Exact match filtering</span></span>
+<span id="cb65-2"><a href="data-manipulation.html#cb65-2" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href="data-manipulation.html#cb65-3" tabindex="-1"></a>  <span class="fu">filter</span>(id_column <span class="sc">==</span> <span class="dv">12345</span>)</span>
+<span id="cb65-4"><a href="data-manipulation.html#cb65-4" tabindex="-1"></a></span>
+<span id="cb65-5"><a href="data-manipulation.html#cb65-5" tabindex="-1"></a><span class="co"># Text matching</span></span>
+<span id="cb65-6"><a href="data-manipulation.html#cb65-6" tabindex="-1"></a>filtered_data2 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-7"><a href="data-manipulation.html#cb65-7" tabindex="-1"></a>  <span class="fu">filter</span>(name_column <span class="sc">==</span> <span class="st">&quot;Specific Entity&quot;</span>)</span>
+<span id="cb65-8"><a href="data-manipulation.html#cb65-8" tabindex="-1"></a></span>
+<span id="cb65-9"><a href="data-manipulation.html#cb65-9" tabindex="-1"></a><span class="co"># Multiple value matching</span></span>
+<span id="cb65-10"><a href="data-manipulation.html#cb65-10" tabindex="-1"></a>filtered_data3 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-11"><a href="data-manipulation.html#cb65-11" tabindex="-1"></a>  <span class="fu">filter</span>(name_column <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Entity A&quot;</span>, <span class="st">&quot;Entity B&quot;</span>, <span class="st">&quot;Entity C&quot;</span>))</span>
 <span id="cb65-12"><a href="data-manipulation.html#cb65-12" tabindex="-1"></a></span>
-<span id="cb65-13"><a href="data-manipulation.html#cb65-13" tabindex="-1"></a></span>
-<span id="cb65-14"><a href="data-manipulation.html#cb65-14" tabindex="-1"></a><span class="co">#In LONG format, that tibble looks like this:</span></span>
-<span id="cb65-15"><a href="data-manipulation.html#cb65-15" tabindex="-1"></a><span class="co"># A tibble: 6 x 3</span></span>
-<span id="cb65-16"><a href="data-manipulation.html#cb65-16" tabindex="-1"></a><span class="co">#   | animal | category | answer</span></span>
-<span id="cb65-17"><a href="data-manipulation.html#cb65-17" tabindex="-1"></a><span class="co"># _________________________________</span></span>
-<span id="cb65-18"><a href="data-manipulation.html#cb65-18" tabindex="-1"></a><span class="co"># 1 | horse  | weight   | 500kg</span></span>
-<span id="cb65-19"><a href="data-manipulation.html#cb65-19" tabindex="-1"></a><span class="co"># 2 | horse  | height   | 2.5m</span></span>
-<span id="cb65-20"><a href="data-manipulation.html#cb65-20" tabindex="-1"></a><span class="co"># 3 | horse  | home     | field</span></span>
-<span id="cb65-21"><a href="data-manipulation.html#cb65-21" tabindex="-1"></a><span class="co"># 4 | cat    | weight   | 6kg</span></span>
-<span id="cb65-22"><a href="data-manipulation.html#cb65-22" tabindex="-1"></a><span class="co"># 5 | cat    | height   | 0.4m</span></span>
-<span id="cb65-23"><a href="data-manipulation.html#cb65-23" tabindex="-1"></a><span class="co"># 6 | cat    | home     | house</span></span>
-<span id="cb65-24"><a href="data-manipulation.html#cb65-24" tabindex="-1"></a></span>
-<span id="cb65-25"><a href="data-manipulation.html#cb65-25" tabindex="-1"></a><span class="co">#For completeness, the code to perform this transformation is:</span></span>
-<span id="cb65-26"><a href="data-manipulation.html#cb65-26" tabindex="-1"></a><span class="co">#pivot_longer(-animal, names_to = &quot;category&quot;, values_to = &quot;answer&quot;)</span></span></code></pre></div>
-<p><strong>Wide to long</strong></p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-manipulation.html#cb66-1" tabindex="-1"></a>Long_CAH1 <span class="ot">&lt;-</span> CAH1_Data <span class="sc">%&gt;%</span></span>
-<span id="cb66-2"><a href="data-manipulation.html#cb66-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Tariff_group) <span class="sc">%&gt;%</span></span>
-<span id="cb66-3"><a href="data-manipulation.html#cb66-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">UKPRN</span><span class="st">`</span>, <span class="st">`</span><span class="at">HE provider</span><span class="st">`</span>),   <span class="co">#This vector contains the columns to hold on the left hand side of the data frame and essential &#39;not pivot&#39;</span></span>
-<span id="cb66-4"><a href="data-manipulation.html#cb66-4" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Subject&quot;</span>, <span class="co">#The name of the column title that will contain the former column headings</span></span>
-<span id="cb66-5"><a href="data-manipulation.html#cb66-5" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;FPE&quot;</span>) <span class="co">#Name of the data column</span></span></code></pre></div>
-<p><strong>Long to wide</strong> (restoring our original data frame)</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-manipulation.html#cb67-1" tabindex="-1"></a>Wide_CAH1 <span class="ot">&lt;-</span> Long_CAH1 <span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href="data-manipulation.html#cb67-2" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Subject, <span class="at">values_from =</span> FPE)</span></code></pre></div>
-<p>The <code>values_fill = ...</code> argument is useful when converting long data to wide data if not all rows have a data point for each column.</p>
+<span id="cb65-13"><a href="data-manipulation.html#cb65-13" tabindex="-1"></a><span class="co"># Pattern matching with regular expressions</span></span>
+<span id="cb65-14"><a href="data-manipulation.html#cb65-14" tabindex="-1"></a>filtered_data4 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-15"><a href="data-manipulation.html#cb65-15" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&#39;keyword&#39;</span>, name_column))  <span class="co"># Contains &#39;keyword&#39;</span></span>
+<span id="cb65-16"><a href="data-manipulation.html#cb65-16" tabindex="-1"></a></span>
+<span id="cb65-17"><a href="data-manipulation.html#cb65-17" tabindex="-1"></a><span class="co"># Negative pattern matching</span></span>
+<span id="cb65-18"><a href="data-manipulation.html#cb65-18" tabindex="-1"></a>filtered_data5 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-19"><a href="data-manipulation.html#cb65-19" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&#39;keyword&#39;</span>, name_column))  <span class="co"># Does NOT contain &#39;keyword&#39;</span></span></code></pre></div>
 </div>
-<div id="joining-data" class="section level2 hasAnchor" number="6.8">
-<h2><span class="header-section-number">6.8</span> Joining data<a href="data-manipulation.html#joining-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are four primary joining functions in the <code>dplyr</code> package. Each does a slightly different thing, adding y to x, matching rows based on the keys. Searching the help bar, for any of <code>left_join()</code>, <code>right_join()</code>, <code>full_join()</code> and <code>inner_join()</code> should show that it is relatively straightforward.</p>
-<p>Some less immediately clear things are:</p>
-<p><strong>Matching two columns that do not have the same name.</strong> This is done within the <code>by = ...</code> argument, such as: <code>left_join(data_frame1, data_frame2, by = c("column_name_in_D1" = "column_name_in_D2"))</code>.</p>
-<p>If you are working in a <code>dplyr</code> pipe (i.e. you are using %&gt;%), the <code>x</code> data frame is implicitly included in the function. In this way you could write `data_frame1 %&gt;% left_join(data_frame2, by = “matching_column”).</p>
-<p><strong>Matching multiple columns.</strong> If rows do not have a unique identifier - instead, their uniqueness comes from a combination of variables, perhaps the lifetime earnings of a certain subject at a particular university, which could not be matched from either the university or subject alone - then you will need to match multiple columns at once. This can also be done from within the <code>by = ...</code> argument, using a vector of columns to match. This could be in conjunction with the non-identical names method, shown above, but in it’s simplest form, the code would look like: <code>left_join(data_frame1, data_frame2, by = c("column1", "column2", "column3"))</code>, where the three columns are all in both data_frame1 and data_frame2.</p>
-<p>You can join multiple DFs in a single line of code if you have a common joining column</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-manipulation.html#cb68-1" tabindex="-1"></a>Int_Students_Data <span class="ot">&lt;-</span> <span class="fu">list</span>(Africa, Asia, Australasia, EU, Middle_East, North_America, South_America, </span>
-<span id="cb68-2"><a href="data-manipulation.html#cb68-2" tabindex="-1"></a>                Other_EU) <span class="sc">%&gt;%</span></span>
-<span id="cb68-3"><a href="data-manipulation.html#cb68-3" tabindex="-1"></a>  <span class="fu">reduce</span>(left_join, <span class="at">by=</span> <span class="fu">c</span>(<span class="st">&#39;UKPRN&#39;</span>, <span class="st">&#39;HE.Provider&#39;</span>))</span></code></pre></div>
-<p>You can also make joins more efficient by manipulating what you’re about to join within the join syntax</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-manipulation.html#cb69-1" tabindex="-1"></a><span class="co"># here there is code nested within the join. This might save you from having to make lots of excess objects</span></span>
-<span id="cb69-2"><a href="data-manipulation.html#cb69-2" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2 <span class="sc">%&gt;%</span> <span class="fu">select</span>(col1, col2) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(col1 <span class="sc">==</span> <span class="st">&quot;example filter&quot;</span>), <span class="at">by =</span> <span class="st">&quot;col2&quot;</span>)</span></code></pre></div>
+<div id="logical-operators-in-filtering" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Logical Operators in Filtering<a href="data-manipulation.html#logical-operators-in-filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can combine multiple conditions using logical operators to create more complex filters.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-manipulation.html#cb66-1" tabindex="-1"></a><span class="co"># OR condition - either condition can be true</span></span>
+<span id="cb66-2"><a href="data-manipulation.html#cb66-2" tabindex="-1"></a>filtered_data6 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href="data-manipulation.html#cb66-3" tabindex="-1"></a>  <span class="fu">filter</span>(name_column <span class="sc">==</span> <span class="st">&quot;Entity A&quot;</span> <span class="sc">|</span> name_column <span class="sc">==</span> <span class="st">&quot;Entity B&quot;</span>)</span>
+<span id="cb66-4"><a href="data-manipulation.html#cb66-4" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="data-manipulation.html#cb66-5" tabindex="-1"></a><span class="co"># AND condition - both conditions must be true</span></span>
+<span id="cb66-6"><a href="data-manipulation.html#cb66-6" tabindex="-1"></a>filtered_data7 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb66-7"><a href="data-manipulation.html#cb66-7" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&#39;keyword1&#39;</span>, name_column) <span class="sc">&amp;</span> <span class="fu">grepl</span>(<span class="st">&#39;keyword2&#39;</span>, name_column))</span>
+<span id="cb66-8"><a href="data-manipulation.html#cb66-8" tabindex="-1"></a></span>
+<span id="cb66-9"><a href="data-manipulation.html#cb66-9" tabindex="-1"></a><span class="co"># Handle missing values</span></span>
+<span id="cb66-10"><a href="data-manipulation.html#cb66-10" tabindex="-1"></a>filtered_data8 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb66-11"><a href="data-manipulation.html#cb66-11" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(category_column))</span>
+<span id="cb66-12"><a href="data-manipulation.html#cb66-12" tabindex="-1"></a></span>
+<span id="cb66-13"><a href="data-manipulation.html#cb66-13" tabindex="-1"></a><span class="co"># Multiple conditions in one filter (implicit AND)</span></span>
+<span id="cb66-14"><a href="data-manipulation.html#cb66-14" tabindex="-1"></a>filtered_data9 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb66-15"><a href="data-manipulation.html#cb66-15" tabindex="-1"></a>  <span class="fu">filter</span>(value_column1 <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb66-16"><a href="data-manipulation.html#cb66-16" tabindex="-1"></a>         value_column2 <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
+<span id="cb66-17"><a href="data-manipulation.html#cb66-17" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(category_column))</span></code></pre></div>
 </div>
-<div id="extracting_variables" class="section level2 hasAnchor" number="6.9">
-<h2><span class="header-section-number">6.9</span> Extracting variables<a href="data-manipulation.html#extracting_variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Often you need to pull out specific data points from a df or other object. There are multiple ways to do this; some are more robust than others.</p>
-<p>If you know exactly which index position the data point is in <strong>and will always be in</strong>, you can subset with the data point position. That is, how many rows down it is and how many columns across it is. The issue is, if you change or update your analysis, and the data point moves, this code will extract the incorrect data point.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-manipulation.html#cb70-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb70-2"><a href="data-manipulation.html#cb70-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb70-3"><a href="data-manipulation.html#cb70-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
-<span id="cb70-4"><a href="data-manipulation.html#cb70-4" tabindex="-1"></a></span>
-<span id="cb70-5"><a href="data-manipulation.html#cb70-5" tabindex="-1"></a></span>
-<span id="cb70-6"><a href="data-manipulation.html#cb70-6" tabindex="-1"></a><span class="co"># you can extract the data point in the 150th row and 2nd column</span></span>
-<span id="cb70-7"><a href="data-manipulation.html#cb70-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> iris[<span class="dv">150</span>, <span class="dv">2</span>]</span></code></pre></div>
-<p>Instead of row and column number, you can subset using row and column names. In the iris data the row names are the text “1”:“150”. The column names (which can be seen with the names() function) are text strings.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-manipulation.html#cb71-1" tabindex="-1"></a><span class="co"># you can extract the data point in the row whose name is &quot;150&quot; and whose column name is &quot;Sepal.Width</span></span>
-<span id="cb71-2"><a href="data-manipulation.html#cb71-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> iris[<span class="st">&quot;150&quot;</span>, <span class="st">&quot;Sepal.Width&quot;</span>]</span>
-<span id="cb71-3"><a href="data-manipulation.html#cb71-3" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="data-manipulation.html#cb71-4" tabindex="-1"></a><span class="co"># you can generalise the code, given we know the data frame has 150 rows.</span></span>
-<span id="cb71-5"><a href="data-manipulation.html#cb71-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">nrow</span>(iris)) <span class="co"># check the number of rows</span></span>
-<span id="cb71-6"><a href="data-manipulation.html#cb71-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">150</span></span>
-<span id="cb71-7"><a href="data-manipulation.html#cb71-7" tabindex="-1"></a></span>
-<span id="cb71-8"><a href="data-manipulation.html#cb71-8" tabindex="-1"></a><span class="co"># extract the data point whose row name is 150 and whose column name is Sepal.Width</span></span>
-<span id="cb71-9"><a href="data-manipulation.html#cb71-9" tabindex="-1"></a><span class="co"># without the as.character() function, we would extract the element in the 150th row. </span></span>
-<span id="cb71-10"><a href="data-manipulation.html#cb71-10" tabindex="-1"></a><span class="co"># In this dataset, due to the names being the same as numbers you get the same outcome</span></span>
-<span id="cb71-11"><a href="data-manipulation.html#cb71-11" tabindex="-1"></a>z <span class="ot">&lt;-</span> iris[<span class="fu">as.character</span>(<span class="fu">nrow</span>(iris)), <span class="st">&quot;Sepal.Width&quot;</span>]</span></code></pre></div>
+<div id="advanced-filtering-with-across" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Advanced Filtering with across()<a href="data-manipulation.html#advanced-filtering-with-across" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>across()</code> function allows you to apply the same filtering logic to multiple columns simultaneously.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-manipulation.html#cb67-1" tabindex="-1"></a><span class="co"># Filter rows where specified columns contain specific patterns</span></span>
+<span id="cb67-2"><a href="data-manipulation.html#cb67-2" tabindex="-1"></a>filtered_advanced <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb67-3"><a href="data-manipulation.html#cb67-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">across</span>(<span class="fu">c</span>(column1, column2), <span class="sc">~</span> <span class="fu">str_detect</span>(., <span class="at">pattern =</span> <span class="st">&quot;pattern&quot;</span>)))</span>
+<span id="cb67-4"><a href="data-manipulation.html#cb67-4" tabindex="-1"></a></span>
+<span id="cb67-5"><a href="data-manipulation.html#cb67-5" tabindex="-1"></a><span class="co"># Filter rows with no letters in numeric columns</span></span>
+<span id="cb67-6"><a href="data-manipulation.html#cb67-6" tabindex="-1"></a>filtered_numeric <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb67-7"><a href="data-manipulation.html#cb67-7" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">across</span>(<span class="fu">c</span>(numeric_col1, numeric_col2), <span class="sc">~</span> <span class="sc">!</span><span class="fu">str_detect</span>(., <span class="at">pattern =</span> <span class="st">&quot;[A-Z]&quot;</span>)))</span>
+<span id="cb67-8"><a href="data-manipulation.html#cb67-8" tabindex="-1"></a></span>
+<span id="cb67-9"><a href="data-manipulation.html#cb67-9" tabindex="-1"></a><span class="co"># Filter rows where values are above threshold</span></span>
+<span id="cb67-10"><a href="data-manipulation.html#cb67-10" tabindex="-1"></a>filtered_threshold <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb67-11"><a href="data-manipulation.html#cb67-11" tabindex="-1"></a>  <span class="fu">filter_at</span>(<span class="fu">vars</span>(value_col1, value_col2), <span class="fu">all_vars</span>(. <span class="sc">&gt;</span> <span class="dv">100</span>))</span>
+<span id="cb67-12"><a href="data-manipulation.html#cb67-12" tabindex="-1"></a></span>
+<span id="cb67-13"><a href="data-manipulation.html#cb67-13" tabindex="-1"></a><span class="co"># Filter out rows with any missing values</span></span>
+<span id="cb67-14"><a href="data-manipulation.html#cb67-14" tabindex="-1"></a>complete_cases <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb67-15"><a href="data-manipulation.html#cb67-15" tabindex="-1"></a>  <span class="fu">filter_at</span>(<span class="fu">vars</span>(<span class="fu">everything</span>()), <span class="fu">all_vars</span>(<span class="sc">!</span><span class="fu">is.na</span>(.)))</span></code></pre></div>
+</div>
+</div>
+<div id="summarising-data" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Summarising Data<a href="data-manipulation.html#summarising-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>summarise()</code> function creates summary statistics from your data. It’s particularly powerful when combined with grouping operations.</p>
+<div id="basic-summarisation" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Basic Summarisation<a href="data-manipulation.html#basic-summarisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here’s how to create summary statistics for your entire dataset:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-manipulation.html#cb68-1" tabindex="-1"></a><span class="co"># Basic summary of entire dataset</span></span>
+<span id="cb68-2"><a href="data-manipulation.html#cb68-2" tabindex="-1"></a>total_summary <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb68-3"><a href="data-manipulation.html#cb68-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb68-4"><a href="data-manipulation.html#cb68-4" tabindex="-1"></a>    <span class="at">total_count =</span> <span class="fu">n</span>(),</span>
+<span id="cb68-5"><a href="data-manipulation.html#cb68-5" tabindex="-1"></a>    <span class="at">total_value =</span> <span class="fu">sum</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb68-6"><a href="data-manipulation.html#cb68-6" tabindex="-1"></a>    <span class="at">average_value =</span> <span class="fu">mean</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb68-7"><a href="data-manipulation.html#cb68-7" tabindex="-1"></a>    <span class="at">max_value =</span> <span class="fu">max</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb68-8"><a href="data-manipulation.html#cb68-8" tabindex="-1"></a>    <span class="at">min_value =</span> <span class="fu">min</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb68-9"><a href="data-manipulation.html#cb68-9" tabindex="-1"></a>    <span class="at">std_dev =</span> <span class="fu">sd</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb68-10"><a href="data-manipulation.html#cb68-10" tabindex="-1"></a>  )</span>
+<span id="cb68-11"><a href="data-manipulation.html#cb68-11" tabindex="-1"></a></span>
+<span id="cb68-12"><a href="data-manipulation.html#cb68-12" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb68-13"><a href="data-manipulation.html#cb68-13" tabindex="-1"></a><span class="fu">print</span>(total_summary)</span></code></pre></div>
+</div>
+<div id="summarising-multiple-columns" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Summarising Multiple Columns<a href="data-manipulation.html#summarising-multiple-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you need to apply the same summary functions to multiple columns, use <code>across()</code> to avoid repetitive code:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-manipulation.html#cb69-1" tabindex="-1"></a><span class="co"># Summarise multiple columns at once</span></span>
+<span id="cb69-2"><a href="data-manipulation.html#cb69-2" tabindex="-1"></a>multi_summary <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb69-3"><a href="data-manipulation.html#cb69-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(value_col1, value_col2), </span>
+<span id="cb69-4"><a href="data-manipulation.html#cb69-4" tabindex="-1"></a>                   <span class="fu">list</span>(<span class="at">sum =</span> <span class="sc">~</span> <span class="fu">sum</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-5"><a href="data-manipulation.html#cb69-5" tabindex="-1"></a>                        <span class="at">mean =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb69-6"><a href="data-manipulation.html#cb69-6" tabindex="-1"></a>                        <span class="at">count =</span> <span class="sc">~</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(.x))), </span>
+<span id="cb69-7"><a href="data-manipulation.html#cb69-7" tabindex="-1"></a>                   <span class="at">.names =</span> <span class="st">&quot;{.col}_{.fn}&quot;</span>))</span>
+<span id="cb69-8"><a href="data-manipulation.html#cb69-8" tabindex="-1"></a></span>
+<span id="cb69-9"><a href="data-manipulation.html#cb69-9" tabindex="-1"></a><span class="co"># This creates columns like value_col1_sum, value_col1_mean, value_col1_count, etc.</span></span></code></pre></div>
+</div>
+</div>
+<div id="grouping-and-group-wise-operations" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Grouping and Group-wise Operations<a href="data-manipulation.html#grouping-and-group-wise-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Grouping is one of the most powerful features of dplyr. It allows you to perform operations on subsets of your data defined by the values in one or more columns.</p>
+<div id="single-variable-grouping" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Single Variable Grouping<a href="data-manipulation.html#single-variable-grouping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The most common use case is grouping by a single categorical variable:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-manipulation.html#cb70-1" tabindex="-1"></a><span class="co"># Group by a single variable</span></span>
+<span id="cb70-2"><a href="data-manipulation.html#cb70-2" tabindex="-1"></a>grouped_summary <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="data-manipulation.html#cb70-3" tabindex="-1"></a>  <span class="fu">group_by</span>(category_column) <span class="sc">%&gt;%</span></span>
+<span id="cb70-4"><a href="data-manipulation.html#cb70-4" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb70-5"><a href="data-manipulation.html#cb70-5" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>(),</span>
+<span id="cb70-6"><a href="data-manipulation.html#cb70-6" tabindex="-1"></a>    <span class="at">total_value =</span> <span class="fu">sum</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb70-7"><a href="data-manipulation.html#cb70-7" tabindex="-1"></a>    <span class="at">average_value =</span> <span class="fu">mean</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb70-8"><a href="data-manipulation.html#cb70-8" tabindex="-1"></a>    <span class="at">median_value =</span> <span class="fu">median</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb70-9"><a href="data-manipulation.html#cb70-9" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>  <span class="co"># This removes the grouping after summarising</span></span>
+<span id="cb70-10"><a href="data-manipulation.html#cb70-10" tabindex="-1"></a>  )</span>
+<span id="cb70-11"><a href="data-manipulation.html#cb70-11" tabindex="-1"></a></span>
+<span id="cb70-12"><a href="data-manipulation.html#cb70-12" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb70-13"><a href="data-manipulation.html#cb70-13" tabindex="-1"></a><span class="fu">print</span>(grouped_summary)</span></code></pre></div>
+</div>
+<div id="multiple-variable-grouping" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Multiple Variable Grouping<a href="data-manipulation.html#multiple-variable-grouping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can group by multiple variables to create more detailed breakdowns:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-manipulation.html#cb71-1" tabindex="-1"></a><span class="co"># Create a new categorical variable first</span></span>
+<span id="cb71-2"><a href="data-manipulation.html#cb71-2" tabindex="-1"></a>analysis_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb71-3"><a href="data-manipulation.html#cb71-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type_flag =</span> <span class="fu">if_else</span>(<span class="fu">grepl</span>(<span class="st">&#39;keyword&#39;</span>, name_column), <span class="st">&quot;Type A&quot;</span>, <span class="st">&quot;Type B&quot;</span>))</span>
+<span id="cb71-4"><a href="data-manipulation.html#cb71-4" tabindex="-1"></a></span>
+<span id="cb71-5"><a href="data-manipulation.html#cb71-5" tabindex="-1"></a><span class="co"># Group by multiple variables</span></span>
+<span id="cb71-6"><a href="data-manipulation.html#cb71-6" tabindex="-1"></a>multi_grouped <span class="ot">&lt;-</span> analysis_data <span class="sc">%&gt;%</span></span>
+<span id="cb71-7"><a href="data-manipulation.html#cb71-7" tabindex="-1"></a>  <span class="fu">group_by</span>(category_column, type_flag) <span class="sc">%&gt;%</span></span>
+<span id="cb71-8"><a href="data-manipulation.html#cb71-8" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb71-9"><a href="data-manipulation.html#cb71-9" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>(),</span>
+<span id="cb71-10"><a href="data-manipulation.html#cb71-10" tabindex="-1"></a>    <span class="at">total_value =</span> <span class="fu">sum</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb71-11"><a href="data-manipulation.html#cb71-11" tabindex="-1"></a>    <span class="at">average_value =</span> <span class="fu">mean</span>(value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb71-12"><a href="data-manipulation.html#cb71-12" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb71-13"><a href="data-manipulation.html#cb71-13" tabindex="-1"></a>  )</span>
+<span id="cb71-14"><a href="data-manipulation.html#cb71-14" tabindex="-1"></a></span>
+<span id="cb71-15"><a href="data-manipulation.html#cb71-15" tabindex="-1"></a><span class="co"># This creates a row for each unique combination of category_column and type_flag</span></span></code></pre></div>
+</div>
+<div id="simple-counting" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Simple Counting<a href="data-manipulation.html#simple-counting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes you just need to count how many observations fall into each group:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-manipulation.html#cb72-1" tabindex="-1"></a><span class="co"># Count occurrences by group</span></span>
+<span id="cb72-2"><a href="data-manipulation.html#cb72-2" tabindex="-1"></a>count_by_group <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb72-3"><a href="data-manipulation.html#cb72-3" tabindex="-1"></a>  <span class="fu">count</span>(category_column, <span class="at">sort =</span> <span class="cn">TRUE</span>)  <span class="co"># sort = TRUE orders by count descending</span></span>
+<span id="cb72-4"><a href="data-manipulation.html#cb72-4" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="data-manipulation.html#cb72-5" tabindex="-1"></a><span class="co"># Alternative using group_by and summarise</span></span>
+<span id="cb72-6"><a href="data-manipulation.html#cb72-6" tabindex="-1"></a>count_by_group2 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb72-7"><a href="data-manipulation.html#cb72-7" tabindex="-1"></a>  <span class="fu">group_by</span>(category_column) <span class="sc">%&gt;%</span></span>
+<span id="cb72-8"><a href="data-manipulation.html#cb72-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">row_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="adding-totals" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Adding Totals<a href="data-manipulation.html#adding-totals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>janitor</code> package provides convenient functions for adding total rows and columns to your summaries.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-manipulation.html#cb73-1" tabindex="-1"></a><span class="co"># Add row totals (adds a &quot;Total&quot; row at the bottom)</span></span>
+<span id="cb73-2"><a href="data-manipulation.html#cb73-2" tabindex="-1"></a>data_with_totals <span class="ot">&lt;-</span> grouped_summary <span class="sc">%&gt;%</span></span>
+<span id="cb73-3"><a href="data-manipulation.html#cb73-3" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;row&quot;</span>)</span>
+<span id="cb73-4"><a href="data-manipulation.html#cb73-4" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="data-manipulation.html#cb73-5" tabindex="-1"></a><span class="co"># Add column totals (adds a &quot;Total&quot; column on the right)</span></span>
+<span id="cb73-6"><a href="data-manipulation.html#cb73-6" tabindex="-1"></a>data_with_col_totals <span class="ot">&lt;-</span> grouped_summary <span class="sc">%&gt;%</span></span>
+<span id="cb73-7"><a href="data-manipulation.html#cb73-7" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;col&quot;</span>)</span>
+<span id="cb73-8"><a href="data-manipulation.html#cb73-8" tabindex="-1"></a></span>
+<span id="cb73-9"><a href="data-manipulation.html#cb73-9" tabindex="-1"></a><span class="co"># Add both row and column totals</span></span>
+<span id="cb73-10"><a href="data-manipulation.html#cb73-10" tabindex="-1"></a>data_with_both_totals <span class="ot">&lt;-</span> grouped_summary <span class="sc">%&gt;%</span></span>
+<span id="cb73-11"><a href="data-manipulation.html#cb73-11" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span></code></pre></div>
+<p>You can verify that your totals are correct and extract specific values:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-manipulation.html#cb74-1" tabindex="-1"></a><span class="co"># Verify totals match your expectations</span></span>
+<span id="cb74-2"><a href="data-manipulation.html#cb74-2" tabindex="-1"></a>total_check <span class="ot">&lt;-</span> data_with_totals<span class="sc">$</span>total_value[<span class="fu">nrow</span>(data_with_totals)]</span>
+<span id="cb74-3"><a href="data-manipulation.html#cb74-3" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="data-manipulation.html#cb74-4" tabindex="-1"></a><span class="co"># Extract specific total value</span></span>
+<span id="cb74-5"><a href="data-manipulation.html#cb74-5" tabindex="-1"></a>extracted_total <span class="ot">&lt;-</span> data_with_totals <span class="sc">%&gt;%</span></span>
+<span id="cb74-6"><a href="data-manipulation.html#cb74-6" tabindex="-1"></a>  <span class="fu">slice_tail</span>(<span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb74-7"><a href="data-manipulation.html#cb74-7" tabindex="-1"></a>  <span class="fu">pull</span>(total_value)</span>
+<span id="cb74-8"><a href="data-manipulation.html#cb74-8" tabindex="-1"></a></span>
+<span id="cb74-9"><a href="data-manipulation.html#cb74-9" tabindex="-1"></a><span class="co"># Check if totals match between different summaries</span></span>
+<span id="cb74-10"><a href="data-manipulation.html#cb74-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Total matches:&quot;</span>, total_check <span class="sc">==</span> <span class="fu">sum</span>(clean_data<span class="sc">$</span>value_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span></code></pre></div>
+</div>
+<div id="creating-and-transforming-variables" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Creating and Transforming Variables<a href="data-manipulation.html#creating-and-transforming-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>mutate()</code> function is your primary tool for creating new variables or transforming existing ones. It’s incredibly flexible and supports complex operations.</p>
+<div id="basic-variable-creation" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Basic Variable Creation<a href="data-manipulation.html#basic-variable-creation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These examples show the most common ways to create new variables:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-manipulation.html#cb75-1" tabindex="-1"></a><span class="co"># Create new variables</span></span>
+<span id="cb75-2"><a href="data-manipulation.html#cb75-2" tabindex="-1"></a>transformed_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb75-3"><a href="data-manipulation.html#cb75-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb75-4"><a href="data-manipulation.html#cb75-4" tabindex="-1"></a>    <span class="co"># Simple arithmetic</span></span>
+<span id="cb75-5"><a href="data-manipulation.html#cb75-5" tabindex="-1"></a>    <span class="at">combined_value =</span> value_col1 <span class="sc">+</span> value_col2 <span class="sc">+</span> value_col3,</span>
+<span id="cb75-6"><a href="data-manipulation.html#cb75-6" tabindex="-1"></a>    </span>
+<span id="cb75-7"><a href="data-manipulation.html#cb75-7" tabindex="-1"></a>    <span class="co"># Percentage calculations</span></span>
+<span id="cb75-8"><a href="data-manipulation.html#cb75-8" tabindex="-1"></a>    <span class="at">percentage =</span> (value_column <span class="sc">/</span> total_column) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb75-9"><a href="data-manipulation.html#cb75-9" tabindex="-1"></a>    </span>
+<span id="cb75-10"><a href="data-manipulation.html#cb75-10" tabindex="-1"></a>    <span class="co"># Simple conditional variable</span></span>
+<span id="cb75-11"><a href="data-manipulation.html#cb75-11" tabindex="-1"></a>    <span class="at">binary_flag =</span> <span class="fu">if_else</span>(value_column <span class="sc">&gt;</span> <span class="dv">100</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>),</span>
+<span id="cb75-12"><a href="data-manipulation.html#cb75-12" tabindex="-1"></a>    </span>
+<span id="cb75-13"><a href="data-manipulation.html#cb75-13" tabindex="-1"></a>    <span class="co"># Overwrite existing column (apply a transformation)</span></span>
+<span id="cb75-14"><a href="data-manipulation.html#cb75-14" tabindex="-1"></a>    <span class="at">value_column =</span> value_column <span class="sc">*</span> <span class="fl">1.1</span>  <span class="co"># Apply 10% increase</span></span>
+<span id="cb75-15"><a href="data-manipulation.html#cb75-15" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<div id="complex-conditional-logic" class="section level3 hasAnchor" number="6.7.2">
+<h3><span class="header-section-number">6.7.2</span> Complex Conditional Logic<a href="data-manipulation.html#complex-conditional-logic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For more complex conditions, use <code>case_when()</code>, which is like a vectorised if-else statement:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-manipulation.html#cb76-1" tabindex="-1"></a><span class="co"># Complex conditional variable with multiple outcomes</span></span>
+<span id="cb76-2"><a href="data-manipulation.html#cb76-2" tabindex="-1"></a>complex_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb76-3"><a href="data-manipulation.html#cb76-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb76-4"><a href="data-manipulation.html#cb76-4" tabindex="-1"></a>    <span class="at">category_flag =</span> <span class="fu">case_when</span>(</span>
+<span id="cb76-5"><a href="data-manipulation.html#cb76-5" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;pattern1&quot;</span>, name_column) <span class="sc">~</span> <span class="st">&quot;Category 1&quot;</span>,</span>
+<span id="cb76-6"><a href="data-manipulation.html#cb76-6" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;pattern2&quot;</span>, name_column) <span class="sc">~</span> <span class="st">&quot;Category 2&quot;</span>,</span>
+<span id="cb76-7"><a href="data-manipulation.html#cb76-7" tabindex="-1"></a>      value_column <span class="sc">&gt;</span> <span class="dv">500</span> <span class="sc">~</span> <span class="st">&quot;High Value&quot;</span>,</span>
+<span id="cb76-8"><a href="data-manipulation.html#cb76-8" tabindex="-1"></a>      value_column <span class="sc">&lt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">&quot;Low Value&quot;</span>,</span>
+<span id="cb76-9"><a href="data-manipulation.html#cb76-9" tabindex="-1"></a>      <span class="fu">is.na</span>(value_column) <span class="sc">~</span> <span class="st">&quot;Missing&quot;</span>,</span>
+<span id="cb76-10"><a href="data-manipulation.html#cb76-10" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span>  <span class="co"># This handles all remaining cases</span></span>
+<span id="cb76-11"><a href="data-manipulation.html#cb76-11" tabindex="-1"></a>    ),</span>
+<span id="cb76-12"><a href="data-manipulation.html#cb76-12" tabindex="-1"></a>    </span>
+<span id="cb76-13"><a href="data-manipulation.html#cb76-13" tabindex="-1"></a>    <span class="co"># Combining multiple conditions</span></span>
+<span id="cb76-14"><a href="data-manipulation.html#cb76-14" tabindex="-1"></a>    <span class="at">complex_flag =</span> <span class="fu">case_when</span>(</span>
+<span id="cb76-15"><a href="data-manipulation.html#cb76-15" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;important&quot;</span>, name_column) <span class="sc">&amp;</span> value_column <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">&quot;Important and High&quot;</span>,</span>
+<span id="cb76-16"><a href="data-manipulation.html#cb76-16" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;important&quot;</span>, name_column) <span class="sc">&amp;</span> value_column <span class="sc">&lt;=</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">&quot;Important but Low&quot;</span>,</span>
+<span id="cb76-17"><a href="data-manipulation.html#cb76-17" tabindex="-1"></a>      <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;important&quot;</span>, name_column) <span class="sc">&amp;</span> value_column <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">&quot;Not Important but High&quot;</span>,</span>
+<span id="cb76-18"><a href="data-manipulation.html#cb76-18" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Other&quot;</span></span>
+<span id="cb76-19"><a href="data-manipulation.html#cb76-19" tabindex="-1"></a>    )</span>
+<span id="cb76-20"><a href="data-manipulation.html#cb76-20" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<div id="transforming-multiple-columns" class="section level3 hasAnchor" number="6.7.3">
+<h3><span class="header-section-number">6.7.3</span> Transforming Multiple Columns<a href="data-manipulation.html#transforming-multiple-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you need to apply the same transformation to multiple columns, use <code>across()</code> or <code>mutate_at()</code>:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-manipulation.html#cb77-1" tabindex="-1"></a><span class="co"># Transform multiple columns simultaneously</span></span>
+<span id="cb77-2"><a href="data-manipulation.html#cb77-2" tabindex="-1"></a>multi_transformed <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb77-3"><a href="data-manipulation.html#cb77-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(value_col1, value_col2), <span class="sc">~</span> .x <span class="sc">*</span> <span class="dv">1000</span>))  <span class="co"># Convert to thousands</span></span>
+<span id="cb77-4"><a href="data-manipulation.html#cb77-4" tabindex="-1"></a></span>
+<span id="cb77-5"><a href="data-manipulation.html#cb77-5" tabindex="-1"></a><span class="co"># Apply custom function to multiple columns</span></span>
+<span id="cb77-6"><a href="data-manipulation.html#cb77-6" tabindex="-1"></a>custom_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb77-7"><a href="data-manipulation.html#cb77-7" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  <span class="co"># Standardise</span></span>
+<span id="cb77-8"><a href="data-manipulation.html#cb77-8" tabindex="-1"></a>}</span>
+<span id="cb77-9"><a href="data-manipulation.html#cb77-9" tabindex="-1"></a></span>
+<span id="cb77-10"><a href="data-manipulation.html#cb77-10" tabindex="-1"></a>standardised_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb77-11"><a href="data-manipulation.html#cb77-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>), custom_function))</span>
+<span id="cb77-12"><a href="data-manipulation.html#cb77-12" tabindex="-1"></a></span>
+<span id="cb77-13"><a href="data-manipulation.html#cb77-13" tabindex="-1"></a><span class="co"># Transform all numeric columns</span></span>
+<span id="cb77-14"><a href="data-manipulation.html#cb77-14" tabindex="-1"></a>all_numeric_transformed <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb77-15"><a href="data-manipulation.html#cb77-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>)))  <span class="co"># Round to 2 decimal places</span></span></code></pre></div>
+</div>
+<div id="row-wise-operations" class="section level3 hasAnchor" number="6.7.4">
+<h3><span class="header-section-number">6.7.4</span> Row-wise Operations<a href="data-manipulation.html#row-wise-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes you need to perform calculations across columns within each row:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-manipulation.html#cb78-1" tabindex="-1"></a><span class="co"># Create columns from row-wise operations</span></span>
+<span id="cb78-2"><a href="data-manipulation.html#cb78-2" tabindex="-1"></a>row_operations <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb78-3"><a href="data-manipulation.html#cb78-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb78-4"><a href="data-manipulation.html#cb78-4" tabindex="-1"></a>    <span class="co"># Sum across multiple columns</span></span>
+<span id="cb78-5"><a href="data-manipulation.html#cb78-5" tabindex="-1"></a>    <span class="at">row_sum =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb78-6"><a href="data-manipulation.html#cb78-6" tabindex="-1"></a>    </span>
+<span id="cb78-7"><a href="data-manipulation.html#cb78-7" tabindex="-1"></a>    <span class="co"># Average across multiple columns</span></span>
+<span id="cb78-8"><a href="data-manipulation.html#cb78-8" tabindex="-1"></a>    <span class="at">row_mean =</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb78-9"><a href="data-manipulation.html#cb78-9" tabindex="-1"></a>    </span>
+<span id="cb78-10"><a href="data-manipulation.html#cb78-10" tabindex="-1"></a>    <span class="co"># Count non-missing values per row</span></span>
+<span id="cb78-11"><a href="data-manipulation.html#cb78-11" tabindex="-1"></a>    <span class="at">non_missing_count =</span> <span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)))),</span>
+<span id="cb78-12"><a href="data-manipulation.html#cb78-12" tabindex="-1"></a>    </span>
+<span id="cb78-13"><a href="data-manipulation.html#cb78-13" tabindex="-1"></a>    <span class="co"># Find maximum value per row</span></span>
+<span id="cb78-14"><a href="data-manipulation.html#cb78-14" tabindex="-1"></a>    <span class="at">row_max =</span> <span class="fu">do.call</span>(pmax, <span class="fu">c</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb78-15"><a href="data-manipulation.html#cb78-15" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<div id="handling-missing-values" class="section level3 hasAnchor" number="6.7.5">
+<h3><span class="header-section-number">6.7.5</span> Handling Missing Values<a href="data-manipulation.html#handling-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Missing values are common in real data. Here’s how to handle them systematically:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-manipulation.html#cb79-1" tabindex="-1"></a><span class="co"># Replace missing values with different strategies</span></span>
+<span id="cb79-2"><a href="data-manipulation.html#cb79-2" tabindex="-1"></a>clean_nas <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb79-3"><a href="data-manipulation.html#cb79-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb79-4"><a href="data-manipulation.html#cb79-4" tabindex="-1"></a>    <span class="co"># Replace with zero</span></span>
+<span id="cb79-5"><a href="data-manipulation.html#cb79-5" tabindex="-1"></a>    <span class="at">value_col1 =</span> <span class="fu">replace_na</span>(value_col1, <span class="dv">0</span>),</span>
+<span id="cb79-6"><a href="data-manipulation.html#cb79-6" tabindex="-1"></a>    </span>
+<span id="cb79-7"><a href="data-manipulation.html#cb79-7" tabindex="-1"></a>    <span class="co"># Replace with mean</span></span>
+<span id="cb79-8"><a href="data-manipulation.html#cb79-8" tabindex="-1"></a>    <span class="at">value_col2 =</span> <span class="fu">replace_na</span>(value_col2, <span class="fu">mean</span>(value_col2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb79-9"><a href="data-manipulation.html#cb79-9" tabindex="-1"></a>    </span>
+<span id="cb79-10"><a href="data-manipulation.html#cb79-10" tabindex="-1"></a>    <span class="co"># Replace all numeric columns with zero</span></span>
+<span id="cb79-11"><a href="data-manipulation.html#cb79-11" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)),</span>
+<span id="cb79-12"><a href="data-manipulation.html#cb79-12" tabindex="-1"></a>    </span>
+<span id="cb79-13"><a href="data-manipulation.html#cb79-13" tabindex="-1"></a>    <span class="co"># Replace text columns with &quot;Unknown&quot;</span></span>
+<span id="cb79-14"><a href="data-manipulation.html#cb79-14" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="st">&quot;Unknown&quot;</span>))</span>
+<span id="cb79-15"><a href="data-manipulation.html#cb79-15" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+</div>
+<div id="pivoting-data-reshaping" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Pivoting Data (Reshaping)<a href="data-manipulation.html#pivoting-data-reshaping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data can be organised in “wide” format (variables spread across columns) or “long” format (variables stacked in rows). The <code>pivot_longer()</code> and <code>pivot_wider()</code> functions help you convert between these formats.</p>
+<div id="wide-to-long-format" class="section level3 hasAnchor" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Wide to Long Format<a href="data-manipulation.html#wide-to-long-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Long format is often better for analysis and visualisation:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-manipulation.html#cb80-1" tabindex="-1"></a><span class="co"># Convert wide data to long format</span></span>
+<span id="cb80-2"><a href="data-manipulation.html#cb80-2" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb80-3"><a href="data-manipulation.html#cb80-3" tabindex="-1"></a>  <span class="co"># First, select only the columns you want to pivot</span></span>
+<span id="cb80-4"><a href="data-manipulation.html#cb80-4" tabindex="-1"></a>  <span class="fu">select</span>(id_column, name_column, <span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb80-5"><a href="data-manipulation.html#cb80-5" tabindex="-1"></a>  </span>
+<span id="cb80-6"><a href="data-manipulation.html#cb80-6" tabindex="-1"></a>  <span class="co"># Then pivot the value columns into long format</span></span>
+<span id="cb80-7"><a href="data-manipulation.html#cb80-7" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb80-8"><a href="data-manipulation.html#cb80-8" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>),      <span class="co"># Columns to pivot</span></span>
+<span id="cb80-9"><a href="data-manipulation.html#cb80-9" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;metric&quot;</span>,               <span class="co"># Name for the new column containing old column names</span></span>
+<span id="cb80-10"><a href="data-manipulation.html#cb80-10" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>,               <span class="co"># Name for the new column containing values</span></span>
+<span id="cb80-11"><a href="data-manipulation.html#cb80-11" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">&quot;value_&quot;</span>            <span class="co"># Remove this prefix from the metric names</span></span>
+<span id="cb80-12"><a href="data-manipulation.html#cb80-12" tabindex="-1"></a>  )</span>
+<span id="cb80-13"><a href="data-manipulation.html#cb80-13" tabindex="-1"></a></span>
+<span id="cb80-14"><a href="data-manipulation.html#cb80-14" tabindex="-1"></a><span class="co"># View the structure</span></span>
+<span id="cb80-15"><a href="data-manipulation.html#cb80-15" tabindex="-1"></a><span class="fu">head</span>(long_data)</span></code></pre></div>
+</div>
+<div id="long-to-wide-format" class="section level3 hasAnchor" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> Long to Wide Format<a href="data-manipulation.html#long-to-wide-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes you need to convert long data back to wide format:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-manipulation.html#cb81-1" tabindex="-1"></a><span class="co"># Convert long data back to wide format</span></span>
+<span id="cb81-2"><a href="data-manipulation.html#cb81-2" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> long_data <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="data-manipulation.html#cb81-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb81-4"><a href="data-manipulation.html#cb81-4" tabindex="-1"></a>    <span class="at">names_from =</span> metric,               <span class="co"># Column containing the new column names</span></span>
+<span id="cb81-5"><a href="data-manipulation.html#cb81-5" tabindex="-1"></a>    <span class="at">values_from =</span> value,               <span class="co"># Column containing the values</span></span>
+<span id="cb81-6"><a href="data-manipulation.html#cb81-6" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span>,                   <span class="co"># Fill missing combinations with 0</span></span>
+<span id="cb81-7"><a href="data-manipulation.html#cb81-7" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">&quot;value_&quot;</span>            <span class="co"># Add this prefix to the new column names</span></span>
+<span id="cb81-8"><a href="data-manipulation.html#cb81-8" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<div id="advanced-pivoting" class="section level3 hasAnchor" number="6.8.3">
+<h3><span class="header-section-number">6.8.3</span> Advanced Pivoting<a href="data-manipulation.html#advanced-pivoting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can also pivot multiple columns simultaneously:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-manipulation.html#cb82-1" tabindex="-1"></a><span class="co"># Pivot multiple value columns</span></span>
+<span id="cb82-2"><a href="data-manipulation.html#cb82-2" tabindex="-1"></a>complex_long <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb82-3"><a href="data-manipulation.html#cb82-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb82-4"><a href="data-manipulation.html#cb82-4" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>), <span class="fu">starts_with</span>(<span class="st">&quot;count_&quot;</span>)),</span>
+<span id="cb82-5"><a href="data-manipulation.html#cb82-5" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;metric&quot;</span>, <span class="st">&quot;type&quot;</span>),</span>
+<span id="cb82-6"><a href="data-manipulation.html#cb82-6" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;(.+)_(.+)&quot;</span>,       <span class="co"># Extract parts of column names</span></span>
+<span id="cb82-7"><a href="data-manipulation.html#cb82-7" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;amount&quot;</span></span>
+<span id="cb82-8"><a href="data-manipulation.html#cb82-8" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+</div>
+<div id="joining-datasets" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Joining Datasets<a href="data-manipulation.html#joining-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Joining datasets is crucial for combining information from multiple sources. The type of join you choose depends on how you want to handle records that don’t have matches.</p>
+<div id="basic-join-operations" class="section level3 hasAnchor" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> Basic Join Operations<a href="data-manipulation.html#basic-join-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The most common join is a left join, which keeps all records from the left dataset:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-manipulation.html#cb83-1" tabindex="-1"></a><span class="co"># Basic left join - keeps all records from main_data</span></span>
+<span id="cb83-2"><a href="data-manipulation.html#cb83-2" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb83-3"><a href="data-manipulation.html#cb83-3" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data, <span class="at">by =</span> <span class="st">&quot;common_column&quot;</span>)</span>
+<span id="cb83-4"><a href="data-manipulation.html#cb83-4" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="data-manipulation.html#cb83-5" tabindex="-1"></a><span class="co"># Inner join - keeps only records that exist in both datasets</span></span>
+<span id="cb83-6"><a href="data-manipulation.html#cb83-6" tabindex="-1"></a>inner_joined <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb83-7"><a href="data-manipulation.html#cb83-7" tabindex="-1"></a>  <span class="fu">inner_join</span>(lookup_data, <span class="at">by =</span> <span class="st">&quot;common_column&quot;</span>)</span>
+<span id="cb83-8"><a href="data-manipulation.html#cb83-8" tabindex="-1"></a></span>
+<span id="cb83-9"><a href="data-manipulation.html#cb83-9" tabindex="-1"></a><span class="co"># Full join - keeps all records from both datasets</span></span>
+<span id="cb83-10"><a href="data-manipulation.html#cb83-10" tabindex="-1"></a>full_joined <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb83-11"><a href="data-manipulation.html#cb83-11" tabindex="-1"></a>  <span class="fu">full_join</span>(lookup_data, <span class="at">by =</span> <span class="st">&quot;common_column&quot;</span>)</span></code></pre></div>
+</div>
+<div id="handling-different-column-names" class="section level3 hasAnchor" number="6.9.2">
+<h3><span class="header-section-number">6.9.2</span> Handling Different Column Names<a href="data-manipulation.html#handling-different-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Often, the columns you want to join on have different names in each dataset:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-manipulation.html#cb84-1" tabindex="-1"></a><span class="co"># Join when column names don&#39;t match</span></span>
+<span id="cb84-2"><a href="data-manipulation.html#cb84-2" tabindex="-1"></a>joined_different_names <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb84-3"><a href="data-manipulation.html#cb84-3" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;main_id&quot;</span> <span class="ot">=</span> <span class="st">&quot;lookup_id&quot;</span>))</span>
+<span id="cb84-4"><a href="data-manipulation.html#cb84-4" tabindex="-1"></a></span>
+<span id="cb84-5"><a href="data-manipulation.html#cb84-5" tabindex="-1"></a><span class="co"># You can also rename before joining</span></span>
+<span id="cb84-6"><a href="data-manipulation.html#cb84-6" tabindex="-1"></a>joined_renamed <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb84-7"><a href="data-manipulation.html#cb84-7" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">main_id =</span> lookup_id), <span class="at">by =</span> <span class="st">&quot;main_id&quot;</span>)</span></code></pre></div>
+</div>
+<div id="multiple-column-joins" class="section level3 hasAnchor" number="6.9.3">
+<h3><span class="header-section-number">6.9.3</span> Multiple Column Joins<a href="data-manipulation.html#multiple-column-joins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes you need to join on multiple columns to create a unique match:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-manipulation.html#cb85-1" tabindex="-1"></a><span class="co"># Join on multiple columns</span></span>
+<span id="cb85-2"><a href="data-manipulation.html#cb85-2" tabindex="-1"></a>multi_column_join <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb85-3"><a href="data-manipulation.html#cb85-3" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;column1&quot;</span>, <span class="st">&quot;column2&quot;</span>, <span class="st">&quot;column3&quot;</span>))</span>
+<span id="cb85-4"><a href="data-manipulation.html#cb85-4" tabindex="-1"></a></span>
+<span id="cb85-5"><a href="data-manipulation.html#cb85-5" tabindex="-1"></a><span class="co"># Mix of same and different column names</span></span>
+<span id="cb85-6"><a href="data-manipulation.html#cb85-6" tabindex="-1"></a>mixed_join <span class="ot">&lt;-</span> main_data <span class="sc">%&gt;%</span></span>
+<span id="cb85-7"><a href="data-manipulation.html#cb85-7" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;same_name&quot;</span>, <span class="st">&quot;main_col&quot;</span> <span class="ot">=</span> <span class="st">&quot;lookup_col&quot;</span>))</span></code></pre></div>
+</div>
+<div id="joining-multiple-datasets" class="section level3 hasAnchor" number="6.9.4">
+<h3><span class="header-section-number">6.9.4</span> Joining Multiple Datasets<a href="data-manipulation.html#joining-multiple-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you have several datasets to join, you can use <code>reduce()</code> to join them all at once:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-manipulation.html#cb86-1" tabindex="-1"></a><span class="co"># Join multiple datasets with a common structure</span></span>
+<span id="cb86-2"><a href="data-manipulation.html#cb86-2" tabindex="-1"></a>dataset_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb86-3"><a href="data-manipulation.html#cb86-3" tabindex="-1"></a>  <span class="at">data1 =</span> data1,</span>
+<span id="cb86-4"><a href="data-manipulation.html#cb86-4" tabindex="-1"></a>  <span class="at">data2 =</span> data2,</span>
+<span id="cb86-5"><a href="data-manipulation.html#cb86-5" tabindex="-1"></a>  <span class="at">data3 =</span> data3,</span>
+<span id="cb86-6"><a href="data-manipulation.html#cb86-6" tabindex="-1"></a>  <span class="at">data4 =</span> data4</span>
+<span id="cb86-7"><a href="data-manipulation.html#cb86-7" tabindex="-1"></a>)</span>
+<span id="cb86-8"><a href="data-manipulation.html#cb86-8" tabindex="-1"></a></span>
+<span id="cb86-9"><a href="data-manipulation.html#cb86-9" tabindex="-1"></a><span class="co"># Join all datasets on common columns</span></span>
+<span id="cb86-10"><a href="data-manipulation.html#cb86-10" tabindex="-1"></a>multiple_joined <span class="ot">&lt;-</span> dataset_list <span class="sc">%&gt;%</span></span>
+<span id="cb86-11"><a href="data-manipulation.html#cb86-11" tabindex="-1"></a>  <span class="fu">reduce</span>(left_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;id_column&#39;</span>, <span class="st">&#39;name_column&#39;</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="practical-examples-and-patterns" class="section level2 hasAnchor" number="6.10">
+<h2><span class="header-section-number">6.10</span> Practical Examples and Patterns<a href="data-manipulation.html#practical-examples-and-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="complete-data-processing-pipeline" class="section level3 hasAnchor" number="6.10.1">
+<h3><span class="header-section-number">6.10.1</span> Complete Data Processing Pipeline<a href="data-manipulation.html#complete-data-processing-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here’s a comprehensive example that combines many of the techniques we’ve covered:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-manipulation.html#cb87-1" tabindex="-1"></a><span class="co"># Complete data processing pipeline</span></span>
+<span id="cb87-2"><a href="data-manipulation.html#cb87-2" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span></span>
+<span id="cb87-3"><a href="data-manipulation.html#cb87-3" tabindex="-1"></a>  <span class="co"># Step 1: Clean and standardise the data</span></span>
+<span id="cb87-4"><a href="data-manipulation.html#cb87-4" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="fu">starts_with</span>(<span class="st">&quot;numeric_&quot;</span>)), parse_number) <span class="sc">%&gt;%</span></span>
+<span id="cb87-5"><a href="data-manipulation.html#cb87-5" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(id_column), <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;test&quot;</span>, name_column, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb87-6"><a href="data-manipulation.html#cb87-6" tabindex="-1"></a>  </span>
+<span id="cb87-7"><a href="data-manipulation.html#cb87-7" tabindex="-1"></a>  <span class="co"># Step 2: Join supplementary data</span></span>
+<span id="cb87-8"><a href="data-manipulation.html#cb87-8" tabindex="-1"></a>  <span class="fu">left_join</span>(lookup_data, <span class="at">by =</span> <span class="st">&quot;id_column&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-9"><a href="data-manipulation.html#cb87-9" tabindex="-1"></a>  </span>
+<span id="cb87-10"><a href="data-manipulation.html#cb87-10" tabindex="-1"></a>  <span class="co"># Step 3: Create derived variables</span></span>
+<span id="cb87-11"><a href="data-manipulation.html#cb87-11" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb87-12"><a href="data-manipulation.html#cb87-12" tabindex="-1"></a>    <span class="co"># Calculate totals</span></span>
+<span id="cb87-13"><a href="data-manipulation.html#cb87-13" tabindex="-1"></a>    <span class="at">total_score =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">&quot;score_&quot;</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb87-14"><a href="data-manipulation.html#cb87-14" tabindex="-1"></a>    </span>
+<span id="cb87-15"><a href="data-manipulation.html#cb87-15" tabindex="-1"></a>    <span class="co"># Create categories</span></span>
+<span id="cb87-16"><a href="data-manipulation.html#cb87-16" tabindex="-1"></a>    <span class="at">performance_category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb87-17"><a href="data-manipulation.html#cb87-17" tabindex="-1"></a>      total_score <span class="sc">&gt;=</span> <span class="dv">80</span> <span class="sc">~</span> <span class="st">&quot;High&quot;</span>,</span>
+<span id="cb87-18"><a href="data-manipulation.html#cb87-18" tabindex="-1"></a>      total_score <span class="sc">&gt;=</span> <span class="dv">60</span> <span class="sc">~</span> <span class="st">&quot;Medium&quot;</span>,</span>
+<span id="cb87-19"><a href="data-manipulation.html#cb87-19" tabindex="-1"></a>      total_score <span class="sc">&gt;=</span> <span class="dv">40</span> <span class="sc">~</span> <span class="st">&quot;Low&quot;</span>,</span>
+<span id="cb87-20"><a href="data-manipulation.html#cb87-20" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Very Low&quot;</span></span>
+<span id="cb87-21"><a href="data-manipulation.html#cb87-21" tabindex="-1"></a>    ),</span>
+<span id="cb87-22"><a href="data-manipulation.html#cb87-22" tabindex="-1"></a>    </span>
+<span id="cb87-23"><a href="data-manipulation.html#cb87-23" tabindex="-1"></a>    <span class="co"># Create flags</span></span>
+<span id="cb87-24"><a href="data-manipulation.html#cb87-24" tabindex="-1"></a>    <span class="at">has_complete_data =</span> <span class="sc">!</span><span class="fu">is.na</span>(total_score) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(category_column),</span>
+<span id="cb87-25"><a href="data-manipulation.html#cb87-25" tabindex="-1"></a>    </span>
+<span id="cb87-26"><a href="data-manipulation.html#cb87-26" tabindex="-1"></a>    <span class="co"># Calculate percentages</span></span>
+<span id="cb87-27"><a href="data-manipulation.html#cb87-27" tabindex="-1"></a>    <span class="at">score_percentage =</span> (total_score <span class="sc">/</span> <span class="fu">max</span>(total_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb87-28"><a href="data-manipulation.html#cb87-28" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb87-29"><a href="data-manipulation.html#cb87-29" tabindex="-1"></a>  </span>
+<span id="cb87-30"><a href="data-manipulation.html#cb87-30" tabindex="-1"></a>  <span class="co"># Step 4: Filter to final analysis sample</span></span>
+<span id="cb87-31"><a href="data-manipulation.html#cb87-31" tabindex="-1"></a>  <span class="fu">filter</span>(has_complete_data, total_score <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-32"><a href="data-manipulation.html#cb87-32" tabindex="-1"></a>  </span>
+<span id="cb87-33"><a href="data-manipulation.html#cb87-33" tabindex="-1"></a>  <span class="co"># Step 5: Group and summarise</span></span>
+<span id="cb87-34"><a href="data-manipulation.html#cb87-34" tabindex="-1"></a>  <span class="fu">group_by</span>(performance_category, region) <span class="sc">%&gt;%</span></span>
+<span id="cb87-35"><a href="data-manipulation.html#cb87-35" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb87-36"><a href="data-manipulation.html#cb87-36" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>(),</span>
+<span id="cb87-37"><a href="data-manipulation.html#cb87-37" tabindex="-1"></a>    <span class="at">avg_score =</span> <span class="fu">mean</span>(total_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb87-38"><a href="data-manipulation.html#cb87-38" tabindex="-1"></a>    <span class="at">median_score =</span> <span class="fu">median</span>(total_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb87-39"><a href="data-manipulation.html#cb87-39" tabindex="-1"></a>    <span class="at">std_dev =</span> <span class="fu">sd</span>(total_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb87-40"><a href="data-manipulation.html#cb87-40" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb87-41"><a href="data-manipulation.html#cb87-41" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb87-42"><a href="data-manipulation.html#cb87-42" tabindex="-1"></a>  </span>
+<span id="cb87-43"><a href="data-manipulation.html#cb87-43" tabindex="-1"></a>  <span class="co"># Step 6: Add totals and format</span></span>
+<span id="cb87-44"><a href="data-manipulation.html#cb87-44" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;row&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-45"><a href="data-manipulation.html#cb87-45" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>)))</span></code></pre></div>
+</div>
+<div id="function-based-processing" class="section level3 hasAnchor" number="6.10.2">
+<h3><span class="header-section-number">6.10.2</span> Function-Based Processing<a href="data-manipulation.html#function-based-processing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For repetitive tasks, create custom functions:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-manipulation.html#cb88-1" tabindex="-1"></a><span class="co"># Create a function to standardise dataset processing</span></span>
+<span id="cb88-2"><a href="data-manipulation.html#cb88-2" tabindex="-1"></a>process_dataset <span class="ot">&lt;-</span> <span class="cf">function</span>(df, dataset_name) {</span>
+<span id="cb88-3"><a href="data-manipulation.html#cb88-3" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
+<span id="cb88-4"><a href="data-manipulation.html#cb88-4" tabindex="-1"></a>    <span class="co"># Add source identifier</span></span>
+<span id="cb88-5"><a href="data-manipulation.html#cb88-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">source =</span> dataset_name) <span class="sc">%&gt;%</span></span>
+<span id="cb88-6"><a href="data-manipulation.html#cb88-6" tabindex="-1"></a>    </span>
+<span id="cb88-7"><a href="data-manipulation.html#cb88-7" tabindex="-1"></a>    <span class="co"># Standardise column names</span></span>
+<span id="cb88-8"><a href="data-manipulation.html#cb88-8" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">id =</span> id_column, </span>
+<span id="cb88-9"><a href="data-manipulation.html#cb88-9" tabindex="-1"></a>           <span class="at">name =</span> name_column,</span>
+<span id="cb88-10"><a href="data-manipulation.html#cb88-10" tabindex="-1"></a>           <span class="at">value =</span> value_column, </span>
+<span id="cb88-11"><a href="data-manipulation.html#cb88-11" tabindex="-1"></a>           <span class="at">category =</span> category_column,</span>
+<span id="cb88-12"><a href="data-manipulation.html#cb88-12" tabindex="-1"></a>           source) <span class="sc">%&gt;%</span></span>
+<span id="cb88-13"><a href="data-manipulation.html#cb88-13" tabindex="-1"></a>    </span>
+<span id="cb88-14"><a href="data-manipulation.html#cb88-14" tabindex="-1"></a>    <span class="co"># Clean data</span></span>
+<span id="cb88-15"><a href="data-manipulation.html#cb88-15" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value), value <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb88-16"><a href="data-manipulation.html#cb88-16" tabindex="-1"></a>    </span>
+<span id="cb88-17"><a href="data-manipulation.html#cb88-17" tabindex="-1"></a>    <span class="co"># Add standardised metrics</span></span>
+<span id="cb88-18"><a href="data-manipulation.html#cb88-18" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb88-19"><a href="data-manipulation.html#cb88-19" tabindex="-1"></a>      <span class="at">value_scaled =</span> <span class="fu">scale</span>(value)[,<span class="dv">1</span>],</span>
+<span id="cb88-20"><a href="data-manipulation.html#cb88-20" tabindex="-1"></a>      <span class="at">value_log =</span> <span class="fu">log</span>(value <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb88-21"><a href="data-manipulation.html#cb88-21" tabindex="-1"></a>    )</span>
+<span id="cb88-22"><a href="data-manipulation.html#cb88-22" tabindex="-1"></a>}</span>
+<span id="cb88-23"><a href="data-manipulation.html#cb88-23" tabindex="-1"></a></span>
+<span id="cb88-24"><a href="data-manipulation.html#cb88-24" tabindex="-1"></a><span class="co"># Apply function to multiple datasets</span></span>
+<span id="cb88-25"><a href="data-manipulation.html#cb88-25" tabindex="-1"></a>datasets <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb88-26"><a href="data-manipulation.html#cb88-26" tabindex="-1"></a>  <span class="at">africa =</span> africa_data,</span>
+<span id="cb88-27"><a href="data-manipulation.html#cb88-27" tabindex="-1"></a>  <span class="at">asia =</span> asia_data,</span>
+<span id="cb88-28"><a href="data-manipulation.html#cb88-28" tabindex="-1"></a>  <span class="at">europe =</span> europe_data,</span>
+<span id="cb88-29"><a href="data-manipulation.html#cb88-29" tabindex="-1"></a>  <span class="at">americas =</span> americas_data</span>
+<span id="cb88-30"><a href="data-manipulation.html#cb88-30" tabindex="-1"></a>)</span>
+<span id="cb88-31"><a href="data-manipulation.html#cb88-31" tabindex="-1"></a></span>
+<span id="cb88-32"><a href="data-manipulation.html#cb88-32" tabindex="-1"></a><span class="co"># Process all datasets and combine</span></span>
+<span id="cb88-33"><a href="data-manipulation.html#cb88-33" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(datasets, process_dataset, <span class="at">.id =</span> <span class="st">&quot;region&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="tips-and-best-practices" class="section level2 hasAnchor" number="6.11">
+<h2><span class="header-section-number">6.11</span> Tips and Best Practices<a href="data-manipulation.html#tips-and-best-practices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-validation" class="section level3 hasAnchor" number="6.11.1">
+<h3><span class="header-section-number">6.11.1</span> Data Validation<a href="data-manipulation.html#data-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Always validate your data transformations:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-manipulation.html#cb89-1" tabindex="-1"></a><span class="co"># Check data before and after transformations</span></span>
+<span id="cb89-2"><a href="data-manipulation.html#cb89-2" tabindex="-1"></a>original_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(raw_data)</span>
+<span id="cb89-3"><a href="data-manipulation.html#cb89-3" tabindex="-1"></a>processed_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(processed_data)</span>
+<span id="cb89-4"><a href="data-manipulation.html#cb89-4" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="data-manipulation.html#cb89-5" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Original rows:&quot;</span>, original_rows))</span>
+<span id="cb89-6"><a href="data-manipulation.html#cb89-6" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Processed rows:&quot;</span>, processed_rows))</span>
+<span id="cb89-7"><a href="data-manipulation.html#cb89-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Rows lost:&quot;</span>, original_rows <span class="sc">-</span> processed_rows))</span>
+<span id="cb89-8"><a href="data-manipulation.html#cb89-8" tabindex="-1"></a></span>
+<span id="cb89-9"><a href="data-manipulation.html#cb89-9" tabindex="-1"></a><span class="co"># Check for unexpected missing values</span></span>
+<span id="cb89-10"><a href="data-manipulation.html#cb89-10" tabindex="-1"></a>missing_summary <span class="ot">&lt;-</span> processed_data <span class="sc">%&gt;%</span></span>
+<span id="cb89-11"><a href="data-manipulation.html#cb89-11" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.))))</span>
+<span id="cb89-12"><a href="data-manipulation.html#cb89-12" tabindex="-1"></a></span>
+<span id="cb89-13"><a href="data-manipulation.html#cb89-13" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Missing values by column:&quot;</span>)</span>
+<span id="cb89-14"><a href="data-manipulation.html#cb89-14" tabindex="-1"></a><span class="fu">print</span>(missing_summary)</span></code></pre></div>
+</div>
+<div id="performance-considerations" class="section level3 hasAnchor" number="6.11.2">
+<h3><span class="header-section-number">6.11.2</span> Performance Considerations<a href="data-manipulation.html#performance-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For large datasets, consider these optimisation strategies:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-manipulation.html#cb90-1" tabindex="-1"></a><span class="co"># For large datasets, filter early to reduce processing time</span></span>
+<span id="cb90-2"><a href="data-manipulation.html#cb90-2" tabindex="-1"></a>large_data_processed <span class="ot">&lt;-</span> large_dataset <span class="sc">%&gt;%</span></span>
+<span id="cb90-3"><a href="data-manipulation.html#cb90-3" tabindex="-1"></a>  <span class="fu">filter</span>(important_flag <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filter first</span></span>
+<span id="cb90-4"><a href="data-manipulation.html#cb90-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">expensive_calculation =</span> <span class="fu">complex_function</span>(value_column)) <span class="sc">%&gt;%</span>  <span class="co"># Then transform</span></span>
+<span id="cb90-5"><a href="data-manipulation.html#cb90-5" tabindex="-1"></a>  <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb90-6"><a href="data-manipulation.html#cb90-6" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">result =</span> <span class="fu">mean</span>(expensive_calculation))</span>
+<span id="cb90-7"><a href="data-manipulation.html#cb90-7" tabindex="-1"></a></span>
+<span id="cb90-8"><a href="data-manipulation.html#cb90-8" tabindex="-1"></a><span class="co"># Use data.table for very large datasets</span></span>
+<span id="cb90-9"><a href="data-manipulation.html#cb90-9" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb90-10"><a href="data-manipulation.html#cb90-10" tabindex="-1"></a><span class="fu">setDT</span>(large_dataset)</span>
+<span id="cb90-11"><a href="data-manipulation.html#cb90-11" tabindex="-1"></a>result <span class="ot">&lt;-</span> large_dataset[important_flag <span class="sc">==</span> <span class="cn">TRUE</span>, .(<span class="at">mean_value =</span> <span class="fu">mean</span>(value_column)), by <span class="ot">=</span> category]</span></code></pre></div>
+</div>
+<div id="debugging-and-troubleshooting" class="section level3 hasAnchor" number="6.11.3">
+<h3><span class="header-section-number">6.11.3</span> Debugging and Troubleshooting<a href="data-manipulation.html#debugging-and-troubleshooting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When your code doesn’t work as expected:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-manipulation.html#cb91-1" tabindex="-1"></a><span class="co"># Test transformations on small subsets first</span></span>
+<span id="cb91-2"><a href="data-manipulation.html#cb91-2" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="data-manipulation.html#cb91-3" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb91-4"><a href="data-manipulation.html#cb91-4" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="data-manipulation.html#cb91-5" tabindex="-1"></a><span class="co"># Check intermediate results</span></span>
+<span id="cb91-6"><a href="data-manipulation.html#cb91-6" tabindex="-1"></a>debug_pipeline <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb91-7"><a href="data-manipulation.html#cb91-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> some_transformation) <span class="sc">%&gt;%</span></span>
+<span id="cb91-8"><a href="data-manipulation.html#cb91-8" tabindex="-1"></a>  {<span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Rows after mutate:&quot;</span>, <span class="fu">nrow</span>(.))); .} <span class="sc">%&gt;%</span>  <span class="co"># Debug print</span></span>
+<span id="cb91-9"><a href="data-manipulation.html#cb91-9" tabindex="-1"></a>  <span class="fu">filter</span>(some_condition) <span class="sc">%&gt;%</span></span>
+<span id="cb91-10"><a href="data-manipulation.html#cb91-10" tabindex="-1"></a>  {<span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Rows after filter:&quot;</span>, <span class="fu">nrow</span>(.))); .} <span class="sc">%&gt;%</span>  <span class="co"># Debug print</span></span>
+<span id="cb91-11"><a href="data-manipulation.html#cb91-11" tabindex="-1"></a>  <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb91-12"><a href="data-manipulation.html#cb91-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">result =</span> <span class="fu">mean</span>(new_variable))</span></code></pre></div>
 <p>In order to make a data frame that’s easy to subset, you might want to define the row names. When defining row names, each one needs to be unique. I.e. you should use wide data, and the row names should be a unique column.</p>
 <p>For this example, we’ll create our own data frame. However, if you want to see a dataset where a column has already been made into row names, see the mtcars data. A pre-loaded dataset in R. (run<code>data("mtcars)</code>)</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-manipulation.html#cb72-1" tabindex="-1"></a><span class="co"># Define a 5x3 data frame</span></span>
-<span id="cb72-2"><a href="data-manipulation.html#cb72-2" tabindex="-1"></a>Test_Data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">tibble</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;Sean&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Yasmin&quot;</span>, <span class="st">&quot;Henna&quot;</span>, <span class="st">&quot;Matt&quot;</span>),</span>
-<span id="cb72-3"><a href="data-manipulation.html#cb72-3" tabindex="-1"></a>                    <span class="at">office =</span> <span class="fu">c</span>(<span class="st">&quot;SB&quot;</span>, <span class="st">&quot;SB&quot;</span>, <span class="st">&quot;Bris&quot;</span>, <span class="st">&quot;SB&quot;</span>, <span class="st">&quot;SB&quot;</span>),</span>
-<span id="cb72-4"><a href="data-manipulation.html#cb72-4" tabindex="-1"></a>                    <span class="at">manager =</span> <span class="fu">c</span>(<span class="st">&quot;James&quot;</span>, <span class="st">&quot;Gabe&quot;</span>, <span class="st">&quot;Henna&quot;</span>, <span class="st">&quot;Tim&quot;</span>, <span class="st">&quot;Tim&quot;</span>)))</span>
-<span id="cb72-5"><a href="data-manipulation.html#cb72-5" tabindex="-1"></a></span>
-<span id="cb72-6"><a href="data-manipulation.html#cb72-6" tabindex="-1"></a><span class="co">#It looks like this:</span></span>
-<span id="cb72-7"><a href="data-manipulation.html#cb72-7" tabindex="-1"></a><span class="co">#   name   office manager</span></span>
-<span id="cb72-8"><a href="data-manipulation.html#cb72-8" tabindex="-1"></a><span class="co">#   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  </span></span>
-<span id="cb72-9"><a href="data-manipulation.html#cb72-9" tabindex="-1"></a><span class="co"># 1 Sean   SB     James  </span></span>
-<span id="cb72-10"><a href="data-manipulation.html#cb72-10" tabindex="-1"></a><span class="co"># 2 Tom    SB     Gabe   </span></span>
-<span id="cb72-11"><a href="data-manipulation.html#cb72-11" tabindex="-1"></a><span class="co"># 3 Yasmin Bris   Henna  </span></span>
-<span id="cb72-12"><a href="data-manipulation.html#cb72-12" tabindex="-1"></a><span class="co"># 4 Henna  SB     Tim    </span></span>
-<span id="cb72-13"><a href="data-manipulation.html#cb72-13" tabindex="-1"></a><span class="co"># 5 Matt   SB     Tim  </span></span>
-<span id="cb72-14"><a href="data-manipulation.html#cb72-14" tabindex="-1"></a></span>
-<span id="cb72-15"><a href="data-manipulation.html#cb72-15" tabindex="-1"></a><span class="co"># You&#39;ll see our row names are 1:5, therefore you can extract the first row in the manager column like this:</span></span>
-<span id="cb72-16"><a href="data-manipulation.html#cb72-16" tabindex="-1"></a></span>
-<span id="cb72-17"><a href="data-manipulation.html#cb72-17" tabindex="-1"></a>Seans_Manager1 <span class="ot">&lt;-</span> Test_Data[<span class="st">&quot;1&quot;</span>, <span class="st">&quot;manager&quot;</span>]</span>
-<span id="cb72-18"><a href="data-manipulation.html#cb72-18" tabindex="-1"></a><span class="fu">print</span>(Seans_Manager1)</span>
-<span id="cb72-19"><a href="data-manipulation.html#cb72-19" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;James&quot;</span></span>
-<span id="cb72-20"><a href="data-manipulation.html#cb72-20" tabindex="-1"></a></span>
-<span id="cb72-21"><a href="data-manipulation.html#cb72-21" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: if the Test_Data was not a data frame (i.e. was just a tibble). You would need to do pull(Test_Data[&quot;1&quot;, &quot;manager&quot;]) OR Test_Data[&quot;1&quot;, &quot;manager&quot;] %&gt;% pull()</span></span>
-<span id="cb72-22"><a href="data-manipulation.html#cb72-22" tabindex="-1"></a></span>
-<span id="cb72-23"><a href="data-manipulation.html#cb72-23" tabindex="-1"></a><span class="co"># We can give the table row names using the column to row names</span></span>
-<span id="cb72-24"><a href="data-manipulation.html#cb72-24" tabindex="-1"></a><span class="co"># This wouldn&#39;t work for the `office` column because there are multiple SBs</span></span>
-<span id="cb72-25"><a href="data-manipulation.html#cb72-25" tabindex="-1"></a></span>
-<span id="cb72-26"><a href="data-manipulation.html#cb72-26" tabindex="-1"></a>Col_Indexed_Test_Data <span class="ot">&lt;-</span> Test_Data <span class="sc">%&gt;%</span></span>
-<span id="cb72-27"><a href="data-manipulation.html#cb72-27" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(., <span class="at">var =</span> <span class="st">&quot;name&quot;</span>)</span>
-<span id="cb72-28"><a href="data-manipulation.html#cb72-28" tabindex="-1"></a></span>
-<span id="cb72-29"><a href="data-manipulation.html#cb72-29" tabindex="-1"></a><span class="co"># Our data now look like this</span></span>
-<span id="cb72-30"><a href="data-manipulation.html#cb72-30" tabindex="-1"></a><span class="co">#        office manager</span></span>
-<span id="cb72-31"><a href="data-manipulation.html#cb72-31" tabindex="-1"></a><span class="co"># Sean       SB   James</span></span>
-<span id="cb72-32"><a href="data-manipulation.html#cb72-32" tabindex="-1"></a><span class="co"># Tom        SB    Gabe</span></span>
-<span id="cb72-33"><a href="data-manipulation.html#cb72-33" tabindex="-1"></a><span class="co"># Yasmin   Bris   Henna</span></span>
-<span id="cb72-34"><a href="data-manipulation.html#cb72-34" tabindex="-1"></a><span class="co"># Henna      SB     Tim</span></span>
-<span id="cb72-35"><a href="data-manipulation.html#cb72-35" tabindex="-1"></a><span class="co"># Matt       SB     Tim</span></span>
-<span id="cb72-36"><a href="data-manipulation.html#cb72-36" tabindex="-1"></a></span>
-<span id="cb72-37"><a href="data-manipulation.html#cb72-37" tabindex="-1"></a></span>
-<span id="cb72-38"><a href="data-manipulation.html#cb72-38" tabindex="-1"></a><span class="co">#Now we can pull with specified inputs. </span></span>
-<span id="cb72-39"><a href="data-manipulation.html#cb72-39" tabindex="-1"></a>Seans_Manager2 <span class="ot">&lt;-</span> Col_Indexed_Test_Data[<span class="st">&quot;Sean&quot;</span>, <span class="st">&quot;manager&quot;</span>]</span>
-<span id="cb72-40"><a href="data-manipulation.html#cb72-40" tabindex="-1"></a><span class="fu">print</span>(Seans_Manager2)</span>
-<span id="cb72-41"><a href="data-manipulation.html#cb72-41" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;James&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-manipulation.html#cb92-1" tabindex="-1"></a><span class="co"># Define a 5x3 data frame</span></span>
+<span id="cb92-2"><a href="data-manipulation.html#cb92-2" tabindex="-1"></a>Test_Data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">tibble</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;Abdus&quot;</span>, <span class="st">&quot;Sarah&quot;</span>, <span class="st">&quot;Yilan&quot;</span>, <span class="st">&quot;Michael&quot;</span>, <span class="st">&quot;Alex&quot;</span>),</span>
+<span id="cb92-3"><a href="data-manipulation.html#cb92-3" tabindex="-1"></a>                    <span class="at">office =</span> <span class="fu">c</span>(<span class="st">&quot;CH&quot;</span>, <span class="st">&quot;SB&quot;</span>, <span class="st">&quot;PG&quot;</span>, <span class="st">&quot;PG&quot;</span>, <span class="st">&quot;CH&quot;</span>),</span>
+<span id="cb92-4"><a href="data-manipulation.html#cb92-4" tabindex="-1"></a>                    <span class="at">manager =</span> <span class="fu">c</span>(<span class="st">&quot;Sarah&quot;</span>, <span class="st">&quot;Yilan&quot;</span>, <span class="st">&quot;Frank&quot;</span>, <span class="st">&quot;Yilan&quot;</span>, <span class="st">&quot;Michael&quot;</span>)))</span>
+<span id="cb92-5"><a href="data-manipulation.html#cb92-5" tabindex="-1"></a></span>
+<span id="cb92-6"><a href="data-manipulation.html#cb92-6" tabindex="-1"></a><span class="co">#It looks like this:</span></span>
+<span id="cb92-7"><a href="data-manipulation.html#cb92-7" tabindex="-1"></a><span class="co">#   name   office manager</span></span>
+<span id="cb92-8"><a href="data-manipulation.html#cb92-8" tabindex="-1"></a><span class="co">#     name office manager</span></span>
+<span id="cb92-9"><a href="data-manipulation.html#cb92-9" tabindex="-1"></a><span class="co"># 1   Abdus     CH   Sarah</span></span>
+<span id="cb92-10"><a href="data-manipulation.html#cb92-10" tabindex="-1"></a><span class="co"># 2   Sarah     SB   Yilan</span></span>
+<span id="cb92-11"><a href="data-manipulation.html#cb92-11" tabindex="-1"></a><span class="co"># 3   Yilan     PG   Frank</span></span>
+<span id="cb92-12"><a href="data-manipulation.html#cb92-12" tabindex="-1"></a><span class="co"># 4 Michael     PG   Yilan</span></span>
+<span id="cb92-13"><a href="data-manipulation.html#cb92-13" tabindex="-1"></a><span class="co"># 5    Alex     CH Michael</span></span>
+<span id="cb92-14"><a href="data-manipulation.html#cb92-14" tabindex="-1"></a></span>
+<span id="cb92-15"><a href="data-manipulation.html#cb92-15" tabindex="-1"></a><span class="co"># You&#39;ll see our row names are 1:5, therefore you can extract the first row in the manager column like this:</span></span>
+<span id="cb92-16"><a href="data-manipulation.html#cb92-16" tabindex="-1"></a></span>
+<span id="cb92-17"><a href="data-manipulation.html#cb92-17" tabindex="-1"></a>Abdus_Manager1 <span class="ot">&lt;-</span> Test_Data[<span class="st">&quot;1&quot;</span>, <span class="st">&quot;manager&quot;</span>]</span>
+<span id="cb92-18"><a href="data-manipulation.html#cb92-18" tabindex="-1"></a><span class="fu">print</span>(Abdus_Manager1)</span>
+<span id="cb92-19"><a href="data-manipulation.html#cb92-19" tabindex="-1"></a><span class="co"># [1] &quot;Sarah&quot;</span></span>
+<span id="cb92-20"><a href="data-manipulation.html#cb92-20" tabindex="-1"></a></span>
+<span id="cb92-21"><a href="data-manipulation.html#cb92-21" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: if the Test_Data was not a data frame (i.e. was just a tibble). You would need to do pull(Test_Data[&quot;1&quot;, &quot;manager&quot;]) OR Test_Data[&quot;1&quot;, &quot;manager&quot;] %&gt;% pull()</span></span>
+<span id="cb92-22"><a href="data-manipulation.html#cb92-22" tabindex="-1"></a></span>
+<span id="cb92-23"><a href="data-manipulation.html#cb92-23" tabindex="-1"></a><span class="co"># We can give the table row names using the column to row names</span></span>
+<span id="cb92-24"><a href="data-manipulation.html#cb92-24" tabindex="-1"></a><span class="co"># This wouldn&#39;t work for the `office` column because there are multiple PGs</span></span>
+<span id="cb92-25"><a href="data-manipulation.html#cb92-25" tabindex="-1"></a></span>
+<span id="cb92-26"><a href="data-manipulation.html#cb92-26" tabindex="-1"></a>Col_Indexed_Test_Data <span class="ot">&lt;-</span> Test_Data <span class="sc">%&gt;%</span></span>
+<span id="cb92-27"><a href="data-manipulation.html#cb92-27" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(., <span class="at">var =</span> <span class="st">&quot;name&quot;</span>)</span>
+<span id="cb92-28"><a href="data-manipulation.html#cb92-28" tabindex="-1"></a></span>
+<span id="cb92-29"><a href="data-manipulation.html#cb92-29" tabindex="-1"></a><span class="co"># Our data now look like this</span></span>
+<span id="cb92-30"><a href="data-manipulation.html#cb92-30" tabindex="-1"></a><span class="co">#        office manager</span></span>
+<span id="cb92-31"><a href="data-manipulation.html#cb92-31" tabindex="-1"></a><span class="co">#        office manager</span></span>
+<span id="cb92-32"><a href="data-manipulation.html#cb92-32" tabindex="-1"></a><span class="co">#Abdus       CH   Sarah</span></span>
+<span id="cb92-33"><a href="data-manipulation.html#cb92-33" tabindex="-1"></a><span class="co">#Sarah       SB   Yilan</span></span>
+<span id="cb92-34"><a href="data-manipulation.html#cb92-34" tabindex="-1"></a><span class="co">#Yilan       PG   Frank</span></span>
+<span id="cb92-35"><a href="data-manipulation.html#cb92-35" tabindex="-1"></a><span class="co">#Michael     PG   Yilan</span></span>
+<span id="cb92-36"><a href="data-manipulation.html#cb92-36" tabindex="-1"></a><span class="co">#Alex        CH Michael</span></span>
+<span id="cb92-37"><a href="data-manipulation.html#cb92-37" tabindex="-1"></a></span>
+<span id="cb92-38"><a href="data-manipulation.html#cb92-38" tabindex="-1"></a></span>
+<span id="cb92-39"><a href="data-manipulation.html#cb92-39" tabindex="-1"></a><span class="co">#Now we can pull with specified inputs. </span></span>
+<span id="cb92-40"><a href="data-manipulation.html#cb92-40" tabindex="-1"></a>Abdus_Manager2 <span class="ot">&lt;-</span> Col_Indexed_Test_Data[<span class="st">&quot;Abdus&quot;</span>, <span class="st">&quot;manager&quot;</span>]</span>
+<span id="cb92-41"><a href="data-manipulation.html#cb92-41" tabindex="-1"></a><span class="fu">print</span>(Abdus_Manager2)</span>
+<span id="cb92-42"><a href="data-manipulation.html#cb92-42" tabindex="-1"></a><span class="co">#[1] &quot;Sarah&quot;</span></span></code></pre></div>
 <p>An alternative way to extract data is by filtering columns until you end up with a single row, at which point you can use the <code>pull()</code> function to extract the data point in the column you are after.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-manipulation.html#cb73-1" tabindex="-1"></a>Seans_Manager3 <span class="ot">&lt;-</span> Test_Data <span class="sc">%&gt;%</span></span>
-<span id="cb73-2"><a href="data-manipulation.html#cb73-2" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">&quot;Sean&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb73-3"><a href="data-manipulation.html#cb73-3" tabindex="-1"></a>  <span class="fu">pull</span>(manager)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-manipulation.html#cb93-1" tabindex="-1"></a>Abdus_Manager3 <span class="ot">&lt;-</span> Test_Data <span class="sc">%&gt;%</span></span>
+<span id="cb93-2"><a href="data-manipulation.html#cb93-2" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">&quot;Abdus&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-3"><a href="data-manipulation.html#cb93-3" tabindex="-1"></a>  <span class="fu">pull</span>(manager)</span></code></pre></div>
 <p>Use <code>[[]]</code> to return an element in a list; use for <a href="https://www.geeksforgeeks.org/difference-between-single-and-double-square-brackets-in-r/">recurssive indexing</a>. See <code>iris[[2]]</code> vs <code>iris[2]</code>. Double square brackets are often necessary to pinpoint elements.</p>
 </div>
-<div id="others" class="section level2 hasAnchor" number="6.10">
-<h2><span class="header-section-number">6.10</span> Others<a href="data-manipulation.html#others" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="others" class="section level2 hasAnchor" number="6.12">
+<h2><span class="header-section-number">6.12</span> Others<a href="data-manipulation.html#others" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Most data manipulation functions can be found in the dplyr cheat sheet and are fairly intuitive to use.
 Particularly useful are binding functions: <code>cbind()</code> in <code>BaseR</code>, <code>bind_cols()</code> in <code>dplyr</code>. Also <code>pull()</code> and <code>rename()</code></p>
+</div>
+<div id="quiz-data-manipulation" class="section level2 hasAnchor" number="6.13">
+<h2><span class="header-section-number">6.13</span> Quiz: Data Manipulation<a href="data-manipulation.html#quiz-data-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>## **1. Which dplyr function is used to select columns from a data frame?**
+## 
+## A) filter() 
+## B) select() 
+## C) mutate() 
+## D) arrange() 
+## 
+## **2. To keep rows where `category_column` is either &#39;A&#39;, &#39;B&#39;, or &#39;C&#39;, which filter condition is most suitable?**
+## 
+## A) filter(category_column | c(&#39;A&#39;, &#39;B&#39;, &#39;C&#39;)) 
+## B) filter(category_column %in% c(&#39;A&#39;, &#39;B&#39;, &#39;C&#39;)) 
+## C) filter(category_column == c(&#39;A&#39;, &#39;B&#39;, &#39;C&#39;)) 
+## D) filter(grepl(&#39;A|B|C&#39;, category_column)) 
+## 
+## **3. What is the primary purpose of combining `group_by()` and `summarise()`?**
+## 
+## A) To create new columns based on complex conditions. 
+## B) To reshape data from wide to long format. 
+## C) To calculate summary statistics for different groups within the data. 
+## D) To join two different data frames together. 
+## 
+## **4. Which function is best for creating a new column using complex, multi-level conditional logic?**
+## 
+## A) if_else() 
+## B) select() 
+## C) case_when() 
+## D) filter() 
+## 
+## **5. To reshape a &#39;wide&#39; data frame with many columns (e.g., `value_2020`, `value_2021`) into a &#39;long&#39; format, which function should you use?**
+## 
+## A) pivot_wider() 
+## B) gather() 
+## C) pivot_longer() 
+## D) spread() 
+## 
+## **6. In a `left_join(x, y, by = &#39;id&#39;)`, what happens to the rows in `x` that do not have a matching `id` in `y`?**
+## 
+## A) They are removed from the final result. 
+## B) They are kept, and the new columns from y are filled with NA. 
+## C) The join operation produces an error. 
+## D) They are kept, and the new columns from y are filled with 0. 
+## 
+## **7. Which function from the `janitor` package is used to add a &#39;Total&#39; row to a summary table?**
+## 
+## A) add_totals() 
+## B) adorn_totals() 
+## C) make_totals() 
+## D) summarise_totals() 
+## 
+## ---
+## 
+## **Answers:**
+## 
+## 1. B
+## 2. B
+## 3. C
+## 4. C
+## 5. C
+## 6. B
+## 7. B</code></pre>
 
 </div>
 </div>
@@ -632,42 +1055,42 @@ Particularly useful are binding functions: <code>cbind()</code> in <code>BaseR</
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/edit/master/06-Data_Manipulation.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/blob/master/06-Data_Manipulation.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

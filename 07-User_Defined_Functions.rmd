@@ -356,11 +356,77 @@ Create a blank tibble with names from a vecotr, `cols_vector`. You can use this 
 blank_df <- cols_vector %>% purrr::map_dfc(~tibble::tibble(!!.x := logical()))
 ```
 
+## Quiz: User defined functions quiz
 
+```{r UD functions quiz, echo=FALSE}
+# Function to create a quiz on User-Defined Functions (UDFs) in R
+create_udf_quiz <- function() {
+  # A list containing the questions, options, and answers
+  questions <- list(
+    list(
+      q = "If a user-defined function does not have an explicit `return()` statement, what does it output?",
+      options = c(
+        "A) The first object created in the function.",
+        "B) A NULL value.",
+        "C) The value of the last expression evaluated in the function.",
+        "D) It produces an error."
+      ),
+      answer = "C"
+    ),
+    list(
+      q = "Which operator, when used inside a function, assigns a variable to the global environment, making it accessible outside the function?",
+      options = c("A) <-", "B) =", "C) ->", "D) <<-"),
+      answer = "D"
+    ),
+    list(
+      q = "When writing a function that uses `dplyr`, which special operator is used to embrace an unquoted column name passed as an argument?",
+      options = c("A) !!", "B) [[]]", "C) {{}}", "D) ."),
+      answer = "C"
+    ),
+    list(
+      q = "Inside a `dplyr` verb like `mutate()` or `summarise()`, which operator must be used on the left side of an assignment when the new column's name is provided by a function argument?",
+      options = c("A) =", "B) := ", "C) <-", "D) ~"),
+      answer = "B"
+    ),
+    list(
+      q = "How do you provide a default value for an argument in a function definition?",
+      options = c(
+        "A) `my_func <- function(arg: 'default')`",
+        "B) `my_func <- function(arg is 'default')`",
+        "C) `my_func <- function(arg = 'default')`",
+        "D) `my_func <- function(default(arg, 'default'))`"
+      ),
+      answer = "C"
+    ),
+    list(
+      q = "What is the primary difference between a `for` loop and a `while` loop?",
+      options = c(
+        "A) `for` loops are faster than `while` loops.",
+        "B) Only `for` loops can iterate over vectors.",
+        "C) A `for` loop iterates over a fixed sequence, while a `while` loop runs as long as a condition is true.",
+        "D) A `while` loop requires a start and end number, but a `for` loop does not."
+      ),
+      answer = "C"
+    ),
+    list(
+      q = "Inside a loop, which base R function can retrieve an object from the environment using a variable that contains its name as a string?",
+      options = c("A) assign()", "B) get()", "C) object()", "D) find()"),
+      answer = "B"
+    )
+  )
 
-For more examples or applications, feel free to contact me: thomas.harris@education.gov.uk
+  # Loop to print the questions and options
+  for (i in seq_along(questions)) {
+    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    for (option in questions[[i]]$options) {
+      cat(option, "\n")
+    }
+    cat("\n")
+  }
+}
 
-
+create_udf_quiz()
+```
 
 
 

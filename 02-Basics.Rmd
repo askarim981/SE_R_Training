@@ -1,6 +1,6 @@
 # Basics of R {#Basics}
 
-```{r, echo = F}
+```{r, echo = F, warning=FALSE}
 library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=80),tidy=TRUE)
 
@@ -54,7 +54,7 @@ If you are unsure of what this means, run (in either the console or a script) th
 
 If your working directory is not where the project is saved, setting it to that path is usually a logical way to start. For example:
 ```{r eval=FALSE}
-  setwd("//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS") 
+  setwd("C:/Users/username(akarim as an example)/OneDrive - Department for Education/Skills England/R Projects") 
 ```
 
 You can tab across after the forward slashes to find a file location or, alternatively, paste a file location from your file explorer. Important to note is that R reads forward slashes and backslashes differently to the file explorer. A file path in R generally requires forward slashes (or double backslashes). To normalize a file path that you've copied directly from an explorer window, you can use the function `normalizePath()` or `readClipboard()` with the copied file path.
@@ -266,9 +266,9 @@ z <- x * y # vectors can be multiplied
 
 vectors can also be character strings
 ```{r eval=FALSE} 
-GO_Team <- c("Gabe", "Hindowa", "Tom")
-GO_Team[3] #this it the element in position 3
-[1] "Tom"
+GO_Team <- c("Sarah", "Abdus", "Yilan")
+GO_Team[2] #this it the element in position 3
+[1] "Abdus"
 ```
 
 You can add and remove elements from vectors
@@ -292,13 +292,13 @@ n3 <- n5[n5 %notin% c(4,5)]
 A factor is essentially a vector of n integer values with a corresponding set of character values. The only input argument you need to specify is a vector of values from any atomic (same data) type, and the factor function will return a vector of factor values. This relates to the concept of levels, where the level of a factor is basically the number of distinct elements, in reverse order to how they are written. You can specify the levels if you wish to change the order. 
 
 ```{r, eval=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=80)} 
-Employee_Of_The_Week <- factor(c("Tom", "Tom", "Tom", "Tom", "Hindowa"), ) #creates a factor in the global environment. You can specify the order of the levels. If not specified, R will do this automatically (in reverse to the order they appear)
+Employee_Of_The_Week <- factor(c("Abdus", "Abdus", "Abdus", "Abdus", "Sarah"), ) #creates a factor in the global environment. You can specify the order of the levels. If not specified, R will do this automatically (in reverse to the order they appear)
 print(Employee_Of_The_Week)
 
-#       [1] Tom     Tom     Tom     Tom     Hindowa
-#       Levels: Hindowa Tom
+#       [1] Abdus     Abdus     Abdus     Abdus     Sarah
+#       Levels: Abdus Sarah
 
-# You could specify the levels with a levels = argument. E.g. levels = c("Hindowa", "Tom")
+# You could specify the levels with a levels = argument. E.g. levels = c("Abdus", "Sarah")
 
 levels(Employee_Of_The_Week) # the levels are the order in which the elements appear
 Employee_Of_The_Week[5] #this returns the element in position 5 of the factor
@@ -330,3 +330,113 @@ Int_SNs <- list(England_SNs = readxl::read_xlsx("SNs.xlsx", sheet = "England"),
 # extract the england df from the list of international dfs
 England_SNs <- as.data.frame(Int_SNs[England_SNs])
 ```
+
+## Quiz: R Basics {#quiz}
+
+### Test Your Understanding
+
+```{r quiz-questions, echo=FALSE}
+# Create a simple quiz function
+create_quiz <- function() {
+  questions <- list(
+    list(
+      q = "What function sets your working directory in R?",
+      options = c("A) set_directory()", "B) getwd()", "C) working_dir()", "D) setwd()"),
+      answer = "D"
+    ),
+    list(
+      q = "Which function loads an already installed package?",
+      options = c("A) install.packages()", "B) library()", "C) load()", "D) require_package()"),
+      answer = "B"
+    ),
+    list(
+      q = "What data type is TRUE in R?",
+      options = c("A) character", "B) numeric", "C) logical", "D) integer"),
+      answer = "C"
+    ),
+    list(
+      q = "What keyboard shortcut runs highlighted code in R Studio?",
+      options = c("A) Ctrl + R", "B) Ctrl + Enter", "C) Alt + R", "D) Shift + Enter"),
+      answer = "B"
+    ),
+    list(
+      q = "What does getwd() do?",
+      options = c("A) Gets working directory", "B) Gets working data", "C) Gets window details", "D) Gets workspace"),
+      answer = "A"
+    ),
+    list(
+      q = "Which symbol is most commonly used for assignment in R?",
+      options = c("A) =", "B) <-", "C) :=", "D) ->"),
+      answer = "B"
+    )
+  )
+  
+  for (i in seq_along(questions)) {
+    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    for (option in questions[[i]]$options) {
+      cat(option, "\n")
+    }
+    cat("\n")
+  }
+  
+  cat("---\n\n")
+  cat("**Answers:**\n\n")
+  for (i in seq_along(questions)) {
+    cat(i, ". ", questions[[i]]$answer, "\n", sep = "")
+  }
+}
+
+create_quiz()
+```
+
+### Interactive R Code Exercises
+
+Try these coding exercises in your R console:
+
+```{r coding-exercises, echo=TRUE, eval=FALSE}
+# Exercise 1: Create a vector of numbers 1 to 10
+# Your answer:
+
+
+# Exercise 2: Load the ggplot2 package
+# Your answer:
+
+
+# Exercise 3: Set your working directory to your Documents folder
+# Your answer:
+
+
+# Exercise 4: Create a logical vector with TRUE, FALSE, TRUE
+# Your answer:
+
+
+# Exercise 5: Get help for the mean function
+# Your answer:
+
+```
+
+### Self-Check Questions
+
+Answer these questions for yourself:
+
+1. **True or False:** R is case-sensitive
+2. **Fill in the blank:** The function `____()` removes objects from your workspace
+3. **Multiple choice:** Which function shows the structure of an object?
+   - A) str()
+   - B) structure()
+   - C) show()
+   - D) display()
+
+```{r self-check-answers, echo=FALSE}
+cat("**Self-Check Answers:**\n")
+cat("1. TRUE - R is case-sensitive\n")
+cat("2. rm() - removes objects from workspace\n") 
+cat("3. A) str() - shows structure of objects\n")
+```
+
+
+
+
+
+
+

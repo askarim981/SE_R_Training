@@ -1,8 +1,9 @@
-book_filename: "bookdownproj"
+book_filename: bookdownproj
 output_dir: docs
-delete_merged_file: true
-edit: https://github.com/tomambroseharris/HE_R_Training/edit/master/%s
-view: https://github.com/tomambroseharris/HE_R_Training/blob/master/%s
+delete_merged_file: yes
+edit: null
+view: null
 language:
   ui:
-    chapter_name: ""
+    chapter_name: ''
+

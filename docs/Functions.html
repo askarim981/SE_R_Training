@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Syntax and Functions | An R Training Resource</title>
   <meta name="description" content="3 Syntax and Functions | An R Training Resource" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Syntax and Functions | An R Training Resource" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   
   
 
-<meta name="author" content="Tom Harris" />
+<meta name="author" content="Skills England Analysis and Insight" />
 
 
-<meta name="date" content="2023-09-21" />
+<meta name="date" content="2025-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -137,6 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./"><img src="images and graphics/SE_Logo.jpeg" width="150"></a></li>
 <li><a href="./">An R Training Resource</a></li>
 
 <li class="divider"></li>
@@ -157,6 +158,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.4" data-path="Basics.html"><a href="Basics.html#matrices"><i class="fa fa-check"></i><b>2.7.4</b> Matrices</a></li>
 <li class="chapter" data-level="2.7.5" data-path="Basics.html"><a href="Basics.html#lists"><i class="fa fa-check"></i><b>2.7.5</b> Lists</a></li>
 </ul></li>
+<li class="chapter" data-level="2.8" data-path="Basics.html"><a href="Basics.html#quiz"><i class="fa fa-check"></i><b>2.8</b> Quiz: R Basics</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="Basics.html"><a href="Basics.html#test-your-understanding"><i class="fa fa-check"></i><b>2.8.1</b> Test Your Understanding</a></li>
+<li class="chapter" data-level="2.8.2" data-path="Basics.html"><a href="Basics.html#interactive-r-code-exercises"><i class="fa fa-check"></i><b>2.8.2</b> Interactive R Code Exercises</a></li>
+<li class="chapter" data-level="2.8.3" data-path="Basics.html"><a href="Basics.html#self-check-questions"><i class="fa fa-check"></i><b>2.8.3</b> Self-Check Questions</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Functions.html"><a href="Functions.html"><i class="fa fa-check"></i><b>3</b> Syntax and Functions</a>
 <ul>
@@ -166,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="Functions.html"><a href="Functions.html#base-r-and-inbuilt-functions"><i class="fa fa-check"></i><b>3.2.1</b> Base R and Inbuilt Functions</a></li>
 <li class="chapter" data-level="3.2.2" data-path="Functions.html"><a href="Functions.html#programming-functions"><i class="fa fa-check"></i><b>3.2.2</b> Programming functions</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="Basics.html"><a href="Basics.html#quiz"><i class="fa fa-check"></i><b>3.3</b> Quiz: R Syntax and Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reading-in-data.html"><a href="reading-in-data.html"><i class="fa fa-check"></i><b>4</b> Reading in Data</a>
 <ul>
@@ -182,6 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.2" data-path="reading-in-data.html"><a href="reading-in-data.html#loading-data-into-r"><i class="fa fa-check"></i><b>4.3.2</b> Loading data into R</a></li>
 <li class="chapter" data-level="4.3.3" data-path="reading-in-data.html"><a href="reading-in-data.html#running-sql-queries"><i class="fa fa-check"></i><b>4.3.3</b> Running SQL Queries</a></li>
 </ul></li>
+<li class="chapter" data-level="4.4" data-path="Basics.html"><a href="Basics.html#quiz"><i class="fa fa-check"></i><b>4.4</b> Quiz: Reading in data</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creating-outputs.html"><a href="creating-outputs.html"><i class="fa fa-check"></i><b>5</b> Creating outputs</a>
 <ul>
@@ -194,19 +203,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="creating-outputs.html"><a href="creating-outputs.html#r-markdown"><i class="fa fa-check"></i><b>5.4</b> R Markdown</a></li>
 <li class="chapter" data-level="5.5" data-path="creating-outputs.html"><a href="creating-outputs.html#presentations"><i class="fa fa-check"></i><b>5.5</b> Presentations</a></li>
 <li class="chapter" data-level="5.6" data-path="creating-outputs.html"><a href="creating-outputs.html#other-links"><i class="fa fa-check"></i><b>5.6</b> Other links</a></li>
+<li class="chapter" data-level="5.7" data-path="creating-outputs.html"><a href="creating-outputs.html#quiz-outputs"><i class="fa fa-check"></i><b>5.7</b> Quiz: Outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data manipulation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="data-manipulation.html"><a href="data-manipulation.html#selecting"><i class="fa fa-check"></i><b>6.1</b> Selecting</a></li>
-<li class="chapter" data-level="6.2" data-path="data-manipulation.html"><a href="data-manipulation.html#filtering"><i class="fa fa-check"></i><b>6.2</b> Filtering</a></li>
-<li class="chapter" data-level="6.3" data-path="data-manipulation.html"><a href="data-manipulation.html#summarising"><i class="fa fa-check"></i><b>6.3</b> Summarising</a></li>
-<li class="chapter" data-level="6.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grouping-by"><i class="fa fa-check"></i><b>6.4</b> Grouping by</a></li>
-<li class="chapter" data-level="6.5" data-path="data-manipulation.html"><a href="data-manipulation.html#totals"><i class="fa fa-check"></i><b>6.5</b> Totals</a></li>
-<li class="chapter" data-level="6.6" data-path="data-manipulation.html"><a href="data-manipulation.html#mutating"><i class="fa fa-check"></i><b>6.6</b> Mutate</a></li>
-<li class="chapter" data-level="6.7" data-path="data-manipulation.html"><a href="data-manipulation.html#pivotting"><i class="fa fa-check"></i><b>6.7</b> Pivotting</a></li>
-<li class="chapter" data-level="6.8" data-path="data-manipulation.html"><a href="data-manipulation.html#joining-data"><i class="fa fa-check"></i><b>6.8</b> Joining data</a></li>
-<li class="chapter" data-level="6.9" data-path="data-manipulation.html"><a href="data-manipulation.html#extracting_variables"><i class="fa fa-check"></i><b>6.9</b> Extracting variables</a></li>
-<li class="chapter" data-level="6.10" data-path="data-manipulation.html"><a href="data-manipulation.html#others"><i class="fa fa-check"></i><b>6.10</b> Others</a></li>
+<li class="chapter" data-level="6.1" data-path="data-manipulation.html"><a href="data-manipulation.html#setup-and-data-loading"><i class="fa fa-check"></i><b>6.1</b> Setup and Data Loading</a></li>
+<li class="chapter" data-level="6.2" data-path="data-manipulation.html"><a href="data-manipulation.html#selecting-columns"><i class="fa fa-check"></i><b>6.2</b> Selecting Columns</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-column-selection"><i class="fa fa-check"></i><b>6.2.1</b> Basic Column Selection</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#excluding-columns"><i class="fa fa-check"></i><b>6.2.2</b> Excluding Columns</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#advanced-selection-techniques"><i class="fa fa-check"></i><b>6.2.3</b> Advanced Selection Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-manipulation.html"><a href="data-manipulation.html#filtering-rows"><i class="fa fa-check"></i><b>6.3</b> Filtering Rows</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#setting-up-custom-operators"><i class="fa fa-check"></i><b>6.3.1</b> Setting Up Custom Operators</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-filtering-operations"><i class="fa fa-check"></i><b>6.3.2</b> Basic Filtering Operations</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-manipulation.html"><a href="data-manipulation.html#logical-operators-in-filtering"><i class="fa fa-check"></i><b>6.3.3</b> Logical Operators in Filtering</a></li>
+<li class="chapter" data-level="6.3.4" data-path="data-manipulation.html"><a href="data-manipulation.html#advanced-filtering-with-across"><i class="fa fa-check"></i><b>6.3.4</b> Advanced Filtering with across()</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-manipulation.html"><a href="data-manipulation.html#summarising-data"><i class="fa fa-check"></i><b>6.4</b> Summarising Data</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-summarisation"><i class="fa fa-check"></i><b>6.4.1</b> Basic Summarisation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#summarising-multiple-columns"><i class="fa fa-check"></i><b>6.4.2</b> Summarising Multiple Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="data-manipulation.html"><a href="data-manipulation.html#grouping-and-group-wise-operations"><i class="fa fa-check"></i><b>6.5</b> Grouping and Group-wise Operations</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#single-variable-grouping"><i class="fa fa-check"></i><b>6.5.1</b> Single Variable Grouping</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-variable-grouping"><i class="fa fa-check"></i><b>6.5.2</b> Multiple Variable Grouping</a></li>
+<li class="chapter" data-level="6.5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#simple-counting"><i class="fa fa-check"></i><b>6.5.3</b> Simple Counting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-manipulation.html"><a href="data-manipulation.html#adding-totals"><i class="fa fa-check"></i><b>6.6</b> Adding Totals</a></li>
+<li class="chapter" data-level="6.7" data-path="data-manipulation.html"><a href="data-manipulation.html#creating-and-transforming-variables"><i class="fa fa-check"></i><b>6.7</b> Creating and Transforming Variables</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-variable-creation"><i class="fa fa-check"></i><b>6.7.1</b> Basic Variable Creation</a></li>
+<li class="chapter" data-level="6.7.2" data-path="data-manipulation.html"><a href="data-manipulation.html#complex-conditional-logic"><i class="fa fa-check"></i><b>6.7.2</b> Complex Conditional Logic</a></li>
+<li class="chapter" data-level="6.7.3" data-path="data-manipulation.html"><a href="data-manipulation.html#transforming-multiple-columns"><i class="fa fa-check"></i><b>6.7.3</b> Transforming Multiple Columns</a></li>
+<li class="chapter" data-level="6.7.4" data-path="data-manipulation.html"><a href="data-manipulation.html#row-wise-operations"><i class="fa fa-check"></i><b>6.7.4</b> Row-wise Operations</a></li>
+<li class="chapter" data-level="6.7.5" data-path="data-manipulation.html"><a href="data-manipulation.html#handling-missing-values"><i class="fa fa-check"></i><b>6.7.5</b> Handling Missing Values</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="data-manipulation.html"><a href="data-manipulation.html#pivoting-data-reshaping"><i class="fa fa-check"></i><b>6.8</b> Pivoting Data (Reshaping)</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#wide-to-long-format"><i class="fa fa-check"></i><b>6.8.1</b> Wide to Long Format</a></li>
+<li class="chapter" data-level="6.8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#long-to-wide-format"><i class="fa fa-check"></i><b>6.8.2</b> Long to Wide Format</a></li>
+<li class="chapter" data-level="6.8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#advanced-pivoting"><i class="fa fa-check"></i><b>6.8.3</b> Advanced Pivoting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="data-manipulation.html"><a href="data-manipulation.html#joining-datasets"><i class="fa fa-check"></i><b>6.9</b> Joining Datasets</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-join-operations"><i class="fa fa-check"></i><b>6.9.1</b> Basic Join Operations</a></li>
+<li class="chapter" data-level="6.9.2" data-path="data-manipulation.html"><a href="data-manipulation.html#handling-different-column-names"><i class="fa fa-check"></i><b>6.9.2</b> Handling Different Column Names</a></li>
+<li class="chapter" data-level="6.9.3" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-column-joins"><i class="fa fa-check"></i><b>6.9.3</b> Multiple Column Joins</a></li>
+<li class="chapter" data-level="6.9.4" data-path="data-manipulation.html"><a href="data-manipulation.html#joining-multiple-datasets"><i class="fa fa-check"></i><b>6.9.4</b> Joining Multiple Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="data-manipulation.html"><a href="data-manipulation.html#practical-examples-and-patterns"><i class="fa fa-check"></i><b>6.10</b> Practical Examples and Patterns</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="data-manipulation.html"><a href="data-manipulation.html#complete-data-processing-pipeline"><i class="fa fa-check"></i><b>6.10.1</b> Complete Data Processing Pipeline</a></li>
+<li class="chapter" data-level="6.10.2" data-path="data-manipulation.html"><a href="data-manipulation.html#function-based-processing"><i class="fa fa-check"></i><b>6.10.2</b> Function-Based Processing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.11" data-path="data-manipulation.html"><a href="data-manipulation.html#tips-and-best-practices"><i class="fa fa-check"></i><b>6.11</b> Tips and Best Practices</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="data-manipulation.html"><a href="data-manipulation.html#data-validation"><i class="fa fa-check"></i><b>6.11.1</b> Data Validation</a></li>
+<li class="chapter" data-level="6.11.2" data-path="data-manipulation.html"><a href="data-manipulation.html#performance-considerations"><i class="fa fa-check"></i><b>6.11.2</b> Performance Considerations</a></li>
+<li class="chapter" data-level="6.11.3" data-path="data-manipulation.html"><a href="data-manipulation.html#debugging-and-troubleshooting"><i class="fa fa-check"></i><b>6.11.3</b> Debugging and Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="data-manipulation.html"><a href="data-manipulation.html#others"><i class="fa fa-check"></i><b>6.12</b> Others</a></li>
+<li class="chapter" data-level="6.13" data-path="data-manipulation.html"><a href="data-manipulation.html#quiz-data-manipulation"><i class="fa fa-check"></i><b>6.13</b> Quiz: Data Manipulation</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="user-defined-functions.html"><a href="user-defined-functions.html"><i class="fa fa-check"></i><b>7</b> User-defined Functions</a>
 <ul>
@@ -221,6 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="user-defined-functions.html"><a href="user-defined-functions.html#setting-default-inputs"><i class="fa fa-check"></i><b>7.5</b> Setting default inputs</a></li>
 <li class="chapter" data-level="7.6" data-path="user-defined-functions.html"><a href="user-defined-functions.html#Loops"><i class="fa fa-check"></i><b>7.6</b> Using Loops</a></li>
 <li class="chapter" data-level="7.7" data-path="user-defined-functions.html"><a href="user-defined-functions.html#random-snippets"><i class="fa fa-check"></i><b>7.7</b> Random snippets</a></li>
+<li class="chapter" data-level="7.8" data-path="user-defined-functions.html"><a href="user-defined-functions.html#quiz-user-defined-functions-quiz"><i class="fa fa-check"></i><b>7.8</b> Quiz: User defined functions quiz</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>8</b> Graphs</a>
 <ul>
@@ -256,49 +317,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R is its own programming language, and some of the key syntax is not necessarily intuitive. We have covered some already, but here follows some important things to know:</p>
 <p>Use <code>&lt;-</code> to assign variables
 e.g. <code>x &lt;- 1</code></p>
+<p>A shortcut to producing is pressing the Alt + - keys together.</p>
 <p>Use <code>c()</code> to combine (i.e. to create) a vector.
 e.g. <code>c(1,2)</code></p>
 <p>Use <code>==</code> to evaluate something as being exactly equal to</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Functions.html#cb21-1" tabindex="-1"></a><span class="dv">1</span> <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this will return an error</span></span>
-<span id="cb21-2"><a href="Functions.html#cb21-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="co">#this will return: [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Functions.html#cb27-1" tabindex="-1"></a><span class="dv">1</span> <span class="ot">=</span> <span class="dv">1</span> <span class="co">#this will return an error</span></span>
+<span id="cb27-2"><a href="Functions.html#cb27-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="co">#this will return: [1] TRUE</span></span></code></pre></div>
 <p>Use <code>%in%</code> to specify that a character string or other data element is contained in some data structure.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Functions.html#cb22-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>) <span class="co"># this will return [1] TRUE as 1 is in the vector we&#39;ve defined</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="Functions.html#cb28-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>) <span class="co"># this will return [1] TRUE as 1 is in the vector we&#39;ve defined</span></span></code></pre></div>
 <p>Use <code>!=</code> to specify “is NOT equal to”</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Functions.html#cb23-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span> <span class="co">#this will return [1] TRUE as 1 is NOT equal to 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Functions.html#cb29-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span> <span class="co">#this will return [1] TRUE as 1 is NOT equal to 2</span></span></code></pre></div>
 <p>Use :: to specify that a function comes from a specific package. This is necessary if you have two packages which include functions with the same name.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Functions.html#cb24-1" tabindex="-1"></a><span class="co"># load the stringr package</span></span>
-<span id="cb24-2"><a href="Functions.html#cb24-2" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb24-3"><a href="Functions.html#cb24-3" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="st">&quot;Let&#39;s split this string into 10 elements separated by spaces&quot;</span>, <span class="st">&quot; &quot;</span>) <span class="co">#this uses the str_split function from stringr</span></span>
-<span id="cb24-4"><a href="Functions.html#cb24-4" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">&quot;Let&#39;s&quot;</span>     <span class="st">&quot;split&quot;</span>     <span class="st">&quot;this&quot;</span>      <span class="st">&quot;string&quot;</span>    <span class="st">&quot;into&quot;</span>      <span class="st">&quot;10&quot;</span>        <span class="st">&quot;elements&quot;</span>  <span class="st">&quot;separated&quot;</span> <span class="st">&quot;by&quot;</span>        <span class="st">&quot;spaces&quot;</span>   </span></code></pre></div>
-<p>Use <code>%&gt;%</code> from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words, the sequence would read “… and then”</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Functions.html#cb25-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb25-2"><a href="Functions.html#cb25-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co">#define y as the number 25</span></span>
-<span id="cb25-3"><a href="Functions.html#cb25-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> y <span class="sc">%&gt;%</span> <span class="co">#define a new element, x, as 25. Insert the pipe to continue the code chunk on our object, x.</span></span>
-<span id="cb25-4"><a href="Functions.html#cb25-4" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span>  <span class="co"># square root our element, x. *we do not need to specify that we&#39;re square rooting x as it&#39;s within a pipe</span></span>
-<span id="cb25-5"><a href="Functions.html#cb25-5" tabindex="-1"></a>  <span class="fu">print</span>()   <span class="co">#print the object we&#39;ve created then manipulated</span></span>
-<span id="cb25-6"><a href="Functions.html#cb25-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="Functions.html#cb30-1" tabindex="-1"></a><span class="co"># load the stringr package</span></span>
+<span id="cb30-2"><a href="Functions.html#cb30-2" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb30-3"><a href="Functions.html#cb30-3" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="st">&quot;Let&#39;s split this string into 10 elements separated by spaces&quot;</span>, <span class="st">&quot; &quot;</span>) <span class="co">#this uses the str_split function from stringr</span></span>
+<span id="cb30-4"><a href="Functions.html#cb30-4" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">&quot;Let&#39;s&quot;</span>     <span class="st">&quot;split&quot;</span>     <span class="st">&quot;this&quot;</span>      <span class="st">&quot;string&quot;</span>    <span class="st">&quot;into&quot;</span>      <span class="st">&quot;10&quot;</span>        <span class="st">&quot;elements&quot;</span>  <span class="st">&quot;separated&quot;</span> <span class="st">&quot;by&quot;</span>        <span class="st">&quot;spaces&quot;</span>   </span></code></pre></div>
+<p>Use <code>%&gt;%</code> from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words, the sequence would read “… and then”. Use Ctrl + Shift + M as a keyboard shortcut to produce the pipe.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="Functions.html#cb31-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb31-2"><a href="Functions.html#cb31-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co">#define y as the number 25</span></span>
+<span id="cb31-3"><a href="Functions.html#cb31-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> y <span class="sc">%&gt;%</span> <span class="co">#define a new element, x, as 25. Insert the pipe to continue the code chunk on our object, x.</span></span>
+<span id="cb31-4"><a href="Functions.html#cb31-4" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span>  <span class="co"># square root our element, x. *we do not need to specify that we&#39;re square rooting x as it&#39;s within a pipe</span></span>
+<span id="cb31-5"><a href="Functions.html#cb31-5" tabindex="-1"></a>  <span class="fu">print</span>()   <span class="co">#print the object we&#39;ve created then manipulated</span></span>
+<span id="cb31-6"><a href="Functions.html#cb31-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
 <p>Use <code>~</code> (tilde) to define the relationship between two sides of an equation. It separates the left and right side</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="Functions.html#cb26-1" tabindex="-1"></a>two_by_two <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="co">#this creates a vector of the numbers 1 to 4: 1,2,3,4</span></span>
-<span id="cb26-2"><a href="Functions.html#cb26-2" tabindex="-1"></a><span class="fu">print</span>(two_by_two)</span>
-<span id="cb26-3"><a href="Functions.html#cb26-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></span>
-<span id="cb26-4"><a href="Functions.html#cb26-4" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="Functions.html#cb26-5" tabindex="-1"></a>Even_numbers <span class="ot">&lt;-</span> <span class="fu">case_when</span>(two_by_two<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;divisible by 2&quot;</span>, <span class="co"># when the element in our two by two vector is divisible by 2, assign the text &quot;divisible by 2&quot;</span></span>
-<span id="cb26-6"><a href="Functions.html#cb26-6" tabindex="-1"></a>          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;not divisible by 2&quot;</span>)   <span class="co">#when our first condition is not met, assign &quot;not divisible by 2</span></span>
-<span id="cb26-7"><a href="Functions.html#cb26-7" tabindex="-1"></a><span class="fu">print</span>(Even_numbers)</span>
-<span id="cb26-8"><a href="Functions.html#cb26-8" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>     <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>  </span>
-<span id="cb26-9"><a href="Functions.html#cb26-9" tabindex="-1"></a><span class="co">#this will create a vector of 4 character strings, which correspond to the two_by_two vector. Those in position 2 and 4 (the numbers 2 and 4) are divisible by 2, so returns &quot;divisible by 2&quot;.</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="Functions.html#cb32-1" tabindex="-1"></a>two_by_two <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="co">#this creates a vector of the numbers 1 to 4: 1,2,3,4</span></span>
+<span id="cb32-2"><a href="Functions.html#cb32-2" tabindex="-1"></a><span class="fu">print</span>(two_by_two)</span>
+<span id="cb32-3"><a href="Functions.html#cb32-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></span>
+<span id="cb32-4"><a href="Functions.html#cb32-4" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="Functions.html#cb32-5" tabindex="-1"></a>Even_numbers <span class="ot">&lt;-</span> <span class="fu">case_when</span>(two_by_two<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;divisible by 2&quot;</span>, <span class="co"># when the element in our two by two vector is divisible by 2, assign the text &quot;divisible by 2&quot;</span></span>
+<span id="cb32-6"><a href="Functions.html#cb32-6" tabindex="-1"></a>          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;not divisible by 2&quot;</span>)   <span class="co">#when our first condition is not met, assign &quot;not divisible by 2</span></span>
+<span id="cb32-7"><a href="Functions.html#cb32-7" tabindex="-1"></a><span class="fu">print</span>(Even_numbers)</span>
+<span id="cb32-8"><a href="Functions.html#cb32-8" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>     <span class="st">&quot;not divisible by 2&quot;</span> <span class="st">&quot;divisible by 2&quot;</span>  </span>
+<span id="cb32-9"><a href="Functions.html#cb32-9" tabindex="-1"></a><span class="co">#this will create a vector of 4 character strings, which correspond to the two_by_two vector. Those in position 2 and 4 (the numbers 2 and 4) are divisible by 2, so returns &quot;divisible by 2&quot;.</span></span></code></pre></div>
 <p>Use parentheses <code>()</code> to pass argumnts to a function</p>
 <p>Use <code>$</code> to subset an object, similar to square brackets.</p>
-<p>Use square brackets <code>[]</code> to grab a subset of data. It appends an index vector to a specified vector. Square brackets can usually be applied in place of <code>$</code>, and are more maleable to the specific task, though they might be slightly less intuitive. See the example below. For more detailed explanation of extracting/subsetting variables see the <a href="data-manipulation.html#extracting_variables">data manipulation chapter</a></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Functions.html#cb27-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co"># load the iris data</span></span>
-<span id="cb27-2"><a href="Functions.html#cb27-2" tabindex="-1"></a><span class="fu">unique</span>(iris<span class="sc">$</span>Species) <span class="co">#show the unique entries in the Species column within the iris data frame</span></span>
-<span id="cb27-3"><a href="Functions.html#cb27-3" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica </span>
-<span id="cb27-4"><a href="Functions.html#cb27-4" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="Functions.html#cb27-5" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris<span class="sc">$</span>Species), <span class="at">times =</span> <span class="dv">2</span>) <span class="co"># repeat x2 the unique entries from the Species column within the iris data frame</span></span>
-<span id="cb27-6"><a href="Functions.html#cb27-6" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span>
-<span id="cb27-7"><a href="Functions.html#cb27-7" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="Functions.html#cb27-8" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris[[<span class="dv">5</span>]]), <span class="at">times =</span> <span class="dv">2</span>) <span class="co">#repeat x2 the unique entries from the 5th column within the iris data frame: the species column</span></span>
-<span id="cb27-9"><a href="Functions.html#cb27-9" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span></code></pre></div>
+<p>Use square brackets <code>[]</code> to grab a subset of data. It appends an index vector to a specified vector. Square brackets can usually be applied in place of <code>$</code>, and are more maleable to the specific task, though they might be slightly less intuitive. See the example below. For more detailed explanation of extracting/subsetting variables see the <a href="#extracting_variables">data manipulation chapter</a></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="Functions.html#cb33-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co"># load the iris data</span></span>
+<span id="cb33-2"><a href="Functions.html#cb33-2" tabindex="-1"></a><span class="fu">unique</span>(iris<span class="sc">$</span>Species) <span class="co">#show the unique entries in the Species column within the iris data frame</span></span>
+<span id="cb33-3"><a href="Functions.html#cb33-3" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica </span>
+<span id="cb33-4"><a href="Functions.html#cb33-4" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="Functions.html#cb33-5" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris<span class="sc">$</span>Species), <span class="at">times =</span> <span class="dv">2</span>) <span class="co"># repeat x2 the unique entries from the Species column within the iris data frame</span></span>
+<span id="cb33-6"><a href="Functions.html#cb33-6" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span>
+<span id="cb33-7"><a href="Functions.html#cb33-7" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="Functions.html#cb33-8" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">unique</span>(iris[[<span class="dv">5</span>]]), <span class="at">times =</span> <span class="dv">2</span>) <span class="co">#repeat x2 the unique entries from the 5th column within the iris data frame: the species column</span></span>
+<span id="cb33-9"><a href="Functions.html#cb33-9" tabindex="-1"></a>[<span class="dv">1</span>] setosa     versicolor virginica  setosa     versicolor virginica </span></code></pre></div>
 <p>Use <code>{}</code> to evaluate a series of items within the environment of the brackets. More on this when we discuss functions.</p>
 <p>(Advanced) use <code>{{}}</code>, <code>:=</code> and <code>!!</code> when defining functions and needing to specify the nature of objects within them. More on this in <a href="user-defined-functions.html#Overview">User-defined Functions chapter</a></p>
 </div>
@@ -323,67 +385,122 @@ e.g. <code>c(1,2)</code></p>
 <h3><span class="header-section-number">3.2.2</span> Programming functions<a href="Functions.html#programming-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>If statements</strong></p>
 <p>The most important thing to remember with if else statements is to make sure the else is on the same line as the close curly bracket of the if statement. Otherwise the else won’t be tied to the preceding condition.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="Functions.html#cb28-1" tabindex="-1"></a><span class="cf">if</span> (condition){</span>
-<span id="cb28-2"><a href="Functions.html#cb28-2" tabindex="-1"></a>  <span class="co">#Do something</span></span>
-<span id="cb28-3"><a href="Functions.html#cb28-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb28-4"><a href="Functions.html#cb28-4" tabindex="-1"></a>  <span class="co">#Do something different</span></span>
-<span id="cb28-5"><a href="Functions.html#cb28-5" tabindex="-1"></a>}</span>
-<span id="cb28-6"><a href="Functions.html#cb28-6" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="Functions.html#cb28-7" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb28-8"><a href="Functions.html#cb28-8" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
-<span id="cb28-9"><a href="Functions.html#cb28-9" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;yes&quot;</span>)</span>
-<span id="cb28-10"><a href="Functions.html#cb28-10" tabindex="-1"></a>} <span class="cf">else</span> {    <span class="co">#because the function is continuous, the else needs to be on the same line as the final curly bracket of the if function.</span></span>
-<span id="cb28-11"><a href="Functions.html#cb28-11" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;no&quot;</span>)</span>
-<span id="cb28-12"><a href="Functions.html#cb28-12" tabindex="-1"></a>}</span>
-<span id="cb28-13"><a href="Functions.html#cb28-13" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="Functions.html#cb28-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;no&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="Functions.html#cb34-1" tabindex="-1"></a><span class="cf">if</span> (condition){</span>
+<span id="cb34-2"><a href="Functions.html#cb34-2" tabindex="-1"></a>  <span class="co">#Do something</span></span>
+<span id="cb34-3"><a href="Functions.html#cb34-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb34-4"><a href="Functions.html#cb34-4" tabindex="-1"></a>  <span class="co">#Do something different</span></span>
+<span id="cb34-5"><a href="Functions.html#cb34-5" tabindex="-1"></a>}</span>
+<span id="cb34-6"><a href="Functions.html#cb34-6" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="Functions.html#cb34-7" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb34-8"><a href="Functions.html#cb34-8" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
+<span id="cb34-9"><a href="Functions.html#cb34-9" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;yes&quot;</span>)</span>
+<span id="cb34-10"><a href="Functions.html#cb34-10" tabindex="-1"></a>} <span class="cf">else</span> {    <span class="co">#because the function is continuous, the else needs to be on the same line as the final curly bracket of the if function.</span></span>
+<span id="cb34-11"><a href="Functions.html#cb34-11" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb34-12"><a href="Functions.html#cb34-12" tabindex="-1"></a>}</span>
+<span id="cb34-13"><a href="Functions.html#cb34-13" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="Functions.html#cb34-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;no&quot;</span></span></code></pre></div>
 <p>Adding conditions to if statements using <code>else if</code></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Functions.html#cb29-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb29-2"><a href="Functions.html#cb29-2" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
-<span id="cb29-3"><a href="Functions.html#cb29-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;greater than 3&quot;</span>)</span>
-<span id="cb29-4"><a href="Functions.html#cb29-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( i <span class="sc">==</span> <span class="dv">3</span>) {</span>
-<span id="cb29-5"><a href="Functions.html#cb29-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;equal to 3&quot;</span>)</span>
-<span id="cb29-6"><a href="Functions.html#cb29-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb29-7"><a href="Functions.html#cb29-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;less than 3&quot;</span>)</span>
-<span id="cb29-8"><a href="Functions.html#cb29-8" tabindex="-1"></a>}</span>
-<span id="cb29-9"><a href="Functions.html#cb29-9" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="Functions.html#cb29-10" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;less than 3&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="Functions.html#cb35-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb35-2"><a href="Functions.html#cb35-2" tabindex="-1"></a><span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">3</span>){</span>
+<span id="cb35-3"><a href="Functions.html#cb35-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;greater than 3&quot;</span>)</span>
+<span id="cb35-4"><a href="Functions.html#cb35-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( i <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb35-5"><a href="Functions.html#cb35-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;equal to 3&quot;</span>)</span>
+<span id="cb35-6"><a href="Functions.html#cb35-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb35-7"><a href="Functions.html#cb35-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;less than 3&quot;</span>)</span>
+<span id="cb35-8"><a href="Functions.html#cb35-8" tabindex="-1"></a>}</span>
+<span id="cb35-9"><a href="Functions.html#cb35-9" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="Functions.html#cb35-10" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;less than 3&quot;</span></span></code></pre></div>
 <p>Loops are a good and easily comprehensible way to optimise your code, but take a bit of time to effectively apply to your work. More detail is contained in the <a href="user-defined-functions.html#Loops">User-defined Functions</a> chapter.</p>
 <p><strong>For loop</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="Functions.html#cb30-1" tabindex="-1"></a><span class="co">#Generic</span></span>
-<span id="cb30-2"><a href="Functions.html#cb30-2" tabindex="-1"></a><span class="cf">for</span>(variable <span class="cf">in</span> something) {</span>
-<span id="cb30-3"><a href="Functions.html#cb30-3" tabindex="-1"></a>  do something</span>
-<span id="cb30-4"><a href="Functions.html#cb30-4" tabindex="-1"></a>}</span>
-<span id="cb30-5"><a href="Functions.html#cb30-5" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="Functions.html#cb30-6" tabindex="-1"></a><span class="co">#Example application</span></span>
-<span id="cb30-7"><a href="Functions.html#cb30-7" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>){</span>
-<span id="cb30-8"><a href="Functions.html#cb30-8" tabindex="-1"></a>  j <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb30-9"><a href="Functions.html#cb30-9" tabindex="-1"></a>  <span class="fu">print</span>(j)</span>
-<span id="cb30-10"><a href="Functions.html#cb30-10" tabindex="-1"></a>}</span>
-<span id="cb30-11"><a href="Functions.html#cb30-11" tabindex="-1"></a></span>
-<span id="cb30-12"><a href="Functions.html#cb30-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">11</span></span>
-<span id="cb30-13"><a href="Functions.html#cb30-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">12</span></span>
-<span id="cb30-14"><a href="Functions.html#cb30-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">13</span></span>
-<span id="cb30-15"><a href="Functions.html#cb30-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">14</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="Functions.html#cb36-1" tabindex="-1"></a><span class="co">#Generic</span></span>
+<span id="cb36-2"><a href="Functions.html#cb36-2" tabindex="-1"></a><span class="cf">for</span>(variable <span class="cf">in</span> something) {</span>
+<span id="cb36-3"><a href="Functions.html#cb36-3" tabindex="-1"></a>  do something</span>
+<span id="cb36-4"><a href="Functions.html#cb36-4" tabindex="-1"></a>}</span>
+<span id="cb36-5"><a href="Functions.html#cb36-5" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="Functions.html#cb36-6" tabindex="-1"></a><span class="co">#Example application</span></span>
+<span id="cb36-7"><a href="Functions.html#cb36-7" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>){</span>
+<span id="cb36-8"><a href="Functions.html#cb36-8" tabindex="-1"></a>  j <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb36-9"><a href="Functions.html#cb36-9" tabindex="-1"></a>  <span class="fu">print</span>(j)</span>
+<span id="cb36-10"><a href="Functions.html#cb36-10" tabindex="-1"></a>}</span>
+<span id="cb36-11"><a href="Functions.html#cb36-11" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="Functions.html#cb36-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">11</span></span>
+<span id="cb36-13"><a href="Functions.html#cb36-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">12</span></span>
+<span id="cb36-14"><a href="Functions.html#cb36-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">13</span></span>
+<span id="cb36-15"><a href="Functions.html#cb36-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">14</span></span></code></pre></div>
 <p><strong>While loop</strong></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="Functions.html#cb31-1" tabindex="-1"></a><span class="co">#Generic</span></span>
-<span id="cb31-2"><a href="Functions.html#cb31-2" tabindex="-1"></a><span class="cf">while</span>(condition){</span>
-<span id="cb31-3"><a href="Functions.html#cb31-3" tabindex="-1"></a>  <span class="co">#do something</span></span>
-<span id="cb31-4"><a href="Functions.html#cb31-4" tabindex="-1"></a>}</span>
-<span id="cb31-5"><a href="Functions.html#cb31-5" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="Functions.html#cb31-6" tabindex="-1"></a><span class="co">#Example application</span></span>
-<span id="cb31-7"><a href="Functions.html#cb31-7" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb31-8"><a href="Functions.html#cb31-8" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;</span> <span class="dv">6</span>) {</span>
-<span id="cb31-9"><a href="Functions.html#cb31-9" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb31-10"><a href="Functions.html#cb31-10" tabindex="-1"></a>  i <span class="ot">=</span> i<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb31-11"><a href="Functions.html#cb31-11" tabindex="-1"></a>}</span>
-<span id="cb31-12"><a href="Functions.html#cb31-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
-<span id="cb31-13"><a href="Functions.html#cb31-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
-<span id="cb31-14"><a href="Functions.html#cb31-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span>
-<span id="cb31-15"><a href="Functions.html#cb31-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span>
-<span id="cb31-16"><a href="Functions.html#cb31-16" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
-
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="Functions.html#cb37-1" tabindex="-1"></a><span class="co">#Generic</span></span>
+<span id="cb37-2"><a href="Functions.html#cb37-2" tabindex="-1"></a><span class="cf">while</span>(condition){</span>
+<span id="cb37-3"><a href="Functions.html#cb37-3" tabindex="-1"></a>  <span class="co">#do something</span></span>
+<span id="cb37-4"><a href="Functions.html#cb37-4" tabindex="-1"></a>}</span>
+<span id="cb37-5"><a href="Functions.html#cb37-5" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="Functions.html#cb37-6" tabindex="-1"></a><span class="co">#Example application</span></span>
+<span id="cb37-7"><a href="Functions.html#cb37-7" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb37-8"><a href="Functions.html#cb37-8" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;</span> <span class="dv">6</span>) {</span>
+<span id="cb37-9"><a href="Functions.html#cb37-9" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb37-10"><a href="Functions.html#cb37-10" tabindex="-1"></a>  i <span class="ot">=</span> i<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb37-11"><a href="Functions.html#cb37-11" tabindex="-1"></a>}</span>
+<span id="cb37-12"><a href="Functions.html#cb37-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
+<span id="cb37-13"><a href="Functions.html#cb37-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
+<span id="cb37-14"><a href="Functions.html#cb37-14" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span>
+<span id="cb37-15"><a href="Functions.html#cb37-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4</span></span>
+<span id="cb37-16"><a href="Functions.html#cb37-16" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
 </div>
+</div>
+<div id="quiz" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Quiz: R Syntax and Functions<a href="Basics.html#quiz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>## **1. How do you test if a value is &#39;exactly equal to&#39; another in R?**
+## 
+## A) &lt;- 
+## B) = 
+## C) == 
+## D) %in% 
+## 
+## **2. What is the purpose of the `%in%` operator?**
+## 
+## A) To perform integer division 
+## B) To check if an element is contained in a vector or list 
+## C) To multiply matrices 
+## D) To assign a value 
+## 
+## **3. Which syntax is used to call a function that comes from a specific package?**
+## 
+## A) package$function() 
+## B) function(package) 
+## C) package-&gt;function() 
+## D) package::function() 
+## 
+## **4. In the context of the `dplyr` package, what does the pipe operator `%&gt;%` do?**
+## 
+## A) It subtracts one value from another 
+## B) It creates a plot 
+## C) It passes the object on its left to the function on its right 
+## D) It stops the execution of the code 
+## 
+## **5. What is the primary use of the tilde `~` operator in R?**
+## 
+## A) To approximate a number 
+## B) To define the relationship between variables in a formula 
+## C) To negate a logical statement 
+## D) To specify a user&#39;s home directory 
+## 
+## **6. Which function is used to remove a specified object from your R environment?**
+## 
+## A) remove() 
+## B) delete() 
+## C) rm() 
+## D) clear() 
+## 
+## ---
+## 
+## **Answers:**
+## 
+## 1. C
+## 2. B
+## 3. D
+## 4. C
+## 5. B
+## 6. C</code></pre>
+
 </div>
 </div>
             </section>
@@ -406,42 +523,42 @@ e.g. <code>c(1,2)</code></p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/edit/master/03-Syntax_and_Functions.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/tomambroseharris/HE_R_Training/blob/master/03-Syntax_and_Functions.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

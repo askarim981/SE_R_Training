@@ -6,7 +6,7 @@ This section uses 3x Higher Education-focused examples of reading in data. If yo
 
 ## Good practice
 
-As shown below, **documentation is essential**. For example, if you download data from HESA and delete the 14-18 rows of table identifiers, a future analyst or QA analyst will struggle to identify the source of the data, or to verify that filters are correct. 
+As shown below, **documentation is essential**. For example, if you download data from NOMIS and delete the 10-12 rows of table identifiers, a future analyst or QA analyst will struggle to identify the source of the data, or to verify that filters are correct. 
 
 Equally, with any other data source, if you do not include very clear links to 
 
@@ -32,9 +32,6 @@ getwd()
 #Alternatively, you can navigate through to the relative path, as long as the location is on the same drive.
 setwd("")
 
-# All of the data files used in the book are saved in this file path. 
-# If you run this code, all the file reading functions below will load the appropriate data. 
-setwd("//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS/HEEAT Technical Resources/R/Core learning RBookdown") 
 ```
 
 
@@ -42,35 +39,36 @@ setwd("//vmt1pr-dhfs01/Working/HE-EAT-WKG-FS/HEEAT Technical Resources/R/Core le
 
 The `read.csv()` function is pre-loaded into R through the utils package. We will usually want to assign the loaded data to an object, so that we have it stored in our global environment. 
 
-A CAH1 subjects .csv is downloaded from HESA. It is saved in the project's data folder. I have done nothing to the file other than save it as a UTF-8 comma delimited .csv file. The first 16 rows of the HESA data contain unique identifiers, details about the source and file specification, which can be referred back to. 
+AN APS data file on csv is downloaded from NOMIS which has employment figures for 412 4-digit SOC codes. It is saved in the project's data folder. I have done nothing to the file other than save it as a UTF-8 comma delimited .csv file. The first 16 rows of the HESA data contain unique identifiers, details about the source and file specification, which can be referred back to. 
 
 
 ```{r eval=FALSE}
-CAH1_By_Provider <- read.csv(file = "Data/CAH1 Subjects.csv") 
+Employment_by_SOC_Mar_25 <- read.csv(file =  "Data/Occupation_employment_figures_Mar_2025_4_digit_SOC.csv") 
 ```
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics('images and graphics/Reading in data errors.JPG')
+knitr::include_graphics('images and graphics/APS_data.JPG')
 ```
 
 **BUT** reading this in will create a data frame with lots of blank values, missing column titles and irrelevant rows.
 
-Because the top 16 rows are useful for documentation and finding the data source, we want to keep these in the .csv file, but we don't want R to read them into R, so we tell the read.csv function to skip them.
+Because the top 13 or so rows are useful for documentation and finding the data source, we want to keep these in the .csv file, but we don't want R to read them into R, so we tell the read.csv function to skip them.
 
 ```{r eval=FALSE}
-CAH1_By_Provider <- read.csv(file = "Data/CAH1 Subjects.csv", skip = 16)
+Employment_by_SOC_Mar_25 <- read.csv(file = "Data/Occupation_employment_figures_Mar_2025_4_digit_SOC.csv", skip = 13)
 ```
 
 If we want the column names exactly how they appear in the data, we can add the `check.names = FALSE argument`. When referencing these columns, you will need to put the name inside tilted apostrophes in order to tell R that the object has spaces in it, otherwise R will read a single column heading as many, and you will get an error.
 _This is why it is common to use underscores when naming objects and variables_
 
 ```{r eval=FALSE}
-CAH1_By_Provider <- read.csv(file = "Data/CAH1 Subjects.csv", skip = 16, check.names = FALSE)
+Employment_by_SOC_Mar_25 <- read.csv(file = "Data/Occupation_employment_figures_Mar_2025_4_digit_SOC.csv", skip = 13, check.names = FALSE) %>% 
+  rename("occupation_soc_code_label" = 1) # renaming empty column
 ```
 
-Now we have a rectangular dataset with non blank values and the column names we want. But when we check the data format, we find that, other than the UKPRN column, the other numeric data has been read in as character data. We can see this with `str(CAH1_By_Provider)`
+Now we have a rectangular dataset with non blank values and the column names we want. But when we check the data format, we find that data has been read in as character data. We can see this with `str(Employment_by_SOC_Mar_25)`
 
-You can change this by selecting which columns you want to be numeric. We want columns 3 to 27 to be numeric (i.e. every column from the 3rd column to the 27th)
+You can change this by selecting which columns you want to be numeric. We want columns 2 and 3 to be numeric.
 
 If you simply specify that you want them `as.numeric`, R will turn the values with commas into NAs. One way to avoid this is using readr's `parse_number` function from the `readr` package. 
 
@@ -79,13 +77,12 @@ If you simply specify that you want them `as.numeric`, R will turn the values wi
 library(readr)
 
 # create a new object with columns 3 to 27 now numeric
-Numeric_CAH1_By_Provider <- CAH1_By_Provider %>%
-  mutate_at(3:27, readr::parse_number) 
+Numeric_Employment_by_SOC_Mar_25 <- Employment_by_SOC_Mar_25 %>%
+  mutate_at(2:3, readr::parse_number) 
 
 # check the structure of the data
-str(Numeric_CAH1_By_Provider) # we can now see that columns 3 to 27 are numeric
+str(Numeric_Employment_by_SOC_Mar_25) # we can now see that columns 2 and 3 are numeric
 ```
-
 
 
 You can now explore the data as shown in segment 2.5.1 - [Data Frames]
@@ -99,8 +96,8 @@ In some cases, R might create funky column headings. Some options for solving mi
 Some other examples of making data numeric or replacing NAs with 0
 
 ```{r eval=FALSE}
-mutate(across(-c(`CAH2 Subject`),  ~as.numeric(.x)))
-mutate(across(-c(Subject), ~ readr::parse_number(.x)))
+mutate(across(-c(`SOC Code`),  ~as.numeric(.x)))
+mutate(across(-c(SOC_label), ~ readr::parse_number(.x)))
 mutate(across(everything(), ~replace_na(., 0)))
 
 # remove rows where all values are #N/A
@@ -124,8 +121,11 @@ The `read_excel` function comes from the `readxl` package
 ```{r eval=FALSE}
 library(readxl)
 
-Subjects_Allied_To_Medicine <- read_excel(path = "Data/Multiple HESA sheets workbook.xlsx", 
-                                          sheet = "Subjects Allied To Medicine", 
+# Example
+# Assuming you have a file with multiple sheets
+
+Sector_employment_figures <- read_excel(path = "Data/Multiple Sector sheets workbook.xlsx", 
+                                          sheet = "Creative Industries", 
                                           range = "A17:AA237")
 
 ```
@@ -162,7 +162,6 @@ students <- KS4_data %>% select(URN,  PupilMatchingRefAnonymous, FSM6CLA) %>% co
 
 ```
 
-
 ### Running SQL Queries 
 
 ```{r eval=FALSE}
@@ -178,7 +177,71 @@ output_data <- dbGetQuery(con, "
 
 ```
 
+## Quiz: Reading in data {#quiz}
 
+```{r Reading in data, echo=FALSE}
+# Function to create and display a quiz on reading data into R
+create_data_input_quiz <- function() {
+  # A list containing all the quiz questions, options, and answers
+  questions <- list(
+    list(
+      q = "When using the read.csv() function, which argument tells R to ignore the first 13 rows of the file?",
+      options = c("A) ignore = 13", "B) header = 13", "C) skip = 13", "D) omit = 13"),
+      answer = "C"
+    ),
+    list(
+      q = "What is a common issue when R reads a column containing numbers with commas (e.g., '1,500')?",
+      options = c(
+        "A) R automatically converts it to a numeric value without the comma.",
+        "B) R reads it in as a character or factor data type.",
+        "C) R returns an error and stops the import.",
+        "D) R converts the comma to a decimal point."
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "Which function from the `readr` package is specifically recommended for converting strings with commas into numbers?",
+      options = c("A) as.numeric()", "B) parse_number()", "C) convert_to_numeric()", "D) mutate_at(..., as.numeric)"),
+      answer = "B"
+    ),
+    list(
+      q = "Which package provides the `read_excel()` function to import data from Excel workbooks?",
+      options = c("A) utils", "B) odbc", "C) readr", "D) readxl"),
+      answer = "D"
+    ),
+    list(
+      q = "When using `read_excel()`, which argument do you use to specify the name of the sheet you want to read?",
+      options = c("A) tab =", "B) worksheet =", "C) sheet =", "D) select ="),
+      answer = "C"
+    ),
+    list(
+      q = "Which function is used to establish a connection to a SQL database using the `odbc` package?",
+      options = c("A) dbConnect()", "B) odbc_connect()", "C) dbGetQuery()", "D) sql_open()"),
+      answer = "A"
+    )
+  )
 
+  # Loop through each question and print it with its options
+  for (i in seq_along(questions)) {
+    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    for (option in questions[[i]]$options) {
+      cat(option, "\n")
+    }
+    cat("\n")
+  }
+
+  # Print a separator and the answers section header
+  cat("---\n\n")
+  cat("**Answers:**\n\n")
+
+  # Loop through and print the correct answer for each question
+  for (i in seq_along(questions)) {
+    cat(i, ". ", questions[[i]]$answer, "\n", sep = "")
+  }
+}
+
+# Run the function to generate the quiz in the console
+create_data_input_quiz()
+```
 
 

@@ -7,6 +7,8 @@ R is its own programming language, and some of the key syntax is not necessarily
 Use `<-` to assign variables
 e.g. `x <- 1`
 
+A shortcut to producing is pressing the Alt + - keys together. 
+
 Use `c()` to combine (i.e. to create) a vector. 
 e.g. `c(1,2)`
 
@@ -32,7 +34,7 @@ stringr::str_split("Let's split this string into 10 elements separated by spaces
     [1] "Let's"     "split"     "this"      "string"    "into"      "10"        "elements"  "separated" "by"        "spaces"   
 ```
 
-Use `%>%` from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words, the sequence would read "... and then"
+Use `%>%` from the Dplyr package - the pipe - to apply multiple functions to an object in turn. As words, the sequence would read "... and then". Use Ctrl + Shift + M as a keyboard shortcut to produce the pipe. 
 
 ```{r eval=FALSE}
 library(dplyr)
@@ -193,6 +195,83 @@ while (i < 6) {
 [1] 3
 [1] 4
 [1] 5
+```
+
+## Quiz: R Syntax and Functions {#quiz}
+
+```{r Syntax and functions quiz, echo=FALSE}
+# Function to create and display a quiz on R syntax and functions
+create_syntax_quiz <- function() {
+  # A list containing all the quiz questions, options, and answers
+  questions <- list(
+    list(
+      q = "How do you test if a value is 'exactly equal to' another in R?",
+      options = c("A) <-", "B) =", "C) ==", "D) %in%"),
+      answer = "C"
+    ),
+    list(
+      q = "What is the purpose of the `%in%` operator?",
+      options = c(
+        "A) To perform integer division",
+        "B) To check if an element is contained in a vector or list",
+        "C) To multiply matrices",
+        "D) To assign a value"
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "Which syntax is used to call a function that comes from a specific package?",
+      options = c("A) package$function()", "B) function(package)", "C) package->function()", "D) package::function()"),
+      answer = "D"
+    ),
+    list(
+      q = "In the context of the `dplyr` package, what does the pipe operator `%>%` do?",
+      options = c(
+        "A) It subtracts one value from another",
+        "B) It creates a plot",
+        "C) It passes the object on its left to the function on its right",
+        "D) It stops the execution of the code"
+      ),
+      answer = "C"
+    ),
+    list(
+      q = "What is the primary use of the tilde `~` operator in R?",
+      options = c(
+        "A) To approximate a number",
+        "B) To define the relationship between variables in a formula",
+        "C) To negate a logical statement",
+        "D) To specify a user's home directory"
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "Which function is used to remove a specified object from your R environment?",
+      options = c("A) remove()", "B) delete()", "C) rm()", "D) clear()"),
+      answer = "C"
+    )
+  )
+
+  # Loop through each question and print it with its options
+  for (i in seq_along(questions)) {
+    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    for (option in questions[[i]]$options) {
+      cat(option, "\n")
+    }
+    cat("\n")
+  }
+
+  # Print a separator and the answers section header
+  cat("---\n\n")
+  cat("**Answers:**\n\n")
+
+  # Loop through and print the correct answer for each question
+  for (i in seq_along(questions)) {
+    cat(i, ". ", questions[[i]]$answer, "\n", sep = "")
+  }
+}
+
+# Run the function to generate the quiz
+create_syntax_quiz()
 ```
 
 

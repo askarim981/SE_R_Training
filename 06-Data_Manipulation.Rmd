@@ -3,431 +3,712 @@
 This chapter will focus on the fundamentals of data manipulation. You can identify what the key functions do from the [dplyr cheat cheat](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): 
 As the sheet states, the best way to manipulate data is if your data is tidy (wide) - i.e. each variable is in its own column, and each observation is in its own row. Occasionally you will need long data, such as to build graphs.
 
-First, we'll read in some Tariff data. We will use this later for grouping by tariff. You don't need this data to see what some of the functions do. Some general applications are also shown here. 
+This sheet demonstrates common data manipulation techniques using the dplyr package in R. Examples use generic placeholder data that can be adapted to your specific datasets.
 
-`OFS_Tariffs <- read.csv("Data/ofs_provider_tariffs_nospace.csv")`
+## Setup and Data Loading
 
-Next we will read in our CAH1 data, which will be the basis of all the manipulation.
-```{r eval=FALSE, cache=FALSE}
-#Load required packages
+First, we'll load the required packages and read in our data. The `dplyr` package is part of the tidyverse and provides powerful data manipulation functions.
+
+```{r setup, message=FALSE, warning=FALSE}
+# Load required packages
 library(dplyr)
 library(readr)
-
-#Read in OFS data
-OFS_Tariffs <- read.csv("Data/ofs_provider_tariffs_nospace.csv")
-
-#Read in CAH1 data
-CAH1_Data <- read.csv("Data/CAH1 Subjects.csv", skip = 16, check.names = F) %>%
-  mutate_at(3:27, readr::parse_number)  %>% #we had character data in columns 3 : 27, so turn these into numeric data
-  left_join(OFS_Tariffs %>% select(UKPRN, `Tariff group`), by = "UKPRN") %>% #we join the tariff data onto our CAH1 data by matching UKPRN. 
-  # you can nest manipulation within other functions to ensure only the relevant columns are joined
-  filter(`HE provider` != "Total") #we remove the "Total" row from the CAH1 data
+library(tidyr)
+library(janitor)
+library(stringr)
 ```
 
-The data has 28 columns: (1) UKPRN, (2) Provider name, (3 - 26) CAH1 subjects' FPE, (27) Total FPE (at provider), and (28) Tariff group 
+Next, we'll read in our main dataset and any supplementary lookup data. This example shows how to handle common data cleaning tasks during the import process.
 
+```{r load-data, eval=FALSE}
+# Read in your main dataset
+main_data <- read.csv("path/to/your/main_data.csv", skip = 0, check.names = FALSE)
 
-## Selecting 
-
-Use the `select()` function from `dplyr` to subset columns using their names and type. In addition to selecting and deselecting, you can change the order of columns and rename them with the function.
-
-```{r eval=FALSE}
-#Specifying columns
-Providers_Only <- CAH1_Data %>%
-  select(UKPRN, `HE provider`)
-
-#Using a predefined vector for the column names
-
-Desired_Columns <- c("UKPRN", "HE provider")#Define the vector
-
-#Call the vector in the select function
-Providers_Only2 <-  CAH1_Data %>%
-  select(all_of(Desired_Columns))
+# Read in supplementary lookup data
+lookup_data <- read.csv("path/to/your/lookup_data.csv")
 ```
 
-We can select every column **except** the UKPRN column
+Often, you'll need to perform basic cleaning and joining operations immediately after loading your data. This code demonstrates how to convert character columns to numeric, join datasets, and filter out unwanted rows.
 
-```{r eval=FALSE}
-No_UKPRN <- CAH1_Data %>%
-  select(-UKPRN)
+```{r clean-data, eval=FALSE}
+# Basic data cleaning and joining
+clean_data <- main_data %>%
+  mutate_at(vars(numeric_columns), readr::parse_number) %>%  # Convert character columns to numeric
+  left_join(lookup_data %>% select(id_column, category_column), by = "id_column") %>%
+  filter(entity_column != "Total")  # Remove summary rows
 ```
 
-We can select columns based on their index. To only select the first 10 columns. 
+## Selecting Columns
 
-```{r eval=FALSE}
-First_10 <- CAH1_Data %>%
-  select(1:10) 
+The `select()` function is your primary tool for choosing which columns to keep in your dataset. It's much more powerful than simple column indexing and provides several flexible approaches.
+
+### Basic Column Selection
+
+The most straightforward approach is to select columns by name. This is the most reliable method since column names are less likely to change than positions.
+
+```{r select-basic, eval=FALSE}
+# Select specific columns by name
+subset_data <- clean_data %>%
+  select(id_column, name_column)
+
+# Using a predefined vector for column names
+desired_columns <- c("id_column", "name_column", "value_column")
+subset_data2 <- clean_data %>%
+  select(all_of(desired_columns))
 ```
-Be careful using indexes, as if you change prior code, the columns might not remain in the same index position. 
 
-You can also rename a column within the select function `select(col1, col2, new_col_name = old_col_name)` or change the order of columns by which order they appear in your select list. 
+### Excluding Columns
 
-Run `?select()` or see the function [documentation](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/select) for more features.
+Sometimes it's easier to specify what you don't want rather than what you do want, especially when you have many columns.
 
-## Filtering 
+```{r select-exclude, eval=FALSE}
+# Select all columns except specific ones
+no_id_data <- clean_data %>%
+  select(-id_column)
 
-Use `filter()` from `dplyr` to subset a data frame, retaining rows that satisfy conditions. 
+# Exclude multiple columns
+no_admin_data <- clean_data %>%
+  select(-c(id_column, created_date, updated_date))
+```
 
-The basic syntax:
+### Advanced Selection Techniques
 
-* == is exactly equal to;
-* != is not equal to;
-* %in% (in an array)
-* we can negate  %in%  to establish a %notin% operator.
+You can select columns by position (though this should be used cautiously), by data type, or by pattern matching.
 
+```{r select-advanced, eval=FALSE}
+# Select columns by position (use cautiously)
+first_columns <- clean_data %>%
+  select(1:5)
 
-```{r eval=FALSE}
-#Define the function %notin%
+# Select columns by data type
+numeric_columns <- clean_data %>%
+  select(where(is.numeric))
+
+# Select columns by pattern
+value_columns <- clean_data %>%
+  select(starts_with("value_"))
+
+# Select and rename columns simultaneously
+renamed_data <- clean_data %>%
+  select(identifier = id_column, entity = name_column, category = category_column)
+```
+
+## Filtering Rows
+
+The `filter()` function allows you to subset your data based on logical conditions. This is essential for focusing your analysis on specific subsets of your data.
+
+### Setting Up Custom Operators
+
+Before diving into filtering examples, it's useful to define some custom operators that make filtering more intuitive.
+
+```{r filter-setup, eval=FALSE}
+# Define custom operators
 `%notin%` <- Negate(`%in%`)
 ```
 
-Other key filters are is.na(x) and !is.na(x). See this site for more [operators](https://www.statmethods.net/management/operators.html)
+### Basic Filtering Operations
 
-**Basic filters**
-```{r eval=FALSE}
+These examples cover the most common filtering scenarios you'll encounter in data analysis.
 
-a <- CAH1_Data %>%
-  filter(UKPRN == 10000291) #this gives us the row for Angela Ruskin University, whose UKPRN is 10000291
+```{r filter-basic, eval=FALSE}
+# Exact match filtering
+filtered_data <- clean_data %>%
+  filter(id_column == 12345)
 
-b <- CAH1_Data %>%
-  filter(`HE provider` == "Anglia Ruskin University") # as above
+# Text matching
+filtered_data2 <- clean_data %>%
+  filter(name_column == "Specific Entity")
 
-c <- CAH1_Data %>%
-  filter(`HE provider` %in% c("Anglia Ruskin University", "Arden University", "Birkbeck College")) #as with the selecting, we could create this vector then call it into a filter function if we wanted to have a store of the vector
+# Multiple value matching
+filtered_data3 <- clean_data %>%
+  filter(name_column %in% c("Entity A", "Entity B", "Entity C"))
 
+# Pattern matching with regular expressions
+filtered_data4 <- clean_data %>%
+  filter(grepl('keyword', name_column))  # Contains 'keyword'
 
-d <- CAH1_Data %>%
-  filter(grepl('University', `HE provider`)) #filter providers that contain the string: "University"
-
-e <- CAH1_Data %>%
-  filter(!grepl('University', `HE provider`)) #filter the providers than DON'T contain the string: "University"
-
-f <- CAH1_Data %>%
-  filter(`HE provider` ==  "Anglia Ruskin University" | `HE provider` == "Arden University") # filter either or
-
-g <- CAH1_Data %>%
-  filter(grepl('University', `HE provider`) & grepl('College', `HE provider`)) # filter providers with both university and college in their name
-
-h <- CAH1_Data %>%
-  filter(!is.na(Tariff_group)) # filter for the universities for which we have data on their Tariff group. 
-
-#multiple filters can be applied within the same function
-j <- CAH1_Data %>%
-  select(`HE provider`, `01 Medicine and dentistry`, `15 Social sciences`) %>%
-  filter(`01 Medicine and dentistry` == 0,
-         `15 Social sciences` > 0)     #you can include multiple filters within the same function, as you can do with other data manipulation functions, such as mutate. This is easier to read.
+# Negative pattern matching
+filtered_data5 <- clean_data %>%
+  filter(!grepl('keyword', name_column))  # Does NOT contain 'keyword'
 ```
 
-**advanced filters**
+### Logical Operators in Filtering
 
+You can combine multiple conditions using logical operators to create more complex filters.
 
-The `across()` function allows you to apply a function or functions to multiple columns. See `?across()` for the function documentation and examples of combining it with `mutate()` or `filter()`.
+```{r filter-logical, eval=FALSE}
+# OR condition - either condition can be true
+filtered_data6 <- clean_data %>%
+  filter(name_column == "Entity A" | name_column == "Entity B")
 
-```{r eval=FALSE}
+# AND condition - both conditions must be true
+filtered_data7 <- clean_data %>%
+  filter(grepl('keyword1', name_column) & grepl('keyword2', name_column))
 
-# filter only rows in specified columns that equal == "Total"
-filter(across(c(he_type_broad, provider_category), ~ str_detect(., pattern = "Total")))
+# Handle missing values
+filtered_data8 <- clean_data %>%
+  filter(!is.na(category_column))
 
-
-# no letters         
-filter(across(c(INDICATOR, DENOMINATOR), ~ !str_detect(., pattern = "[A-Z]"))) 
-
-# filter variables are above 5
-filter_at(vars(sleep_total, sleep_rem), all_vars(.>5))
-
-# filter non NAs
-filter_at(vars(everything()), all_vars(!is.na(.))
-
-
-# filter for rows that have "*" or "A" or "B" or "C" in either the GABIOLOGY or GACHEMISTRY column
-#"\\*" is the way to escape "*" given it's a special character
-Filter_List <- c("\\*", "A", "B", "C")
-
-#Create a 2 column data frame of students who obtained A*, A, B at A level
-STEM_Flags <- STEM_Table %>%
-  filter_at(vars(GABIOLOGY, GACHEMISTRY), any_vars(str_detect(. , paste0("^(", paste(Filter_List, collapse = "|"), ")"))))
-
+# Multiple conditions in one filter (implicit AND)
+filtered_data9 <- clean_data %>%
+  filter(value_column1 == 0,
+         value_column2 > 100,
+         !is.na(category_column))
 ```
 
+### Advanced Filtering with across()
 
-## Summarising
+The `across()` function allows you to apply the same filtering logic to multiple columns simultaneously.
 
-`summarise` from `dplyr` creates a new data frame with a row per unique entry in the grouping variable. If no variables are grouped by, it will yield a single row of the function applied to the entire data frame. The code below sums how.
-```{r eval=FALSE}
-#Basic total FPE in 01 column
-Total_Medicine_Enrollments <- CAH1_Data %>%
-  summarise(Total_FPE = sum(`01 Medicine and dentistry`))
+```{r filter-advanced, eval=FALSE}
+# Filter rows where specified columns contain specific patterns
+filtered_advanced <- clean_data %>%
+  filter(across(c(column1, column2), ~ str_detect(., pattern = "pattern")))
 
-# output table (a data frame with 1 row and 1 column: the number of medicine and dentistry enrolments)
-#    Total_FPE
-# 1     40170
+# Filter rows with no letters in numeric columns
+filtered_numeric <- clean_data %>%
+  filter(across(c(numeric_col1, numeric_col2), ~ !str_detect(., pattern = "[A-Z]")))
 
+# Filter rows where values are above threshold
+filtered_threshold <- clean_data %>%
+  filter_at(vars(value_col1, value_col2), all_vars(. > 100))
 
-# summarise the sum of instances in columns 
-column_vector <- c("col1", "col2")
-summarise(across(all_of(column_vector), ~ sum(.x, na.rm = T)), .groups = "drop")
-
+# Filter out rows with any missing values
+complete_cases <- clean_data %>%
+  filter_at(vars(everything()), all_vars(!is.na(.)))
 ```
 
+## Summarising Data
 
+The `summarise()` function creates summary statistics from your data. It's particularly powerful when combined with grouping operations.
 
-## Grouping by 
+### Basic Summarisation
 
-Grouping by a variable does what the name suggests, R will implicitly group by the unique variables in the column(s) specified. It converts a table into a grouped table where operations are performed by group. 
+Here's how to create summary statistics for your entire dataset:
 
-Running: `unique(CAH1_Data$Tariff_group)` returns the variables that would be grouped by if we choose to group by tariff group.
+```{r summarise-basic, eval=FALSE}
+# Basic summary of entire dataset
+total_summary <- clean_data %>%
+  summarise(
+    total_count = n(),
+    total_value = sum(value_column, na.rm = TRUE),
+    average_value = mean(value_column, na.rm = TRUE),
+    max_value = max(value_column, na.rm = TRUE),
+    min_value = min(value_column, na.rm = TRUE),
+    std_dev = sd(value_column, na.rm = TRUE)
+  )
 
-If we group by Tariff group, we'll end up with 6 rows as that is how many unique entries were in the Tariff group column.
-
-```{r eval=FALSE}
-Tariff_Medicine_Enrollments <- CAH1_Data %>%
-  group_by(Tariff_group) %>%
-  summarise(Total_FPE = sum(`01 Medicine and dentistry`)) 
+# View the results
+print(total_summary)
 ```
 
+### Summarising Multiple Columns
 
+When you need to apply the same summary functions to multiple columns, use `across()` to avoid repetitive code:
 
-You can group_by multiple columns at once. This data doesn't really suit that, but we can create a data frame that does
+```{r summarise-multiple, eval=FALSE}
+# Summarise multiple columns at once
+multi_summary <- clean_data %>%
+  summarise(across(c(value_col1, value_col2), 
+                   list(sum = ~ sum(.x, na.rm = TRUE),
+                        mean = ~ mean(.x, na.rm = TRUE),
+                        count = ~ sum(!is.na(.x))), 
+                   .names = "{.col}_{.fn}"))
 
-```{r eval=FALSE}
-g2 <- CAH1_Data %>%
-  #create a new column of "uni" if the provider name has "University" in it. "Not uni" if else.
-  mutate(College_Or_Uni = if_else(grepl('University', `HE provider`),"Uni", "Not uni")) %>%
-  #Group by both Tariff group and COllege or Uni
-  group_by(Tariff_group, College_Or_Uni) %>%
-  #Summarise the FPE doing Medicine and dentistry
-  summarise(Total_FPE = sum(`01 Medicine and dentistry`), .groups = "drop") 
-
-#The output, shown below, is a table with a row per Tariff group and per unique entry in the Colleage_Or_Uni column
-
-# A tibble: 11 x 3
-#    Tariff_group                           College_Or_Uni Total_FPE
-#    <chr>                                  <chr>              <dbl>
-#  1 HEIs with high average tariff scores   Not uni             4870
-#  2 HEIs with high average tariff scores   Uni                29605
-#  3 HEIs with low average tariff scores    Uni                 1295
-#  4 HEIs with medium average tariff scores Not uni                0
-#  5 HEIs with medium average tariff scores Uni                 2625
-#  6 Other providers                        Not uni                0
-#  7 Other providers                        Uni                    0
-#  8 Specialist HEIs                        Not uni                0
-#  9 Specialist HEIs                        Uni                 1320
-# 10 NA                                     Not uni                5
-# 11 NA                                     Uni                  450
-
-# see the counts of instances
-
-species_count <- iris %>%
-  group_by(Species) %>%
-  summarise(row_count = n())
+# This creates columns like value_col1_sum, value_col1_mean, value_col1_count, etc.
 ```
 
-To ungroup the data, add the argument `.groups = "drop"` to the `summarise()` function. You sometimes get a warning message if you don't do this. `ungroup()` also works.
+## Grouping and Group-wise Operations
 
+Grouping is one of the most powerful features of dplyr. It allows you to perform operations on subsets of your data defined by the values in one or more columns.
 
-## Totals
+### Single Variable Grouping
 
-Totals can be calculated for subsets of data by using the `group_by()` function, or by using square brackets`[]` to sum specific data points. 
+The most common use case is grouping by a single categorical variable:
 
-For columns and rows, one way to create totals is the adorn_totals function: `adorn_totals("row")`. For a column, use: `adorn_totals("col")`. It is always worth checking whether your data has a total column or row in it, prior to manipulating the data.
+```{r group-single, eval=FALSE}
+# Group by a single variable
+grouped_summary <- clean_data %>%
+  group_by(category_column) %>%
+  summarise(
+    count = n(),
+    total_value = sum(value_column, na.rm = TRUE),
+    average_value = mean(value_column, na.rm = TRUE),
+    median_value = median(value_column, na.rm = TRUE),
+    .groups = "drop"  # This removes the grouping after summarising
+  )
 
-```{r eval=FALSE}
-Tariff_Medicine_Enrollments <- Tariff_Medicine_Enrollments %>%
+# View the results
+print(grouped_summary)
+```
+
+### Multiple Variable Grouping
+
+You can group by multiple variables to create more detailed breakdowns:
+
+```{r group-multiple, eval=FALSE}
+# Create a new categorical variable first
+analysis_data <- clean_data %>%
+  mutate(type_flag = if_else(grepl('keyword', name_column), "Type A", "Type B"))
+
+# Group by multiple variables
+multi_grouped <- analysis_data %>%
+  group_by(category_column, type_flag) %>%
+  summarise(
+    count = n(),
+    total_value = sum(value_column, na.rm = TRUE),
+    average_value = mean(value_column, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# This creates a row for each unique combination of category_column and type_flag
+```
+
+### Simple Counting
+
+Sometimes you just need to count how many observations fall into each group:
+
+```{r group-count, eval=FALSE}
+# Count occurrences by group
+count_by_group <- clean_data %>%
+  count(category_column, sort = TRUE)  # sort = TRUE orders by count descending
+
+# Alternative using group_by and summarise
+count_by_group2 <- clean_data %>%
+  group_by(category_column) %>%
+  summarise(row_count = n(), .groups = "drop")
+```
+
+## Adding Totals
+
+The `janitor` package provides convenient functions for adding total rows and columns to your summaries.
+
+```{r totals, eval=FALSE}
+# Add row totals (adds a "Total" row at the bottom)
+data_with_totals <- grouped_summary %>%
   adorn_totals("row")
 
-#this checks that the totals match up between the data frames we've created in the previous segment. 
-Tariff_Medicine_Enrollments$Total_FPE[7] == Total_Medicine_Enrollments[ ,1] 
+# Add column totals (adds a "Total" column on the right)
+data_with_col_totals <- grouped_summary %>%
+  adorn_totals("col")
 
-#create a total variable object
-TME_Tail <- Tariff_Medicine_Enrollments %>%
+# Add both row and column totals
+data_with_both_totals <- grouped_summary %>%
+  adorn_totals(c("row", "col"))
+```
+
+You can verify that your totals are correct and extract specific values:
+
+```{r verify-totals, eval=FALSE}
+# Verify totals match your expectations
+total_check <- data_with_totals$total_value[nrow(data_with_totals)]
+
+# Extract specific total value
+extracted_total <- data_with_totals %>%
   slice_tail(n = 1) %>%
-  pull(Total_FPE)
+  pull(total_value)
 
-
-```
-## Mutate {#mutating}
-
-`mutate()` adds new variables and transforms/overwrites existing ones. As a default mutate will add a column to the right hand side of an existing data frame. You can adjust the position of the added column using the `.before =` and `.after =` arguments. If you name the column identically to an existing column, mutate will overwrite/replace the existing column with the newly defined one. 
-
-
-```{r eval=FALSE, white-space: pre-line}
-# overwriting an existing column
-#This changes the UKPRN column from containing UKPRN numbers to the text "example text"
-
-mutate1 <- CAH1_Data %>%
-  mutate(UKPRN = "example text")
-
-#Creating a new column as the sum of 3 subjects called "Medics_Dentists"
-mutate2 <- CAH1_Data %>%
-  mutate(Medics_Dentists = `01 Medicine and dentistry` + `02 Subjects allied to medicine` + `05 Veterinary sciences`) %>%
-  select(1:4, 7, 29) #this just selects the columns we are interested in
-
-# mutating with multiple conditions. (If you only have 2 conditions, if_else() will be faster.)
-#This code adds a 1 column called "Colege_Or_Uni" and fills it with "University" if the HE provider name has "University" in it, "College" if the provider name has "College" in it, and "Other" for the rest.
-mutate3 <- CAH1_Data %>%
-  select(`HE provider`) %>%
-  mutate(College_Or_Uni = case_when(grepl("University", `HE provider`) ~ "University", 
-                                    #notice, any variables with both university and college will be assigned the label "University"
-                                    grepl("College", `HE provider`) ~ "College",
-                                    TRUE ~ "Other"))  #this side of the formual tells R what to do in all other cases
-
-```
-If we wanted to see how many of each of these entries we had in each HE provider category, we could `group_by(College_Or_Uni) %>% count(number = n())`.
-
-`case_when` is very powerful and useful. You can use it to overwrite or create a new column based on as many conditions as you desire. The function structure is shown below. You can include multiple cases_when() in the same line of code using &s, **BUT** be careful not to contradict your existing conditions. Double check your work if creating very complex case_when()s, such as those dependent on multiple different columns
-
-```{r eval=FALSE}
-mutate(New_Or_Existing_Column_Name = case_when(Other_Column == "Some text" ~ "Fill Column with this",
-                                               Other_Column == "Different text" ~ "Fill with this",
-                                               TRUE ~ Other_Column)) # you can assign the "all other cases" outcome to be what is contained in an existing column.
-
+# Check if totals match between different summaries
+print(paste("Total matches:", total_check == sum(clean_data$value_column, na.rm = TRUE)))
 ```
 
-Mutating specified columns: `mutate_at()` or `mutate(across())`. This allows you to run a transformation over multiple columns. 
-You can index the columns: `mutate_at(1:4, function)`, though beware if your column indexes change then the functions won't work. You can get around this with the `vars()` in conjunction with mutate_at() or `across(c())` in conjunction with mutate().
+## Creating and Transforming Variables
 
-```{r eval=FALSE}
-Making_Character1 <- CAH1_Data %>%
-  mutate(across(c(`01 Medicine and dentistry`, `03 Biological and sport sciences`), as.character))
+The `mutate()` function is your primary tool for creating new variables or transforming existing ones. It's incredibly flexible and supports complex operations.
 
+### Basic Variable Creation
 
+These examples show the most common ways to create new variables:
+
+```{r mutate-basic, eval=FALSE}
+# Create new variables
+transformed_data <- clean_data %>%
+  mutate(
+    # Simple arithmetic
+    combined_value = value_col1 + value_col2 + value_col3,
+    
+    # Percentage calculations
+    percentage = (value_column / total_column) * 100,
+    
+    # Simple conditional variable
+    binary_flag = if_else(value_column > 100, "High", "Low"),
+    
+    # Overwrite existing column (apply a transformation)
+    value_column = value_column * 1.1  # Apply 10% increase
+  )
 ```
 
-```{r eval=FALSE}
-# Define a function for example below
-Add_thousand <- function(x) (x + 1000)
+### Complex Conditional Logic
 
-#mutate 2 specified columns with defined function above
-mutate4 <- CAH1_Data %>%
-  mutate_at(vars(`01 Medicine and dentistry`, `03 Biological and sport sciences`), Add_thousand)
+For more complex conditions, use `case_when()`, which is like a vectorised if-else statement:
 
+```{r mutate-complex, eval=FALSE}
+# Complex conditional variable with multiple outcomes
+complex_data <- clean_data %>%
+  mutate(
+    category_flag = case_when(
+      grepl("pattern1", name_column) ~ "Category 1",
+      grepl("pattern2", name_column) ~ "Category 2",
+      value_column > 500 ~ "High Value",
+      value_column < 50 ~ "Low Value",
+      is.na(value_column) ~ "Missing",
+      TRUE ~ "Other"  # This handles all remaining cases
+    ),
+    
+    # Combining multiple conditions
+    complex_flag = case_when(
+      grepl("important", name_column) & value_column > 100 ~ "Important and High",
+      grepl("important", name_column) & value_column <= 100 ~ "Important but Low",
+      !grepl("important", name_column) & value_column > 100 ~ "Not Important but High",
+      TRUE ~ "Other"
+    )
+  )
 ```
 
-```{r eval=FALSE}
-# create a column that are the sum of other columns that have that suffix
-mutate(!!as.name(i) := rowSums(select(., ends_with(i))))
+### Transforming Multiple Columns
 
-# replace NAs with zeros
-mutate(across(everything(), ~replace_na(., 0)))
+When you need to apply the same transformation to multiple columns, use `across()` or `mutate_at()`:
+
+```{r mutate-multiple, eval=FALSE}
+# Transform multiple columns simultaneously
+multi_transformed <- clean_data %>%
+  mutate(across(c(value_col1, value_col2), ~ .x * 1000))  # Convert to thousands
+
+# Apply custom function to multiple columns
+custom_function <- function(x) {
+  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)  # Standardise
+}
+
+standardised_data <- clean_data %>%
+  mutate(across(starts_with("value_"), custom_function))
+
+# Transform all numeric columns
+all_numeric_transformed <- clean_data %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2)))  # Round to 2 decimal places
 ```
 
-## Pivotting
+### Row-wise Operations
 
-The format of data matters. Clean data can be in two formats: "wide" and "long". In **wide data**, data points corresponding to a variable are spread across multiple columns. This variable might be an individual, university or other entity. In **long data**, there are multiple records (rows) for each entity. 
+Sometimes you need to perform calculations across columns within each row:
 
-Observe the basic data frame below:
-
-```{r eval=FALSE}
-#This code creates a fictional WIDE data frame. There is one row for horses and 1 row for cats. 
-Horses_vs_Cats <- tibble(animal = c("horse", "cat"),
-                             weight = c("500kg", "6kg"),
-                             height = c("2.5m", "0.4m"),
-                             home = c("field", "house"))
-#The Data
-# # A tibble: 2 x 4
-#   | animal | weight | height | home 
-#____________________________________
-# 1 | horse  | 500kg  | 2.5m   | field
-# 2 | cat    | 6kg    | 0.4m   | house
-
-
-#In LONG format, that tibble looks like this:
-# A tibble: 6 x 3
-#   | animal | category | answer
-# _________________________________
-# 1 | horse  | weight   | 500kg
-# 2 | horse  | height   | 2.5m
-# 3 | horse  | home     | field
-# 4 | cat    | weight   | 6kg
-# 5 | cat    | height   | 0.4m
-# 6 | cat    | home     | house
-
-#For completeness, the code to perform this transformation is:
-#pivot_longer(-animal, names_to = "category", values_to = "answer")
-
+```{r mutate-rowwise, eval=FALSE}
+# Create columns from row-wise operations
+row_operations <- clean_data %>%
+  mutate(
+    # Sum across multiple columns
+    row_sum = rowSums(select(., starts_with("value_")), na.rm = TRUE),
+    
+    # Average across multiple columns
+    row_mean = rowMeans(select(., starts_with("value_")), na.rm = TRUE),
+    
+    # Count non-missing values per row
+    non_missing_count = rowSums(!is.na(select(., starts_with("value_")))),
+    
+    # Find maximum value per row
+    row_max = do.call(pmax, c(select(., starts_with("value_")), na.rm = TRUE))
+  )
 ```
 
- 
-**Wide to long**
+### Handling Missing Values
 
-```{r eval=FALSE}
-Long_CAH1 <- CAH1_Data %>%
-  select(-Tariff_group) %>%
-  pivot_longer(-c(`UKPRN`, `HE provider`),   #This vector contains the columns to hold on the left hand side of the data frame and essential 'not pivot'
-               names_to = "Subject", #The name of the column title that will contain the former column headings
-               values_to = "FPE") #Name of the data column
-```
-**Long to wide** (restoring our original data frame)
+Missing values are common in real data. Here's how to handle them systematically:
 
-```{r eval=FALSE}
-Wide_CAH1 <- Long_CAH1 %>%
-  pivot_wider(names_from = Subject, values_from = FPE)
-```
-
-The `values_fill = ...` argument is useful when converting long data to wide data if not all rows have a data point for each column.
-
-
-## Joining data
-
-There are four primary joining functions in the `dplyr` package. Each does a slightly different thing, adding y to x, matching rows based on the keys. Searching the help bar, for any of `left_join()`, `right_join()`, `full_join()` and `inner_join()` should show that it is relatively straightforward. 
-
-Some less immediately clear things are:
-
-**Matching two columns that do not have the same name.** This is done within the `by = ...` argument, such as: `left_join(data_frame1, data_frame2, by = c("column_name_in_D1" = "column_name_in_D2"))`. 
-
-If you are working in a `dplyr` pipe (i.e. you are using %>%), the `x` data frame is implicitly included in the function. In this way you could write `data_frame1 %>% left_join(data_frame2, by = "matching_column").
-
-**Matching multiple columns.** If rows do not have a unique identifier - instead, their uniqueness comes from a combination of variables, perhaps the lifetime earnings of a certain subject at a particular university, which could not be matched from either the university or subject alone - then you will need to match multiple columns at once. This can also be done from within the `by = ...` argument, using a vector of columns to match. This could be in conjunction with the non-identical names method, shown above, but in it's simplest form, the code would look like: `left_join(data_frame1, data_frame2, by = c("column1", "column2", "column3"))`, where the three columns are all in both data_frame1 and data_frame2.
-
-You can join multiple DFs in a single line of code if you have a common joining column
-
-```{r eval=FALSE}
-Int_Students_Data <- list(Africa, Asia, Australasia, EU, Middle_East, North_America, South_America, 
-                Other_EU) %>%
-  reduce(left_join, by= c('UKPRN', 'HE.Provider'))
+```{r mutate-missing, eval=FALSE}
+# Replace missing values with different strategies
+clean_nas <- clean_data %>%
+  mutate(
+    # Replace with zero
+    value_col1 = replace_na(value_col1, 0),
+    
+    # Replace with mean
+    value_col2 = replace_na(value_col2, mean(value_col2, na.rm = TRUE)),
+    
+    # Replace all numeric columns with zero
+    across(where(is.numeric), ~replace_na(., 0)),
+    
+    # Replace text columns with "Unknown"
+    across(where(is.character), ~replace_na(., "Unknown"))
+  )
 ```
 
-You can also make joins more efficient by manipulating what you're about to join within the join syntax
+## Pivoting Data (Reshaping)
 
-```{r eval=FALSE}
-# here there is code nested within the join. This might save you from having to make lots of excess objects
-df3 <- df1 %>% left_join(df2 %>% select(col1, col2) %>% filter(col1 == "example filter"), by = "col2")
+Data can be organised in "wide" format (variables spread across columns) or "long" format (variables stacked in rows). The `pivot_longer()` and `pivot_wider()` functions help you convert between these formats.
+
+### Wide to Long Format
+
+Long format is often better for analysis and visualisation:
+
+```{r pivot-long, eval=FALSE}
+# Convert wide data to long format
+long_data <- clean_data %>%
+  # First, select only the columns you want to pivot
+  select(id_column, name_column, starts_with("value_")) %>%
+  
+  # Then pivot the value columns into long format
+  pivot_longer(
+    cols = starts_with("value_"),      # Columns to pivot
+    names_to = "metric",               # Name for the new column containing old column names
+    values_to = "value",               # Name for the new column containing values
+    names_prefix = "value_"            # Remove this prefix from the metric names
+  )
+
+# View the structure
+head(long_data)
 ```
 
-## Extracting variables {#extracting_variables}
+### Long to Wide Format
 
-Often you need to pull out specific data points from a df or other object. There are multiple ways to do this; some are more robust than others.
+Sometimes you need to convert long data back to wide format:
 
-If you know exactly which index position the data point is in **and will always be in**, you can subset with the data point position. That is, how many rows down it is and how many columns across it is. The issue is, if you change or update your analysis, and the data point moves, this code will extract the incorrect data point.
-
-
-```{r eval=FALSE}
-library(dplyr)
-library(tidyverse)
-data("iris")
-
-
-# you can extract the data point in the 150th row and 2nd column
-x <- iris[150, 2]
+```{r pivot-wide, eval=FALSE}
+# Convert long data back to wide format
+wide_data <- long_data %>%
+  pivot_wider(
+    names_from = metric,               # Column containing the new column names
+    values_from = value,               # Column containing the values
+    values_fill = 0,                   # Fill missing combinations with 0
+    names_prefix = "value_"            # Add this prefix to the new column names
+  )
 ```
 
+### Advanced Pivoting
 
-Instead of row and column number, you can subset using row and column names. In the iris data the row names are the text "1":"150". The column names (which can be seen with the names() function) are text strings. 
+You can also pivot multiple columns simultaneously:
 
-```{r eval=FALSE}
-# you can extract the data point in the row whose name is "150" and whose column name is "Sepal.Width
-y <- iris["150", "Sepal.Width"]
-
-# you can generalise the code, given we know the data frame has 150 rows.
-print(nrow(iris)) # check the number of rows
-[1] 150
-
-# extract the data point whose row name is 150 and whose column name is Sepal.Width
-# without the as.character() function, we would extract the element in the 150th row. 
-# In this dataset, due to the names being the same as numbers you get the same outcome
-z <- iris[as.character(nrow(iris)), "Sepal.Width"]
-
+```{r pivot-advanced, eval=FALSE}
+# Pivot multiple value columns
+complex_long <- clean_data %>%
+  pivot_longer(
+    cols = c(starts_with("value_"), starts_with("count_")),
+    names_to = c("metric", "type"),
+    names_pattern = "(.+)_(.+)",       # Extract parts of column names
+    values_to = "amount"
+  )
 ```
+
+## Joining Datasets
+
+Joining datasets is crucial for combining information from multiple sources. The type of join you choose depends on how you want to handle records that don't have matches.
+
+### Basic Join Operations
+
+The most common join is a left join, which keeps all records from the left dataset:
+
+```{r join-basic, eval=FALSE}
+# Basic left join - keeps all records from main_data
+joined_data <- main_data %>%
+  left_join(lookup_data, by = "common_column")
+
+# Inner join - keeps only records that exist in both datasets
+inner_joined <- main_data %>%
+  inner_join(lookup_data, by = "common_column")
+
+# Full join - keeps all records from both datasets
+full_joined <- main_data %>%
+  full_join(lookup_data, by = "common_column")
+```
+
+### Handling Different Column Names
+
+Often, the columns you want to join on have different names in each dataset:
+
+```{r join-different-names, eval=FALSE}
+# Join when column names don't match
+joined_different_names <- main_data %>%
+  left_join(lookup_data, by = c("main_id" = "lookup_id"))
+
+# You can also rename before joining
+joined_renamed <- main_data %>%
+  left_join(lookup_data %>% rename(main_id = lookup_id), by = "main_id")
+```
+
+### Multiple Column Joins
+
+Sometimes you need to join on multiple columns to create a unique match:
+
+```{r join-multiple, eval=FALSE}
+# Join on multiple columns
+multi_column_join <- main_data %>%
+  left_join(lookup_data, by = c("column1", "column2", "column3"))
+
+# Mix of same and different column names
+mixed_join <- main_data %>%
+  left_join(lookup_data, by = c("same_name", "main_col" = "lookup_col"))
+```
+
+### Joining Multiple Datasets
+
+When you have several datasets to join, you can use `reduce()` to join them all at once:
+
+```{r join-multiple-datasets, eval=FALSE}
+# Join multiple datasets with a common structure
+dataset_list <- list(
+  data1 = data1,
+  data2 = data2,
+  data3 = data3,
+  data4 = data4
+)
+
+# Join all datasets on common columns
+multiple_joined <- dataset_list %>%
+  reduce(left_join, by = c('id_column', 'name_column'))
+```
+
+## Practical Examples and Patterns
+
+### Complete Data Processing Pipeline
+
+Here's a comprehensive example that combines many of the techniques we've covered:
+
+```{r complete-pipeline, eval=FALSE}
+# Complete data processing pipeline
+processed_data <- raw_data %>%
+  # Step 1: Clean and standardise the data
+  mutate_at(vars(starts_with("numeric_")), parse_number) %>%
+  filter(!is.na(id_column), !grepl("test", name_column, ignore.case = TRUE)) %>%
+  
+  # Step 2: Join supplementary data
+  left_join(lookup_data, by = "id_column") %>%
+  
+  # Step 3: Create derived variables
+  mutate(
+    # Calculate totals
+    total_score = rowSums(select(., starts_with("score_")), na.rm = TRUE),
+    
+    # Create categories
+    performance_category = case_when(
+      total_score >= 80 ~ "High",
+      total_score >= 60 ~ "Medium",
+      total_score >= 40 ~ "Low",
+      TRUE ~ "Very Low"
+    ),
+    
+    # Create flags
+    has_complete_data = !is.na(total_score) & !is.na(category_column),
+    
+    # Calculate percentages
+    score_percentage = (total_score / max(total_score, na.rm = TRUE)) * 100
+  ) %>%
+  
+  # Step 4: Filter to final analysis sample
+  filter(has_complete_data, total_score > 0) %>%
+  
+  # Step 5: Group and summarise
+  group_by(performance_category, region) %>%
+  summarise(
+    count = n(),
+    avg_score = mean(total_score, na.rm = TRUE),
+    median_score = median(total_score, na.rm = TRUE),
+    std_dev = sd(total_score, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  
+  # Step 6: Add totals and format
+  adorn_totals("row") %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
+```
+
+### Function-Based Processing
+
+For repetitive tasks, create custom functions:
+
+```{r custom-functions, eval=FALSE}
+# Create a function to standardise dataset processing
+process_dataset <- function(df, dataset_name) {
+  df %>%
+    # Add source identifier
+    mutate(source = dataset_name) %>%
+    
+    # Standardise column names
+    select(id = id_column, 
+           name = name_column,
+           value = value_column, 
+           category = category_column,
+           source) %>%
+    
+    # Clean data
+    filter(!is.na(value), value > 0) %>%
+    
+    # Add standardised metrics
+    mutate(
+      value_scaled = scale(value)[,1],
+      value_log = log(value + 1)
+    )
+}
+
+# Apply function to multiple datasets
+datasets <- list(
+  africa = africa_data,
+  asia = asia_data,
+  europe = europe_data,
+  americas = americas_data
+)
+
+# Process all datasets and combine
+combined_data <- map_dfr(datasets, process_dataset, .id = "region")
+```
+
+## Tips and Best Practices
+
+### Data Validation
+
+Always validate your data transformations:
+
+```{r validation, eval=FALSE}
+# Check data before and after transformations
+original_rows <- nrow(raw_data)
+processed_rows <- nrow(processed_data)
+
+print(paste("Original rows:", original_rows))
+print(paste("Processed rows:", processed_rows))
+print(paste("Rows lost:", original_rows - processed_rows))
+
+# Check for unexpected missing values
+missing_summary <- processed_data %>%
+  summarise(across(everything(), ~ sum(is.na(.))))
+
+print("Missing values by column:")
+print(missing_summary)
+```
+
+### Performance Considerations
+
+For large datasets, consider these optimisation strategies:
+
+```{r performance-tips, eval=FALSE}
+# For large datasets, filter early to reduce processing time
+large_data_processed <- large_dataset %>%
+  filter(important_flag == TRUE) %>%  # Filter first
+  mutate(expensive_calculation = complex_function(value_column)) %>%  # Then transform
+  group_by(category) %>%
+  summarise(result = mean(expensive_calculation))
+
+# Use data.table for very large datasets
+library(data.table)
+setDT(large_dataset)
+result <- large_dataset[important_flag == TRUE, .(mean_value = mean(value_column)), by = category]
+```
+
+### Debugging and Troubleshooting
+
+When your code doesn't work as expected:
+
+```{r debugging, eval=FALSE}
+# Test transformations on small subsets first
+test_data <- clean_data %>%
+  slice_head(n = 10)
+
+# Check intermediate results
+debug_pipeline <- clean_data %>%
+  mutate(new_variable = some_transformation) %>%
+  {print(paste("Rows after mutate:", nrow(.))); .} %>%  # Debug print
+  filter(some_condition) %>%
+  {print(paste("Rows after filter:", nrow(.))); .} %>%  # Debug print
+  group_by(category) %>%
+  summarise(result = mean(new_variable))
+```
+
 
 In order to make a data frame that's easy to subset, you might want to define the row names. When defining row names, each one needs to be unique. I.e. you should use wide data, and the row names should be a unique column. 
 
@@ -436,54 +717,55 @@ For this example, we'll create our own data frame. However, if you want to see a
 
 ```{r eval=FALSE}
 # Define a 5x3 data frame
-Test_Data <- as.data.frame(tibble(name = c("Sean", "Tom", "Yasmin", "Henna", "Matt"),
-                    office = c("SB", "SB", "Bris", "SB", "SB"),
-                    manager = c("James", "Gabe", "Henna", "Tim", "Tim")))
+Test_Data <- as.data.frame(tibble(name = c("Abdus", "Sarah", "Yilan", "Michael", "Alex"),
+                    office = c("CH", "SB", "PG", "PG", "CH"),
+                    manager = c("Sarah", "Yilan", "Frank", "Yilan", "Michael")))
 
 #It looks like this:
 #   name   office manager
-#   <chr>  <chr>  <chr>  
-# 1 Sean   SB     James  
-# 2 Tom    SB     Gabe   
-# 3 Yasmin Bris   Henna  
-# 4 Henna  SB     Tim    
-# 5 Matt   SB     Tim  
+#     name office manager
+# 1   Abdus     CH   Sarah
+# 2   Sarah     SB   Yilan
+# 3   Yilan     PG   Frank
+# 4 Michael     PG   Yilan
+# 5    Alex     CH Michael
 
 # You'll see our row names are 1:5, therefore you can extract the first row in the manager column like this:
 
-Seans_Manager1 <- Test_Data["1", "manager"]
-print(Seans_Manager1)
-[1] "James"
+Abdus_Manager1 <- Test_Data["1", "manager"]
+print(Abdus_Manager1)
+# [1] "Sarah"
 
 # NOTE: if the Test_Data was not a data frame (i.e. was just a tibble). You would need to do pull(Test_Data["1", "manager"]) OR Test_Data["1", "manager"] %>% pull()
 
 # We can give the table row names using the column to row names
-# This wouldn't work for the `office` column because there are multiple SBs
+# This wouldn't work for the `office` column because there are multiple PGs
 
 Col_Indexed_Test_Data <- Test_Data %>%
   column_to_rownames(., var = "name")
 
 # Our data now look like this
 #        office manager
-# Sean       SB   James
-# Tom        SB    Gabe
-# Yasmin   Bris   Henna
-# Henna      SB     Tim
-# Matt       SB     Tim
+#        office manager
+#Abdus       CH   Sarah
+#Sarah       SB   Yilan
+#Yilan       PG   Frank
+#Michael     PG   Yilan
+#Alex        CH Michael
 
 
 #Now we can pull with specified inputs. 
-Seans_Manager2 <- Col_Indexed_Test_Data["Sean", "manager"]
-print(Seans_Manager2)
-[1] "James"
+Abdus_Manager2 <- Col_Indexed_Test_Data["Abdus", "manager"]
+print(Abdus_Manager2)
+#[1] "Sarah"
 ```
 
 An alternative way to extract data is by filtering columns until you end up with a single row, at which point you can use the `pull()` function to extract the data point in the column you are after.
 
 
 ```{r eval=FALSE}
-Seans_Manager3 <- Test_Data %>%
-  filter(name == "Sean") %>%
+Abdus_Manager3 <- Test_Data %>%
+  filter(name == "Abdus") %>%
   pull(manager)
 ```
 
@@ -494,6 +776,90 @@ Use `[[]]` to return an element in a list; use for [recurssive indexing](https:/
 
 Most data manipulation functions can be found in the dplyr cheat sheet and are fairly intuitive to use. 
 Particularly useful are binding functions: `cbind()` in `BaseR`, `bind_cols()` in `dplyr`. Also `pull()` and `rename()` 
+
+## Quiz: Data Manipulation
+
+```{r DM Quiz, echo=FALSE}
+# Function to create a quiz on data manipulation with dplyr
+create_manipulation_quiz <- function() {
+  # A list of questions, options, and answers
+  questions <- list(
+    list(
+      q = "Which dplyr function is used to select columns from a data frame?",
+      options = c("A) filter()", "B) select()", "C) mutate()", "D) arrange()"),
+      answer = "B"
+    ),
+    list(
+      q = "To keep rows where `category_column` is either 'A', 'B', or 'C', which filter condition is most suitable?",
+      options = c(
+        "A) filter(category_column | c('A', 'B', 'C'))",
+        "B) filter(category_column %in% c('A', 'B', 'C'))",
+        "C) filter(category_column == c('A', 'B', 'C'))",
+        "D) filter(grepl('A|B|C', category_column))"
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "What is the primary purpose of combining `group_by()` and `summarise()`?",
+      options = c(
+        "A) To create new columns based on complex conditions.",
+        "B) To reshape data from wide to long format.",
+        "C) To calculate summary statistics for different groups within the data.",
+        "D) To join two different data frames together."
+      ),
+      answer = "C"
+    ),
+    list(
+      q = "Which function is best for creating a new column using complex, multi-level conditional logic?",
+      options = c("A) if_else()", "B) select()", "C) case_when()", "D) filter()"),
+      answer = "C"
+    ),
+    list(
+      q = "To reshape a 'wide' data frame with many columns (e.g., `value_2020`, `value_2021`) into a 'long' format, which function should you use?",
+      options = c("A) pivot_wider()", "B) gather()", "C) pivot_longer()", "D) spread()"),
+      answer = "C"
+    ),
+    list(
+      q = "In a `left_join(x, y, by = 'id')`, what happens to the rows in `x` that do not have a matching `id` in `y`?",
+      options = c(
+        "A) They are removed from the final result.",
+        "B) They are kept, and the new columns from y are filled with NA.",
+        "C) The join operation produces an error.",
+        "D) They are kept, and the new columns from y are filled with 0."
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "Which function from the `janitor` package is used to add a 'Total' row to a summary table?",
+      options = c("A) add_totals()", "B) adorn_totals()", "C) make_totals()", "D) summarise_totals()"),
+      answer = "B"
+    )
+  )
+
+  # Loop through and print each question and its options
+  for (i in seq_along(questions)) {
+    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    for (option in questions[[i]]$options) {
+      cat(option, "\n")
+    }
+    cat("\n")
+  }
+
+  # Print the answers section
+  cat("---\n\n")
+  cat("**Answers:**\n\n")
+
+  # Loop through and print each correct answer
+  for (i in seq_along(questions)) {
+    cat(i, ". ", questions[[i]]$answer, "\n", sep = "")
+  }
+}
+
+# Run the function to display the quiz
+create_manipulation_quiz()
+```
+
+
 
 
 

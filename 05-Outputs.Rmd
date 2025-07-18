@@ -187,3 +187,81 @@ There are some examples of presentations in the [R markdown gallery](https://rma
 
 * [Unsplash.com](https://unsplash.com/) is great for downloading free, high resolution images.
 
+## Quiz: Outputs
+
+```{r Outputs quiz, echo=FALSE}
+# Function to create and display a quiz on creating outputs in R
+create_outputs_quiz <- function() {
+  # A list to hold the questions, options, and correct answers
+  questions <- list(
+    list(
+      q = "When using write.csv(), what does the argument `row.names = FALSE` do?",
+      options = c(
+        "A) It removes the column headers from the output file.",
+        "B) It prevents R from writing the default numbered rows into the first column of the .csv file.",
+        "C) It saves the file without any row data, only headers.",
+        "D) It prompts the user to enter row names manually."
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "According to the script, which package is mentioned for writing data to multiple sheets in a single Excel workbook?",
+      options = c("A) readr", "B) writexl", "C) openxlsx", "D) data.table"),
+      answer = "C"
+    ),
+    list(
+      q = "What is the primary benefit of saving an R object (like a graph or model) as an .RDS file?",
+      options = c(
+        "A) It saves the object as a plain text file that is easy to read.",
+        "B) It allows you to read it back into R later, preserving all its features and underlying data.",
+        "C) It automatically converts the R object into a .csv file.",
+        "D) It makes the R object smaller in file size than any other format."
+      ),
+      answer = "B"
+    ),
+    list(
+      q = "Which function do you use to read an object that was saved with `saveRDS()` back into your R session?",
+      options = c("A) loadRDS()", "B) openRDS()", "C) getRDS()", "D) readRDS()"),
+      answer = "D"
+    ),
+    list(
+      q = "When saving a plot to a PDF file using code, which function must you call *after* creating the plot to finalize and close the file?",
+      options = c("A) pdf.close()", "B) close.device()", "C) dev.off()", "D) save.plot()"),
+      answer = "C"
+    ),
+    list(
+      q = "In an R Markdown YAML header, what does the `toc: true` argument achieve?",
+      options = c(
+        "A) It automatically generates a table of contents based on the document's headers.",
+        "B) It styles the output document with a specific theme.",
+        "C) It checks the R code for errors.",
+        "D) It allows the table of contents to float on the side of the page."
+      ),
+      answer = "A"
+    )
+  )
+
+  # Loop through the list to print each question and its options
+  for (i in seq_along(questions)) {
+    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    for (option in questions[[i]]$options) {
+      cat(option, "\n")
+    }
+    cat("\n")
+  }
+
+  # Add a separator and the answers header
+  cat("---\n\n")
+  cat("**Answers:**\n\n")
+
+  # Loop through the list again to print the correct answers
+  for (i in seq_along(questions)) {
+    cat(i, ". ", questions[[i]]$answer, "\n", sep = "")
+  }
+}
+
+# Run the function to generate and display the quiz
+create_outputs_quiz()
+
+```
+
