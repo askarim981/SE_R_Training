@@ -23,7 +23,7 @@
 <meta name="author" content="Skills England Analysis and Insight" />
 
 
-<meta name="date" content="2025-07-18" />
+<meta name="date" content="2025-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./"><img src="images and graphics/SE_Logo.jpeg" width="150"></a></li>
-<li><a href="./">An R Training Resource</a></li>
+<li><a href="./">An SEAI R Training Resource</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -203,7 +203,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="creating-outputs.html"><a href="creating-outputs.html#r-markdown"><i class="fa fa-check"></i><b>5.4</b> R Markdown</a></li>
 <li class="chapter" data-level="5.5" data-path="creating-outputs.html"><a href="creating-outputs.html#presentations"><i class="fa fa-check"></i><b>5.5</b> Presentations</a></li>
 <li class="chapter" data-level="5.6" data-path="creating-outputs.html"><a href="creating-outputs.html#other-links"><i class="fa fa-check"></i><b>5.6</b> Other links</a></li>
-<li class="chapter" data-level="5.7" data-path="creating-outputs.html"><a href="creating-outputs.html#quiz-outputs"><i class="fa fa-check"></i><b>5.7</b> Quiz: Outputs</a></li>
+<li class="chapter" data-level="5.7" data-path="creating-outputs.html"><a href="creating-outputs.html#quiz-outputs"><i class="fa fa-check"></i><b>5.7</b> Quiz: Outputs</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="creating-outputs.html"><a href="creating-outputs.html#answers"><i class="fa fa-check"></i><b>5.7.1</b> Answers</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data manipulation</a>
 <ul>
@@ -332,17 +335,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The order in which you add elements to a ggplot graph matters. You can overwrite your previous code.</p>
 <p>Fill and colour - both arguments within <code>ggplot::aes()</code> - control different things: the fill and outline, respectively.</p>
 <p>To resize test, <code>rel()</code> can achieve this. You can also define the order of a facet wrap of multiple graphs.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="graphs.html#cb113-1" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">strip.text.x  =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size =</span><span class="dv">16</span>), </span>
-<span id="cb113-2"><a href="graphs.html#cb113-2" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="dv">4</span>)),</span>
-<span id="cb113-3"><a href="graphs.html#cb113-3" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="dv">4</span>)),</span>
-<span id="cb113-4"><a href="graphs.html#cb113-4" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="dv">3</span>))) <span class="sc">+</span></span>
-<span id="cb113-5"><a href="graphs.html#cb113-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">factor</span>(Ofs_Tariff_1920, <span class="at">levels =</span> Tariff_Order1))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="graphs.html#cb107-1" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">strip.text.x  =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size =</span><span class="dv">16</span>), </span>
+<span id="cb107-2"><a href="graphs.html#cb107-2" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="dv">4</span>)),</span>
+<span id="cb107-3"><a href="graphs.html#cb107-3" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="dv">4</span>)),</span>
+<span id="cb107-4"><a href="graphs.html#cb107-4" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="dv">3</span>))) <span class="sc">+</span></span>
+<span id="cb107-5"><a href="graphs.html#cb107-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">factor</span>(Ofs_Tariff_1920, <span class="at">levels =</span> Tariff_Order1))</span></code></pre></div>
 <p>Add line to a plot using <code>geom_vline()</code> or <code>geom_hline(aes(yintercept = object_or_value), alpha = 0.5, linetype = "dashed")</code> +</p>
 </div>
 <div id="arranging" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Arranging<a href="graphs.html#arranging" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Arranging your data is essential for displaying data well. This might be the order of a categorical axis or a discrete colour scale. In order to do this, wrap the aes argument:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="graphs.html#cb114-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(x_column_name, <span class="at">levels =</span> x_axis_order), <span class="at">y =</span> y_col_name, <span class="at">color =</span> <span class="fu">factor</span>(Tariff, <span class="at">levels =</span> Tariff_Order</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="graphs.html#cb108-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(x_column_name, <span class="at">levels =</span> x_axis_order), <span class="at">y =</span> y_col_name, <span class="at">color =</span> <span class="fu">factor</span>(Tariff, <span class="at">levels =</span> Tariff_Order</span></code></pre></div>
 </div>
 <div id="basic-interactivity" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Basic interactivity<a href="graphs.html#basic-interactivity" class="anchor-section" aria-label="Anchor link to header"></a></h2>

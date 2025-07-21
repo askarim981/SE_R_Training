@@ -331,31 +331,31 @@ R allows you to export the objects you have generated into accessible formats, t
 <p>This is the most common way to export tables that we have created or manipulated. Excel is more user-friendly than R for viewing data tables.
 Additionally, if you need to put a table into a MS word report, you might want to export it as a .csv as these are easier to copy and format (such as with colour, bolding or cell merging) prior to inserting the table into your word document.</p>
 <p>Once again, writing a .csv is dependent on your working directory. You need to set this somewhere proximate to the folder you intend to write the .csv into. Otherwise you could paste a whole file path URL int the <code>file =</code> argument</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="creating-outputs.html#cb1-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
-<span id="cb1-2"><a href="creating-outputs.html#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="creating-outputs.html#cb1-3" tabindex="-1"></a><span class="co"># we can write the iris data as a .csv in our outputs folder</span></span>
-<span id="cb1-4"><a href="creating-outputs.html#cb1-4" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> iris, <span class="at">file =</span> <span class="st">&quot;Outputs/iris_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="creating-outputs.html#cb47-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb47-2"><a href="creating-outputs.html#cb47-2" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="creating-outputs.html#cb47-3" tabindex="-1"></a><span class="co"># we can write the iris data as a .csv in our outputs folder</span></span>
+<span id="cb47-4"><a href="creating-outputs.html#cb47-4" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> iris, <span class="at">file =</span> <span class="st">&quot;Outputs/iris_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>This creates a <code>.csv</code> file in the Outputs folder called “iris_data”.</p>
 <p>By specifying that <code>row.names = FALSE</code>, the <code>.csv</code> will not have numbers 1:150 in the first column of the output file.</p>
 <div id="writing-multiple-outputs-as-sheets-of-an-excel-file" class="section level3 hasAnchor" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Writing multiple outputs as sheets of an excel file<a href="creating-outputs.html#writing-multiple-outputs-as-sheets-of-an-excel-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://www.youtube.com/watch?v=E0SLvyLYvoE">This video</a> shows you how to do this</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="creating-outputs.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
-<span id="cb2-2"><a href="creating-outputs.html#cb2-2" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
-<span id="cb2-3"><a href="creating-outputs.html#cb2-3" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="creating-outputs.html#cb2-4" tabindex="-1"></a><span class="co"># step 1: load relevant packages</span></span>
-<span id="cb2-5"><a href="creating-outputs.html#cb2-5" tabindex="-1"></a><span class="co"># step 2: complete analysis as usual, giving each output a name (i.e. using R_Output_1_Name &lt;- )</span></span>
-<span id="cb2-6"><a href="creating-outputs.html#cb2-6" tabindex="-1"></a><span class="co"># step 3: use the following code to pull together </span></span>
-<span id="cb2-7"><a href="creating-outputs.html#cb2-7" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="creating-outputs.html#cb2-8" tabindex="-1"></a>Excel_File_Name <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;Sheet_Name_1&quot;</span> <span class="ot">=</span> R_Output_1_Name, <span class="st">&quot;Sheet_Name_2&quot;</span> <span class="ot">=</span> R_Output_2_Name)</span>
-<span id="cb2-9"><a href="creating-outputs.html#cb2-9" tabindex="-1"></a><span class="fu">write.xlsx</span>(Excel_File_Name,<span class="st">&quot;./Excel_File_Name.xlsx&quot;</span>,<span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="creating-outputs.html#cb48-1" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
+<span id="cb48-2"><a href="creating-outputs.html#cb48-2" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb48-3"><a href="creating-outputs.html#cb48-3" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="creating-outputs.html#cb48-4" tabindex="-1"></a><span class="co"># step 1: load relevant packages</span></span>
+<span id="cb48-5"><a href="creating-outputs.html#cb48-5" tabindex="-1"></a><span class="co"># step 2: complete analysis as usual, giving each output a name (i.e. using R_Output_1_Name &lt;- )</span></span>
+<span id="cb48-6"><a href="creating-outputs.html#cb48-6" tabindex="-1"></a><span class="co"># step 3: use the following code to pull together </span></span>
+<span id="cb48-7"><a href="creating-outputs.html#cb48-7" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="creating-outputs.html#cb48-8" tabindex="-1"></a>Excel_File_Name <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;Sheet_Name_1&quot;</span> <span class="ot">=</span> R_Output_1_Name, <span class="st">&quot;Sheet_Name_2&quot;</span> <span class="ot">=</span> R_Output_2_Name)</span>
+<span id="cb48-9"><a href="creating-outputs.html#cb48-9" tabindex="-1"></a><span class="fu">write.xlsx</span>(Excel_File_Name,<span class="st">&quot;./Excel_File_Name.xlsx&quot;</span>,<span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="saving-objects" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Saving objects<a href="creating-outputs.html#saving-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A good tip for reducing markdown (or other output) running speeds is to save your rendered objects and then read them into the markdown when you knit it, rather than sourcing all of the code. Graphs can be saved as .RDS objects so that when you read them in, they retain all of their underlying features, e.g., text labels, so that you can render them as interactive charts. Similarly, regression outputs can be saved with all the underlying data, so you can work with and manipulate them (e.g., extract particular values or present in a custom way). You use <code>readRDS()</code> to read the object back in.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="creating-outputs.html#cb3-1" tabindex="-1"></a><span class="co"># example of saving an object</span></span>
-<span id="cb3-2"><a href="creating-outputs.html#cb3-2" tabindex="-1"></a><span class="fu">saveRDS</span>(Object_Name, <span class="st">&quot;Object_Name.Rds&quot;</span>, <span class="at">version =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="creating-outputs.html#cb49-1" tabindex="-1"></a><span class="co"># example of saving an object</span></span>
+<span id="cb49-2"><a href="creating-outputs.html#cb49-2" tabindex="-1"></a><span class="fu">saveRDS</span>(Object_Name, <span class="st">&quot;Object_Name.Rds&quot;</span>, <span class="at">version =</span> <span class="dv">2</span>)</span></code></pre></div>
 </div>
 <div id="saving-graphs" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Saving graphs<a href="creating-outputs.html#saving-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -363,28 +363,28 @@ Additionally, if you need to put a table into a MS word report, you might want t
 <ol style="list-style-type: decimal">
 <li>Create the plot, then click export (in the bottom right “viewer” panel) and save as either a PDF or JPEG</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="creating-outputs.html#cb4-1" tabindex="-1"></a>Iris_Scatter <span class="ot">&lt;-</span> <span class="fu">plot</span>(</span>
-<span id="cb4-2"><a href="creating-outputs.html#cb4-2" tabindex="-1"></a>  <span class="at">x =</span> iris<span class="sc">$</span>Petal.Length,</span>
-<span id="cb4-3"><a href="creating-outputs.html#cb4-3" tabindex="-1"></a>  <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width</span>
-<span id="cb4-4"><a href="creating-outputs.html#cb4-4" tabindex="-1"></a>) </span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="creating-outputs.html#cb50-1" tabindex="-1"></a>Iris_Scatter <span class="ot">&lt;-</span> <span class="fu">plot</span>(</span>
+<span id="cb50-2"><a href="creating-outputs.html#cb50-2" tabindex="-1"></a>  <span class="at">x =</span> iris<span class="sc">$</span>Petal.Length,</span>
+<span id="cb50-3"><a href="creating-outputs.html#cb50-3" tabindex="-1"></a>  <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width</span>
+<span id="cb50-4"><a href="creating-outputs.html#cb50-4" tabindex="-1"></a>) </span></code></pre></div>
 <p><img src="images%20and%20graphics/iris.JPEG" width="80%" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Create a JPG/PDF with a line of code, then plant the plot into it</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="creating-outputs.html#cb5-1" tabindex="-1"></a><span class="co">#create the pdf</span></span>
-<span id="cb5-2"><a href="creating-outputs.html#cb5-2" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;Outputs/iris_scatter.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">paper =</span> <span class="st">&quot;A4&quot;</span>) </span>
-<span id="cb5-3"><a href="creating-outputs.html#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="creating-outputs.html#cb5-4" tabindex="-1"></a><span class="co">#create the plot in the pdf</span></span>
-<span id="cb5-5"><a href="creating-outputs.html#cb5-5" tabindex="-1"></a>Iris_Scatter <span class="ot">&lt;-</span> <span class="fu">plot</span>(</span>
-<span id="cb5-6"><a href="creating-outputs.html#cb5-6" tabindex="-1"></a>  <span class="at">x =</span> iris<span class="sc">$</span>Petal.Length,</span>
-<span id="cb5-7"><a href="creating-outputs.html#cb5-7" tabindex="-1"></a>  <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width</span>
-<span id="cb5-8"><a href="creating-outputs.html#cb5-8" tabindex="-1"></a>) </span>
-<span id="cb5-9"><a href="creating-outputs.html#cb5-9" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="creating-outputs.html#cb5-10" tabindex="-1"></a><span class="co">#close the pdf</span></span>
-<span id="cb5-11"><a href="creating-outputs.html#cb5-11" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
-<span id="cb5-12"><a href="creating-outputs.html#cb5-12" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="creating-outputs.html#cb5-13" tabindex="-1"></a><span class="co"># The JPEG arguments are very similar to those for a pdf</span></span>
-<span id="cb5-14"><a href="creating-outputs.html#cb5-14" tabindex="-1"></a><span class="co"># jpeg(filename = &quot;Outputs/iris_scatter.jpg&quot;, width = 500, height = 500)</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="creating-outputs.html#cb51-1" tabindex="-1"></a><span class="co">#create the pdf</span></span>
+<span id="cb51-2"><a href="creating-outputs.html#cb51-2" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;Outputs/iris_scatter.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">paper =</span> <span class="st">&quot;A4&quot;</span>) </span>
+<span id="cb51-3"><a href="creating-outputs.html#cb51-3" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="creating-outputs.html#cb51-4" tabindex="-1"></a><span class="co">#create the plot in the pdf</span></span>
+<span id="cb51-5"><a href="creating-outputs.html#cb51-5" tabindex="-1"></a>Iris_Scatter <span class="ot">&lt;-</span> <span class="fu">plot</span>(</span>
+<span id="cb51-6"><a href="creating-outputs.html#cb51-6" tabindex="-1"></a>  <span class="at">x =</span> iris<span class="sc">$</span>Petal.Length,</span>
+<span id="cb51-7"><a href="creating-outputs.html#cb51-7" tabindex="-1"></a>  <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width</span>
+<span id="cb51-8"><a href="creating-outputs.html#cb51-8" tabindex="-1"></a>) </span>
+<span id="cb51-9"><a href="creating-outputs.html#cb51-9" tabindex="-1"></a></span>
+<span id="cb51-10"><a href="creating-outputs.html#cb51-10" tabindex="-1"></a><span class="co">#close the pdf</span></span>
+<span id="cb51-11"><a href="creating-outputs.html#cb51-11" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb51-12"><a href="creating-outputs.html#cb51-12" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="creating-outputs.html#cb51-13" tabindex="-1"></a><span class="co"># The JPEG arguments are very similar to those for a pdf</span></span>
+<span id="cb51-14"><a href="creating-outputs.html#cb51-14" tabindex="-1"></a><span class="co"># jpeg(filename = &quot;Outputs/iris_scatter.jpg&quot;, width = 500, height = 500)</span></span></code></pre></div>
 <p>You can also open plots and screenshot these if necessary.</p>
 </div>
 <div id="r-markdown" class="section level2 hasAnchor" number="5.4">
@@ -393,63 +393,62 @@ Additionally, if you need to put a table into a MS word report, you might want t
 <p>I have started trying to store all outputs from a project in an outputs summary markdown (.rmd) so that other analysts can see exactly what is created, and what the objects used to do this are.</p>
 <p>A common format is shown below. You can also browse <a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/">this theme gallery</a> or google R markdown themes to see various default option styles. These would sit in place of the <code>flatly</code> argument below.</p>
 <p>A more generic gallery of output formats that can be rendered through markdown are in the <a href="https://rmarkdown.rstudio.com/gallery.html">R markdown gallery</a></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="creating-outputs.html#cb6-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb6-2"><a href="creating-outputs.html#cb6-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Outputs for Recruitment limits IA and EQA&quot;</span></span>
-<span id="cb6-3"><a href="creating-outputs.html#cb6-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;Tom Harris&quot;</span></span>
-<span id="cb6-4"><a href="creating-outputs.html#cb6-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;`r Sys.Date()`&quot;</span></span>
-<span id="cb6-5"><a href="creating-outputs.html#cb6-5" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb6-6"><a href="creating-outputs.html#cb6-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb6-7"><a href="creating-outputs.html#cb6-7" tabindex="-1"></a>    theme<span class="sc">:</span> flatly</span>
-<span id="cb6-8"><a href="creating-outputs.html#cb6-8" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb6-9"><a href="creating-outputs.html#cb6-9" tabindex="-1"></a>    toc_float<span class="sc">:</span> true</span>
-<span id="cb6-10"><a href="creating-outputs.html#cb6-10" tabindex="-1"></a>    </span>
-<span id="cb6-11"><a href="creating-outputs.html#cb6-11" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb6-12"><a href="creating-outputs.html#cb6-12" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="creating-outputs.html#cb6-13" tabindex="-1"></a><span class="er">&lt;</span>style type<span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="sc">&gt;</span></span>
-<span id="cb6-14"><a href="creating-outputs.html#cb6-14" tabindex="-1"></a> body{ <span class="sc">/</span><span class="er">*</span> Normal  <span class="sc">*</span><span class="er">/</span></span>
-<span id="cb6-15"><a href="creating-outputs.html#cb6-15" tabindex="-1"></a>       font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">14</span>px;</span>
-<span id="cb6-16"><a href="creating-outputs.html#cb6-16" tabindex="-1"></a>       font<span class="sc">-</span>family<span class="sc">:</span> <span class="st">&quot;Segoe UI&quot;</span>;</span>
-<span id="cb6-17"><a href="creating-outputs.html#cb6-17" tabindex="-1"></a>       font<span class="sc">-</span>size<span class="sc">:</span> <span class="fl">1.75</span>em;</span>
-<span id="cb6-18"><a href="creating-outputs.html#cb6-18" tabindex="-1"></a>   }</span>
-<span id="cb6-19"><a href="creating-outputs.html#cb6-19" tabindex="-1"></a> h1 { <span class="sc">/</span><span class="er">*</span> Header <span class="dv">1</span> <span class="sc">*</span><span class="er">/</span></span>
-<span id="cb6-20"><a href="creating-outputs.html#cb6-20" tabindex="-1"></a>   font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">31</span>px;</span>
-<span id="cb6-21"><a href="creating-outputs.html#cb6-21" tabindex="-1"></a> }</span>
-<span id="cb6-22"><a href="creating-outputs.html#cb6-22" tabindex="-1"></a> h2 { <span class="sc">/</span><span class="er">*</span> Header <span class="dv">2</span> <span class="sc">*</span><span class="er">/</span></span>
-<span id="cb6-23"><a href="creating-outputs.html#cb6-23" tabindex="-1"></a>     font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">25</span>px;</span>
-<span id="cb6-24"><a href="creating-outputs.html#cb6-24" tabindex="-1"></a> }</span>
-<span id="cb6-25"><a href="creating-outputs.html#cb6-25" tabindex="-1"></a> h3 { <span class="sc">/</span><span class="er">*</span> Header <span class="dv">3</span> <span class="sc">*</span><span class="er">/</span></span>
-<span id="cb6-26"><a href="creating-outputs.html#cb6-26" tabindex="-1"></a>   font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">21</span>px;</span>
-<span id="cb6-27"><a href="creating-outputs.html#cb6-27" tabindex="-1"></a> }</span>
-<span id="cb6-28"><a href="creating-outputs.html#cb6-28" tabindex="-1"></a> code.r{ <span class="sc">/</span><span class="er">*</span> Code block <span class="sc">*</span><span class="er">/</span></span>
-<span id="cb6-29"><a href="creating-outputs.html#cb6-29" tabindex="-1"></a>     font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">12</span>px;</span>
-<span id="cb6-30"><a href="creating-outputs.html#cb6-30" tabindex="-1"></a> }</span>
-<span id="cb6-31"><a href="creating-outputs.html#cb6-31" tabindex="-1"></a> pre { <span class="sc">/</span><span class="er">*</span> Code block <span class="sc">-</span> determines code spacing between lines <span class="sc">*</span><span class="er">/</span></span>
-<span id="cb6-32"><a href="creating-outputs.html#cb6-32" tabindex="-1"></a>     font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">14</span>px;</span>
-<span id="cb6-33"><a href="creating-outputs.html#cb6-33" tabindex="-1"></a> }</span>
-<span id="cb6-34"><a href="creating-outputs.html#cb6-34" tabindex="-1"></a> <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span></span>
-<span id="cb6-35"><a href="creating-outputs.html#cb6-35" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="creating-outputs.html#cb6-36" tabindex="-1"></a><span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
-<span id="cb6-37"><a href="creating-outputs.html#cb6-37" tabindex="-1"></a>div.border {border<span class="sc">-</span>style<span class="sc">:</span> solid; border<span class="sc">-</span>color<span class="sc">:</span><span class="co">#D6DCE5;background-color: white; text-align: center; border-radius: 5px; padding: 10px;}</span></span>
-<span id="cb6-38"><a href="creating-outputs.html#cb6-38" tabindex="-1"></a><span class="er">&lt;/</span>style<span class="sc">&gt;</span></span>
-<span id="cb6-39"><a href="creating-outputs.html#cb6-39" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="creating-outputs.html#cb6-40" tabindex="-1"></a><span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
-<span id="cb6-41"><a href="creating-outputs.html#cb6-41" tabindex="-1"></a>div.blue {background<span class="sc">-</span>color<span class="sc">:</span><span class="co">#D6DCE5; border-radius: 5px; padding: 12px;}</span></span>
-<span id="cb6-42"><a href="creating-outputs.html#cb6-42" tabindex="-1"></a><span class="er">&lt;/</span>style<span class="sc">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="creating-outputs.html#cb52-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb52-2"><a href="creating-outputs.html#cb52-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Outputs for Skills Needs Assessments&quot;</span></span>
+<span id="cb52-3"><a href="creating-outputs.html#cb52-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;Abdus-Subhaan Karim&quot;</span></span>
+<span id="cb52-4"><a href="creating-outputs.html#cb52-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;`r Sys.Date()`&quot;</span></span>
+<span id="cb52-5"><a href="creating-outputs.html#cb52-5" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb52-6"><a href="creating-outputs.html#cb52-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb52-7"><a href="creating-outputs.html#cb52-7" tabindex="-1"></a>    theme<span class="sc">:</span> flatly</span>
+<span id="cb52-8"><a href="creating-outputs.html#cb52-8" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb52-9"><a href="creating-outputs.html#cb52-9" tabindex="-1"></a>    toc_float<span class="sc">:</span> true</span>
+<span id="cb52-10"><a href="creating-outputs.html#cb52-10" tabindex="-1"></a>    </span>
+<span id="cb52-11"><a href="creating-outputs.html#cb52-11" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb52-12"><a href="creating-outputs.html#cb52-12" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="creating-outputs.html#cb52-13" tabindex="-1"></a><span class="er">&lt;</span>style type<span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="sc">&gt;</span></span>
+<span id="cb52-14"><a href="creating-outputs.html#cb52-14" tabindex="-1"></a> body{ <span class="sc">/</span><span class="er">*</span> Normal  <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb52-15"><a href="creating-outputs.html#cb52-15" tabindex="-1"></a>       font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">14</span>px;</span>
+<span id="cb52-16"><a href="creating-outputs.html#cb52-16" tabindex="-1"></a>       font<span class="sc">-</span>family<span class="sc">:</span> <span class="st">&quot;Segoe UI&quot;</span>;</span>
+<span id="cb52-17"><a href="creating-outputs.html#cb52-17" tabindex="-1"></a>       font<span class="sc">-</span>size<span class="sc">:</span> <span class="fl">1.75</span>em;</span>
+<span id="cb52-18"><a href="creating-outputs.html#cb52-18" tabindex="-1"></a>   }</span>
+<span id="cb52-19"><a href="creating-outputs.html#cb52-19" tabindex="-1"></a> h1 { <span class="sc">/</span><span class="er">*</span> Header <span class="dv">1</span> <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb52-20"><a href="creating-outputs.html#cb52-20" tabindex="-1"></a>   font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">31</span>px;</span>
+<span id="cb52-21"><a href="creating-outputs.html#cb52-21" tabindex="-1"></a> }</span>
+<span id="cb52-22"><a href="creating-outputs.html#cb52-22" tabindex="-1"></a> h2 { <span class="sc">/</span><span class="er">*</span> Header <span class="dv">2</span> <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb52-23"><a href="creating-outputs.html#cb52-23" tabindex="-1"></a>     font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">25</span>px;</span>
+<span id="cb52-24"><a href="creating-outputs.html#cb52-24" tabindex="-1"></a> }</span>
+<span id="cb52-25"><a href="creating-outputs.html#cb52-25" tabindex="-1"></a> h3 { <span class="sc">/</span><span class="er">*</span> Header <span class="dv">3</span> <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb52-26"><a href="creating-outputs.html#cb52-26" tabindex="-1"></a>   font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">21</span>px;</span>
+<span id="cb52-27"><a href="creating-outputs.html#cb52-27" tabindex="-1"></a> }</span>
+<span id="cb52-28"><a href="creating-outputs.html#cb52-28" tabindex="-1"></a> code.r{ <span class="sc">/</span><span class="er">*</span> Code block <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb52-29"><a href="creating-outputs.html#cb52-29" tabindex="-1"></a>     font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">12</span>px;</span>
+<span id="cb52-30"><a href="creating-outputs.html#cb52-30" tabindex="-1"></a> }</span>
+<span id="cb52-31"><a href="creating-outputs.html#cb52-31" tabindex="-1"></a> pre { <span class="sc">/</span><span class="er">*</span> Code block <span class="sc">-</span> determines code spacing between lines <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb52-32"><a href="creating-outputs.html#cb52-32" tabindex="-1"></a>     font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">14</span>px;</span>
+<span id="cb52-33"><a href="creating-outputs.html#cb52-33" tabindex="-1"></a> }</span>
+<span id="cb52-34"><a href="creating-outputs.html#cb52-34" tabindex="-1"></a> <span class="sc">&lt;</span><span class="er">/</span>style<span class="sc">&gt;</span></span>
+<span id="cb52-35"><a href="creating-outputs.html#cb52-35" tabindex="-1"></a></span>
+<span id="cb52-36"><a href="creating-outputs.html#cb52-36" tabindex="-1"></a><span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
+<span id="cb52-37"><a href="creating-outputs.html#cb52-37" tabindex="-1"></a>div.border {border<span class="sc">-</span>style<span class="sc">:</span> solid; border<span class="sc">-</span>color<span class="sc">:</span><span class="co">#D6DCE5;background-color: white; text-align: center; border-radius: 5px; padding: 10px;}</span></span>
+<span id="cb52-38"><a href="creating-outputs.html#cb52-38" tabindex="-1"></a><span class="er">&lt;/</span>style<span class="sc">&gt;</span></span>
+<span id="cb52-39"><a href="creating-outputs.html#cb52-39" tabindex="-1"></a></span>
+<span id="cb52-40"><a href="creating-outputs.html#cb52-40" tabindex="-1"></a><span class="er">&lt;</span>style<span class="sc">&gt;</span></span>
+<span id="cb52-41"><a href="creating-outputs.html#cb52-41" tabindex="-1"></a>div.blue {background<span class="sc">-</span>color<span class="sc">:</span><span class="co">#D6DCE5; border-radius: 5px; padding: 12px;}</span></span>
+<span id="cb52-42"><a href="creating-outputs.html#cb52-42" tabindex="-1"></a><span class="er">&lt;/</span>style<span class="sc">&gt;</span></span></code></pre></div>
 <p>Most markdown features are very intuitive. They can be googled very easily. For tabs, use <code>{.tabset}</code> and <code>{.tabset .tabset-pills}</code> with headings to define levels. You could just get rid of the ## Heading 1 line and have a single tier of tabs. See below example. The functions would need to be included as code chunks, rather than headings, but are shown together here for concision.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="creating-outputs.html#cb7-1" tabindex="-1"></a><span class="do">## Sector FTE growth {.tabset .tabset-pills}</span></span>
-<span id="cb7-2"><a href="creating-outputs.html#cb7-2" tabindex="-1"></a><span class="do">### Sector numbers {tabset}</span></span>
-<span id="cb7-3"><a href="creating-outputs.html#cb7-3" tabindex="-1"></a><span class="do">#### FTE graph</span></span>
-<span id="cb7-4"><a href="creating-outputs.html#cb7-4" tabindex="-1"></a><span class="fu">ggplotly</span>(sector_FTE_graph, <span class="at">tooltip =</span> <span class="st">&quot;text&quot;</span>)</span>
-<span id="cb7-5"><a href="creating-outputs.html#cb7-5" tabindex="-1"></a><span class="do">#### Underlying Table</span></span>
-<span id="cb7-6"><a href="creating-outputs.html#cb7-6" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(sector_growth,</span>
-<span id="cb7-7"><a href="creating-outputs.html#cb7-7" tabindex="-1"></a>                  <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span>
-<span id="cb7-8"><a href="creating-outputs.html#cb7-8" tabindex="-1"></a><span class="do">### Tariff numbers{.tabset}</span></span>
-<span id="cb7-9"><a href="creating-outputs.html#cb7-9" tabindex="-1"></a><span class="do">#### FTE graph </span></span>
-<span id="cb7-10"><a href="creating-outputs.html#cb7-10" tabindex="-1"></a><span class="fu">ggplotly</span>(tariff_FTE_graph, <span class="at">tooltip =</span> <span class="st">&quot;text&quot;</span>)</span>
-<span id="cb7-11"><a href="creating-outputs.html#cb7-11" tabindex="-1"></a><span class="do">#### Underlying Table</span></span>
-<span id="cb7-12"><a href="creating-outputs.html#cb7-12" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable</span>(tariff_growth,</span>
-<span id="cb7-13"><a href="creating-outputs.html#cb7-13" tabindex="-1"></a>                  <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
-<p><img src="images%20and%20graphics/Markdown_tabs.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="creating-outputs.html#cb53-1" tabindex="-1"></a><span class="do">## C {.tabset .tabset-pills}</span></span>
+<span id="cb53-2"><a href="creating-outputs.html#cb53-2" tabindex="-1"></a><span class="do">### Baseline {tabset}</span></span>
+<span id="cb53-3"><a href="creating-outputs.html#cb53-3" tabindex="-1"></a><span class="do">#### Occupation explorer graph</span></span>
+<span id="cb53-4"><a href="creating-outputs.html#cb53-4" tabindex="-1"></a><span class="fu">ggplotly</span>(baseline_graph, <span class="at">tooltip =</span> <span class="st">&quot;text&quot;</span>)</span>
+<span id="cb53-5"><a href="creating-outputs.html#cb53-5" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="creating-outputs.html#cb53-6" tabindex="-1"></a><span class="do">### Tariff numbers{.tabset}</span></span>
+<span id="cb53-7"><a href="creating-outputs.html#cb53-7" tabindex="-1"></a><span class="do">#### Occupation explorer graph</span></span>
+<span id="cb53-8"><a href="creating-outputs.html#cb53-8" tabindex="-1"></a><span class="fu">ggplotly</span>(scenario1_graph, <span class="at">tooltip =</span> <span class="st">&quot;text&quot;</span>)</span>
+<span id="cb53-9"><a href="creating-outputs.html#cb53-9" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="creating-outputs.html#cb53-10" tabindex="-1"></a><span class="do">### Scenario 2 {.tabset}</span></span>
+<span id="cb53-11"><a href="creating-outputs.html#cb53-11" tabindex="-1"></a><span class="do">#### Occupation explorer graph</span></span>
+<span id="cb53-12"><a href="creating-outputs.html#cb53-12" tabindex="-1"></a><span class="fu">ggplotly</span>(scenario2_graph, <span class="at">tooltip =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<p><img src="images%20and%20graphics/Markdown_tabs_SNAs.jpg" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="presentations" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Presentations<a href="creating-outputs.html#presentations" class="anchor-section" aria-label="Anchor link to header"></a></h2>

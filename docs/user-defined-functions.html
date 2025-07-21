@@ -23,7 +23,7 @@
 <meta name="author" content="Skills England Analysis and Insight" />
 
 
-<meta name="date" content="2025-07-18" />
+<meta name="date" content="2025-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./"><img src="images and graphics/SE_Logo.jpeg" width="150"></a></li>
-<li><a href="./">An R Training Resource</a></li>
+<li><a href="./">An SEAI R Training Resource</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -203,7 +203,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="creating-outputs.html"><a href="creating-outputs.html#r-markdown"><i class="fa fa-check"></i><b>5.4</b> R Markdown</a></li>
 <li class="chapter" data-level="5.5" data-path="creating-outputs.html"><a href="creating-outputs.html#presentations"><i class="fa fa-check"></i><b>5.5</b> Presentations</a></li>
 <li class="chapter" data-level="5.6" data-path="creating-outputs.html"><a href="creating-outputs.html#other-links"><i class="fa fa-check"></i><b>5.6</b> Other links</a></li>
-<li class="chapter" data-level="5.7" data-path="creating-outputs.html"><a href="creating-outputs.html#quiz-outputs"><i class="fa fa-check"></i><b>5.7</b> Quiz: Outputs</a></li>
+<li class="chapter" data-level="5.7" data-path="creating-outputs.html"><a href="creating-outputs.html#quiz-outputs"><i class="fa fa-check"></i><b>5.7</b> Quiz: Outputs</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="creating-outputs.html"><a href="creating-outputs.html#answers"><i class="fa fa-check"></i><b>5.7.1</b> Answers</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data manipulation</a>
 <ul>
@@ -334,207 +337,207 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="basic-examples" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Basic examples<a href="user-defined-functions.html#basic-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the most basic sense, a function can be used to perform the operation fed to it. In this way you could: firstly, copy and paste any working code into a UD function; save the function; then run the function; and finally observe that the code has been executed.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="user-defined-functions.html#cb95-1" tabindex="-1"></a><span class="co"># Using the existing print() function: </span></span>
-<span id="cb95-2"><a href="user-defined-functions.html#cb95-2" tabindex="-1"></a></span>
-<span id="cb95-3"><a href="user-defined-functions.html#cb95-3" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hi my name is&quot;</span>) <span class="co"># will print the string &quot;Hi my name is&quot;</span></span>
-<span id="cb95-4"><a href="user-defined-functions.html#cb95-4" tabindex="-1"></a></span>
-<span id="cb95-5"><a href="user-defined-functions.html#cb95-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Hi my name is&quot;</span></span>
-<span id="cb95-6"><a href="user-defined-functions.html#cb95-6" tabindex="-1"></a></span>
-<span id="cb95-7"><a href="user-defined-functions.html#cb95-7" tabindex="-1"></a><span class="co"># Creating our own function</span></span>
-<span id="cb95-8"><a href="user-defined-functions.html#cb95-8" tabindex="-1"></a></span>
-<span id="cb95-9"><a href="user-defined-functions.html#cb95-9" tabindex="-1"></a><span class="co"># This assigns a function to the name Print_Function</span></span>
-<span id="cb95-10"><a href="user-defined-functions.html#cb95-10" tabindex="-1"></a><span class="co"># The function will be performed on all elements in the curly brackets, denoted by the &quot;.&quot; in the function inputs. In actual fact you could put anything in here; it won&#39;t be evaluated.</span></span>
-<span id="cb95-11"><a href="user-defined-functions.html#cb95-11" tabindex="-1"></a><span class="co"># The curly brackets open and close the function. The code between is the operation.</span></span>
-<span id="cb95-12"><a href="user-defined-functions.html#cb95-12" tabindex="-1"></a></span>
-<span id="cb95-13"><a href="user-defined-functions.html#cb95-13" tabindex="-1"></a></span>
-<span id="cb95-14"><a href="user-defined-functions.html#cb95-14" tabindex="-1"></a>Print_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(.){ <span class="co"># Define and name the function</span></span>
-<span id="cb95-15"><a href="user-defined-functions.html#cb95-15" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hi my name is&quot;</span>) <span class="co">#give it an operation</span></span>
-<span id="cb95-16"><a href="user-defined-functions.html#cb95-16" tabindex="-1"></a>}  <span class="co">#close it</span></span>
-<span id="cb95-17"><a href="user-defined-functions.html#cb95-17" tabindex="-1"></a></span>
-<span id="cb95-18"><a href="user-defined-functions.html#cb95-18" tabindex="-1"></a><span class="fu">Print_Function</span>() <span class="co"># run the function (with no specified input parameters)</span></span>
-<span id="cb95-19"><a href="user-defined-functions.html#cb95-19" tabindex="-1"></a></span>
-<span id="cb95-20"><a href="user-defined-functions.html#cb95-20" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Hi my name is&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="user-defined-functions.html#cb90-1" tabindex="-1"></a><span class="co"># Using the existing print() function: </span></span>
+<span id="cb90-2"><a href="user-defined-functions.html#cb90-2" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="user-defined-functions.html#cb90-3" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hi my name is&quot;</span>) <span class="co"># will print the string &quot;Hi my name is&quot;</span></span>
+<span id="cb90-4"><a href="user-defined-functions.html#cb90-4" tabindex="-1"></a></span>
+<span id="cb90-5"><a href="user-defined-functions.html#cb90-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Hi my name is&quot;</span></span>
+<span id="cb90-6"><a href="user-defined-functions.html#cb90-6" tabindex="-1"></a></span>
+<span id="cb90-7"><a href="user-defined-functions.html#cb90-7" tabindex="-1"></a><span class="co"># Creating our own function</span></span>
+<span id="cb90-8"><a href="user-defined-functions.html#cb90-8" tabindex="-1"></a></span>
+<span id="cb90-9"><a href="user-defined-functions.html#cb90-9" tabindex="-1"></a><span class="co"># This assigns a function to the name Print_Function</span></span>
+<span id="cb90-10"><a href="user-defined-functions.html#cb90-10" tabindex="-1"></a><span class="co"># The function will be performed on all elements in the curly brackets, denoted by the &quot;.&quot; in the function inputs. In actual fact you could put anything in here; it won&#39;t be evaluated.</span></span>
+<span id="cb90-11"><a href="user-defined-functions.html#cb90-11" tabindex="-1"></a><span class="co"># The curly brackets open and close the function. The code between is the operation.</span></span>
+<span id="cb90-12"><a href="user-defined-functions.html#cb90-12" tabindex="-1"></a></span>
+<span id="cb90-13"><a href="user-defined-functions.html#cb90-13" tabindex="-1"></a></span>
+<span id="cb90-14"><a href="user-defined-functions.html#cb90-14" tabindex="-1"></a>Print_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(.){ <span class="co"># Define and name the function</span></span>
+<span id="cb90-15"><a href="user-defined-functions.html#cb90-15" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hi my name is&quot;</span>) <span class="co">#give it an operation</span></span>
+<span id="cb90-16"><a href="user-defined-functions.html#cb90-16" tabindex="-1"></a>}  <span class="co">#close it</span></span>
+<span id="cb90-17"><a href="user-defined-functions.html#cb90-17" tabindex="-1"></a></span>
+<span id="cb90-18"><a href="user-defined-functions.html#cb90-18" tabindex="-1"></a><span class="fu">Print_Function</span>() <span class="co"># run the function (with no specified input parameters)</span></span>
+<span id="cb90-19"><a href="user-defined-functions.html#cb90-19" tabindex="-1"></a></span>
+<span id="cb90-20"><a href="user-defined-functions.html#cb90-20" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Hi my name is&quot;</span></span></code></pre></div>
 </div>
 <div id="returning-objects" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Returning objects<a href="user-defined-functions.html#returning-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Objects created within a function will not be stored in the global environment, unless R is told specifically to do this. This is very useful if you want to create lots of objects temporarily. It does, however, mean you need to know how to extract the relevant objects from your data frame.</p>
 <p>The usual <code>&lt;-</code> (assignment) operator will create an object to be used within the function, but this will not be exported to the global environment. The <code>&lt;&lt;-</code> operator will assign the object created to the global environment regardless of where it appears in the function, or whether your function is run to designate a new object. See below for more clarity.</p>
 <p>Assigmment function 1 creates 3 variables: a, b and d. I use “d” because <code>c</code> is the combine function itself. We then run the function, which creates the variables but doesn’t assign them to any objects in the global environment.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="user-defined-functions.html#cb96-1" tabindex="-1"></a><span class="co"># create a function, which, within it creates 3 objects: a,b,d</span></span>
-<span id="cb96-2"><a href="user-defined-functions.html#cb96-2" tabindex="-1"></a>Assignment_Func_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
-<span id="cb96-3"><a href="user-defined-functions.html#cb96-3" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb96-4"><a href="user-defined-functions.html#cb96-4" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb96-5"><a href="user-defined-functions.html#cb96-5" tabindex="-1"></a>   d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb96-6"><a href="user-defined-functions.html#cb96-6" tabindex="-1"></a>}</span>
-<span id="cb96-7"><a href="user-defined-functions.html#cb96-7" tabindex="-1"></a><span class="co"># running the function will do nothing</span></span>
-<span id="cb96-8"><a href="user-defined-functions.html#cb96-8" tabindex="-1"></a><span class="fu">Assignment_Func_1</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="user-defined-functions.html#cb91-1" tabindex="-1"></a><span class="co"># create a function, which, within it creates 3 objects: a,b,d</span></span>
+<span id="cb91-2"><a href="user-defined-functions.html#cb91-2" tabindex="-1"></a>Assignment_Func_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
+<span id="cb91-3"><a href="user-defined-functions.html#cb91-3" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb91-4"><a href="user-defined-functions.html#cb91-4" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb91-5"><a href="user-defined-functions.html#cb91-5" tabindex="-1"></a>   d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb91-6"><a href="user-defined-functions.html#cb91-6" tabindex="-1"></a>}</span>
+<span id="cb91-7"><a href="user-defined-functions.html#cb91-7" tabindex="-1"></a><span class="co"># running the function will do nothing</span></span>
+<span id="cb91-8"><a href="user-defined-functions.html#cb91-8" tabindex="-1"></a><span class="fu">Assignment_Func_1</span>()</span></code></pre></div>
 <p>Assingment function 2 is identical to #1, except that we designate the function to the variable <code>x</code>. This assigns x the value 3 because d was the final object created in the function.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="user-defined-functions.html#cb97-1" tabindex="-1"></a>Assignment_Func_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
-<span id="cb97-2"><a href="user-defined-functions.html#cb97-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb97-3"><a href="user-defined-functions.html#cb97-3" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb97-4"><a href="user-defined-functions.html#cb97-4" tabindex="-1"></a>   d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb97-5"><a href="user-defined-functions.html#cb97-5" tabindex="-1"></a>}</span>
-<span id="cb97-6"><a href="user-defined-functions.html#cb97-6" tabindex="-1"></a><span class="co"># running the function and assigning it to an object, x</span></span>
-<span id="cb97-7"><a href="user-defined-functions.html#cb97-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_2</span>()</span>
-<span id="cb97-8"><a href="user-defined-functions.html#cb97-8" tabindex="-1"></a></span>
-<span id="cb97-9"><a href="user-defined-functions.html#cb97-9" tabindex="-1"></a><span class="co"># test what has happened</span></span>
-<span id="cb97-10"><a href="user-defined-functions.html#cb97-10" tabindex="-1"></a><span class="fu">print</span>(x)</span>
-<span id="cb97-11"><a href="user-defined-functions.html#cb97-11" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="user-defined-functions.html#cb92-1" tabindex="-1"></a>Assignment_Func_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
+<span id="cb92-2"><a href="user-defined-functions.html#cb92-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb92-3"><a href="user-defined-functions.html#cb92-3" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb92-4"><a href="user-defined-functions.html#cb92-4" tabindex="-1"></a>   d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb92-5"><a href="user-defined-functions.html#cb92-5" tabindex="-1"></a>}</span>
+<span id="cb92-6"><a href="user-defined-functions.html#cb92-6" tabindex="-1"></a><span class="co"># running the function and assigning it to an object, x</span></span>
+<span id="cb92-7"><a href="user-defined-functions.html#cb92-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_2</span>()</span>
+<span id="cb92-8"><a href="user-defined-functions.html#cb92-8" tabindex="-1"></a></span>
+<span id="cb92-9"><a href="user-defined-functions.html#cb92-9" tabindex="-1"></a><span class="co"># test what has happened</span></span>
+<span id="cb92-10"><a href="user-defined-functions.html#cb92-10" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb92-11"><a href="user-defined-functions.html#cb92-11" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span></code></pre></div>
 <p>To demonstrate that the objects <code>a</code> and <code>b</code> are created within the function, see the iteration 2.1 below. The function still outputs the value of <code>d</code> because it is the last thing created, but we use the prior objects to generate <code>d</code>.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="user-defined-functions.html#cb98-1" tabindex="-1"></a>Assignment_Func_2b <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
-<span id="cb98-2"><a href="user-defined-functions.html#cb98-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb98-3"><a href="user-defined-functions.html#cb98-3" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb98-4"><a href="user-defined-functions.html#cb98-4" tabindex="-1"></a>   d <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
-<span id="cb98-5"><a href="user-defined-functions.html#cb98-5" tabindex="-1"></a>}</span>
-<span id="cb98-6"><a href="user-defined-functions.html#cb98-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_2b</span>()</span>
-<span id="cb98-7"><a href="user-defined-functions.html#cb98-7" tabindex="-1"></a></span>
-<span id="cb98-8"><a href="user-defined-functions.html#cb98-8" tabindex="-1"></a><span class="fu">print</span>(x)</span>
-<span id="cb98-9"><a href="user-defined-functions.html#cb98-9" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="user-defined-functions.html#cb93-1" tabindex="-1"></a>Assignment_Func_2b <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
+<span id="cb93-2"><a href="user-defined-functions.html#cb93-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb93-3"><a href="user-defined-functions.html#cb93-3" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb93-4"><a href="user-defined-functions.html#cb93-4" tabindex="-1"></a>   d <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
+<span id="cb93-5"><a href="user-defined-functions.html#cb93-5" tabindex="-1"></a>}</span>
+<span id="cb93-6"><a href="user-defined-functions.html#cb93-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_2b</span>()</span>
+<span id="cb93-7"><a href="user-defined-functions.html#cb93-7" tabindex="-1"></a></span>
+<span id="cb93-8"><a href="user-defined-functions.html#cb93-8" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb93-9"><a href="user-defined-functions.html#cb93-9" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3</span></span></code></pre></div>
 <p>If we wanted to specify which object to assign as our output we could use the <code>return()</code> function. Assignment function 3 finishes by returning <code>a</code>, therefore, when we assign the output of the function to our variable, x, it is assigned the value 1 (equivalent to a).</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="user-defined-functions.html#cb99-1" tabindex="-1"></a>Assignment_Func_3 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
-<span id="cb99-2"><a href="user-defined-functions.html#cb99-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb99-3"><a href="user-defined-functions.html#cb99-3" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb99-4"><a href="user-defined-functions.html#cb99-4" tabindex="-1"></a>   d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb99-5"><a href="user-defined-functions.html#cb99-5" tabindex="-1"></a>   </span>
-<span id="cb99-6"><a href="user-defined-functions.html#cb99-6" tabindex="-1"></a>   <span class="fu">return</span>(a)</span>
-<span id="cb99-7"><a href="user-defined-functions.html#cb99-7" tabindex="-1"></a>}</span>
-<span id="cb99-8"><a href="user-defined-functions.html#cb99-8" tabindex="-1"></a></span>
-<span id="cb99-9"><a href="user-defined-functions.html#cb99-9" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_3</span>()</span>
-<span id="cb99-10"><a href="user-defined-functions.html#cb99-10" tabindex="-1"></a></span>
-<span id="cb99-11"><a href="user-defined-functions.html#cb99-11" tabindex="-1"></a><span class="fu">print</span>(x)</span>
-<span id="cb99-12"><a href="user-defined-functions.html#cb99-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="user-defined-functions.html#cb94-1" tabindex="-1"></a>Assignment_Func_3 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
+<span id="cb94-2"><a href="user-defined-functions.html#cb94-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb94-3"><a href="user-defined-functions.html#cb94-3" tabindex="-1"></a>   b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb94-4"><a href="user-defined-functions.html#cb94-4" tabindex="-1"></a>   d <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb94-5"><a href="user-defined-functions.html#cb94-5" tabindex="-1"></a>   </span>
+<span id="cb94-6"><a href="user-defined-functions.html#cb94-6" tabindex="-1"></a>   <span class="fu">return</span>(a)</span>
+<span id="cb94-7"><a href="user-defined-functions.html#cb94-7" tabindex="-1"></a>}</span>
+<span id="cb94-8"><a href="user-defined-functions.html#cb94-8" tabindex="-1"></a></span>
+<span id="cb94-9"><a href="user-defined-functions.html#cb94-9" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_3</span>()</span>
+<span id="cb94-10"><a href="user-defined-functions.html#cb94-10" tabindex="-1"></a></span>
+<span id="cb94-11"><a href="user-defined-functions.html#cb94-11" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb94-12"><a href="user-defined-functions.html#cb94-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 <p>We can also assign objects created within the function using the <code>&lt;&lt;-</code> operator. If you were to run <code>print(a)</code>, <code>print(b)</code> or <code>print(d)</code> in your console at any point so far you would have seen this error: <code>Error in print(b) : object 'b' not found.</code> We can, however, create these objects. Assignment function 4 does this. It creates 2 objects, <code>b</code> and <code>d</code>, in addition to assigning x the value of 1 (because we have returned (a))</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="user-defined-functions.html#cb100-1" tabindex="-1"></a>Assignment_Func_4 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
-<span id="cb100-2"><a href="user-defined-functions.html#cb100-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb100-3"><a href="user-defined-functions.html#cb100-3" tabindex="-1"></a>   b <span class="ot">&lt;&lt;-</span> <span class="dv">2</span></span>
-<span id="cb100-4"><a href="user-defined-functions.html#cb100-4" tabindex="-1"></a>   d <span class="ot">&lt;&lt;-</span> <span class="dv">3</span></span>
-<span id="cb100-5"><a href="user-defined-functions.html#cb100-5" tabindex="-1"></a>   </span>
-<span id="cb100-6"><a href="user-defined-functions.html#cb100-6" tabindex="-1"></a>   <span class="fu">return</span>(a)</span>
-<span id="cb100-7"><a href="user-defined-functions.html#cb100-7" tabindex="-1"></a>}</span>
-<span id="cb100-8"><a href="user-defined-functions.html#cb100-8" tabindex="-1"></a></span>
-<span id="cb100-9"><a href="user-defined-functions.html#cb100-9" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_4</span>()</span>
-<span id="cb100-10"><a href="user-defined-functions.html#cb100-10" tabindex="-1"></a></span>
-<span id="cb100-11"><a href="user-defined-functions.html#cb100-11" tabindex="-1"></a><span class="fu">print</span>(b)</span>
-<span id="cb100-12"><a href="user-defined-functions.html#cb100-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
-<span id="cb100-13"><a href="user-defined-functions.html#cb100-13" tabindex="-1"></a></span>
-<span id="cb100-14"><a href="user-defined-functions.html#cb100-14" tabindex="-1"></a><span class="fu">print</span>(x)</span>
-<span id="cb100-15"><a href="user-defined-functions.html#cb100-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="user-defined-functions.html#cb95-1" tabindex="-1"></a>Assignment_Func_4 <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
+<span id="cb95-2"><a href="user-defined-functions.html#cb95-2" tabindex="-1"></a>   a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb95-3"><a href="user-defined-functions.html#cb95-3" tabindex="-1"></a>   b <span class="ot">&lt;&lt;-</span> <span class="dv">2</span></span>
+<span id="cb95-4"><a href="user-defined-functions.html#cb95-4" tabindex="-1"></a>   d <span class="ot">&lt;&lt;-</span> <span class="dv">3</span></span>
+<span id="cb95-5"><a href="user-defined-functions.html#cb95-5" tabindex="-1"></a>   </span>
+<span id="cb95-6"><a href="user-defined-functions.html#cb95-6" tabindex="-1"></a>   <span class="fu">return</span>(a)</span>
+<span id="cb95-7"><a href="user-defined-functions.html#cb95-7" tabindex="-1"></a>}</span>
+<span id="cb95-8"><a href="user-defined-functions.html#cb95-8" tabindex="-1"></a></span>
+<span id="cb95-9"><a href="user-defined-functions.html#cb95-9" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">Assignment_Func_4</span>()</span>
+<span id="cb95-10"><a href="user-defined-functions.html#cb95-10" tabindex="-1"></a></span>
+<span id="cb95-11"><a href="user-defined-functions.html#cb95-11" tabindex="-1"></a><span class="fu">print</span>(b)</span>
+<span id="cb95-12"><a href="user-defined-functions.html#cb95-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span></span>
+<span id="cb95-13"><a href="user-defined-functions.html#cb95-13" tabindex="-1"></a></span>
+<span id="cb95-14"><a href="user-defined-functions.html#cb95-14" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb95-15"><a href="user-defined-functions.html#cb95-15" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 </div>
 <div id="passing-objects" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Passing objects<a href="user-defined-functions.html#passing-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can pass objects through functions. This helps to generalise ta function’s inputs. Inputs might be objects, vectors, strings, numbers, columns etc.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="user-defined-functions.html#cb101-1" tabindex="-1"></a>Print_Object <span class="ot">&lt;-</span> <span class="cf">function</span>(Input_String){</span>
-<span id="cb101-2"><a href="user-defined-functions.html#cb101-2" tabindex="-1"></a>  <span class="fu">print</span>(Input_String)</span>
-<span id="cb101-3"><a href="user-defined-functions.html#cb101-3" tabindex="-1"></a>}</span>
-<span id="cb101-4"><a href="user-defined-functions.html#cb101-4" tabindex="-1"></a><span class="fu">Print_Object</span>(<span class="at">Input_String =</span> <span class="st">&quot;Hello, is it me you&#39;re looking for&quot;</span>)</span>
-<span id="cb101-5"><a href="user-defined-functions.html#cb101-5" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="user-defined-functions.html#cb101-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Hello, is it me you&#39;re looking for&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="user-defined-functions.html#cb96-1" tabindex="-1"></a>Print_Object <span class="ot">&lt;-</span> <span class="cf">function</span>(Input_String){</span>
+<span id="cb96-2"><a href="user-defined-functions.html#cb96-2" tabindex="-1"></a>  <span class="fu">print</span>(Input_String)</span>
+<span id="cb96-3"><a href="user-defined-functions.html#cb96-3" tabindex="-1"></a>}</span>
+<span id="cb96-4"><a href="user-defined-functions.html#cb96-4" tabindex="-1"></a><span class="fu">Print_Object</span>(<span class="at">Input_String =</span> <span class="st">&quot;Hello, is it me you&#39;re looking for&quot;</span>)</span>
+<span id="cb96-5"><a href="user-defined-functions.html#cb96-5" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="user-defined-functions.html#cb96-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;Hello, is it me you&#39;re looking for&quot;</span></span></code></pre></div>
 <p>When passing more complicated inputs, you might need to know about other operators. The main things to be aware of are <code>{{}}</code>, <code>:=</code> and <code>!!</code>. To do this, we will reload the iris data and play about with generalising our inputs.</p>
 <p>You might also need to be careful about how an input is read in: ether as as string (wrapped in speech marks) or an object.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="user-defined-functions.html#cb102-1" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co">#Load dplyr package</span></span>
-<span id="cb102-2"><a href="user-defined-functions.html#cb102-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co">#Load the iris data</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="user-defined-functions.html#cb97-1" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co">#Load dplyr package</span></span>
+<span id="cb97-2"><a href="user-defined-functions.html#cb97-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>) <span class="co">#Load the iris data</span></span></code></pre></div>
 <div id="creating-the-function" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Creating the function<a href="user-defined-functions.html#creating-the-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="user-defined-functions.html#cb103-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
-<span id="cb103-2"><a href="user-defined-functions.html#cb103-2" tabindex="-1"></a></span>
-<span id="cb103-3"><a href="user-defined-functions.html#cb103-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
-<span id="cb103-4"><a href="user-defined-functions.html#cb103-4" tabindex="-1"></a>   </span>
-<span id="cb103-5"><a href="user-defined-functions.html#cb103-5" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb103-6"><a href="user-defined-functions.html#cb103-6" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb103-7"><a href="user-defined-functions.html#cb103-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length))</span>
-<span id="cb103-8"><a href="user-defined-functions.html#cb103-8" tabindex="-1"></a></span>
-<span id="cb103-9"><a href="user-defined-functions.html#cb103-9" tabindex="-1"></a>}</span>
-<span id="cb103-10"><a href="user-defined-functions.html#cb103-10" tabindex="-1"></a></span>
-<span id="cb103-11"><a href="user-defined-functions.html#cb103-11" tabindex="-1"></a>Av_Sepal_Length_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>()</span>
-<span id="cb103-12"><a href="user-defined-functions.html#cb103-12" tabindex="-1"></a><span class="fu">print</span>(Av_Sepal_Length_Table)</span>
-<span id="cb103-13"><a href="user-defined-functions.html#cb103-13" tabindex="-1"></a></span>
-<span id="cb103-14"><a href="user-defined-functions.html#cb103-14" tabindex="-1"></a><span class="co"># # A tibble: 3 x 2</span></span>
-<span id="cb103-15"><a href="user-defined-functions.html#cb103-15" tabindex="-1"></a><span class="co">#   Species    Average_Sepal_Length</span></span>
-<span id="cb103-16"><a href="user-defined-functions.html#cb103-16" tabindex="-1"></a><span class="co"># 1 setosa                     5.01</span></span>
-<span id="cb103-17"><a href="user-defined-functions.html#cb103-17" tabindex="-1"></a><span class="co"># 2 versicolor                 5.94</span></span>
-<span id="cb103-18"><a href="user-defined-functions.html#cb103-18" tabindex="-1"></a><span class="co"># 3 virginica                  6.59</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="user-defined-functions.html#cb98-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
+<span id="cb98-2"><a href="user-defined-functions.html#cb98-2" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="user-defined-functions.html#cb98-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(.){</span>
+<span id="cb98-4"><a href="user-defined-functions.html#cb98-4" tabindex="-1"></a>   </span>
+<span id="cb98-5"><a href="user-defined-functions.html#cb98-5" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb98-6"><a href="user-defined-functions.html#cb98-6" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb98-7"><a href="user-defined-functions.html#cb98-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length))</span>
+<span id="cb98-8"><a href="user-defined-functions.html#cb98-8" tabindex="-1"></a></span>
+<span id="cb98-9"><a href="user-defined-functions.html#cb98-9" tabindex="-1"></a>}</span>
+<span id="cb98-10"><a href="user-defined-functions.html#cb98-10" tabindex="-1"></a></span>
+<span id="cb98-11"><a href="user-defined-functions.html#cb98-11" tabindex="-1"></a>Av_Sepal_Length_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>()</span>
+<span id="cb98-12"><a href="user-defined-functions.html#cb98-12" tabindex="-1"></a><span class="fu">print</span>(Av_Sepal_Length_Table)</span>
+<span id="cb98-13"><a href="user-defined-functions.html#cb98-13" tabindex="-1"></a></span>
+<span id="cb98-14"><a href="user-defined-functions.html#cb98-14" tabindex="-1"></a><span class="co"># # A tibble: 3 x 2</span></span>
+<span id="cb98-15"><a href="user-defined-functions.html#cb98-15" tabindex="-1"></a><span class="co">#   Species    Average_Sepal_Length</span></span>
+<span id="cb98-16"><a href="user-defined-functions.html#cb98-16" tabindex="-1"></a><span class="co"># 1 setosa                     5.01</span></span>
+<span id="cb98-17"><a href="user-defined-functions.html#cb98-17" tabindex="-1"></a><span class="co"># 2 versicolor                 5.94</span></span>
+<span id="cb98-18"><a href="user-defined-functions.html#cb98-18" tabindex="-1"></a><span class="co"># 3 virginica                  6.59</span></span></code></pre></div>
 </div>
 <div id="passing-data" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Passing data<a href="user-defined-functions.html#passing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="user-defined-functions.html#cb104-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
-<span id="cb104-2"><a href="user-defined-functions.html#cb104-2" tabindex="-1"></a></span>
-<span id="cb104-3"><a href="user-defined-functions.html#cb104-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(DATA_FRAME){</span>
-<span id="cb104-4"><a href="user-defined-functions.html#cb104-4" tabindex="-1"></a>   </span>
-<span id="cb104-5"><a href="user-defined-functions.html#cb104-5" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> DATA_FRAME <span class="sc">%&gt;%</span></span>
-<span id="cb104-6"><a href="user-defined-functions.html#cb104-6" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb104-7"><a href="user-defined-functions.html#cb104-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length))</span>
-<span id="cb104-8"><a href="user-defined-functions.html#cb104-8" tabindex="-1"></a></span>
-<span id="cb104-9"><a href="user-defined-functions.html#cb104-9" tabindex="-1"></a>}</span>
-<span id="cb104-10"><a href="user-defined-functions.html#cb104-10" tabindex="-1"></a></span>
-<span id="cb104-11"><a href="user-defined-functions.html#cb104-11" tabindex="-1"></a>Av_Sepal_Length_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>(<span class="at">DATA_FRAME =</span> iris)</span>
-<span id="cb104-12"><a href="user-defined-functions.html#cb104-12" tabindex="-1"></a><span class="fu">print</span>(Av_Sepal_Length_Table)</span>
-<span id="cb104-13"><a href="user-defined-functions.html#cb104-13" tabindex="-1"></a></span>
-<span id="cb104-14"><a href="user-defined-functions.html#cb104-14" tabindex="-1"></a><span class="co"># # A tibble: 3 x 2</span></span>
-<span id="cb104-15"><a href="user-defined-functions.html#cb104-15" tabindex="-1"></a><span class="co">#   Species    Average_Sepal_Length</span></span>
-<span id="cb104-16"><a href="user-defined-functions.html#cb104-16" tabindex="-1"></a><span class="co"># 1 setosa                     5.01</span></span>
-<span id="cb104-17"><a href="user-defined-functions.html#cb104-17" tabindex="-1"></a><span class="co"># 2 versicolor                 5.94</span></span>
-<span id="cb104-18"><a href="user-defined-functions.html#cb104-18" tabindex="-1"></a><span class="co"># 3 virginica                  6.59</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="user-defined-functions.html#cb99-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
+<span id="cb99-2"><a href="user-defined-functions.html#cb99-2" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="user-defined-functions.html#cb99-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(DATA_FRAME){</span>
+<span id="cb99-4"><a href="user-defined-functions.html#cb99-4" tabindex="-1"></a>   </span>
+<span id="cb99-5"><a href="user-defined-functions.html#cb99-5" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> DATA_FRAME <span class="sc">%&gt;%</span></span>
+<span id="cb99-6"><a href="user-defined-functions.html#cb99-6" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb99-7"><a href="user-defined-functions.html#cb99-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length))</span>
+<span id="cb99-8"><a href="user-defined-functions.html#cb99-8" tabindex="-1"></a></span>
+<span id="cb99-9"><a href="user-defined-functions.html#cb99-9" tabindex="-1"></a>}</span>
+<span id="cb99-10"><a href="user-defined-functions.html#cb99-10" tabindex="-1"></a></span>
+<span id="cb99-11"><a href="user-defined-functions.html#cb99-11" tabindex="-1"></a>Av_Sepal_Length_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>(<span class="at">DATA_FRAME =</span> iris)</span>
+<span id="cb99-12"><a href="user-defined-functions.html#cb99-12" tabindex="-1"></a><span class="fu">print</span>(Av_Sepal_Length_Table)</span>
+<span id="cb99-13"><a href="user-defined-functions.html#cb99-13" tabindex="-1"></a></span>
+<span id="cb99-14"><a href="user-defined-functions.html#cb99-14" tabindex="-1"></a><span class="co"># # A tibble: 3 x 2</span></span>
+<span id="cb99-15"><a href="user-defined-functions.html#cb99-15" tabindex="-1"></a><span class="co">#   Species    Average_Sepal_Length</span></span>
+<span id="cb99-16"><a href="user-defined-functions.html#cb99-16" tabindex="-1"></a><span class="co"># 1 setosa                     5.01</span></span>
+<span id="cb99-17"><a href="user-defined-functions.html#cb99-17" tabindex="-1"></a><span class="co"># 2 versicolor                 5.94</span></span>
+<span id="cb99-18"><a href="user-defined-functions.html#cb99-18" tabindex="-1"></a><span class="co"># 3 virginica                  6.59</span></span></code></pre></div>
 <p>Now, as we try to involve more complex arguments, we need to tell R more about the objects we are passing through it. Different functions work in different ways. The <code>group_by()</code> and <code>summarise()</code> functions look for the variables as quoted arguments. In order to tell R that the object being passed is in fact a variable name, we need to use <code>{{}}</code> (curly-curly).</p>
 <p>Also, note that we’ve had to use <code>:=</code> (colon equals) instead of <code>=</code>. This will also be true for <code>mutate()</code> functions when you mutate columns by having passed the column name through the function. It allows you to perform assignments by reference.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="user-defined-functions.html#cb105-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
-<span id="cb105-2"><a href="user-defined-functions.html#cb105-2" tabindex="-1"></a></span>
-<span id="cb105-3"><a href="user-defined-functions.html#cb105-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(DATA_FRAME, GROUP_BY_COL, SUMMARY_COL){</span>
-<span id="cb105-4"><a href="user-defined-functions.html#cb105-4" tabindex="-1"></a>   </span>
-<span id="cb105-5"><a href="user-defined-functions.html#cb105-5" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> DATA_FRAME <span class="sc">%&gt;%</span></span>
-<span id="cb105-6"><a href="user-defined-functions.html#cb105-6" tabindex="-1"></a>  <span class="fu">group_by</span>({{GROUP_BY_COL}}) <span class="sc">%&gt;%</span></span>
-<span id="cb105-7"><a href="user-defined-functions.html#cb105-7" tabindex="-1"></a>  <span class="fu">summarise</span>({{SUMMARY_COL}} <span class="sc">:=</span> <span class="fu">mean</span>(Sepal.Length))</span>
-<span id="cb105-8"><a href="user-defined-functions.html#cb105-8" tabindex="-1"></a></span>
-<span id="cb105-9"><a href="user-defined-functions.html#cb105-9" tabindex="-1"></a>}</span>
-<span id="cb105-10"><a href="user-defined-functions.html#cb105-10" tabindex="-1"></a></span>
-<span id="cb105-11"><a href="user-defined-functions.html#cb105-11" tabindex="-1"></a>Av_Sepal_Length_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>(<span class="at">DATA_FRAME =</span> iris,</span>
-<span id="cb105-12"><a href="user-defined-functions.html#cb105-12" tabindex="-1"></a>                                          <span class="at">GROUP_BY_COL =</span> Species,</span>
-<span id="cb105-13"><a href="user-defined-functions.html#cb105-13" tabindex="-1"></a>                                          <span class="at">SUMMARY_COL =</span> Average_Sepal_Length)</span>
-<span id="cb105-14"><a href="user-defined-functions.html#cb105-14" tabindex="-1"></a><span class="fu">print</span>(Av_Sepal_Length_Table)</span>
-<span id="cb105-15"><a href="user-defined-functions.html#cb105-15" tabindex="-1"></a></span>
-<span id="cb105-16"><a href="user-defined-functions.html#cb105-16" tabindex="-1"></a><span class="co"># # A tibble: 3 x 2</span></span>
-<span id="cb105-17"><a href="user-defined-functions.html#cb105-17" tabindex="-1"></a><span class="co">#   Species    Average_Sepal_Length</span></span>
-<span id="cb105-18"><a href="user-defined-functions.html#cb105-18" tabindex="-1"></a><span class="co"># 1 setosa                     5.01</span></span>
-<span id="cb105-19"><a href="user-defined-functions.html#cb105-19" tabindex="-1"></a><span class="co"># 2 versicolor                 5.94</span></span>
-<span id="cb105-20"><a href="user-defined-functions.html#cb105-20" tabindex="-1"></a><span class="co"># 3 virginica                  6.59</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="user-defined-functions.html#cb100-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
+<span id="cb100-2"><a href="user-defined-functions.html#cb100-2" tabindex="-1"></a></span>
+<span id="cb100-3"><a href="user-defined-functions.html#cb100-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(DATA_FRAME, GROUP_BY_COL, SUMMARY_COL){</span>
+<span id="cb100-4"><a href="user-defined-functions.html#cb100-4" tabindex="-1"></a>   </span>
+<span id="cb100-5"><a href="user-defined-functions.html#cb100-5" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> DATA_FRAME <span class="sc">%&gt;%</span></span>
+<span id="cb100-6"><a href="user-defined-functions.html#cb100-6" tabindex="-1"></a>  <span class="fu">group_by</span>({{GROUP_BY_COL}}) <span class="sc">%&gt;%</span></span>
+<span id="cb100-7"><a href="user-defined-functions.html#cb100-7" tabindex="-1"></a>  <span class="fu">summarise</span>({{SUMMARY_COL}} <span class="sc">:=</span> <span class="fu">mean</span>(Sepal.Length))</span>
+<span id="cb100-8"><a href="user-defined-functions.html#cb100-8" tabindex="-1"></a></span>
+<span id="cb100-9"><a href="user-defined-functions.html#cb100-9" tabindex="-1"></a>}</span>
+<span id="cb100-10"><a href="user-defined-functions.html#cb100-10" tabindex="-1"></a></span>
+<span id="cb100-11"><a href="user-defined-functions.html#cb100-11" tabindex="-1"></a>Av_Sepal_Length_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>(<span class="at">DATA_FRAME =</span> iris,</span>
+<span id="cb100-12"><a href="user-defined-functions.html#cb100-12" tabindex="-1"></a>                                          <span class="at">GROUP_BY_COL =</span> Species,</span>
+<span id="cb100-13"><a href="user-defined-functions.html#cb100-13" tabindex="-1"></a>                                          <span class="at">SUMMARY_COL =</span> Average_Sepal_Length)</span>
+<span id="cb100-14"><a href="user-defined-functions.html#cb100-14" tabindex="-1"></a><span class="fu">print</span>(Av_Sepal_Length_Table)</span>
+<span id="cb100-15"><a href="user-defined-functions.html#cb100-15" tabindex="-1"></a></span>
+<span id="cb100-16"><a href="user-defined-functions.html#cb100-16" tabindex="-1"></a><span class="co"># # A tibble: 3 x 2</span></span>
+<span id="cb100-17"><a href="user-defined-functions.html#cb100-17" tabindex="-1"></a><span class="co">#   Species    Average_Sepal_Length</span></span>
+<span id="cb100-18"><a href="user-defined-functions.html#cb100-18" tabindex="-1"></a><span class="co"># 1 setosa                     5.01</span></span>
+<span id="cb100-19"><a href="user-defined-functions.html#cb100-19" tabindex="-1"></a><span class="co"># 2 versicolor                 5.94</span></span>
+<span id="cb100-20"><a href="user-defined-functions.html#cb100-20" tabindex="-1"></a><span class="co"># 3 virginica                  6.59</span></span></code></pre></div>
 <p>Finally, it might be that you need your inputs to change between quoted and unquoted arguments. In the example below, given the nature of the vector, these elements need to be in quotations. But when we call them in our dplyr chain, we want R to recognise them as objects. We use as.name, a base R fuction that takes a string (or a variable containing a string) and returns the content of the string as a variable name. The <code>!!</code> (bang-bang) tells the summarise function to not take the value as it is, but to substitute the real value.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="user-defined-functions.html#cb106-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
-<span id="cb106-2"><a href="user-defined-functions.html#cb106-2" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="user-defined-functions.html#cb106-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(Col_Vector,</span>
-<span id="cb106-4"><a href="user-defined-functions.html#cb106-4" tabindex="-1"></a>                             i){</span>
-<span id="cb106-5"><a href="user-defined-functions.html#cb106-5" tabindex="-1"></a>   </span>
-<span id="cb106-6"><a href="user-defined-functions.html#cb106-6" tabindex="-1"></a>   <span class="co">#depending on the value of i, this will extract the element in position i of the Col_Vector. It assigns the string to an element, Col_Averaging</span></span>
-<span id="cb106-7"><a href="user-defined-functions.html#cb106-7" tabindex="-1"></a>   Col_Averaging <span class="ot">&lt;-</span> Col_Vector[i]</span>
-<span id="cb106-8"><a href="user-defined-functions.html#cb106-8" tabindex="-1"></a>   </span>
-<span id="cb106-9"><a href="user-defined-functions.html#cb106-9" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb106-10"><a href="user-defined-functions.html#cb106-10" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb106-11"><a href="user-defined-functions.html#cb106-11" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="sc">!!</span><span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;Average_&quot;</span>, Col_Averaging))  <span class="sc">:=</span> <span class="fu">mean</span>(<span class="sc">!!</span><span class="fu">as.name</span>(Col_Averaging))) <span class="co">#the paste0 is to generalise the column title as a concatenaetion of Average and the Column we select. </span></span>
-<span id="cb106-12"><a href="user-defined-functions.html#cb106-12" tabindex="-1"></a></span>
-<span id="cb106-13"><a href="user-defined-functions.html#cb106-13" tabindex="-1"></a>}</span>
-<span id="cb106-14"><a href="user-defined-functions.html#cb106-14" tabindex="-1"></a></span>
-<span id="cb106-15"><a href="user-defined-functions.html#cb106-15" tabindex="-1"></a>Av_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>(<span class="at">Col_Vector =</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Sepal.Width&quot;</span>,  <span class="st">&quot;Petal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>),</span>
-<span id="cb106-16"><a href="user-defined-functions.html#cb106-16" tabindex="-1"></a>                                          <span class="at">i =</span> <span class="dv">2</span>)</span>
-<span id="cb106-17"><a href="user-defined-functions.html#cb106-17" tabindex="-1"></a><span class="fu">print</span>(Av_Table)</span>
-<span id="cb106-18"><a href="user-defined-functions.html#cb106-18" tabindex="-1"></a></span>
-<span id="cb106-19"><a href="user-defined-functions.html#cb106-19" tabindex="-1"></a><span class="co"># A tibble: 3 x 2</span></span>
-<span id="cb106-20"><a href="user-defined-functions.html#cb106-20" tabindex="-1"></a><span class="co">#   Species    Average_Sepal.Width</span></span>
-<span id="cb106-21"><a href="user-defined-functions.html#cb106-21" tabindex="-1"></a><span class="co"># 1 setosa                    3.43</span></span>
-<span id="cb106-22"><a href="user-defined-functions.html#cb106-22" tabindex="-1"></a><span class="co"># 2 versicolor                2.77</span></span>
-<span id="cb106-23"><a href="user-defined-functions.html#cb106-23" tabindex="-1"></a><span class="co"># 3 virginica                 2.97</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="user-defined-functions.html#cb101-1" tabindex="-1"></a><span class="co">#Create an average sepal length table</span></span>
+<span id="cb101-2"><a href="user-defined-functions.html#cb101-2" tabindex="-1"></a></span>
+<span id="cb101-3"><a href="user-defined-functions.html#cb101-3" tabindex="-1"></a>Summary_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(Col_Vector,</span>
+<span id="cb101-4"><a href="user-defined-functions.html#cb101-4" tabindex="-1"></a>                             i){</span>
+<span id="cb101-5"><a href="user-defined-functions.html#cb101-5" tabindex="-1"></a>   </span>
+<span id="cb101-6"><a href="user-defined-functions.html#cb101-6" tabindex="-1"></a>   <span class="co">#depending on the value of i, this will extract the element in position i of the Col_Vector. It assigns the string to an element, Col_Averaging</span></span>
+<span id="cb101-7"><a href="user-defined-functions.html#cb101-7" tabindex="-1"></a>   Col_Averaging <span class="ot">&lt;-</span> Col_Vector[i]</span>
+<span id="cb101-8"><a href="user-defined-functions.html#cb101-8" tabindex="-1"></a>   </span>
+<span id="cb101-9"><a href="user-defined-functions.html#cb101-9" tabindex="-1"></a>   Summary_Table <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb101-10"><a href="user-defined-functions.html#cb101-10" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb101-11"><a href="user-defined-functions.html#cb101-11" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="sc">!!</span><span class="fu">as.name</span>(<span class="fu">paste0</span>(<span class="st">&quot;Average_&quot;</span>, Col_Averaging))  <span class="sc">:=</span> <span class="fu">mean</span>(<span class="sc">!!</span><span class="fu">as.name</span>(Col_Averaging))) <span class="co">#the paste0 is to generalise the column title as a concatenaetion of Average and the Column we select. </span></span>
+<span id="cb101-12"><a href="user-defined-functions.html#cb101-12" tabindex="-1"></a></span>
+<span id="cb101-13"><a href="user-defined-functions.html#cb101-13" tabindex="-1"></a>}</span>
+<span id="cb101-14"><a href="user-defined-functions.html#cb101-14" tabindex="-1"></a></span>
+<span id="cb101-15"><a href="user-defined-functions.html#cb101-15" tabindex="-1"></a>Av_Table <span class="ot">&lt;-</span> <span class="fu">Summary_Function</span>(<span class="at">Col_Vector =</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Sepal.Width&quot;</span>,  <span class="st">&quot;Petal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>),</span>
+<span id="cb101-16"><a href="user-defined-functions.html#cb101-16" tabindex="-1"></a>                                          <span class="at">i =</span> <span class="dv">2</span>)</span>
+<span id="cb101-17"><a href="user-defined-functions.html#cb101-17" tabindex="-1"></a><span class="fu">print</span>(Av_Table)</span>
+<span id="cb101-18"><a href="user-defined-functions.html#cb101-18" tabindex="-1"></a></span>
+<span id="cb101-19"><a href="user-defined-functions.html#cb101-19" tabindex="-1"></a><span class="co"># A tibble: 3 x 2</span></span>
+<span id="cb101-20"><a href="user-defined-functions.html#cb101-20" tabindex="-1"></a><span class="co">#   Species    Average_Sepal.Width</span></span>
+<span id="cb101-21"><a href="user-defined-functions.html#cb101-21" tabindex="-1"></a><span class="co"># 1 setosa                    3.43</span></span>
+<span id="cb101-22"><a href="user-defined-functions.html#cb101-22" tabindex="-1"></a><span class="co"># 2 versicolor                2.77</span></span>
+<span id="cb101-23"><a href="user-defined-functions.html#cb101-23" tabindex="-1"></a><span class="co"># 3 virginica                 2.97</span></span></code></pre></div>
 </div>
 </div>
 <div id="setting-default-inputs" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Setting default inputs<a href="user-defined-functions.html#setting-default-inputs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can tell a function that if an input is not specified otherwise, to autofill that argument with something pre-determined.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="user-defined-functions.html#cb107-1" tabindex="-1"></a>My_Print_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">Input_String =</span> <span class="st">&quot;The assigned default input&quot;</span>){</span>
-<span id="cb107-2"><a href="user-defined-functions.html#cb107-2" tabindex="-1"></a>   </span>
-<span id="cb107-3"><a href="user-defined-functions.html#cb107-3" tabindex="-1"></a>   <span class="fu">print</span>(Input_String)</span>
-<span id="cb107-4"><a href="user-defined-functions.html#cb107-4" tabindex="-1"></a>}</span>
-<span id="cb107-5"><a href="user-defined-functions.html#cb107-5" tabindex="-1"></a></span>
-<span id="cb107-6"><a href="user-defined-functions.html#cb107-6" tabindex="-1"></a><span class="fu">My_Print_Function</span>()</span>
-<span id="cb107-7"><a href="user-defined-functions.html#cb107-7" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;The assigned default input&quot;</span></span>
-<span id="cb107-8"><a href="user-defined-functions.html#cb107-8" tabindex="-1"></a></span>
-<span id="cb107-9"><a href="user-defined-functions.html#cb107-9" tabindex="-1"></a><span class="fu">My_Print_Function</span>(<span class="st">&quot;Print this instead&quot;</span>)</span>
-<span id="cb107-10"><a href="user-defined-functions.html#cb107-10" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;print this instead&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="user-defined-functions.html#cb102-1" tabindex="-1"></a>My_Print_Function <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">Input_String =</span> <span class="st">&quot;The assigned default input&quot;</span>){</span>
+<span id="cb102-2"><a href="user-defined-functions.html#cb102-2" tabindex="-1"></a>   </span>
+<span id="cb102-3"><a href="user-defined-functions.html#cb102-3" tabindex="-1"></a>   <span class="fu">print</span>(Input_String)</span>
+<span id="cb102-4"><a href="user-defined-functions.html#cb102-4" tabindex="-1"></a>}</span>
+<span id="cb102-5"><a href="user-defined-functions.html#cb102-5" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="user-defined-functions.html#cb102-6" tabindex="-1"></a><span class="fu">My_Print_Function</span>()</span>
+<span id="cb102-7"><a href="user-defined-functions.html#cb102-7" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;The assigned default input&quot;</span></span>
+<span id="cb102-8"><a href="user-defined-functions.html#cb102-8" tabindex="-1"></a></span>
+<span id="cb102-9"><a href="user-defined-functions.html#cb102-9" tabindex="-1"></a><span class="fu">My_Print_Function</span>(<span class="st">&quot;Print this instead&quot;</span>)</span>
+<span id="cb102-10"><a href="user-defined-functions.html#cb102-10" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;print this instead&quot;</span></span></code></pre></div>
 <p>Another key for setting defaults is ensuring that your function can work both on its own and within dplyr pipes. You can often get away with setting one of the function arguments to be “data_frame”. If you are in a dplyr pipe, you will not need to manually specify this argument because R will just assign the first element you’re working with to be a data frame.</p>
 <p>If you want to be able to call the data_frame object and interact with it, then you should tell R this. Setting the argument: <code>data_frame = .data</code> will allow you to do this. In this way, if you are working outside a dplyr pipe, you can reassign the object such that data_frame = insert_name_of_your_data . Alternatively, if you are in a pipe, you will be able to use the data_frame object within the function.</p>
 </div>
@@ -542,99 +545,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.6</span> Using Loops<a href="user-defined-functions.html#Loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Loops are often more computationally intensive than functions from the <code>apply()</code> family. See this <a href="https://towardsdatascience.com/dealing-with-apply-functions-in-r-ea99d3f49a71">guidance</a> for usage details. it can be harder to get your head around.</p>
 <p>Loops increase the power (and running time) of functions . They allow you to specify the array sets on which to apply functions. The two most used loop functions are <code>for()</code> and <code>while()</code>. Generally, <code>for()</code> loops are easier to use, unless the condition changes as the function evolves. In the most basic sense, these formulae do the same thing:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="user-defined-functions.html#cb108-1" tabindex="-1"></a><span class="co"># 1.</span></span>
-<span id="cb108-2"><a href="user-defined-functions.html#cb108-2" tabindex="-1"></a></span>
-<span id="cb108-3"><a href="user-defined-functions.html#cb108-3" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb108-4"><a href="user-defined-functions.html#cb108-4" tabindex="-1"></a><span class="cf">while</span>(i <span class="sc">&lt;</span> <span class="dv">4</span>){</span>
-<span id="cb108-5"><a href="user-defined-functions.html#cb108-5" tabindex="-1"></a>   <span class="fu">print</span>(i)</span>
-<span id="cb108-6"><a href="user-defined-functions.html#cb108-6" tabindex="-1"></a>   i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb108-7"><a href="user-defined-functions.html#cb108-7" tabindex="-1"></a>}</span>
-<span id="cb108-8"><a href="user-defined-functions.html#cb108-8" tabindex="-1"></a></span>
-<span id="cb108-9"><a href="user-defined-functions.html#cb108-9" tabindex="-1"></a><span class="co">#2. </span></span>
-<span id="cb108-10"><a href="user-defined-functions.html#cb108-10" tabindex="-1"></a></span>
-<span id="cb108-11"><a href="user-defined-functions.html#cb108-11" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>){</span>
-<span id="cb108-12"><a href="user-defined-functions.html#cb108-12" tabindex="-1"></a>   <span class="fu">print</span>(i)</span>
-<span id="cb108-13"><a href="user-defined-functions.html#cb108-13" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="user-defined-functions.html#cb103-1" tabindex="-1"></a><span class="co"># 1.</span></span>
+<span id="cb103-2"><a href="user-defined-functions.html#cb103-2" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="user-defined-functions.html#cb103-3" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb103-4"><a href="user-defined-functions.html#cb103-4" tabindex="-1"></a><span class="cf">while</span>(i <span class="sc">&lt;</span> <span class="dv">4</span>){</span>
+<span id="cb103-5"><a href="user-defined-functions.html#cb103-5" tabindex="-1"></a>   <span class="fu">print</span>(i)</span>
+<span id="cb103-6"><a href="user-defined-functions.html#cb103-6" tabindex="-1"></a>   i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb103-7"><a href="user-defined-functions.html#cb103-7" tabindex="-1"></a>}</span>
+<span id="cb103-8"><a href="user-defined-functions.html#cb103-8" tabindex="-1"></a></span>
+<span id="cb103-9"><a href="user-defined-functions.html#cb103-9" tabindex="-1"></a><span class="co">#2. </span></span>
+<span id="cb103-10"><a href="user-defined-functions.html#cb103-10" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="user-defined-functions.html#cb103-11" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>){</span>
+<span id="cb103-12"><a href="user-defined-functions.html#cb103-12" tabindex="-1"></a>   <span class="fu">print</span>(i)</span>
+<span id="cb103-13"><a href="user-defined-functions.html#cb103-13" tabindex="-1"></a>}</span></code></pre></div>
 <p>While loops are useful when we don’t know exactly when to terminate the loop. They do, however, require us to define an evolving condition. More common is to know the set around which we need to loop. This will usually be a number or vector (remember vectors can vary in length). E.g., you could run a loop around <code>i in 1:length(vector)</code></p>
 <p>You can apply vectors over multiple objects using the <code>apply()</code> family of functions: <code>tapply()</code>, <code>sapply()</code>, <code>lapply()</code>. You can also achieve this with loops</p>
 <p>The function <code>get()</code> can be used to turn a text string into an object (similar to !! and {{}}). It is more flexible.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="user-defined-functions.html#cb109-1" tabindex="-1"></a><span class="co"># deinfe a vector of the data frame names</span></span>
-<span id="cb109-2"><a href="user-defined-functions.html#cb109-2" tabindex="-1"></a>df_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(“df1”, “df2”, “df3)</span>
-<span id="cb109-3"><a href="user-defined-functions.html#cb109-3" tabindex="-1"></a> </span>
-<span id="cb109-4"><a href="user-defined-functions.html#cb109-4" tabindex="-1"></a><span class="co"># loop around the vector you&#39;ve defined</span></span>
-<span id="cb109-5"><a href="user-defined-functions.html#cb109-5" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> df_vector){</span>
-<span id="cb109-6"><a href="user-defined-functions.html#cb109-6" tabindex="-1"></a> </span>
-<span id="cb109-7"><a href="user-defined-functions.html#cb109-7" tabindex="-1"></a><span class="co"># assign an object, df, to be the object i </span></span>
-<span id="cb109-8"><a href="user-defined-functions.html#cb109-8" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get</span>(i) <span class="sc">%&gt;%</span></span>
-<span id="cb109-9"><a href="user-defined-functions.html#cb109-9" tabindex="-1"></a>  <span class="co"># transform object</span></span>
-<span id="cb109-10"><a href="user-defined-functions.html#cb109-10" tabindex="-1"></a><span class="fu">mutate</span>(sdaiusfd)</span>
-<span id="cb109-11"><a href="user-defined-functions.html#cb109-11" tabindex="-1"></a> </span>
-<span id="cb109-12"><a href="user-defined-functions.html#cb109-12" tabindex="-1"></a><span class="co"># reassign the object in the global environment with the same name as i to be the df we&#39;ve just manipulated</span></span>
-<span id="cb109-13"><a href="user-defined-functions.html#cb109-13" tabindex="-1"></a><span class="co"># you could change the name of i with paste0() if you wanted</span></span>
-<span id="cb109-14"><a href="user-defined-functions.html#cb109-14" tabindex="-1"></a><span class="fu">assign</span>(i, df)</span>
-<span id="cb109-15"><a href="user-defined-functions.html#cb109-15" tabindex="-1"></a> </span>
-<span id="cb109-16"><a href="user-defined-functions.html#cb109-16" tabindex="-1"></a>}</span>
-<span id="cb109-17"><a href="user-defined-functions.html#cb109-17" tabindex="-1"></a><span class="co"># remove elements used in loop</span></span>
-<span id="cb109-18"><a href="user-defined-functions.html#cb109-18" tabindex="-1"></a><span class="fu">rm</span>(i, df)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="user-defined-functions.html#cb104-1" tabindex="-1"></a><span class="co"># deinfe a vector of the data frame names</span></span>
+<span id="cb104-2"><a href="user-defined-functions.html#cb104-2" tabindex="-1"></a>df_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(“df1”, “df2”, “df3)</span>
+<span id="cb104-3"><a href="user-defined-functions.html#cb104-3" tabindex="-1"></a> </span>
+<span id="cb104-4"><a href="user-defined-functions.html#cb104-4" tabindex="-1"></a><span class="co"># loop around the vector you&#39;ve defined</span></span>
+<span id="cb104-5"><a href="user-defined-functions.html#cb104-5" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> df_vector){</span>
+<span id="cb104-6"><a href="user-defined-functions.html#cb104-6" tabindex="-1"></a> </span>
+<span id="cb104-7"><a href="user-defined-functions.html#cb104-7" tabindex="-1"></a><span class="co"># assign an object, df, to be the object i </span></span>
+<span id="cb104-8"><a href="user-defined-functions.html#cb104-8" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get</span>(i) <span class="sc">%&gt;%</span></span>
+<span id="cb104-9"><a href="user-defined-functions.html#cb104-9" tabindex="-1"></a>  <span class="co"># transform object</span></span>
+<span id="cb104-10"><a href="user-defined-functions.html#cb104-10" tabindex="-1"></a><span class="fu">mutate</span>(sdaiusfd)</span>
+<span id="cb104-11"><a href="user-defined-functions.html#cb104-11" tabindex="-1"></a> </span>
+<span id="cb104-12"><a href="user-defined-functions.html#cb104-12" tabindex="-1"></a><span class="co"># reassign the object in the global environment with the same name as i to be the df we&#39;ve just manipulated</span></span>
+<span id="cb104-13"><a href="user-defined-functions.html#cb104-13" tabindex="-1"></a><span class="co"># you could change the name of i with paste0() if you wanted</span></span>
+<span id="cb104-14"><a href="user-defined-functions.html#cb104-14" tabindex="-1"></a><span class="fu">assign</span>(i, df)</span>
+<span id="cb104-15"><a href="user-defined-functions.html#cb104-15" tabindex="-1"></a> </span>
+<span id="cb104-16"><a href="user-defined-functions.html#cb104-16" tabindex="-1"></a>}</span>
+<span id="cb104-17"><a href="user-defined-functions.html#cb104-17" tabindex="-1"></a><span class="co"># remove elements used in loop</span></span>
+<span id="cb104-18"><a href="user-defined-functions.html#cb104-18" tabindex="-1"></a><span class="fu">rm</span>(i, df)</span></code></pre></div>
 </div>
 <div id="random-snippets" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Random snippets<a href="user-defined-functions.html#random-snippets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Assign a variable out of a loop so that the outputs have different names</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="user-defined-functions.html#cb110-1" tabindex="-1"></a><span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">&quot;output_name_start_&quot;</span>, year_suffix), df, <span class="at">inherits =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="user-defined-functions.html#cb105-1" tabindex="-1"></a><span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">&quot;output_name_start_&quot;</span>, year_suffix), df, <span class="at">inherits =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Evaluate a name as a text string with <code>deparse(substitute(name))</code></p>
 <p>Create a blank tibble with names from a vecotr, <code>cols_vector</code>. You can use this to bind rows to the bottom of.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="user-defined-functions.html#cb111-1" tabindex="-1"></a>blank_df <span class="ot">&lt;-</span> cols_vector <span class="sc">%&gt;%</span> purrr<span class="sc">::</span><span class="fu">map_dfc</span>(<span class="sc">~</span>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="sc">!!</span><span class="at">.x :=</span> <span class="fu">logical</span>()))</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="user-defined-functions.html#cb106-1" tabindex="-1"></a>blank_df <span class="ot">&lt;-</span> cols_vector <span class="sc">%&gt;%</span> purrr<span class="sc">::</span><span class="fu">map_dfc</span>(<span class="sc">~</span>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="sc">!!</span><span class="at">.x :=</span> <span class="fu">logical</span>()))</span></code></pre></div>
 </div>
 <div id="quiz-user-defined-functions-quiz" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Quiz: User defined functions quiz<a href="user-defined-functions.html#quiz-user-defined-functions-quiz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<pre><code>## **1. If a user-defined function does not have an explicit `return()` statement, what does it output?**
-## 
-## A) The first object created in the function. 
-## B) A NULL value. 
-## C) The value of the last expression evaluated in the function. 
-## D) It produces an error. 
-## 
-## **2. Which operator, when used inside a function, assigns a variable to the global environment, making it accessible outside the function?**
-## 
-## A) &lt;- 
-## B) = 
-## C) -&gt; 
-## D) &lt;&lt;- 
-## 
-## **3. When writing a function that uses `dplyr`, which special operator is used to embrace an unquoted column name passed as an argument?**
-## 
-## A) !! 
-## B) [[]] 
-## C) {{}} 
-## D) . 
-## 
-## **4. Inside a `dplyr` verb like `mutate()` or `summarise()`, which operator must be used on the left side of an assignment when the new column&#39;s name is provided by a function argument?**
-## 
-## A) = 
-## B) :=  
-## C) &lt;- 
-## D) ~ 
-## 
-## **5. How do you provide a default value for an argument in a function definition?**
-## 
-## A) `my_func &lt;- function(arg: &#39;default&#39;)` 
-## B) `my_func &lt;- function(arg is &#39;default&#39;)` 
-## C) `my_func &lt;- function(arg = &#39;default&#39;)` 
-## D) `my_func &lt;- function(default(arg, &#39;default&#39;))` 
-## 
-## **6. What is the primary difference between a `for` loop and a `while` loop?**
-## 
-## A) `for` loops are faster than `while` loops. 
-## B) Only `for` loops can iterate over vectors. 
-## C) A `for` loop iterates over a fixed sequence, while a `while` loop runs as long as a condition is true. 
-## D) A `while` loop requires a start and end number, but a `for` loop does not. 
-## 
-## **7. Inside a loop, which base R function can retrieve an object from the environment using a variable that contains its name as a string?**
-## 
-## A) assign() 
-## B) get() 
-## C) object() 
-## D) find()</code></pre>
+<p><strong>1. If a user-defined function does not have an explicit <code>return()</code> statement, what does it output?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li>The first object created in the function.</li>
+<li>A NULL value.</li>
+<li>The value of the last expression evaluated in the function.</li>
+<li>It produces an error.</li>
+</ol>
+<p><strong>2. Which operator, when used inside a function, assigns a variable to the global environment, making it accessible outside the function?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li>&lt;-</li>
+<li>=</li>
+<li>-&gt;</li>
+<li>&lt;&lt;-</li>
+</ol>
+<p><strong>3. When writing a function that uses <code>dplyr</code>, which special operator is used to embrace an unquoted column name passed as an argument?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li>!!</li>
+<li>[[]]</li>
+<li>{{}}</li>
+<li>.</li>
+</ol>
+<p><strong>4. Inside a <code>dplyr</code> verb like <code>mutate()</code> or <code>summarise()</code>, which operator must be used on the left side of an assignment when the new column’s name is provided by a function argument?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li>=</li>
+<li>:=<br />
+</li>
+<li>&lt;-</li>
+<li>~</li>
+</ol>
+<p><strong>5. How do you provide a default value for an argument in a function definition?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><code>my_func &lt;- function(arg: 'default')</code></li>
+<li><code>my_func &lt;- function(arg is 'default')</code></li>
+<li><code>my_func &lt;- function(arg = 'default')</code></li>
+<li><code>my_func &lt;- function(default(arg, 'default'))</code></li>
+</ol>
+<p><strong>6. What is the primary difference between a <code>for</code> loop and a <code>while</code> loop?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><code>for</code> loops are faster than <code>while</code> loops.</li>
+<li>Only <code>for</code> loops can iterate over vectors.</li>
+<li>A <code>for</code> loop iterates over a fixed sequence, while a <code>while</code> loop runs as long as a condition is true.</li>
+<li>A <code>while</code> loop requires a start and end number, but a <code>for</code> loop does not.</li>
+</ol>
+<p><strong>7. Inside a loop, which base R function can retrieve an object from the environment using a variable that contains its name as a string?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li>assign()</li>
+<li>get()</li>
+<li>object()</li>
+<li>find()</li>
+</ol>
 
 </div>
 </div>
