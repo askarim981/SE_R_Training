@@ -190,7 +190,7 @@ There are some examples of presentations in the [R markdown gallery](https://rma
 ## Quiz: Outputs
 
 ```{r Outputs quiz, echo=FALSE, results='asis'}
-# Function to create and display a quiz on creating outputs in R
+
 # Function to create and display a quiz on creating outputs in R
 create_outputs_quiz <- function() {
   # A list to hold the questions, options, and correct answers
