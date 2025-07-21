@@ -154,16 +154,16 @@ div.blue {background-color:#D6DCE5; border-radius: 5px; padding: 12px;}
 Most markdown features are very intuitive. They can be googled very easily. For tabs, use `{.tabset}` and `{.tabset .tabset-pills}` with headings to define levels. You could just get rid of the ## Heading 1 line and have a single tier of tabs. See below example. The functions would need to be included as code chunks, rather than headings, but are shown together here for concision. 
 
 ```{r eval=FALSE}
-## C {.tabset .tabset-pills}
+## {.tabset .tabset-pills}
 ### Baseline {tabset}
 #### Occupation explorer graph
 ggplotly(baseline_graph, tooltip = "text")
 
-### Tariff numbers{.tabset}
+### Scenario 1 - Technological Acceleration {.tabset}
 #### Occupation explorer graph
 ggplotly(scenario1_graph, tooltip = "text")
 
-### Scenario 2 {.tabset}
+### Scenario  - Human-centricity {.tabset}
 #### Occupation explorer graph
 ggplotly(scenario2_graph, tooltip = "text")
 
