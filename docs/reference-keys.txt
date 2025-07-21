@@ -39,7 +39,7 @@ saving-graphs
 r-markdown
 presentations
 other-links
-quiz-outputs
+outputs-quiz
 answers
 data-manipulation
 setup-and-data-loading
@@ -83,7 +83,7 @@ data-validation
 performance-considerations
 debugging-and-troubleshooting
 others
-quiz-data-manipulation
+data-manipulation-quiz
 user-defined-functions
 Overview
 basic-examples
@@ -94,7 +94,7 @@ passing-data
 setting-default-inputs
 Loops
 random-snippets
-quiz-user-defined-functions-quiz
+user-defined-functions-quiz
 graphs
 graphical-resources
 tips

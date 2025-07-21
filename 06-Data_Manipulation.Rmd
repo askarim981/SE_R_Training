@@ -777,7 +777,7 @@ Use `[[]]` to return an element in a list; use for [recurssive indexing](https:/
 Most data manipulation functions can be found in the dplyr cheat sheet and are fairly intuitive to use. 
 Particularly useful are binding functions: `cbind()` in `BaseR`, `bind_cols()` in `dplyr`. Also `pull()` and `rename()` 
 
-## Quiz: Data Manipulation
+## Data Manipulation Quiz
 
 ```{r DM Quiz, echo=FALSE, results='asis'}
 # Function to create a quiz on data manipulation with dplyr

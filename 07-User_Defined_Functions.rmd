@@ -356,7 +356,7 @@ Create a blank tibble with names from a vecotr, `cols_vector`. You can use this 
 blank_df <- cols_vector %>% purrr::map_dfc(~tibble::tibble(!!.x := logical()))
 ```
 
-## Quiz: User defined functions quiz
+## User Defined Functions Quiz
 
 ```{r UD functions quiz, echo=FALSE, results='asis'}
 # Function to create a quiz on User-Defined Functions (UDFs) in R

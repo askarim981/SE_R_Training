@@ -331,7 +331,7 @@ Int_SNs <- list(England_SNs = readxl::read_xlsx("SNs.xlsx", sheet = "England"),
 England_SNs <- as.data.frame(Int_SNs[England_SNs])
 ```
 
-## Quiz: R Basics {#quiz}
+## R Basics Quiz {#quiz}
 
 ### Test Your Understanding
 

@@ -197,7 +197,7 @@ while (i < 6) {
 [1] 5
 ```
 
-## Quiz: R Syntax and Functions {#quiz}
+## Syntax and Functions Quiz {#quiz}
 
 ```{r Syntax and functions quiz, echo=FALSE, results='asis'}
 # Function to create and display a quiz on R syntax and functions
