@@ -358,7 +358,7 @@ blank_df <- cols_vector %>% purrr::map_dfc(~tibble::tibble(!!.x := logical()))
 
 ## Quiz: User defined functions quiz
 
-```{r UD functions quiz, echo=FALSE}
+```{r UD functions quiz, echo=FALSE, results='asis'}
 # Function to create a quiz on User-Defined Functions (UDFs) in R
 create_udf_quiz <- function() {
   # A list containing the questions, options, and answers

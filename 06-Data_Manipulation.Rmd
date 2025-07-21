@@ -779,7 +779,7 @@ Particularly useful are binding functions: `cbind()` in `BaseR`, `bind_cols()` i
 
 ## Quiz: Data Manipulation
 
-```{r DM Quiz, echo=FALSE}
+```{r DM Quiz, echo=FALSE, results='asis'}
 # Function to create a quiz on data manipulation with dplyr
 create_manipulation_quiz <- function() {
   # A list of questions, options, and answers

@@ -107,8 +107,8 @@ A more generic gallery of output formats that can be rendered through markdown a
 
 ```{r eval=FALSE}
 ---
-title: "Outputs for Recruitment limits IA and EQA"
-author: "Tom Harris"
+title: "Outputs for Skills Needs Assessments"
+author: "Abdus-Subhaan Karim"
 date: "`r Sys.Date()`"
 output: 
   html_document:
@@ -154,23 +154,23 @@ div.blue {background-color:#D6DCE5; border-radius: 5px; padding: 12px;}
 Most markdown features are very intuitive. They can be googled very easily. For tabs, use `{.tabset}` and `{.tabset .tabset-pills}` with headings to define levels. You could just get rid of the ## Heading 1 line and have a single tier of tabs. See below example. The functions would need to be included as code chunks, rather than headings, but are shown together here for concision. 
 
 ```{r eval=FALSE}
-## Sector FTE growth {.tabset .tabset-pills}
-### Sector numbers {tabset}
-#### FTE graph
-ggplotly(sector_FTE_graph, tooltip = "text")
-#### Underlying Table
-kableExtra::kable(sector_growth,
-                  format = "pipe")
+## C {.tabset .tabset-pills}
+### Baseline {tabset}
+#### Occupation explorer graph
+ggplotly(baseline_graph, tooltip = "text")
+
 ### Tariff numbers{.tabset}
-#### FTE graph 
-ggplotly(tariff_FTE_graph, tooltip = "text")
-#### Underlying Table
-kableExtra::kable(tariff_growth,
-                  format = "pipe")
+#### Occupation explorer graph
+ggplotly(scenario1_graph, tooltip = "text")
+
+### Scenario 2 {.tabset}
+#### Occupation explorer graph
+ggplotly(scenario2_graph, tooltip = "text")
+
 ```
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics('images and graphics/Markdown_tabs.jpg')
+knitr::include_graphics('images and graphics/Markdown_tabs_SNAs.jpg')
 ```
 
 ## Presentations
@@ -189,7 +189,8 @@ There are some examples of presentations in the [R markdown gallery](https://rma
 
 ## Quiz: Outputs
 
-```{r Outputs quiz, echo=FALSE}
+```{r Outputs quiz, echo=FALSE, results='asis'}
+# Function to create and display a quiz on creating outputs in R
 # Function to create and display a quiz on creating outputs in R
 create_outputs_quiz <- function() {
   # A list to hold the questions, options, and correct answers
@@ -240,21 +241,22 @@ create_outputs_quiz <- function() {
       answer = "A"
     )
   )
-
-  # Loop through the list to print each question and its options
+  # Loop through to print questions as a numbered list
   for (i in seq_along(questions)) {
-    cat("**", i, ". ", questions[[i]]$q, "**\n\n", sep = "")
+    # Start each question with markdown for a numbered list item
+    cat(i, ". **", questions[[i]]$q, "**\n\n", sep = "")
+    # Print options, each on a new line
     for (option in questions[[i]]$options) {
-      cat(option, "\n")
+      cat("    ", option, "\n") # Indent options for clarity
     }
-    cat("\n")
+    cat("\n") # Add a blank line after each question's options
   }
-
+  
   # Add a separator and the answers header
   cat("---\n\n")
-  cat("**Answers:**\n\n")
-
-  # Loop through the list again to print the correct answers
+  cat("### Answers\n\n")
+  
+  # Loop through to print answers as a numbered list
   for (i in seq_along(questions)) {
     cat(i, ". ", questions[[i]]$answer, "\n", sep = "")
   }

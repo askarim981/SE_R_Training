@@ -179,7 +179,7 @@ output_data <- dbGetQuery(con, "
 
 ## Quiz: Reading in data {#quiz}
 
-```{r Reading in data, echo=FALSE}
+```{r Reading in data, echo=FALSE, results='asis'}
 # Function to create and display a quiz on reading data into R
 create_data_input_quiz <- function() {
   # A list containing all the quiz questions, options, and answers

@@ -335,7 +335,7 @@ England_SNs <- as.data.frame(Int_SNs[England_SNs])
 
 ### Test Your Understanding
 
-```{r quiz-questions, echo=FALSE}
+```{r quiz-questions, echo=FALSE, results='asis'}
 # Create a simple quiz function
 create_quiz <- function() {
   questions <- list(

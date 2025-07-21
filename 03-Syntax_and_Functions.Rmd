@@ -199,7 +199,7 @@ while (i < 6) {
 
 ## Quiz: R Syntax and Functions {#quiz}
 
-```{r Syntax and functions quiz, echo=FALSE}
+```{r Syntax and functions quiz, echo=FALSE, results='asis'}
 # Function to create and display a quiz on R syntax and functions
 create_syntax_quiz <- function() {
   # A list containing all the quiz questions, options, and answers
